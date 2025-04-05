@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DocuTrack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+979515c569b8a1a05aa8500ece2115c995f72c5c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DocuTrack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DocuTrack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

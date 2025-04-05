@@ -27,6 +27,7 @@
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/Avalonia.Themes.Simple.dll
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/Avalonia.Win32.dll
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/Avalonia.X11.dll
+/home/pop/docutrack/DocuTrack/bin/Debug/net9.0/CommunityToolkit.Mvvm.dll
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/HarfBuzzSharp.dll
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/MicroCom.Runtime.dll
 /home/pop/docutrack/DocuTrack/bin/Debug/net9.0/SkiaSharp.dll
@@ -58,6 +59,7 @@
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/DocuTrack.AssemblyInfoInputs.cache
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/DocuTrack.AssemblyInfo.cs
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/DocuTrack.csproj.CoreCompileInputs.cache
+/home/pop/docutrack/DocuTrack/obj/Debug/net9.0/DocuTrack.sourcelink.json
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/Avalonia/DocuTrack.dll
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/Avalonia/DocuTrack.pdb
 /home/pop/docutrack/DocuTrack/obj/Debug/net9.0/refint/Avalonia/DocuTrack.dll

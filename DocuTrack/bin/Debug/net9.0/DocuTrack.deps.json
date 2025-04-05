@@ -12,7 +12,8 @@
           "Avalonia.Desktop": "11.2.6",
           "Avalonia.Diagnostics": "11.2.6",
           "Avalonia.Fonts.Inter": "11.2.6",
-          "Avalonia.Themes.Fluent": "11.2.6"
+          "Avalonia.Themes.Fluent": "11.2.6",
+          "CommunityToolkit.Mvvm": "8.4.0"
         },
         "runtime": {
           "DocuTrack.dll": {}
@@ -254,6 +255,14 @@
           "lib/net8.0/Avalonia.X11.dll": {
             "assemblyVersion": "11.2.6.0",
             "fileVersion": "11.2.6.0"
+          }
+        }
+      },
+      "CommunityToolkit.Mvvm/8.4.0": {
+        "runtime": {
+          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.4.0.0",
+            "fileVersion": "8.4.0.1"
           }
         }
       },
@@ -532,6 +541,13 @@
       "sha512": "sha512-wWPkfrRARRkwvd4lE2wm7drK+L3vuITleYs6LPsG8e/eeiDKaxRegUkcyzulXxQgqq/h6D44aWiHpWQOPiSnWw==",
       "path": "avalonia.x11/11.2.6",
       "hashPath": "avalonia.x11.11.2.6.nupkg.sha512"
+    },
+    "CommunityToolkit.Mvvm/8.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tqVU8yc/ADO9oiTRyTnwhFN68hCwvkliMierptWOudIAvWY1mWCh5VFh+guwHJmpMwfg0J0rY+yyd5Oy7ty9Uw==",
+      "path": "communitytoolkit.mvvm/8.4.0",
+      "hashPath": "communitytoolkit.mvvm.8.4.0.nupkg.sha512"
     },
     "HarfBuzzSharp/7.3.0.3": {
       "type": "package",

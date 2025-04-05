@@ -1,0 +1,86 @@
+  
+<UserControl 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="DocuTrack.Views.LoginView"
+        xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+        x:DataType="vm:LoginViewModel"
+        Width="1000" Height="800"
+        mc:Ignorable="d">
+
+      <!-- OUTSIDE LOGIN CARD -->
+      <Grid Background="#808080">
+
+        <!-- LOGIN CARD -->
+        <Border Width="500" Height="650"
+                Background="White"
+                CornerRadius="14"
+                BorderBrush="#e0e0e0" BorderThickness="1"
+                BoxShadow="0 10 25 0 #525252" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
+            
+            <Grid>
+                <!-- Main content  -->
+                <StackPanel Margin="40" Spacing="0">
+
+                                <!-- Logo -->
+              <Image Source="avares://DocuTrack/Assets/logo.png"
+                      Width="200" Height="60" Stretch="Uniform"
+                      HorizontalAlignment="Center" Margin="0 0 0 10"/>
+
+                    
+                    <!-- Username -->
+                    <Border Height="50" CornerRadius="8" 
+                            BorderBrush="#808080" BorderThickness="2"
+                            Margin="0 0 0 15" Background="White">
+                        <TextBox BorderThickness="0" Background="Transparent"
+                                 VerticalContentAlignment="Center"
+                                 Padding="15 0" FontSize="14"
+                                 Watermark="{Binding Username}"/>
+                    </Border>
+                    
+                    <!-- Password  -->
+                    <Border Height="50" CornerRadius="8" 
+                            BorderBrush="#808080" BorderThickness="2"
+                            Margin="0 0 0 25" Background="White">
+                        <TextBox BorderThickness="0" Background="Transparent"
+                                 VerticalContentAlignment="Center"
+                                 Padding="15 0" FontSize="14"
+                                 Watermark="{Binding Password}"
+                                 PasswordChar="•"/>
+                    </Border>
+                    
+                    <!-- Login button -->
+                    <Button Content="{Binding Login}"
+                            Height="45" Width="100" CornerRadius="8"
+                            Background="#808080" Foreground="White"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontSize="15" FontWeight="Medium" 
+                            Margin="0 0 0 20"/>
+                </StackPanel>
+
+                <!-- Error message(change(false/true)) -->
+                <Border Background="#FFF5F5"
+                        BorderBrush="#FFEBEE" BorderThickness="2"
+                        CornerRadius="8" Padding="12" Margin="20"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        IsVisible="True"
+                        x:Name="ErrorBox">
+                    <TextBlock Text="{Binding ErrorMessage}" 
+                               Foreground="#F44336" FontSize="13"
+                               HorizontalAlignment="Center"/>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
+
+
+
+
