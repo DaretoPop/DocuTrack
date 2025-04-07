@@ -29,6 +29,12 @@ build_property.EnableCodeStyleSeverity =
 [/home/pop/docutrack/DocuTrack/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/home/pop/docutrack/DocuTrack/Views/DokumentiView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/pop/docutrack/DocuTrack/Views/KreirajPomorcaView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/home/pop/docutrack/DocuTrack/Views/LoginView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
@@ -39,4 +45,7 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/home/pop/docutrack/DocuTrack/Views/PomorciView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/pop/docutrack/DocuTrack/Views/SertifikatiView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -36,25 +36,26 @@
                     <Border Height="50" CornerRadius="8" 
                             BorderBrush="#808080" BorderThickness="2"
                             Margin="0 0 0 15" Background="White">
-                        <TextBox BorderThickness="0" Background="Transparent"
+                        <TextBox Text="{Binding Username, Mode=TwoWay}" BorderThickness="0" Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="15 0" FontSize="14"
-                                 Watermark="{Binding Username}"/>
+                                 Watermark="Username"/>
                     </Border>
                     
                     <!-- Password  -->
                     <Border Height="50" CornerRadius="8" 
                             BorderBrush="#808080" BorderThickness="2"
                             Margin="0 0 0 25" Background="White">
-                        <TextBox BorderThickness="0" Background="Transparent"
+                        <TextBox Text="{Binding Password, Mode=TwoWay}" BorderThickness="0" Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="15 0" FontSize="14"
-                                 Watermark="{Binding Password}"
+                                 Watermark="Password"
                                  PasswordChar="•"/>
                     </Border>
                     
                     <!-- Login button -->
                     <Button Content="{Binding Login}"
+                            Command="{Binding LoginCommand}"
                             Height="45" Width="100" CornerRadius="8"
                             Background="#808080" Foreground="White"
                             HorizontalAlignment="Center"

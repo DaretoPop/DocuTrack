@@ -2,8 +2,185 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-              Foreground="White"
-             x:Class="DocuTrack.Views.PocetnaView">
-  Welcome to POCETNA PAGE!
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:DataType="vm:PocetnaViewModel"
+             x:Class="DocuTrack.Views.PocetnaView"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+             Foreground="White">
+
+<Grid Background="#808080">
+    <!-- CARD -->
+    <Border Width="500" Height="650"
+            Background="White"
+            CornerRadius="14"
+            BorderBrush="#e0e0e0" BorderThickness="2"
+            BoxShadow="0 20 25 0 #525252" 
+            VerticalAlignment="Center" 
+            HorizontalAlignment="Center">
+        <Grid>
+            <!-- WRAP SCROLL -->
+            <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="40">
+                <StackPanel Spacing="20">
+                    
+                    <!-- START OF PROFILE ENTRY -->
+                    <Border Background="Transparent" BorderThickness="0">
+                        
+                        <StackPanel Spacing="6">
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
+                                Background="Transparent" Foreground="Black"
+                                FontSize="15" FontFamily="Segoe UI"
+                                HorizontalAlignment="Stretch"
+                                BorderBrush="Transparent"
+                                CaretBrush="Transparent"
+                                IsReadOnly="True"
+                                TextWrapping="Wrap">
+                                     <TextBox.Styles>
+                                        <Style Selector="TextBox:pointerover">
+                                          <Setter Property="Foreground" Value="#808080"/>
+                                         </Style>
+                                    </TextBox.Styles>
+                            </TextBox>
+
+
+                        </StackPanel>
+                    </Border>
+                    <!-- END OF PROFILE ENTRY -->
+
+                    <!-- Duplicate the whole <Border> block for more certificates -->
+
+                </StackPanel>
+            </ScrollViewer>
+
+         
+        </Grid>
+    </Border>
+</Grid>
 </UserControl>

@@ -9,10 +9,10 @@ namespace DocuTrack.ViewModels;
 
 
 
-public partial class PomorciViewModel : BaseViewModel
+public partial class DokumentiViewModel : BaseViewModel
 
 {
-        public string Test {get; set;} = "POMORCI";
+        public string Test {get; set;} = "DOKUMENTI";
 
 
 };

@@ -13,7 +13,7 @@ public partial class LoginView : UserControl
     public LoginView()
     {
         InitializeComponent();
-        DataContext = new LoginViewModel();
+        // DataContext = new LoginViewModel(); // -> Handle to MainView 
 
     }
 }

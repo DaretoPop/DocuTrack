@@ -1,0 +1,76 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:DataType="vm:KreirajPomorcaViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DocuTrack.Views.KreirajPomorcaView">
+
+
+<!--Todo: Mozda ubaciti neki error ako ukuca vise brojeva nego sto ima JMBG -->
+
+  <!-- OUTSIDE CARD -->
+      <Grid Background="#808080">
+
+        <!--  CARD -->
+        <Border Width="700" Height="350"
+                Background="White"
+                CornerRadius="14"
+                BorderBrush="#e0e0e0" BorderThickness="1"
+                BoxShadow="0 10 25 0 #525252" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center">
+            
+            <Grid>
+                <StackPanel Margin="40" Spacing="0">
+
+
+                    <!-- IME -->
+                    <Border Height="50" CornerRadius="8" 
+                            BorderBrush="#808080" BorderThickness="2"
+                            Margin="0 0 0 15" Background="White">
+                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                                 VerticalContentAlignment="Center"
+                                 Padding="15 0" FontSize="14"
+                                 Watermark="Ime"/>
+                    </Border>
+                    
+                    <!-- PREZIME  -->
+                    <Border Height="50" CornerRadius="8" 
+                            BorderBrush="#808080" BorderThickness="2"
+                            Margin="0 0 0 25" Background="White">
+                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                                 VerticalContentAlignment="Center"
+                                 Padding="15 0" FontSize="14"
+                                 Watermark="Prezime"/>
+                    </Border>
+
+                            <!-- JMBG -->
+                    <Border Height="50" CornerRadius="8" 
+                            BorderBrush="#808080" BorderThickness="2"
+                            Margin="0 0 0 25" Background="White">
+                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                                 VerticalContentAlignment="Center"
+                                 Padding="15 0" FontSize="14"
+                                 Watermark="JMBG"/>
+                    </Border>
+
+                    <!-- Kreiraj -->
+                    <Button Content="Kreiraj"
+                            Height="45" Width="100" CornerRadius="8"
+                            Background="#808080" Foreground="White"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontSize="15" FontWeight="Medium" 
+                            Margin="0 0 0 20"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+
+
+</UserControl>

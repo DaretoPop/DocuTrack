@@ -26,14 +26,15 @@
 <!-- Background                   Sidebar  -->
 <Grid Background="#808080" ColumnDefinitions="Auto,*">
 
-<!-- Change the pageView -->
-<!-- <ContentControl Grid.Column="1"><view:PocetnaView/></ContentControl> -->
-
+<!-- Change the pageViews -->
 <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
 
 
+
+
+
                             <!-- Color of Sidebar -->
-    <Border Padding="20" Background="#525252">
+    <Border Padding="20" Background="#525252" IsVisible="{Binding IsLoggedIn}">
         <Grid RowDefinitions="*,Auto">
             <StackPanel Spacing="12">
                 
@@ -46,8 +47,10 @@
                     <Label Content="{Binding App}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="30"></Label>
                 </StackPanel>
 
-                <!-- POCETNA -->
-                <Button Content="Pocetna" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                <!-- POCETNA =>GOTOPOCETNA -->
+                <Button Content="Pocetna" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                        Command="{Binding GoToPocetnaCommand}">
+                            <!-- <Command> we made not generate by MVVM -->
                     <Button.Styles>
                                      <!-- REMOVE BACKGROUND AND BORDER ON HOVER !!! -->                 
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
@@ -58,8 +61,9 @@
                     </Button.Styles>      
                 </Button>
 
-                <!-- POMORCI -->
-                 <Button Content="{Binding Pomorci}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                <!-- POMORCI => GOTTOPOMORCI -->
+                 <Button Content="{Binding Pomorci}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                         Command="{Binding GoToPomorciCommand}">
                     <Button.Styles>
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -70,7 +74,8 @@
                 </Button>
 
                 <!-- KORISNIK -->
-                 <Button Content="{Binding DodajKorisnika}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                 <Button Content="{Binding KreirajKorisnika}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                        Command="{Binding GoToKreirajKorisnikaCommand}">
                     <Button.Styles>
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                 <Setter Property="TextBlock.Foreground" Value="#808080"/>   
@@ -82,7 +87,8 @@
                 </Button>
 
                 <!-- DOKUMENTA -->
-                 <Button Content="{Binding Dokumenta}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                 <Button Content="{Binding Dokumenta}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                         Command="{Binding GoToDokumentaCommand}">
                     <Button.Styles>
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -93,7 +99,8 @@
                 </Button>
 
                     <!-- SERTIFIKATI -->
-                 <Button Content="{Binding Sertifikati}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                 <Button Content="{Binding Sertifikati}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                         Command="{Binding GoToSertifikatiCommand}">
                     <Button.Styles>
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -107,8 +114,9 @@
                 <!-- DO SERTIFIKATA -->
             </StackPanel>
         
-                        <!-- IZADJI -->
-             <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20">
+                        <!-- IZADJI--> 
+             <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"    
+                     Command="{Binding ExitCommand}">
                     <Button.Styles>
                         <Style Selector="Button:pointerover /template/ ContentPresenter">
                                 <Setter Property="Background" Value="Transparent"/>

@@ -14,16 +14,16 @@ public partial class App : Application
     }
 
     public override void OnFrameworkInitializationCompleted()
+{
+    if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
     {
-        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {   
-            // Default State of App on startup
-            desktop.MainWindow = new MainWindow();
-            {
-                DataContext = new MainViewModel(); // This set DataContex! 
-            }
-        }
+        var mainVM = new MainViewModel();
 
-        base.OnFrameworkInitializationCompleted();
+        desktop.MainWindow = new MainWindow
+        {
+            DataContext = mainVM // Dyniamlically change states
+        };
     }
+    base.OnFrameworkInitializationCompleted();
+}
 }
