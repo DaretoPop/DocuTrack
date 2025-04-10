@@ -1,0 +1,5 @@
+
+#Create view and viewmodel
+    $ dotnet new avalonia.usercontrol -o <foldernameViews> -n <nameView>  --namespace <AppName>.Views  
+
+

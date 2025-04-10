@@ -10,7 +10,8 @@ public partial class PocetnaViewModel : BaseViewModel
 
 {
 
-    public string Test {get; set;} = "POCETNA";
+
+
 
 
 };

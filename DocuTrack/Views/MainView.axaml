@@ -3,11 +3,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
-        Width="1024" Height="600"
+        Width="1400" Height="800"
+        MinWidth="1400" MinHeight="800"
+        WindowStartupLocation="CenterScreen"
         x:Class="DocuTrack.MainWindow"
         xmlns:vm="clr-namespace:DocuTrack.ViewModels"
         xmlns:view="clr-namespace:DocuTrack.Views"
-
         x:DataType="vm:MainViewModel"
         Title="DocuTrack">
 
@@ -48,7 +49,7 @@
                 </StackPanel>
 
                 <!-- POCETNA =>GOTOPOCETNA -->
-                <Button Content="Pocetna" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
+                <Button Content="{Binding Pocetna}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
                         Command="{Binding GoToPocetnaCommand}">
                             <!-- <Command> we made not generate by MVVM -->
                     <Button.Styles>
@@ -73,19 +74,6 @@
                     </Button.Styles>      
                 </Button>
 
-                <!-- KORISNIK -->
-                 <Button Content="{Binding KreirajKorisnika}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
-                        Command="{Binding GoToKreirajKorisnikaCommand}">
-                    <Button.Styles>
-                        <Style Selector="Button:pointerover /template/ ContentPresenter">
-                                <Setter Property="TextBlock.Foreground" Value="#808080"/>   
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-
-                        </Style>
-                    </Button.Styles>      
-                </Button>
-
                 <!-- DOKUMENTA -->
                  <Button Content="{Binding Dokumenta}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
                          Command="{Binding GoToDokumentaCommand}">
@@ -98,20 +86,8 @@
                     </Button.Styles>      
                 </Button>
 
-                    <!-- SERTIFIKATI -->
-                 <Button Content="{Binding Sertifikati}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
-                         Command="{Binding GoToSertifikatiCommand}">
-                    <Button.Styles>
-                        <Style Selector="Button:pointerover /template/ ContentPresenter">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                        </Style>
-                    </Button.Styles>      
-                </Button>
 
-                                
-                <!-- DO SERTIFIKATA -->
+            <!-- End of sidebar -->
             </StackPanel>
         
                         <!-- IZADJI--> 

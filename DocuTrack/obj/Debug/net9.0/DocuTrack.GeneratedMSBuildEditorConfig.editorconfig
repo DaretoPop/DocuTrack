@@ -44,8 +44,5 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/home/pop/docutrack/DocuTrack/Views/PocetnaView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/pop/docutrack/DocuTrack/Views/PomorciView.axaml]
-build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
-
-[/home/pop/docutrack/DocuTrack/Views/SertifikatiView.axaml]
+[/home/pop/docutrack/DocuTrack/Views/ProfilPomorcaView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

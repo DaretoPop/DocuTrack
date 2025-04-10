@@ -5,180 +5,288 @@
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:PocetnaViewModel"
              x:Class="DocuTrack.Views.PocetnaView"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
 <Grid Background="#808080">
     <!-- CARD -->
-    <Border Width="500" Height="650"
+    <Border Width="800" Height="500"
             Background="White"
-            CornerRadius="14"
+            CornerRadius="30"
             BorderBrush="#e0e0e0" BorderThickness="2"
             BoxShadow="0 20 25 0 #525252" 
             VerticalAlignment="Center" 
             HorizontalAlignment="Center">
-        <Grid>
+
+        <Grid RowDefinitions="*, Auto">
+
             <!-- WRAP SCROLL -->
             <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="40">
                 <StackPanel Spacing="20">
                     
                     <!-- START OF PROFILE ENTRY -->
                     <Border Background="Transparent" BorderThickness="0">
-                        
                         <StackPanel Spacing="6">
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                <!-- Better way for binding/replace if is needed for later dynamic profiles  -->
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock  Text="📜 Tip Sertifikata"
+                                                FontSize="20"
+                                                Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock  Text="📅 Istice: 2026-05-01"
+                                                FontSize="20"
+                                                Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
 
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
 
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
 
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>       
 
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
 
-                            <TextBox Text="📜 Basic Safety  📅 Expires: 2026-05-01 📍 Belgrade"
-                                Background="Transparent" Foreground="Black"
-                                FontSize="15" FontFamily="Segoe UI"
-                                HorizontalAlignment="Stretch"
-                                BorderBrush="Transparent"
-                                CaretBrush="Transparent"
-                                IsReadOnly="True"
-                                TextWrapping="Wrap">
-                                     <TextBox.Styles>
-                                        <Style Selector="TextBox:pointerover">
-                                          <Setter Property="Foreground" Value="#808080"/>
-                                         </Style>
-                                    </TextBox.Styles>
-                            </TextBox>
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
 
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📅 Istice: 2026-05-01"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+
+                           <Button Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="5">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal" Spacing="100" VerticalAlignment="Center">
+                                    <TextBlock Text="Pomorac 1"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📜 Tip Sertifikata"
+                                            FontSize="20"
+                                            Foreground="Black"/>
+
+                                    <TextBlock Text="📅 Istice: 2026-05-01"    
+                                            FontSize="20"
+                                            Foreground="Black"/>
+                                </StackPanel>
+                            </Button.Content>
+                                 <Button.Styles>
+                                    <Style Selector="Button:pointerover">
+                                        <Setter Property="Foreground" Value="#808080"/>             
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
 
                         </StackPanel>
                     </Border>
                     <!-- END OF PROFILE ENTRY -->
 
-                    <!-- Duplicate the whole <Border> block for more certificates -->
 
                 </StackPanel>
             </ScrollViewer>
-
+        
          
         </Grid>
     </Border>

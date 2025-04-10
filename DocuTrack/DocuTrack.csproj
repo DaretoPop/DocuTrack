@@ -6,6 +6,12 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  
+  <!-- EXPORT .EXE TO WINDOWS !!!!! -->
+  <!-- <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+  <PublishSingleFile>true</PublishSingleFile>
+  <SelfContained>true</SelfContained> -->
+
   </PropertyGroup>
 
   <ItemGroup>

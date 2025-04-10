@@ -8,8 +8,6 @@
              x:Class="DocuTrack.Views.KreirajPomorcaView">
 
 
-<!--Todo: Mozda ubaciti neki error ako ukuca vise brojeva nego sto ima JMBG -->
-
   <!-- OUTSIDE CARD -->
       <Grid Background="#808080">
 
@@ -66,7 +64,9 @@
                             FontSize="15" FontWeight="Medium" 
                             Margin="0 0 0 20"/>
                 </StackPanel>
-
+                           
+                            <!-- Checkbox for Refresh -->
+                        <CheckBox x:Name="termsOfServiceCheckBox" Content="Refresh" Margin="100 200 0 0" FontSize="20"/>
             </Grid>
         </Border>
     </Grid>

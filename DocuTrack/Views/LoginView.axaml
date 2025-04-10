@@ -16,9 +16,9 @@
         <!-- LOGIN CARD -->
         <Border Width="500" Height="650"
                 Background="White"
-                CornerRadius="14"
+                CornerRadius="30"
                 BorderBrush="#e0e0e0" BorderThickness="1"
-                BoxShadow="0 10 25 0 #525252" 
+                BoxShadow="0 20 15 0 #525252" 
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center">
             

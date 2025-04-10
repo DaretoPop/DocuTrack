@@ -12,7 +12,16 @@ namespace DocuTrack.ViewModels;
 public partial class DokumentiViewModel : BaseViewModel
 
 {
-        public string Test {get; set;} = "DOKUMENTI";
+
+
+        [ObservableProperty] 
+private bool _isRightPanelVisible;
+
+[RelayCommand]
+private void ToggleRightPanel()
+{
+    IsRightPanelVisible = !IsRightPanelVisible;
+}
 
 
 };
