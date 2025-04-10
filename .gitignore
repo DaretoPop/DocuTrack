@@ -1,3 +1,9 @@
 commandsAvalonia.txt
 si.todo
 *.todo
+.vs/*
+DocuTrack/bin/*
+.idea/*
+DocuTrack/obj/*
+
+DocuTrack/Data/.idea/*

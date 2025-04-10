@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DocuTrack.Data;
 using DocuTrack.Views;
 
 
@@ -32,16 +33,23 @@ public partial class LoginViewModel : BaseViewModel
    [RelayCommand]
    private void OnLogin()
    {
-      if((Username == "" || Username == "Marko") && Password == "")
-         {
-            // MainViewModel.CurrentPage = MainViewModel.PomorciPage; // this works also
-            MainViewModel?.OnLoginSuccessful();
-        }
-        else
-         {
-            ErrorMessage = "Invalid Credentials";
-         }
-   }
+       using var connection = DatabaseHelper.GetConnection();
+       var command = connection.CreateCommand();
+       command.CommandText = "SELECT COUNT(1) FROM Accounts WHERE Username = @username AND Password = @password";
+       command.Parameters.AddWithValue("@username", Username);
+       command.Parameters.AddWithValue("@password", Password);
+
+       var result = (long)command.ExecuteScalar();
+
+       if (result > 0)
+       {
+           MainViewModel?.OnLoginSuccessful();
+       }
+       else
+       {
+           ErrorMessage = "Invalid Credentials";
+       }
+    }
 
  
 
