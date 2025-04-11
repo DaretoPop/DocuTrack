@@ -8,244 +8,454 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-
-  <Grid Background="#808080">
-
-    <!-- CARD -->
-    <Border Width="500" Height="650"
+ <!-- Canvas -> for better positions -->
+  <Canvas Background="#808080" Width="1920" Height="1080">
+    
+    <!-- Main Center Card -->
+    <Border x:Name="MainCard"
+            Width="1280" Height="800"
             Background="White"
-            CornerRadius="30"
-            BorderBrush="#e0e0e0" BorderThickness="2"
-            BoxShadow="0 10 25 0 #525252" 
-            VerticalAlignment="Center" 
-            HorizontalAlignment="Center">
-      <Grid RowDefinitions="*,Auto">
-        <!-- WRAP SCROL -->
-        <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="40">
+            CornerRadius="20"
+            BorderBrush="#E0E0E0" BorderThickness="2"
+            BoxShadow="0 20 25 0 #525252"
+            Canvas.Left="320"   
+            Canvas.Top="140">   
+      <Grid RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Background="#F7F7F7"
+                CornerRadius="20,20,0,0"
+                Padding="20"
+                BorderBrush="#E0E0E0"
+                BorderThickness="0,0,0,1">
+          <TextBlock Text="Profil Pomorca"
+                     FontSize="28"
+                     FontWeight="Bold"
+                     Foreground="#333333"
+                     HorizontalAlignment="Center"/>
+        </Border>
+        <!-- Scroll of rows -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
           <StackPanel Spacing="10">
 
-            <!-- START OF STATIC BUTTONS(DESIGN) -->
-            <Button Content="Alice Smith (ID: 1)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Bob Johnson (ID: 2)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Charlie Brown (ID: 3)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="David Williams (ID: 4)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Eva Davis (ID: 5)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Frank Miller (ID: 6)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Grace Lee (ID: 7)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Hannah Taylor (ID: 8)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Ian Black (ID: 9)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            <Button Content="Jane Black (ID: 10)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
                 </Style>
               </Button.Styles>
             </Button>
 
-            
-                        <Button Content="Eva Davis (ID: 11)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="Refresh" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-                        <Button Content="Frank Miller (ID: 12)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-                        <Button Content="Grace Lee (ID: 13)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-                        <Button Content="Hannah Taylor (ID: 14)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-                        <Button Content="Ian Black (ID: 15)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                </Style>
-              </Button.Styles>
-            </Button>
-            
-            
-            <Button Content="Jane Black (ID: 16)"
-                    Background="Transparent" Foreground="Black"
-                    HorizontalAlignment="Stretch" FontSize="20">
-              <Button.Styles>
-                <Style Selector="Button:pointerover /template/ ContentPresenter">
-                  <Setter Property="Background" Value="Transparent"/>
-                  <Setter Property="BorderBrush" Value="Transparent"/>
-                  <Setter Property="TextBlock.Foreground" Value="#808080"/>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
                 </Style>
               </Button.Styles>
             </Button>
 
-        
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
 
-    <!-- END OF PROFIL-BUTTONS -->
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="Refresh" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="Refresh" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="-" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="JMBG" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="Refresh" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
           </StackPanel>
         </ScrollViewer>
-        
-        <Button Grid.Row="1"  
-                            Content="Kreiraj"
-                            Command="{Binding GoToKreirajPomorcaPageCommand}"
-                            Height="45" Width="90" CornerRadius="10"
-                            Background="#808080" Foreground="White"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            FontSize="17" FontWeight="Medium" 
-                            Margin="0 0 0 17"/>
-
       </Grid>
     </Border>
-  </Grid>
 
+    <!-- Search Field on top-left of the main card -->
+    <Border Background="#FAFAFA"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="14"
+            Padding="10"
+            Width="350" Height="55"
+            Canvas.Left="320"   
+            Canvas.Top="84">   
+
+      <!-- Using a DockPanel to arrange the icon and TextBox side by side -->
+      <DockPanel LastChildFill="True">
+        <!-- iCON -->
+        <TextBlock Text="🔍" 
+                   FontSize="20" 
+                   Foreground="#808080" 
+                   VerticalAlignment="Center" 
+                   Margin="0,0,8,0"
+                   DockPanel.Dock="Left"/>
+        <!-- Search TextBox -->
+        <TextBox Background="Transparent"
+                 BorderThickness="0"
+                 Foreground="#333333"
+                 FontSize="16"
+                 VerticalAlignment="Center"
+                 Watermark="Pretrazi po Imenu/Prezimenu/JMBG"/>
+      </DockPanel>
+    </Border>
+    
+  </Canvas>
 </UserControl>

@@ -33,7 +33,7 @@ public MainViewModel()
 [ObservableProperty] private string kreirajKorisnika ="Kreiraj Pomorca";
 [ObservableProperty] private string dokumenta ="• Tip Dokumenta";
 [ObservableProperty] private string sertifikati ="Sertifikati";
-[ObservableProperty] private string izadji ="Izadji"; //todo: app.exit(izadji button)
+[ObservableProperty] private string izadji ="• Izadji"; //todo: app.exit(izadji button)
 
 
 
@@ -85,7 +85,7 @@ public MainViewModel()
 [RelayCommand]
     private void Exit(Window window)
     {
-        window.Close();
+        window.Close(); //! Bad immplementation, try another way
     } 
 
 

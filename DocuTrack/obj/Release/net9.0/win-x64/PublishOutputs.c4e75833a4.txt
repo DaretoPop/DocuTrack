@@ -1,5 +1,0 @@
-/home/pop/docutrack/DocuTrack/bin/Release/net9.0/win-x64/publish/DocuTrack.pdb
-/home/pop/docutrack/DocuTrack/bin/Release/net9.0/win-x64/publish/av_libglesv2.dll
-/home/pop/docutrack/DocuTrack/bin/Release/net9.0/win-x64/publish/libHarfBuzzSharp.dll
-/home/pop/docutrack/DocuTrack/bin/Release/net9.0/win-x64/publish/libSkiaSharp.dll
-/home/pop/docutrack/DocuTrack/bin/Release/net9.0/win-x64/publish/DocuTrack.exe
