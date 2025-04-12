@@ -23,6 +23,11 @@ public PomorciViewModel(MainViewModel mainViewModel)
 
 
 [ObservableProperty] private  MainViewModel? _mainViewModel;
+[ObservableProperty] private bool _isPanelVisible;
+
+
+
+
 
 
 [RelayCommand] 
@@ -34,5 +39,10 @@ private void GoToKreirajPomorcaPage()
         }
 }
 
+[RelayCommand]
+private void TogglePanel()
+{
+    IsPanelVisible = !IsPanelVisible;
+}
 
 };

@@ -18,6 +18,7 @@
   <!-- ASSETS -->
     <AvaloniaResource Include="Assets/logo.png" />        <!-- INCLUDE LOGO PNG -->
     <AvaloniaResource Include="Assets/LogoIMG.png" />
+    <AvaloniaResource Include="Assets/Back.png" />
   
   <!-- END OF ASSETS -->
 
