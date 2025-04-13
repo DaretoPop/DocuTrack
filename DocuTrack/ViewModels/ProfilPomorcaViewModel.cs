@@ -1,11 +1,10 @@
+using System.Runtime.Serialization.Formatters;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels;
-
-
 
 
 
@@ -17,32 +16,35 @@ public partial class PomorciViewModel : BaseViewModel
 public PomorciViewModel(){}
 public PomorciViewModel(MainViewModel mainViewModel)
 {
-        _mainViewModel = mainViewModel;
+    _mainViewModel = mainViewModel;
 }
 
 
-
 [ObservableProperty] private  MainViewModel? _mainViewModel;
-[ObservableProperty] private bool _isPanelVisible;
-
-
-
-
 
 
 [RelayCommand] 
 private void GoToKreirajPomorcaPage()
 {
-        if(MainViewModel != null)
-        {
-                MainViewModel.CurrentPage = MainViewModel.KreirajKorisnikaPage;
-        }
+     if(MainViewModel != null)
+    {
+        MainViewModel.CurrentPage = MainViewModel.KreirajKorisnikaPage;
+    }
 }
 
-[RelayCommand]
-private void TogglePanel()
+[RelayCommand] 
+private void GoToProfilPanelPage()
 {
-    IsPanelVisible = !IsPanelVisible;
+    if(MainViewModel != null)
+    {
+        MainViewModel?.GoToPomorciPanel();
+
+            if(MainViewModel?.IsPocetnaView != null)
+            { 
+                        MainViewModel.IsPocetnaView = false; 
+            }
+    }
 }
+
 
 };
