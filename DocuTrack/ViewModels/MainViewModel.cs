@@ -14,15 +14,18 @@ public partial class MainViewModel : BaseViewModel
 
 public MainViewModel()
 {
-    // DEFAULT STATE
+    //Default CurrentPage State
     CurrentPage             = new LoginViewModel(this);
 
-    PocetnaPage             = new PocetnaViewModel();
-    PomorciPage             = new PomorciViewModel(this);
+    PocetnaPage             = new PocetnaViewModel(this);
     KreirajKorisnikaPage    = new KreirajPomorcaViewModel();
     DokumentaPage           = new DokumentiViewModel();
+    PomorciPage             = new PomorciViewModel(this);
+    ProfilPomorcaPanelPage  = new PrikazProfilaPomorcaPanel(this);
+
     
     IsLoggedIn = false;
+    IsPocetnaView = false;
 }
 
 
@@ -33,16 +36,15 @@ public MainViewModel()
 [ObservableProperty] private string kreirajKorisnika ="Kreiraj Pomorca";
 [ObservableProperty] private string dokumenta ="• Tip Dokumenta";
 [ObservableProperty] private string sertifikati ="Sertifikati";
-[ObservableProperty] private string izadji ="Izadji"; //todo: app.exit(izadji button)
-
+[ObservableProperty] private string izadji ="• Izadji"; //todo: app.exit(izadji button)
 
 
 // Pages/States Members
-// Same as GameState* -> Pokazuje na sve klase koje su nasledile BaseViewModel klasu
 
 [ObservableProperty] private BaseViewModel? _currentPage;
 [ObservableProperty] private  PocetnaViewModel? _pocetnaPage;
 [ObservableProperty] private PomorciViewModel? _pomorciPage;
+[ObservableProperty] private BaseViewModel? _profilPomorcaPanelPage;
 [ObservableProperty] private KreirajPomorcaViewModel? _kreirajKorisnikaPage;
 [ObservableProperty] private BaseViewModel? _loginPage;
 [ObservableProperty] private BaseViewModel? _dokumentaPage;
@@ -51,6 +53,8 @@ public MainViewModel()
 
 [ObservableProperty] private bool  _isLoggedIn;
 [ObservableProperty] private bool _isVisable;
+[ObservableProperty] private bool isPocetnaView;
+
 
 
 
@@ -67,10 +71,17 @@ public MainViewModel()
     CurrentPage = PocetnaPage;
 }
 [RelayCommand]
-    private void GoToPomorci()
+    public void GoToPomorci()
 {
     CurrentPage = PomorciPage;
+
 }
+[RelayCommand]
+    public void GoToPomorciPanel()
+{
+    CurrentPage = ProfilPomorcaPanelPage;
+}
+
 [RelayCommand]
     private void GoToKreirajKorisnika()
 {
@@ -85,12 +96,9 @@ public MainViewModel()
 [RelayCommand]
     private void Exit(Window window)
     {
-        window.Close();
+        window.Close(); //! Bad immplementation, try another way
     } 
 
 
 } // End of class
 
-                    //* moze i lambda, nice :O        
-// [RelayCommand]
-// private void GoToPocetna() => CurrentPage = _pocetnaPage;

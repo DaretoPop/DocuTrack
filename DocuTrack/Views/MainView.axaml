@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
         Width="1400" Height="800"
-        MinWidth="1400" MinHeight="800"
+        MinWidth="1280" MinHeight="800"
         WindowStartupLocation="CenterScreen"
         x:Class="DocuTrack.MainWindow"
         xmlns:vm="clr-namespace:DocuTrack.ViewModels"
@@ -17,6 +17,7 @@
 
 <!--* This setup MainWindow DataContex of MainViewModel -> Transfer to App.axml.cs -->
 <!--TODO: Delete Later -->
+
 <!-- <Window.DataContext>
     <vm:MainViewModel></vm:MainViewModel>
 </Window.DataContext> -->
@@ -48,7 +49,7 @@
                     <Label Content="{Binding App}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="30"></Label>
                 </StackPanel>
 
-                <!-- POCETNA =>GOTOPOCETNA -->
+                <!-- POCETNA  -->
                 <Button Content="{Binding Pocetna}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
                         Command="{Binding GoToPocetnaCommand}">
                             <!-- <Command> we made not generate by MVVM -->
@@ -62,7 +63,7 @@
                     </Button.Styles>      
                 </Button>
 
-                <!-- POMORCI => GOTTOPOMORCI -->
+                <!-- POMORCI  -->
                  <Button Content="{Binding Pomorci}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
                          Command="{Binding GoToPomorciCommand}">
                     <Button.Styles>
