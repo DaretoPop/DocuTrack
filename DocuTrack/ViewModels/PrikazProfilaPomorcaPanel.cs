@@ -3,42 +3,48 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Views;
 
-namespace DocuTrack.ViewModels;
-
-
-public partial class PrikazProfilaPomorcaPanel : BaseViewModel
-
+namespace DocuTrack.ViewModels
 {
 
 
-public PrikazProfilaPomorcaPanel(){}
-public PrikazProfilaPomorcaPanel(MainViewModel mainViewModel)
-{
-        _mainViewModel = mainViewModel;
-}
+    public partial class PrikazProfilaPomorcaPanel : BaseViewModel
+
+    {
 
 
-[ObservableProperty] private  MainViewModel? _mainViewModel;
+        public PrikazProfilaPomorcaPanel()
+        {
+        }
+
+        public PrikazProfilaPomorcaPanel(MainViewModel mainViewModel)
+        {
+            _mainViewModel = mainViewModel;
+        }
+
+
+        [ObservableProperty] private MainViewModel? _mainViewModel;
 
 
 
 // Back Button to navigate to ProfilPage or PocentaPage(sertifikati)
-[RelayCommand] 
-public void GoBack()
-{
-    if(MainViewModel != null)
-    {
-        if(MainViewModel?.IsPocetnaView == true)
+        [RelayCommand]
+        public void GoBack()
         {
-                MainViewModel.CurrentPage = MainViewModel.PocetnaPage;
-        }else
-        {
-                MainViewModel?.GoToPomorci();
+            if (MainViewModel != null)
+            {
+                if (MainViewModel?.IsPocetnaView == true)
+                {
+                    MainViewModel.CurrentPage = MainViewModel.PocetnaPage;
+                }
+                else
+                {
+                    MainViewModel?.GoToPomorci();
+                }
+            }
         }
+
+
+
+
     }
 }
-
-
-
-
-};

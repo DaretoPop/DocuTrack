@@ -3,25 +3,21 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Views;
 
-namespace DocuTrack.ViewModels;
-
-
-
-
-
-public partial class DokumentiViewModel : BaseViewModel
-
+namespace DocuTrack.ViewModels
 {
+    public partial class DokumentiViewModel : BaseViewModel
+
+    {
 
 
-        [ObservableProperty] 
-private bool _isRightPanelVisible;
+        [ObservableProperty] private bool _isRightPanelVisible;
 
-[RelayCommand]
-private void ToggleRightPanel()
-{
-    IsRightPanelVisible = !IsRightPanelVisible;
+        [RelayCommand]
+        private void ToggleRightPanel()
+        {
+            IsRightPanelVisible = !IsRightPanelVisible;
+        }
+
+
+    }
 }
-
-
-};

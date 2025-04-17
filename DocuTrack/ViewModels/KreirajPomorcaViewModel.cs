@@ -4,11 +4,12 @@ using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Views;
 
 
-namespace DocuTrack.ViewModels;
+namespace DocuTrack.ViewModels {
 
-public partial class KreirajPomorcaViewModel : BaseViewModel
+    public partial class KreirajPomorcaViewModel : BaseViewModel
 
-{
+    {
 
 
+    }
 }
