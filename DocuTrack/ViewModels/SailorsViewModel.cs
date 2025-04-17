@@ -1,7 +1,11 @@
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.Serialization.Formatters;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DocuTrack.Data;
+using DocuTrack.DataModels;
 using DocuTrack.Pages;
 using DocuTrack.Views;
 
@@ -10,15 +14,16 @@ namespace DocuTrack.ViewModels
     public partial class SailorsViewModel : BaseViewModel
 
     {
-
-
+        public ObservableCollection<Sailor> Sailors { get; set; }
         public SailorsViewModel()
         {
+            Sailors = new ObservableCollection<Sailor>(DatabaseHelper.GetSailors());
         }
 
         public SailorsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
+            Sailors = new ObservableCollection<Sailor>(DatabaseHelper.GetSailors());
         }
 
 
@@ -46,6 +51,12 @@ namespace DocuTrack.ViewModels
                     MainViewModel.IsPocetnaView = false;
                 }
             }
+        }
+
+        [RelayCommand]
+        private void GoToSailorPage()
+        {
+
         }
 
 

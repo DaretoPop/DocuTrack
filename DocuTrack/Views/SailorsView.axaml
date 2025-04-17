@@ -39,73 +39,52 @@
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30">
           <StackPanel Spacing="10">
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelPageCommand}">
 
-              <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="JMBG" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="-" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelPageCommand}">
-              <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="JMBG" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="Refresh" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+			  <!-- one row -->
+              <ItemsControl ItemsSource="{Binding Sailors}">
+				  <ItemsControl.ItemTemplate>
+					  <DataTemplate>
+						  <Button Background="Transparent"
+                                  BorderBrush="Transparent"
+                                  Padding="10"
+                                  HorizontalAlignment="Stretch"
+                                  Command="{Binding   GoToSailorPageCommand, RelativeSource={RelativeSource AncestorType=vm:SailorsViewModel}}"
+                                  CommandParameter="{Binding}">
+                              <Button.Content>
+                                  <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                                      <TextBlock Text="{Binding Fullname}"
+                                                 FontSize="20"
+                                                 Foreground="#333333"
+                                                 HorizontalAlignment="Left"
+                                                 VerticalAlignment="Center"/>
+                                      <TextBlock Grid.Column="1"
+                                                 Text="{Binding GID}"
+                                                 FontSize="20"
+                                                 Foreground="#333333"
+                                                 HorizontalAlignment="Center"
+                                                 VerticalAlignment="Center"/>
+                                      <TextBlock Grid.Column="2"
+                                                 Text="{Binding Refresh}"
+                                                 FontSize="20"
+                                                 Foreground="#333333"
+                                                 HorizontalAlignment="Right"
+                                                 VerticalAlignment="Center"/>
+                                  </Grid>
+                              </Button.Content>
+                              <Button.Styles>
+                                  <Style Selector="Button:pointerover">
+                                      <Setter Property="Foreground" Value="#808080"/>
+                                  </Style>
+                              </Button.Styles>
+                          </Button>
+					  </DataTemplate>
+				  </ItemsControl.ItemTemplate>
+              </ItemsControl>
 
+
+
+			  <!-- end of one row -->
             <Button Background="Transparent"
                     BorderBrush="Transparent"
                     Padding="10"
