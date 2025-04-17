@@ -1,0 +1,508 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:DataType="vm:ExpirationsViewModel"
+             x:Class="DocuTrack.Views.ExpirationsView"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             Foreground="White">
+
+
+
+  <!-- Canvas -> for better positions -->
+  <Canvas Background="#808080" Width="1920" Height="1080">
+    
+    <!-- Main Center Card -->
+    <Border x:Name="MainCard"
+            Width="1280" Height="800"
+            Background="White"
+            CornerRadius="20"
+            BorderBrush="#E0E0E0" BorderThickness="2"
+            BoxShadow="0 20 25 0 #525252"
+            Canvas.Left="320"   
+            Canvas.Top="140">   
+      <Grid RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Background="#F7F7F7"
+                CornerRadius="20,20,0,0"
+                Padding="20"
+                BorderBrush="#E0E0E0"
+                BorderThickness="0,0,0,1">
+          <TextBlock Text="Datumi Isteka Sertifikata"
+                     FontSize="28"
+                     FontWeight="Bold"
+                     Foreground="#333333"
+                     HorizontalAlignment="Center"/>
+        </Border>
+        <!-- Scroll of rows -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+          <StackPanel Spacing="10">
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+<Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+            <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+               <Button Background="Transparent"
+                    BorderBrush="Transparent"
+                    Padding="10"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToProfilPanelCommand}">
+              <Button.Content>
+                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+                  <TextBlock Text="Ime i Prezime" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="1" 
+                             Text="📜 Tip Sertifikata" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+                  <TextBlock Grid.Column="2" 
+                             Text="📅 Istice: 2026-05-01" 
+                             FontSize="20" 
+                             Foreground="#333333"
+                             HorizontalAlignment="Right"
+                             VerticalAlignment="Center"/>
+                </Grid>
+              </Button.Content>
+              <Button.Styles>
+                <Style Selector="Button:pointerover">
+                  <Setter Property="Foreground" Value="#808080"/>             
+                </Style>
+              </Button.Styles>
+            </Button>
+
+          </StackPanel>
+        </ScrollViewer>
+      </Grid>
+    </Border>
+
+    <!-- Search Field on top-left of the main card -->
+    <Border Background="#FAFAFA"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="14"
+            Padding="10"
+            Width="350" Height="55"
+            Canvas.Left="320"   
+            Canvas.Top="84">   
+
+      <!-- Using a DockPanel to arrange the icon and TextBox side by side -->
+      <DockPanel LastChildFill="True">
+        <!-- iCON -->
+        <TextBlock Text="🔍" 
+                   FontSize="20" 
+                   Foreground="#808080" 
+                   VerticalAlignment="Center" 
+                   Margin="0,0,8,0"
+                   DockPanel.Dock="Left"/>
+        <!-- Search TextBox -->
+        <TextBox Background="Transparent"
+                 BorderThickness="0"
+                 Foreground="#333333"
+                 FontSize="16"
+                 VerticalAlignment="Center"
+                 Watermark="Pretrazi po Tipu/Imenu/Prezimenu"/>
+      </DockPanel>
+    </Border>
+    
+  </Canvas>
+</UserControl>

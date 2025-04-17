@@ -4,9 +4,9 @@ using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels {
-    public partial class PocetnaViewModel : BaseViewModel
+    public partial class ExpirationsViewModel : BaseViewModel
     {
-        public PocetnaViewModel(MainViewModel mainViewModel)
+        public ExpirationsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
         }
