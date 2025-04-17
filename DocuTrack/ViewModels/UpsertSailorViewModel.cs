@@ -6,7 +6,7 @@ using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels {
 
-    public partial class KreirajPomorcaViewModel : BaseViewModel
+    public partial class UpsertSailorViewModel : BaseViewModel
 
     {
 

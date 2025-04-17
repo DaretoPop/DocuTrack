@@ -42,6 +42,9 @@
     <Compile Update="Views\ExpirationsView.axaml.cs">
       <DependentUpon>ExpirationsView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\UpsertSailorView.axaml.cs">
+      <DependentUpon>UpsertSailorView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SailorsView.axaml.cs">
       <DependentUpon>SailorsView.axaml</DependentUpon>
     </Compile>
