@@ -95,7 +95,8 @@
                  Foreground="#333333"
                  FontSize="16"
                  VerticalAlignment="Center"
-                 Watermark="Pretrazi po Imenu/Prezimenu/JMBG"/>
+                 Watermark="Pretrazi"
+                 Text="{Binding SearchTerm, Mode=TwoWay}"/>
       </DockPanel>
     </Border>
 

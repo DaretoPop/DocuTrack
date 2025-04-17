@@ -17,7 +17,6 @@ namespace DocuTrack.ViewModels
 
     {
         private const int PageSize = 10;
-        public ObservableCollection<SailorViewModel> Sailors { get; set; }
         
         [ObservableProperty] 
         private MainViewModel? _mainViewModel;
@@ -28,6 +27,12 @@ namespace DocuTrack.ViewModels
         [ObservableProperty]
         private int totalPages;
 
+        [ObservableProperty]
+        private string searchTerm = string.Empty;
+
+
+        public ObservableCollection<SailorViewModel> Sailors { get; set; } = new();
+        public ObservableCollection<SailorViewModel> FilteredSailors { get; set; } = new();
         public ObservableCollection<SailorViewModel> PaginatedSailors { get; set; } = new();
 
 
@@ -35,6 +40,7 @@ namespace DocuTrack.ViewModels
         {
             _mainViewModel = mainViewModel;
             LoadSailors();
+            UpdateFilteredSailors();
             UpdatePagination();
 
             //Sailors = new ObservableCollection<SailorViewModel>(_getSailors());
@@ -65,11 +71,29 @@ namespace DocuTrack.ViewModels
             TotalPages = (int)Math.Ceiling((double)Sailors.Count / PageSize);
         }
 
+        private void UpdateFilteredSailors()
+        {
+            FilteredSailors.Clear();
+            var filtered = Sailors.Where(s =>
+                string.IsNullOrEmpty(SearchTerm) ||
+                s.Fullname.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                s.GID.ToString().Contains(SearchTerm, StringComparison.OrdinalIgnoreCase));
+
+            foreach (var sailor in filtered)
+            {
+                FilteredSailors.Add(sailor);
+            }
+
+            // Update total pages based on filtered results
+            TotalPages = (int)Math.Ceiling((double)FilteredSailors.Count / PageSize);
+            CurrentPage = 1; // Reset to the first page
+            UpdatePagination();
+        }
         private void UpdatePagination()
         {
             PaginatedSailors.Clear();
             var startIndex = (CurrentPage - 1) * PageSize;
-            var paginatedItems = Sailors.Skip(startIndex).Take(PageSize);
+            var paginatedItems = FilteredSailors.Skip(startIndex).Take(PageSize);
 
             foreach (var sailor in paginatedItems)
             {
@@ -102,11 +126,15 @@ namespace DocuTrack.ViewModels
         }
         public bool CanGoToFirstOrPrevious => CurrentPage > 1;
         public bool CanGoToNextOrLast => CurrentPage < TotalPages;
+        partial void OnSearchTermChanged(string value)
+        {
+            UpdateFilteredSailors();
+        }
         partial void OnCurrentPageChanged(int value)
         {
             UpdatePagination();
-            OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
-            OnPropertyChanged(nameof(CanGoToNextOrLast));
+            //OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
+            //OnPropertyChanged(nameof(CanGoToNextOrLast));
         }
 
         [RelayCommand]
