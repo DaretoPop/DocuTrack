@@ -6,16 +6,16 @@ using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels
 {
-    public partial class PomorciViewModel : BaseViewModel
+    public partial class SailorsViewModel : BaseViewModel
 
     {
 
 
-        public PomorciViewModel()
+        public SailorsViewModel()
         {
         }
 
-        public PomorciViewModel(MainViewModel mainViewModel)
+        public SailorsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
         }

@@ -20,7 +20,7 @@ namespace DocuTrack.ViewModels
             PocetnaPage = new PocetnaViewModel(this);
             KreirajKorisnikaPage = new KreirajPomorcaViewModel();
             DokumentaPage = new CertificateTypesViewModel();
-            PomorciPage = new PomorciViewModel(this);
+            PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this);
 
 
@@ -46,7 +46,7 @@ namespace DocuTrack.ViewModels
 
         [ObservableProperty] private BaseViewModel? _currentPage;
         [ObservableProperty] private PocetnaViewModel? _pocetnaPage;
-        [ObservableProperty] private PomorciViewModel? _pomorciPage;
+        [ObservableProperty] private SailorsViewModel? _pomorciPage;
         [ObservableProperty] private BaseViewModel? _profilPomorcaPanelPage;
         [ObservableProperty] private KreirajPomorcaViewModel? _kreirajKorisnikaPage;
         [ObservableProperty] private BaseViewModel? _loginPage;

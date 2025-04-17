@@ -39,6 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SailorsView.axaml.cs">
+      <DependentUpon>SailorsView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SailorView.axaml.cs">
       <DependentUpon>SailorView.axaml</DependentUpon>
     </Compile>
