@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -15,14 +16,28 @@ namespace DocuTrack.ViewModels
     public partial class SailorsViewModel : BaseViewModel
 
     {
+        private const int PageSize = 10;
         public ObservableCollection<SailorViewModel> Sailors { get; set; }
-        [ObservableProperty] private MainViewModel? _mainViewModel;
+        
+        [ObservableProperty] 
+        private MainViewModel? _mainViewModel;
+
+        [ObservableProperty]
+        private int currentPage = 1;
+
+        [ObservableProperty]
+        private int totalPages;
+
+        public ObservableCollection<SailorViewModel> PaginatedSailors { get; set; } = new();
 
 
         public SailorsViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
-            Sailors = new ObservableCollection<SailorViewModel>(_getSailors());
+            LoadSailors();
+            UpdatePagination();
+
+            //Sailors = new ObservableCollection<SailorViewModel>(_getSailors());
         }
 
 
@@ -38,6 +53,28 @@ namespace DocuTrack.ViewModels
 
             return sailors;
 
+        }
+
+        private void LoadSailors()
+        {
+            // Load all sailors from the database
+            var allSailors = _getSailors();
+            Sailors = new ObservableCollection<SailorViewModel>(allSailors);
+
+            // Calculate total pages
+            TotalPages = (int)Math.Ceiling((double)Sailors.Count / PageSize);
+        }
+
+        private void UpdatePagination()
+        {
+            PaginatedSailors.Clear();
+            var startIndex = (CurrentPage - 1) * PageSize;
+            var paginatedItems = Sailors.Skip(startIndex).Take(PageSize);
+
+            foreach (var sailor in paginatedItems)
+            {
+                PaginatedSailors.Add(sailor);
+            }
         }
 
 
@@ -63,6 +100,14 @@ namespace DocuTrack.ViewModels
                 }
             }
         }
+        public bool CanGoToFirstOrPrevious => CurrentPage > 1;
+        public bool CanGoToNextOrLast => CurrentPage < TotalPages;
+        partial void OnCurrentPageChanged(int value)
+        {
+            UpdatePagination();
+            OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
+            OnPropertyChanged(nameof(CanGoToNextOrLast));
+        }
 
         [RelayCommand]
         private void GoToSailorPage()
@@ -70,6 +115,38 @@ namespace DocuTrack.ViewModels
 
         }
 
+        [RelayCommand]
+        private void GoToFirstPage()
+        {
+            CurrentPage = 1;
+            //UpdatePagination();
+        }
 
+        [RelayCommand]
+        private void GoToPreviousPage()
+        {
+            if (CurrentPage > 1)
+            {
+                CurrentPage--;
+                //UpdatePagination();
+            }
+        }
+
+        [RelayCommand]
+        private void GoToNextPage()
+        {
+            if (CurrentPage < TotalPages)
+            {
+                CurrentPage++;
+                //UpdatePagination();
+            }
+        }
+
+        [RelayCommand]
+        private void GoToLastPage()
+        {
+            CurrentPage = TotalPages;
+            //UpdatePagination();
+        }
     }
 } 

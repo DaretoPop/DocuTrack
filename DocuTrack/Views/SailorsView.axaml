@@ -43,7 +43,7 @@
 
 
 			  <!-- one row -->
-              <ItemsControl ItemsSource="{Binding Sailors}">
+              <ItemsControl ItemsSource="{Binding PaginatedSailors}">
 				  <ItemsControl.ItemTemplate>
 					  <DataTemplate>
 						  <views:SailorRowView DataContext="{Binding}" />
@@ -59,6 +59,13 @@
 
           </StackPanel>
         </ScrollViewer>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10" VerticalAlignment="Bottom">
+			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" />
+            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" />
+            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black"  />
+            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" />
+            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" />
+        </StackPanel>
       </Grid>
     </Border>
 
