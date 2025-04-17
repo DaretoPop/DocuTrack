@@ -52,17 +52,18 @@ namespace DocuTrack.Data
             {
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT GID, Name, Surname, IsRefresh FROM Sailors";
+                command.CommandText = "SELECT GID, Name, Surname, IsRefresh, ID FROM Sailors";
 
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     var sailor = new Sailor
                     {
-                        GID = reader.GetInt64(0), // GID
+                        GID = reader.GetString(0), // GID
                         Name = reader.GetString(1), // Name
                         Surname = reader.GetString(2), // Surname
-                        IsRefresh = reader.GetBoolean(3) // IsRefresh
+                        IsRefresh = reader.GetBoolean(3), // IsRefresh
+                        ID = reader.GetInt32(4) // IsRefresh
                     };
 
                     sailors.Add(sailor);

@@ -22,7 +22,7 @@ namespace DocuTrack.Pages
             KreirajKorisnikaPage = new UpsertSailorViewModel();
             DokumentaPage = new CertificateTypesViewModel();
             PomorciPage = new SailorsViewModel(this);
-            ProfilPomorcaPanelPage = new SailorViewModel(this);
+            ProfilPomorcaPanelPage = new SailorViewModel(this, null);
 
 
 
