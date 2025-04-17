@@ -21,7 +21,7 @@ namespace DocuTrack.ViewModels
             KreirajKorisnikaPage = new KreirajPomorcaViewModel();
             DokumentaPage = new CertificateTypesViewModel();
             PomorciPage = new PomorciViewModel(this);
-            ProfilPomorcaPanelPage = new PrikazProfilaPomorcaPanel(this);
+            ProfilPomorcaPanelPage = new SailorViewModel(this);
 
 
 

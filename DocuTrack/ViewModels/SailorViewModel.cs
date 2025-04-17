@@ -7,16 +7,16 @@ namespace DocuTrack.ViewModels
 {
 
 
-    public partial class PrikazProfilaPomorcaPanel : BaseViewModel
+    public partial class SailorViewModel : BaseViewModel
 
     {
 
 
-        public PrikazProfilaPomorcaPanel()
+        public SailorViewModel()
         {
         }
 
-        public PrikazProfilaPomorcaPanel(MainViewModel mainViewModel)
+        public SailorViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
         }

@@ -39,6 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SailorView.axaml.cs">
+      <DependentUpon>SailorView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Data\identifier.sqlite">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
