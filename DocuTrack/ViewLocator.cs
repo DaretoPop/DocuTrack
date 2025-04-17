@@ -1,7 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using DocuTrack.ViewModels;
+using DocuTrack.Pages;
 using DocuTrack.Views;
 
 namespace DocuTrack;

@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DocuTrack.Pages;
 using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels {

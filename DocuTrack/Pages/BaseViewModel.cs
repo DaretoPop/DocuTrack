@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace DocuTrack.ViewModels
+namespace DocuTrack.Pages
 {
 
     public class BaseViewModel : ObservableObject

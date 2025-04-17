@@ -3,9 +3,10 @@ using Avalonia.Controls;
 using Avalonia.Remote.Protocol.Designer;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using DocuTrack.Views;
+using DocuTrack.Pages;
+using DocuTrack.ViewModels;
 
-namespace DocuTrack.ViewModels
+namespace DocuTrack.Pages
 {
     public partial class MainViewModel : BaseViewModel
     {

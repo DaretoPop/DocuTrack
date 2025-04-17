@@ -2,6 +2,7 @@ using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Data;
+using DocuTrack.Pages;
 using DocuTrack.Views;
 
 
