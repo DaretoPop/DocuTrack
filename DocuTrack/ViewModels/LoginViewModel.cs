@@ -1,3 +1,4 @@
+using System;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Data;
@@ -33,22 +34,24 @@ public partial class LoginViewModel : BaseViewModel
    [RelayCommand]
    private void OnLogin()
    {
-       using var connection = DatabaseHelper.GetConnection();
-       var command = connection.CreateCommand();
-       command.CommandText = "SELECT COUNT(1) FROM Accounts WHERE Username = @username AND Password = @password";
-       command.Parameters.AddWithValue("@username", Username);
-       command.Parameters.AddWithValue("@password", Password);
 
-       var result = (long)command.ExecuteScalar();
-
-       if (result > 0)
+       try
        {
-           MainViewModel?.OnLoginSuccessful();
-       }
-       else
-       {
-           ErrorMessage = "Invalid Credentials";
-       }
+            var authetnicate = DatabaseHelper.Authenticate(Username, Password);
+            if (authetnicate == true)
+            {
+                MainViewModel?.OnLoginSuccessful();
+            }
+            else
+            {
+                ErrorMessage = "Invalid Credentials";
+            }
+        }
+       catch (Exception ex)
+        {
+            ErrorMessage = "An error occurred during login: " + ex.Message;
+            return;
+        }
     }
 
  

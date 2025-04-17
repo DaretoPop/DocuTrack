@@ -9,8 +9,11 @@
   
   <!-- EXPORT .EXE TO WINDOWS !!!!! -->
   <!-- <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+   -->
+   <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   <PublishSingleFile>true</PublishSingleFile>
-  <SelfContained>true</SelfContained> -->
+  <SelfContained>true</SelfContained>
+  <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
 
   </PropertyGroup>
 
@@ -37,7 +40,7 @@
 
   <ItemGroup>
     <None Update="Data\identifier.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>
