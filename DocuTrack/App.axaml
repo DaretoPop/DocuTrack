@@ -14,7 +14,8 @@
   </Application.DataTemplates>
 
   <Application.Styles>
-    <FluentTheme/>
+      <FluentTheme/>
+	  <StyleInclude Source="avares://DocuTrack/Styles.axaml"/>
   </Application.Styles>
 
 </Application>
