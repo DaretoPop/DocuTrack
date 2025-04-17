@@ -1,0 +1,726 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:DataType="vm:CertificateTypesViewModel"
+             x:Class="DocuTrack.Views.CertificateTypesView"
+             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+             Foreground="White">
+
+
+
+
+  <Grid Background="#808080">
+
+    <!-- MAIN PANEL -->
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/> <!-- Center card -->
+        <ColumnDefinition Width="20"/>   <!-- Spacer -->
+        <ColumnDefinition Width="Auto"/> <!-- Right panel -->
+      </Grid.ColumnDefinitions>
+
+      <!-- Center/Left Panel -->
+      <Border Grid.Column="0" 
+        Width="1000" Height="900"
+        Background="White"
+        CornerRadius="20"
+        BorderBrush="#E0E0E0" BorderThickness="2"
+        BoxShadow="0 20 25 0 #525252">
+  <Grid RowDefinitions="Auto,*,Auto">
+    
+    <!-- Header  TIP DOKUMENATA -->
+    <Border Grid.Row="0"
+            Background="#F7F7F7"
+            CornerRadius="20,20,0,0"
+            Padding="20"
+            BorderBrush="#E0E0E0"
+            BorderThickness="0,0,0,1">
+      <TextBlock Text="Tip Dokumenata"
+                 FontSize="28"
+                 FontWeight="Bold"
+                 Foreground="#333333"
+                 HorizontalAlignment="Center"/>
+    </Border>
+
+    <!-- Scroll List -->
+    <ScrollViewer Grid.Row="1" 
+                  VerticalScrollBarVisibility="Auto"
+                  Padding="20,5,20,0" 
+                  Margin="0,10,0,0"> <!-- Change Pading to fix scroll view of iteams  -->
+      <StackPanel Spacing="12" Margin="0,0,0,20">
+
+
+        <Border Background="#FAFAFA" >
+          </Border>
+
+          <!-- This is just static(Design) -->
+        <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Last Row"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                          
+                </Grid>
+              </Border>
+
+                <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+              <Border Background="#FAFAFA"
+                      CornerRadius="10"
+                      Padding="10"
+                      BorderBrush="#E0E0E0"
+                      BorderThickness="1">
+                <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+                  <TextBlock Text="📜 Tip Dokumenata"
+                             FontSize="22"
+                             Foreground="#333333"
+                             VerticalAlignment="Center"
+                             TextTrimming="CharacterEllipsis"/>
+                  <Button Content="VIDI"
+                          Command="{Binding ToggleRightPanelCommand}"
+                          FontSize="20"
+                          Background="#808080"
+                          Foreground="White"
+                          VerticalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Right"
+                          Margin="10,0,0,0"
+                          MinWidth="80"
+                          CornerRadius="8"/>
+                </Grid>
+              </Border>
+
+      </StackPanel>
+    </ScrollViewer>
+
+    <!-- Kreiraj Button -->
+    <StackPanel Grid.Row="2" 
+                Orientation="Horizontal" 
+                HorizontalAlignment="Center" 
+                Margin="0,0">
+      <Button Content="Kreiraj Dokument"
+              Background="#808080"
+              Foreground="White"
+              FontSize="20"
+              Padding="10,10"
+              CornerRadius="8"/>
+    </StackPanel>
+  </Grid>
+</Border>
+
+
+<!-- ############################################################################################ -->
+
+      <!-- Right Panel - Fixed layout-->
+      <Border Grid.Column="2" 
+              Width="400" Height="1015"
+              Background="White"
+              CornerRadius="30"
+              BorderBrush="#E0E0E0"
+              BorderThickness="2"
+              BoxShadow="0 20 25 0 #525252"
+              VerticalAlignment="Center"
+              IsVisible="{Binding IsRightPanelVisible}">
+        <Grid Margin="20">
+
+          <Grid.RowDefinitions>
+            <!-- Fixed Header -->
+            <RowDefinition Height="Auto"/>
+            <!-- Content area (groups) -->
+            <RowDefinition Height="*"/>
+            <!-- Fixed Bottom Button -->
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+
+          <!-- Header -->
+          <Border Grid.Row="0"
+                  Background="#F7F7F7"
+                  CornerRadius="20,20,0,0"
+                  Padding="15"
+                  BorderBrush="#E0E0E0"
+                  BorderThickness="0,0,0,1">
+            <TextBlock Text="Novi/Izmeni"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="#333333"
+                       HorizontalAlignment="Center"/>
+          </Border>
+
+          <!-- Scroll is auto in listbox -->
+          <StackPanel Grid.Row="1" Spacing="9" Margin="0,10,0,10">
+
+            <!-- Sticanje -->
+            <StackPanel Spacing="10">
+              <TextBlock Text="Ime Tipa:" FontSize="16" Foreground="#555555"/>
+              <TextBlock Text="Sertifikat 1"
+                         FontSize="20"
+                         FontWeight="Bold"
+                         Foreground="#333333"/>
+         <TextBlock Text="Sticanje:" FontSize="16" Foreground="#555555"/>
+
+            </StackPanel>
+            <Border Background="#FAFAFA"
+                    CornerRadius="10"
+                    Padding="10"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1">
+              <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+              </ListBox>
+            </Border>
+            <Button Content="Dodaj Zahtev za Sticanje"
+                    HorizontalAlignment="Center"
+                    Width="210"
+                    Height="35"
+                    Background="#808080"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontSize="16"/>
+
+            <!-- Obnova -->
+            <StackPanel Spacing="10">
+              <TextBlock Text="Obnova:" FontSize="16" Foreground="#555555"/>
+            </StackPanel>
+            <Border Background="#FAFAFA"
+                    CornerRadius="10"
+                    Padding="10"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1">
+              <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+              </ListBox>
+            </Border>
+            <Button Content="Dodaj Zahtev za Obnovu"
+                    HorizontalAlignment="Center"
+                    Width="205"
+                    Height="35"
+                    Background="#808080"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontSize="16"/>
+
+            <!-- Refresh  -->
+            <StackPanel Spacing="10">
+              <TextBlock Text="Refresh:" FontSize="16" Foreground="#555555"/>
+            </StackPanel>
+            <Border Background="#FAFAFA"
+                    CornerRadius="10"
+                    Padding="10"
+                    BorderBrush="#E0E0E0"
+                    BorderThickness="1">
+              <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+                <ListBoxItem>
+                  <TextBlock Text="document.pdf" Foreground="Red"/>
+                </ListBoxItem>
+              </ListBox>
+            </Border>
+            <Button Content="Dodaj Zahtev za Refresh"
+                    HorizontalAlignment="Center"
+                    Width="205"
+                    Height="35"
+                    Background="#808080"
+                    Foreground="White"
+                    CornerRadius="8"
+                    FontSize="16"/>
+          </StackPanel>
+
+          <!-- Static Sacuvaj Button -->
+          <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+  <Border 
+                  Background="#F7F7F7"
+                  CornerRadius="20,20,0,0"
+                  Padding="15"
+                  BorderBrush="#E0E0E0"
+                  BorderThickness="0,0,0,1">
+  <Button Content="Sacuvaj"
+          Command="{Binding ToggleRightPanelCommand}"
+          Width="120"
+          Height="40"
+          Background="#808080"
+          Foreground="White"
+          CornerRadius="8"
+          FontSize="18"
+          FontWeight="SemiBold"
+          HorizontalContentAlignment="Center"
+          VerticalContentAlignment="Center"/>
+</Border> 
+
+</StackPanel>
+        </Grid>
+      </Border>
+    </Grid>
+  </Grid>
+</UserControl>

@@ -5,7 +5,7 @@ using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels
 {
-    public partial class DokumentiViewModel : BaseViewModel
+    public partial class CertificateTypesViewModel : BaseViewModel
 
     {
 

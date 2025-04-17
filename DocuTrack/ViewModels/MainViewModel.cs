@@ -13,17 +13,22 @@ namespace DocuTrack.ViewModels
         public MainViewModel()
         {
             //Default CurrentPage State
+            IsLoggedIn = false;
+            IsPocetnaView = false;
             CurrentPage = new LoginViewModel(this);
 
             PocetnaPage = new PocetnaViewModel(this);
             KreirajKorisnikaPage = new KreirajPomorcaViewModel();
-            DokumentaPage = new DokumentiViewModel();
+            DokumentaPage = new CertificateTypesViewModel();
             PomorciPage = new PomorciViewModel(this);
             ProfilPomorcaPanelPage = new PrikazProfilaPomorcaPanel(this);
 
 
-            IsLoggedIn = false;
-            IsPocetnaView = false;
+
+            //temp
+            CurrentPage = PomorciPage;
+            IsLoggedIn = true;
+
         }
 
 
