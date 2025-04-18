@@ -23,6 +23,7 @@ namespace DocuTrack.Pages
             DokumentaPage = new CertificateTypesViewModel();
             PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
+            AddNewDocumentPage = new AddNewDocumentViewModel();
 
 
 
@@ -52,6 +53,7 @@ namespace DocuTrack.Pages
         [ObservableProperty] private UpsertSailorViewModel? _kreirajKorisnikaPage;
         [ObservableProperty] private BaseViewModel? _loginPage;
         [ObservableProperty] private BaseViewModel? _dokumentaPage;
+        [ObservableProperty] private BaseViewModel? _addNewDocumentPage;
 
 
 
