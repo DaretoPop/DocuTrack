@@ -53,17 +53,18 @@
                     <Border Height="50" CornerRadius="8" 
                             BorderBrush="#808080" BorderThickness="2"
                             Margin="0 0 0 15" Background="White">
-                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                        <TextBox Text="{Binding Name , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="15 0" FontSize="14"
-                                 Watermark="Ime"/>
+                                 Watermark="Ime"
+                                 />
                     </Border>
                     
                     <!-- PREZIME  -->
                     <Border Height="50" CornerRadius="8" 
                             BorderBrush="#808080" BorderThickness="2"
                             Margin="0 0 0 25" Background="White">
-                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                        <TextBox Text="{Binding Surname , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="15 0" FontSize="14"
                                  Watermark="Prezime"/>
@@ -73,15 +74,31 @@
                     <Border Height="50" CornerRadius="8" 
                             BorderBrush="#808080" BorderThickness="2"
                             Margin="0 0 0 25" Background="White">
-                        <TextBox Text="" BorderThickness="0" Background="Transparent"
+                        <TextBox Text="{Binding GID , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
                                  VerticalContentAlignment="Center"
                                  Padding="15 0" FontSize="14"
                                  Watermark="JMBG"/>
                     </Border>
 
+
+					<Border Background="#FFF5F5"
+                            BorderBrush="#FFEBEE"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Padding="12"
+                            Margin="0 0 0 20"
+                            IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                        <TextBlock Text="{Binding ErrorMessage}"
+                                   Foreground="#F44336"
+                                   FontSize="14"
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+
                     <!-- Kreiraj -->
                     <Button Content="Kreiraj"
                             Height="45" Width="100" CornerRadius="8"
+
+                            Command="{Binding SubmitCommand}"
                             Background="#808080" Foreground="White"
                             HorizontalAlignment="Center"
                             HorizontalContentAlignment="Center"
@@ -91,7 +108,7 @@
                 </StackPanel>
                            
                             <!-- Checkbox for Refresh -->
-                        <CheckBox x:Name="termsOfServiceCheckBox" Content="Refresh" Margin="100 200 0 0" FontSize="20"/>
+                        <CheckBox x:Name="termsOfServiceCheckBox" IsChecked="{Binding IsRefresh, Mode=TwoWay}" Content="Refresh" Margin="100 200 0 0" FontSize="20"/>
             </Grid>
         </Border>
     </Grid>

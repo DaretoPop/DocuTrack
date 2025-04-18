@@ -16,7 +16,7 @@ namespace DocuTrack.ViewModels
     public partial class SailorsViewModel : BaseViewModel
 
     {
-        private const int PageSize = 10;
+        private const int PageSize =10;
         
         [ObservableProperty] 
         private MainViewModel? _mainViewModel;
@@ -129,12 +129,14 @@ namespace DocuTrack.ViewModels
         partial void OnSearchTermChanged(string value)
         {
             UpdateFilteredSailors();
+            OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
+            OnPropertyChanged(nameof(CanGoToNextOrLast));
         }
         partial void OnCurrentPageChanged(int value)
         {
             UpdatePagination();
-            //OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
-            //OnPropertyChanged(nameof(CanGoToNextOrLast));
+            OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
+            OnPropertyChanged(nameof(CanGoToNextOrLast));
         }
 
         [RelayCommand]

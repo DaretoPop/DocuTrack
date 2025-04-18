@@ -3,6 +3,7 @@
              xmlns:local="clr-namespace:DocuTrack"
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              xmlns:views="clr-namespace:DocuTrack.Views"
+             xmlns:converters="clr-namespace:DocuTrack.Converters"
              x:Class="DocuTrack.App"
              RequestedThemeVariant="Light">
 
@@ -17,5 +18,8 @@
       <FluentTheme/>
 	  <StyleInclude Source="avares://DocuTrack/Styles.axaml"/>
   </Application.Styles>
+    <Application.Resources>
+        <converters:StringNotEmptyToBoolConverter x:Key="StringNotEmptyToBoolConverter"/>
+    </Application.Resources>
 
 </Application>

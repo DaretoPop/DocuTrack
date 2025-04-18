@@ -116,7 +116,7 @@ namespace DocuTrack.Data
             }
             catch (Exception ex)
             {
-                throw new Exception("Error adding sailor to the database", ex);
+                throw new Exception("Greska pri dodavanju pomorca u bazu: "  + ex.Message, ex);
             }
         }
 
