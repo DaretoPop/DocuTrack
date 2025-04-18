@@ -11,6 +11,21 @@ namespace DocuTrack.ViewModels {
 
     {
 
+            public UpsertSailorViewModel(MainViewModel mainViewModel)
+            {
+                MainViewModel = mainViewModel;
+            }
+
+
+    [ObservableProperty] private MainViewModel _mainViewModel;
+
+
+    [RelayCommand]
+    private void GoBack()
+    {
+        MainViewModel.GoToPomorci();
+    }
+
 
     }
 }

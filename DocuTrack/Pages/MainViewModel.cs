@@ -19,7 +19,7 @@ namespace DocuTrack.Pages
             CurrentPage = new LoginViewModel(this);
 
             PocetnaPage = new ExpirationsViewModel(this);
-            KreirajKorisnikaPage = new UpsertSailorViewModel();
+            KreirajKorisnikaPage = new UpsertSailorViewModel(this);
             DokumentaPage = new CertificateTypesViewModel();
             PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
