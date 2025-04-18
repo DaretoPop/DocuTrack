@@ -17,7 +17,7 @@
             Width="1280" Height="800"
             Background="White"
             CornerRadius="20"
-            BorderBrush="#E0E0E0" BorderThickness="2"
+            BorderBrush="#E0E0E0" BorderThickness="1"
             BoxShadow="0 20 25 0 #525252"
             Canvas.Left="320"   
             Canvas.Top="140">   
@@ -59,13 +59,27 @@
 
           </StackPanel>
         </ScrollViewer>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="10" VerticalAlignment="Bottom">
-			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" />
-            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" />
-            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black"  />
-            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" />
-            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" />
+
+        <!-- Border of pages navigations -->
+        <Border Grid.Row="1" Background="#FAFAFA"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="20"
+            Padding="5 0 10 8"
+            Width="350" Height="60"
+            Margin="0 725 0 0"
+            BoxShadow="0 20 25 0 #525252">
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+           
+			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0"/>
+            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30"/>
+            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin=" 0 0 3 0"/>
+            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" />
+           
         </StackPanel>
+         </Border>
       </Grid>
     </Border>
 
@@ -96,7 +110,8 @@
                  FontSize="16"
                  VerticalAlignment="Center"
                  Watermark="Pretrazi"
-                 Text="{Binding SearchTerm, Mode=TwoWay}"/>
+                 Text="{Binding SearchTerm, Mode=TwoWay}"
+                 VerticalContentAlignment="Center"/>
       </DockPanel>
     </Border>
 
