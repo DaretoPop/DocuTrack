@@ -2,6 +2,7 @@
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using Tmds.DBus.Protocol;
 
 namespace DocuTrack.Data
@@ -45,6 +46,7 @@ namespace DocuTrack.Data
             }
         }
 
+        #region sailors
         internal static List<Sailor> GetSailors()
         {
             var sailors = new List<Sailor>();
@@ -68,6 +70,7 @@ namespace DocuTrack.Data
 
                     sailors.Add(sailor);
                 }
+                connection.Close();
             }
             catch (Exception ex)
             {
@@ -76,6 +79,152 @@ namespace DocuTrack.Data
 
             return sailors;
         }
+
+        internal static void updateSailor(Sailor sailor)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE Sailors SET Name = @name, Surname = @surname, IsRefresh = @isRefresh WHERE ID = @id";
+                command.Parameters.AddWithValue("@name", sailor.Name);
+                command.Parameters.AddWithValue("@surname", sailor.Surname);
+                command.Parameters.AddWithValue("@isRefresh", sailor.IsRefresh);
+                command.Parameters.AddWithValue("@id", sailor.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error updating sailor in the database", ex);
+            }
+        }
+
+        internal static void addSailor(Sailor sailor)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO Sailors (GID, Name, Surname, IsRefresh) VALUES (@gid, @name, @surname, @isRefresh)";
+                command.Parameters.AddWithValue("@gid", sailor.GID);
+                command.Parameters.AddWithValue("@name", sailor.Name);
+                command.Parameters.AddWithValue("@surname", sailor.Surname);
+                command.Parameters.AddWithValue("@isRefresh", sailor.IsRefresh);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error adding sailor to the database", ex);
+            }
+        }
+
+        internal static void deleteSailor(Sailor sailor)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Sailors WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", sailor.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting sailor from the database", ex);
+            }
+        }
+
+        #endregion
+
+        #region CertificateTypes
+        internal static List<CertificateType> geCertificateTypes()
+        {
+            var types = new List<CertificateType>();
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, Name FROM CertificateTypes";
+                using var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var type = new CertificateType
+                    {
+                        ID = reader.GetInt32(0), // ID
+                        Name = reader.GetString(1) // Name
+                    };
+                    types.Add(type);
+                }
+                connection.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving certificate types from the database", ex);
+            }
+
+            return types;
+        }
+        internal static void updateCertificateType(CertificateType type)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE CertificateTypes SET Name = @name WHERE ID = @id";
+                command.Parameters.AddWithValue("@name", type.Name);
+                command.Parameters.AddWithValue("@id", type.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error updating certificate type in the database", ex);
+            }
+        }
+        internal static void addCertificateType(CertificateType type)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO CertificateTypes (Name) VALUES (@name)";
+                command.Parameters.AddWithValue("@name", type.Name);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error adding certificate type to the database", ex);
+            }
+        }
+        internal static void deleteCertificateType(CertificateType type)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM CertificateTypes WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", type.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate type from the database", ex);
+            }
+        }
+        #endregion
+
+
+
+
+
     }
-    
+
 }
