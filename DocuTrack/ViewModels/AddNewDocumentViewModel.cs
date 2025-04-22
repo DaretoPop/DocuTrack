@@ -10,6 +10,25 @@ namespace DocuTrack.ViewModels
 
     {
 
+        public AddNewDocumentViewModel(MainViewModel mainViewModel)
+        {
+            MainViewModel = mainViewModel;
+        }
+
+
+
+        [ObservableProperty] private MainViewModel _mainViewModel;
+        [ObservableProperty] private string naziv = string.Empty;
+
+
+        [RelayCommand] 
+        private void GoToBack()
+        {
+            if(MainViewModel != null)
+            {
+                MainViewModel.CurrentPage = MainViewModel.DokumentaPage;
+            }
+        }
 
 
     }

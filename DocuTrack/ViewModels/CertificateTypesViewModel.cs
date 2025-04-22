@@ -31,7 +31,10 @@ namespace DocuTrack.ViewModels
         [RelayCommand]
         private void GoToAddNewDocument()
         {
-            MainViewModel.CurrentPage = MainViewModel.AddNewDocumentPage;
+            if(MainViewModel != null)
+            {
+                MainViewModel.CurrentPage = MainViewModel.AddNewDocumentPage;
+            }
         }
 
 

@@ -23,12 +23,12 @@ namespace DocuTrack.Pages
             DokumentaPage = new CertificateTypesViewModel(this);
             PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
-            AddNewDocumentPage = new AddNewDocumentViewModel();
+            AddNewDocumentPage = new AddNewDocumentViewModel(this);
 
 
 
             //temp
-            CurrentPage = AddNewDocumentPage;
+            CurrentPage = PocetnaPage;
             IsLoggedIn = true;
 
         }
