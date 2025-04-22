@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace DocuTrack.Views;
 
-public partial class AddNewDocument : UserControl
+public partial class AddNewDocumentView : UserControl
 {
-    public AddNewDocument()
+    public AddNewDocumentView()
     {
         InitializeComponent();
     }

@@ -20,7 +20,7 @@ namespace DocuTrack.Pages
 
             PocetnaPage = new ExpirationsViewModel(this);
             KreirajKorisnikaPage = new UpsertSailorViewModel(this, null);
-            DokumentaPage = new CertificateTypesViewModel();
+            DokumentaPage = new CertificateTypesViewModel(this);
             PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
             AddNewDocumentPage = new AddNewDocumentViewModel();
@@ -28,7 +28,7 @@ namespace DocuTrack.Pages
 
 
             //temp
-            CurrentPage = PomorciPage;
+            CurrentPage = AddNewDocumentPage;
             IsLoggedIn = true;
 
         }
