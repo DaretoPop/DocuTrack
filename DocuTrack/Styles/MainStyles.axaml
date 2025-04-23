@@ -1,0 +1,16 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+
+<!-- Image LOGO -->
+  <Style Selector="Image.main-image">
+      <Setter Property="Source" Value="avares://DocuTrack/Assets/LogoIMG.png"/>
+      <Setter Property="Width" Value="60"/>
+      <Setter Property="Height" Value="70"/>
+      <Setter Property="Stretch" Value="Uniform"/>
+      <Setter Property="HorizontalAlignment" Value="Left"/>
+      <Setter Property="Margin" Value="0 0 0 50"/>
+  </Style>
+
+
+</Styles>
+
