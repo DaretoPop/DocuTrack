@@ -1,0 +1,107 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+<!-- Main Border -->
+<Style Selector="Border.login-border">
+    <Setter Property="Width" Value="500"/>
+    <Setter Property="Height" Value="650"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="30"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BoxShadow" Value="0 20 15 0 #525252"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+<!-- ################################################################################################### -->
+
+<!-- Image Logo -->
+  <Style Selector="Image.login-image">
+    <Setter Property="Source" Value="avares://DocuTrack/Assets/logo.png"/>
+    <Setter Property="Width" Value="200"/>
+    <Setter Property="Height" Value="60"/>
+    <Setter Property="Stretch" Value="Uniform"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0 0 0 10"/>
+  </Style>
+
+<!-- ################################################################################################### -->
+
+<!-- Username  -->
+  <Style Selector="Border.username-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="Margin" Value="0 0 0 15"/>
+  </Style>
+            <Style Selector="TextBox.username-textbox">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="15 0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Watermark" Value="Username"/>
+            </Style>
+
+<!-- ################################################################################################### -->
+
+<!-- Password -->
+<Style Selector="Border.password-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="Margin" Value="0 0 0 25"/>
+</Style>
+            <Style Selector="TextBox.password-textbox">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="15 0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Watermark" Value="Password"/>
+                <Setter Property="PasswordChar" Value="•"/>
+            </Style>
+
+<!-- ################################################################################################### -->
+
+<!-- Error message -->
+<Style Selector="Border.error-message">
+    <Setter Property="Background" Value="#FFF5F5"/>
+    <Setter Property="BorderBrush" Value="#FFEBEE"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="12"/>
+    <Setter Property="Margin" Value="20"/>
+    <Setter Property="VerticalAlignment" Value="Bottom"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="IsVisible" Value="True"/>
+</Style>
+            <Style Selector="TextBlock.error-textbox">
+                <Setter Property="Foreground" Value="#F44336"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+<!-- ################################################################################################### -->
+<!-- Buttons -->
+<Style Selector="Button.login-button">
+    <Setter Property="Width" Value="100"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0 0 0 20"/>
+</Style>
+
+
+
+</Styles>
