@@ -10,3 +10,7 @@ NuGet packages:
 | Avalonia.Fonts.Inter       | 11.2.6    | 11.2.6  |
 | Avalonia.Themes.Fluent     | 11.2.6    | 11.2.6  |
 | CommunityToolkit.Mvvm      | 8.4.0     | 8.4.0   |
+| Microsoft.Data.Sqlite      | 9.0.4     | 9.0.4   |
+| Microsoft.NET.ILLink.Tasks | 9.0.4     | 9.0.4   |
+
+
