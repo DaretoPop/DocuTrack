@@ -20,6 +20,7 @@
 	  <StyleInclude Source="avares://DocuTrack/Styles/Styles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/LoginStyles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/MainStyles.axaml"/>
+    <StyleInclude Source="avares://DocuTrack/Styles/AddNewTypeDocStyles.axaml"/>
 
   </Application.Styles>
     <Application.Resources>

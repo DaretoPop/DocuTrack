@@ -1,0 +1,101 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+
+<!-- BACK BUTTON -->
+  <Style Selector="Image.back-image">
+      <Setter Property="Source" Value="avares://DocuTrack/Assets/Back.png"/>
+      <Setter Property="Width" Value="25"/>
+      <Setter Property="Height" Value="25"/>
+      <Setter Property="Stretch" Value="Uniform"/>
+  </Style>
+
+                    <!-- Back border -->
+      <Style Selector="Border.back-button-container">
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="BorderBrush" Value="#E0E0E0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="50,0,0,50"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <!-- <Setter Property="ZIndex" Value="1000"/> Ensures visibility -->
+     </Style>
+
+
+<!-- ########################################################################### -->
+
+
+<!-- Main Card -->
+<Style Selector="Border.addnew-border">
+    <Setter Property="Width" Value="700"/>
+    <Setter Property="Height" Value="300"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="14"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BoxShadow" Value="0 10 25 0 #525252"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+                    <!-- Main Card Header -->
+        <Style Selector="Border.addnew-header">
+            <Setter Property="Background" Value="#F7F7F7"/>
+            <Setter Property="CornerRadius" Value="14,14,0,0"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        </Style>
+
+                                <!-- Text -->
+                <Style Selector="TextBlock.header-text">
+                    <Setter Property="FontSize" Value="28"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Foreground" Value="#333333"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+
+
+<!-- ########################################################################### -->
+
+<!-- Naziv dokumenta -->
+<Style Selector="Border.nazivdokumenta-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Margin" Value="0 20 0 35"/>
+    <Setter Property="Background" Value="White"/>
+</Style>
+
+            <Style Selector="TextBox.nazivdokumenta-text">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="15,0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Watermark" Value="Naziv Dokumenta"/>
+            </Style>
+
+
+<!-- ########################################################################### -->
+
+
+<Style Selector="Button.addnew-button">
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="Width" Value="100"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Margin" Value="0,0,0,20"/>
+</Style>
+
+</Styles>
+
