@@ -21,6 +21,7 @@
     <StyleInclude Source="avares://DocuTrack/Styles/LoginStyles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/MainStyles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/AddNewTypeDocStyles.axaml"/>
+    <StyleInclude Source="avares://DocuTrack/Styles/CertificateTypesStyles.axaml"/>
 
   </Application.Styles>
     <Application.Resources>

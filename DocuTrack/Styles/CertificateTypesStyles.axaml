@@ -1,0 +1,98 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+<!-- Center LEFT Panel -->
+<Style Selector="Border.centerleft-panel">
+    <Setter Property="Grid.Column" Value="0"/>
+    <Setter Property="Width" Value="1000"/>
+    <Setter Property="Height" Value="900"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="20"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
+</Style>
+
+<!-- ###################################################################################### -->
+
+<!-- Header -->
+<Style Selector="Border.document-header">
+    <Setter Property="Grid.Row" Value="0"/>
+    <Setter Property="Background" Value="#F7F7F7"/>
+    <Setter Property="CornerRadius" Value="20,20,0,0"/>
+    <Setter Property="Padding" Value="20"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+</Style>
+
+            <Style Selector="TextBlock.document-text">
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+<!-- ###################################################################################### -->
+
+<!-- Main scroll -->
+<Style Selector="ScrollViewer.main-document-scroll">
+    <Setter Property="Grid.Row" Value="1"/>
+    <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+    <Setter Property="Padding" Value="20,5,20,0"/>
+    <Setter Property="Margin" Value="0,10,0,0"/> <!-- Change Pading to fix scroll view of iteams  -->
+</Style>
+
+
+<!-- ###################################################################################### -->
+
+<!-- Main content -->
+<Style Selector="Border.document-type-container">
+    <Setter Property="Background" Value="#FAFAFA"/>
+    <Setter Property="CornerRadius" Value="10"/>
+    <Setter Property="Padding" Value="10"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+</Style>
+
+
+            <Style Selector="TextBlock.document-container-text">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+            </Style>
+
+<Style Selector="Button.view-button">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Setter Property="Margin" Value="10,0,0,0"/>
+    <Setter Property="MinWidth" Value="80"/>
+    <Setter Property="CornerRadius" Value="8"/>
+</Style>
+
+
+<!-- ###################################################################################### -->
+
+
+<!-- Kreiraj button -->
+<Style Selector="Button.create-document-button">
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="10,10"/>
+    <Setter Property="CornerRadius" Value="8"/>
+</Style>
+
+
+<!-- ###################################################################################### -->
+
+<!-- RIGHT PANEL -->
+
+
+
+</Styles>
+
