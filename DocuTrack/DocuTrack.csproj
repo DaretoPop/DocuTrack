@@ -39,6 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CertificateTypeView.axaml.cs">
+      <DependentUpon>CertificateTypeView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CertificateTypeRowView.axaml.cs">
+      <DependentUpon>CertificateTypeRowView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ConfirmationDialog.axaml.cs">
       <DependentUpon>ConfirmationDialog.axaml</DependentUpon>
     </Compile>

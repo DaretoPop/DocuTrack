@@ -41,137 +41,42 @@
           </Border>
 
           <!-- This is just static(Design) -->
-              <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
+          <ItemsControl ItemsSource="{Binding PaginatedCertificateTypes}">
+              <ItemsControl.ItemTemplate>
+                  <DataTemplate>
+                      <views:CertificateTypeRowView DataContext="{Binding}" />
+                  </DataTemplate>
+              </ItemsControl.ItemTemplate>
+          </ItemsControl>
 
-              <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-                 <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
-
-               <Border Classes="document-type-container">
-                  <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                      <TextBlock Text="📜 Tip Dokumenata" Classes="document-container-text"/>
-                      <Button Content="VIDI" Command="{Binding ToggleRightPanelCommand}" Classes="view-button"/>
-                </Grid>
-             </Border>
+          
 
       </StackPanel>
     </ScrollViewer>
 
-    <!-- Kreiraj Button -->
+
+    <Border Grid.Row="1" Background="#FAFAFA"
+            BorderBrush="#E0E0E0"
+            BorderThickness="1"
+            CornerRadius="20"
+            Padding="5 0 10 8"
+            Width="350" Height="60"
+            Margin="0 725 0 0"
+            BoxShadow="0 20 25 0 #525252">
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+
+            <Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0"/>
+            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30"/>
+            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin=" 0 0 3 0"/>
+            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" />
+
+        </StackPanel>
+    </Border>
+
+
+	  <!-- Kreiraj Button -->
     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0">
       <Button Content="Kreiraj Dokument" Command="{Binding GoToAddNewDocumentCommand}" Classes="create-document-button"/>
     </StackPanel>

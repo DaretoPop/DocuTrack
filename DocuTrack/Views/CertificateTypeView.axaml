@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:DataType="vm:CertificateTypeViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DocuTrack.Views.CertificateTypeView">
+
+
+
+                                                        <!-- OUTSIDE CARD -->
+    <Grid Background="#808080">
+
+                                                        <!-- Back Button (inside card area if desired) -->
+        <Border Classes="back-button-container">
+            <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
+                <Image Classes="back-image"/>
+            </Button>
+        </Border>
+                                                        <!-- Main Card -->
+        <Border Classes="addnew-border">
+            <Grid RowDefinitions="Auto, *">
+                                                        <!-- MainCardHeader -->
+                <Border Classes="addnew-header">
+                    <TextBlock Text="Kreiraj Dokument" Classes="header-text"/>
+                </Border>
+                                                        <!-- Unutar Carda -->
+                <Grid Grid.Row="1">
+                    <StackPanel Margin="40" Spacing="0">
+                                                        <!-- Naziv Dokumenta -->
+                        <Border Classes="nazivdokumenta-border">
+                            <TextBox Text="{Binding Naziv}" Classes="nazivdokumenta-text"/>
+                        </Border>
+                                                        <!-- Upload Button -->
+                        <Button Content="Upload" Classes="addnew-button"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+
+</UserControl>
