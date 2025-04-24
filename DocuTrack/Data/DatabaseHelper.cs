@@ -86,10 +86,11 @@ namespace DocuTrack.Data
             {
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "UPDATE Sailors SET Name = @name, Surname = @surname, IsRefresh = @isRefresh WHERE ID = @id";
+                command.CommandText = "UPDATE Sailors SET Name = @name, Surname = @surname, GID = @gid, IsRefresh = @isRefresh WHERE ID = @id";
                 command.Parameters.AddWithValue("@name", sailor.Name);
                 command.Parameters.AddWithValue("@surname", sailor.Surname);
                 command.Parameters.AddWithValue("@isRefresh", sailor.IsRefresh);
+                command.Parameters.AddWithValue("@gid", sailor.GID);
                 command.Parameters.AddWithValue("@id", sailor.ID);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -100,7 +101,7 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static void addSailor(Sailor sailor)
+        internal static Sailor addSailor(Sailor sailor)
         {
             try
             {
@@ -112,7 +113,14 @@ namespace DocuTrack.Data
                 command.Parameters.AddWithValue("@surname", sailor.Surname);
                 command.Parameters.AddWithValue("@isRefresh", sailor.IsRefresh);
                 command.ExecuteNonQuery();
+
+                var commandForGet = connection.CreateCommand();
+                commandForGet.CommandText = "SELECT ID FROM Sailors WHERE GID =  @gid";
+                command.Parameters.AddWithValue("@gid", sailor.GID);
+                var reader = commandForGet.ExecuteReader();
+                sailor.ID = reader.GetInt32(0); // ID
                 connection.Close();
+                return sailor;
             }
             catch (Exception ex)
             {

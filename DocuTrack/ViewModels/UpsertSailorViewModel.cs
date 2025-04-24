@@ -110,11 +110,13 @@ namespace DocuTrack.ViewModels {
             {
                 if (_sailor.ID == 0)
                 {
-                    DatabaseHelper.addSailor(_sailor);
+                    var newSailor = DatabaseHelper.addSailor(_sailor);
+                    MainViewModel.GoToSailorPage(newSailor);
                 }
                 else
                 {
                     DatabaseHelper.updateSailor(_sailor);
+                    MainViewModel.GoToSailorPage(_sailor);
                 }
             }
             catch (Exception ex)

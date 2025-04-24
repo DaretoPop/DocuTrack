@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Remote.Protocol.Designer;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DocuTrack.DataModels;
 using DocuTrack.Pages;
 using DocuTrack.ViewModels;
 
@@ -92,9 +93,21 @@ namespace DocuTrack.Pages
         }
 
         [RelayCommand]
+        public void GoToAddEditSailorPage(Sailor? sailor = null)
+        {
+            CurrentPage = new UpsertSailorViewModel(this, sailor);
+        }
+
+        [RelayCommand]
+        public void GoToSailorPage(Sailor sailor)
+        {
+            CurrentPage = new SailorViewModel(this, sailor);
+        }
+
+        [RelayCommand]
         private void GoToKreirajKorisnika()
         {
-            CurrentPage = KreirajKorisnikaPage;
+            CurrentPage = new UpsertSailorViewModel(this, null);
         }
 
         [RelayCommand]

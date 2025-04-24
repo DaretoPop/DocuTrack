@@ -11,7 +11,7 @@ namespace DocuTrack.DataModels
         public int ID { get; set; }
 
         public int CertificateID { get; set; }
-        public int SailorGID { get; set; }
+        public int SailorID { get; set; }
 
         public bool PrimaryFile { get; set; }
 

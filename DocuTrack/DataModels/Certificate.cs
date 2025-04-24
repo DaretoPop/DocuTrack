@@ -9,7 +9,7 @@ namespace DocuTrack.DataModels
     public class Certificate
     {
         public int ID { get; set; }
-        public int SailorGID { get; set; }
+        public int SailorID { get; set; }
         public int CertificateTypeID { get; set; }
         public string DateAcquired { get; set; }
         public string DateExpiration { get; set; }
