@@ -13,9 +13,7 @@
             <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
                 <TextBlock Text="{Binding Fullname}" Classes="row-text"/>
                 <TextBlock Text="{Binding GID}" Classes="row1-text"/>
-                           
                 <TextBlock Text="{Binding Refresh}" Classes="row2-text"/>
-                           
             </Grid>
         </Button.Content>
         <Button.Styles>
