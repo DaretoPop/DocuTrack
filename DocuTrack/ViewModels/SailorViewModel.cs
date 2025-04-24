@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using DocuTrack.Data;
 using DocuTrack.DataModels;
 using DocuTrack.Pages;
 using DocuTrack.Views;
@@ -67,7 +68,7 @@ namespace DocuTrack.ViewModels
                 }
                 else
                 {
-                    MainViewModel?.GoToPomorci();
+                    MainViewModel?.GoToSailors();
                 }
             }
         }
@@ -103,35 +104,7 @@ namespace DocuTrack.ViewModels
             }
         }
 
-        [RelayCommand]
-        private async Task DeleteSailor()
-        {
-            if (MainViewModel == null || Sailor == null)
-                return;
-
-            // Create and configure the confirmation dialog
-            var dialog = new ConfirmationDialog
-            {
-                DataContext = new
-                {
-                    Message = $"Are you sure you want to delete {Sailor.Name} {Sailor.Surname}?",
-                    ConfirmCommand = new RelayCommand(() =>
-                    {
-                        // Perform the deletion
-                        // MainViewModel.DeleteSailor(Sailor);
-                        dialog.Close(); // Fixed: 'dialog' is now properly declared before usage
-                    }),
-                    CancelCommand = new RelayCommand(() =>
-                    {
-                        // Close the dialog without doing anything
-                        dialog.Close(); // Fixed: 'dialog' is now properly declared before usage
-                    })
-                }
-            };
-
-            // Show the dialog as a modal window
-            await dialog.ShowDialog(MainViewModel.Window);
-        }
+        
 
 
 

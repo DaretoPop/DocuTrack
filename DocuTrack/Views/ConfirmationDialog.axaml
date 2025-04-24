@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="DocuTrack.Views.ConfirmationDialog"
+        Width="400" Height="200"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+    <Grid RowDefinitions="*,Auto">
+        <!-- Message -->
+        <TextBlock x:Name="MessageTextBlock" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+            <Button Content="Yes" Click="OnYesClicked" Width="80" />
+            <Button Content="No" Click="OnNoClicked" Width="80" />
+        </StackPanel>
+    </Grid>
+</Window>

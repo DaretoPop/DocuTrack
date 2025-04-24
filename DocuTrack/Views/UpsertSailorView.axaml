@@ -97,7 +97,7 @@
                     <!-- Kreiraj -->
                     <Button Content="Kreiraj"
                             Height="45" Width="100" CornerRadius="8"
-
+                            IsVisible="{Binding !SailorExists}"
                             Command="{Binding SubmitCommand}"
                             Background="#808080" Foreground="White"
                             HorizontalAlignment="Center"
@@ -105,6 +105,31 @@
                             VerticalContentAlignment="Center"
                             FontSize="15" FontWeight="Medium" 
                             Margin="0 0 0 20"/>
+
+                    <Button Content="Promeni"
+                            Height="45" Width="100" CornerRadius="8"
+                            IsVisible="{Binding SailorExists}"
+                            Command="{Binding SubmitCommand}"
+                            Background="#808080" Foreground="White"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontSize="15" FontWeight="Medium"
+                            Margin="0 0 0 20"/>
+
+                    <Button Content="Izbriši"
+                            Command="{Binding DeleteSailorCommand}"
+                            IsVisible="{Binding SailorExists}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" 
+                            
+                            Height="45" Width="100" CornerRadius="8"
+                            Background="#808080" Foreground="White"
+                            HorizontalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            FontSize="15" FontWeight="Medium"
+                            Margin="0 0 0 20"
+                            />
                 </StackPanel>
                            
                             <!-- Checkbox for Refresh -->

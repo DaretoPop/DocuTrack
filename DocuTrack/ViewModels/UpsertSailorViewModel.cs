@@ -1,5 +1,7 @@
 using System;
 using System.Reflection.Metadata.Ecma335;
+using Avalonia.Controls;
+using System.Threading.Tasks;
 using Avalonia.Rendering;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -16,6 +18,8 @@ namespace DocuTrack.ViewModels {
     {
         [ObservableProperty] private Sailor? _sailor;
         [ObservableProperty] private MainViewModel _mainViewModel;
+
+        public bool SailorExists => _sailor != null && _sailor.ID != 0;
 
         public UpsertSailorViewModel(MainViewModel mainViewModel, Sailor sailor)
         {
@@ -111,17 +115,45 @@ namespace DocuTrack.ViewModels {
                 if (_sailor.ID == 0)
                 {
                     var newSailor = DatabaseHelper.addSailor(_sailor);
+                    MainViewModel.ReinitializeSailors();
                     MainViewModel.GoToSailorPage(newSailor);
                 }
                 else
                 {
                     DatabaseHelper.updateSailor(_sailor);
+                    MainViewModel.ReinitializeSailors();
+
                     MainViewModel.GoToSailorPage(_sailor);
                 }
             }
             catch (Exception ex)
             {
                 ErrorMessage = ex.Message;
+            }
+        }
+
+
+        [RelayCommand]
+        private async Task DeleteSailor(Window parentWindow)
+        {
+            if (MainViewModel == null || Sailor == null)
+                return;
+
+            var dialog = new ConfirmationDialog
+            {
+                Message = $"Are you sure you want to delete {Sailor.Name} {Sailor.Surname}?"
+            };
+
+            // Show the dialog as a modal window
+            var result = await dialog.ShowDialog<bool>(parentWindow);
+
+            if (result)
+            {
+
+                DatabaseHelper.deleteSailor(_sailor);
+                MainViewModel.GoToSailorsAndReinitialize();
+                // Perform the deletion
+                //MainViewModel.DeleteSailor(Sailor);
             }
         }
 

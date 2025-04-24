@@ -26,6 +26,8 @@ namespace DocuTrack.Pages
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
             AddNewDocumentPage = new AddNewDocumentViewModel(this);
 
+            SailorsPage = new SailorsViewModel(this);
+
 
 
             //temp
@@ -55,6 +57,9 @@ namespace DocuTrack.Pages
         [ObservableProperty] private BaseViewModel? _loginPage;
         [ObservableProperty] private BaseViewModel? _dokumentaPage;
         [ObservableProperty] private BaseViewModel? _addNewDocumentPage;
+
+
+        [ObservableProperty] private BaseViewModel? _sailorsPage;
 
 
 
@@ -91,6 +96,25 @@ namespace DocuTrack.Pages
         {
             CurrentPage = ProfilPomorcaPanelPage;
         }
+
+        [RelayCommand]
+        public void GoToSailors()
+        {
+            CurrentPage = SailorsPage;
+        }
+
+
+        public void ReinitializeSailors()
+        {
+            SailorsPage = new SailorsViewModel(this);
+        }
+        public void GoToSailorsAndReinitialize()
+        {
+            ReinitializeSailors();
+            CurrentPage = SailorsPage;
+        }
+
+
 
         [RelayCommand]
         public void GoToAddEditSailorPage(Sailor? sailor = null)

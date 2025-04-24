@@ -114,17 +114,16 @@ namespace DocuTrack.Data
                 command.Parameters.AddWithValue("@isRefresh", sailor.IsRefresh);
                 command.ExecuteNonQuery();
 
-                var commandForGet = connection.CreateCommand();
-                commandForGet.CommandText = "SELECT ID FROM Sailors WHERE GID =  @gid";
-                command.Parameters.AddWithValue("@gid", sailor.GID);
-                var reader = commandForGet.ExecuteReader();
-                sailor.ID = reader.GetInt32(0); // ID
+                // Fix: Retrieve the last inserted row ID using SQLite's built-in function
+                command.CommandText = "SELECT last_insert_rowid()";
+                sailor.ID = Convert.ToInt32(command.ExecuteScalar());
+
                 connection.Close();
                 return sailor;
             }
             catch (Exception ex)
             {
-                throw new Exception("Greska pri dodavanju pomorca u bazu: "  + ex.Message, ex);
+                throw new Exception("Error adding sailor to the database: " + ex.Message, ex);
             }
         }
 
