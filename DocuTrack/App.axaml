@@ -26,6 +26,7 @@
     <StyleInclude Source="avares://DocuTrack/Styles/SailorRowStyles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/SailorsStyles.axaml"/>
     <StyleInclude Source="avares://DocuTrack/Styles/SailorStyles.axaml"/>
+    <StyleInclude Source="avares://DocuTrack/Styles/UpsertSailorStyles.axaml"/>
 
 
   </Application.Styles>

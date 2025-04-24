@@ -8,103 +8,47 @@
              x:Class="DocuTrack.Views.UpsertSailorView">
 
 
+
   <!-- OUTSIDE CARD -->
       <Grid Background="#808080">
 
-
 <!--  Back Button -->
-         <Border Width="50" Height="40"
-            BoxShadow="0 15 30 2 #525252"
-            Background="White"
-            CornerRadius="15"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            Margin="50,0,0,50"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom">
+         <Border Classes="upsert-back-button">
 
-      <Button Background="Transparent"
+      <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               Command="{Binding GoBackCommand}"
-              HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch"
               Classes="TransparentHoverButton">
-        <Image Source="avares://DocuTrack/Assets/Back.png"
-               Width="25"
-               Height="25"
-               Stretch="Uniform"/>
+       <Image Classes="upsert-back-icon"/>
+
       </Button>
     </Border>
 
-
         <!--  Main CARD -->
-        <Border Width="700" Height="350"
-                Background="White"
-                CornerRadius="14"
-                BorderBrush="#e0e0e0" BorderThickness="1"
-                BoxShadow="0 10 25 0 #525252" 
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center">
-            
+        <Border Classes="upsert-main-card">
             <Grid>
                 <StackPanel Margin="40" Spacing="0">
-
-
                     <!-- IME -->
-                    <Border Height="50" CornerRadius="8" 
-                            BorderBrush="#808080" BorderThickness="2"
-                            Margin="0 0 0 15" Background="White">
-                        <TextBox Text="{Binding Name , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
-                                 VerticalContentAlignment="Center"
-                                 Padding="15 0" FontSize="14"
-                                 Watermark="Ime"
-                                 />
+                    <Border Classes="upsert-ime-border">
+                        <TextBox Text="{Binding Name , Mode=TwoWay}" Classes="upsert-ime-text"/>
                     </Border>
                     
                     <!-- PREZIME  -->
-                    <Border Height="50" CornerRadius="8" 
-                            BorderBrush="#808080" BorderThickness="2"
-                            Margin="0 0 0 25" Background="White">
-                        <TextBox Text="{Binding Surname , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
-                                 VerticalContentAlignment="Center"
-                                 Padding="15 0" FontSize="14"
-                                 Watermark="Prezime"/>
+                    <Border Classes="upsert-prezime-border">
+                        <TextBox Text="{Binding Surname , Mode=TwoWay}" Classes="upsert-prezime-text"/>
                     </Border>
 
                             <!-- JMBG -->
-                    <Border Height="50" CornerRadius="8" 
-                            BorderBrush="#808080" BorderThickness="2"
-                            Margin="0 0 0 25" Background="White">
-                        <TextBox Text="{Binding GID , Mode=TwoWay}" BorderThickness="0" Background="Transparent"
-                                 VerticalContentAlignment="Center"
-                                 Padding="15 0" FontSize="14"
-                                 Watermark="JMBG"/>
+                    <Border Classes="upsert-jmbg-border">
+                        <TextBox Text="{Binding GID , Mode=TwoWay}" Classes="upsert-jmbg-text"/>
                     </Border>
 
-
-					<Border Background="#FFF5F5"
-                            BorderBrush="#FFEBEE"
-                            BorderThickness="2"
-                            CornerRadius="8"
-                            Padding="12"
-                            Margin="0 0 0 20"
-                            IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
-                        <TextBlock Text="{Binding ErrorMessage}"
-                                   Foreground="#F44336"
-                                   FontSize="14"
-                                   HorizontalAlignment="Center"/>
+                        <!-- Error  -->
+					<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                        <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
                     </Border>
 
                     <!-- Kreiraj -->
-                    <Button Content="Kreiraj"
-                            Height="45" Width="100" CornerRadius="8"
-
-                            Command="{Binding SubmitCommand}"
-                            Background="#808080" Foreground="White"
-                            HorizontalAlignment="Center"
-                            HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            FontSize="15" FontWeight="Medium" 
-                            Margin="0 0 0 20"/>
+                    <Button Content="Kreiraj" Command="{Binding SubmitCommand}" Classes="upsert-kreiraj-button"/>
                 </StackPanel>
                            
                             <!-- Checkbox for Refresh -->

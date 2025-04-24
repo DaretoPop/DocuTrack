@@ -1,0 +1,134 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+<Style Selector="Border.upsert-back-border">
+    <Setter Property="Width" Value="50"/>
+    <Setter Property="Height" Value="40"/>
+    <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="15"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Margin" Value="50,0,0,50"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Bottom"/>
+</Style>
+
+<Style Selector="Image.upsert-back-icon">
+    <Setter Property="Source" Value="avares://DocuTrack/Assets/Back.png"/>
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Height" Value="25"/>
+    <Setter Property="Stretch" Value="Uniform"/>
+</Style>
+
+
+
+<!-- ################################################################################ -->
+
+<!-- Main card -->
+<Style Selector="Border.upsert-main-card">
+    <Setter Property="Width" Value="700"/>
+    <Setter Property="Height" Value="350"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="14"/>
+    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BoxShadow" Value="0 10 25 0 #525252"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+
+<!-- Ime -->
+<Style Selector="Border.upsert-ime-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Margin" Value="0 0 0 15"/>
+    <Setter Property="Background" Value="White"/>
+</Style>
+
+<Style Selector="TextBox.upsert-ime-text">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Padding" Value="15 0"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Watermark" Value="Ime"/>
+</Style>
+
+<!-- Prezime -->
+<Style Selector="Border.upsert-prezime-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Margin" Value="0 0 0 25"/>
+    <Setter Property="Background" Value="White"/>
+</Style>
+
+    <Style Selector="TextBox.upsert-prezime-text">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="15 0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Watermark" Value="Prezime"/>
+    </Style>
+
+    <!-- JMBG -->
+
+<Style Selector="Border.upsert-jmbg-border">
+    <Setter Property="Height" Value="50"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="Margin" Value="0 0 0 25"/>
+    <Setter Property="Background" Value="White"/>
+</Style>
+
+<Style Selector="TextBox.upsert-jmbg-text">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Padding" Value="15 0"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Watermark" Value="JMBG"/>
+</Style>
+
+
+<!-- Error -->
+<Style Selector="Border.upsert-error">
+    <Setter Property="Background" Value="#FFF5F5"/>
+    <Setter Property="BorderBrush" Value="#FFEBEE"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="12"/>
+    <Setter Property="Margin" Value="0 0 0 20"/>
+</Style>
+
+
+<Style Selector="TextBlock.upsert-error-text">
+    <Setter Property="Foreground" Value="#F44336"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+
+<!-- Kreiraj button -->
+
+<Style Selector="Button.upsert-kreiraj-button">
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="Width" Value="100"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Margin" Value="0 0 0 20"/>
+</Style>
+
+</Styles>
