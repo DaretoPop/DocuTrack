@@ -40,15 +40,26 @@ namespace DocuTrack.ViewModels
         {
             if(MainViewModel != null)
             {
-                MainViewModel.CurrentPage = MainViewModel.DokumentaPage;
+                MainViewModel.GoToDokumenta();
             }
         }
 
+        [RelayCommand]
+        private void GoToEdit()
+        {
+            if (MainViewModel != null)
+            {
+                MainViewModel.GoToUpsertCertificateType(_certificateType);
+            }
+        }
 
         [RelayCommand]
-        private void OpenDocumentTypePanel()
+        private void OpenCertificateType()
         {
-
+            if (MainViewModel != null)
+            {
+                MainViewModel.GoToCertificateType(_certificateType);
+            }
         }
 
     }

@@ -106,6 +106,8 @@ namespace DocuTrack.ViewModels
             OnPropertyChanged(nameof(CanGoToNextOrLast));
         }
 
+        
+
         [RelayCommand]
         private void GoToFirstPage()
         {

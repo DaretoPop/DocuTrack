@@ -194,7 +194,7 @@ namespace DocuTrack.Data
                 throw new Exception("Error updating certificate type in the database", ex);
             }
         }
-        internal static void addCertificateType(CertificateType type)
+        internal static CertificateType addCertificateType(CertificateType type)
         {
             try
             {
@@ -203,7 +203,10 @@ namespace DocuTrack.Data
                 command.CommandText = "INSERT INTO CertificateTypes (Name) VALUES (@name)";
                 command.Parameters.AddWithValue("@name", type.Name);
                 command.ExecuteNonQuery();
+                command.CommandText = "SELECT last_insert_rowid()";
+                type.ID = Convert.ToInt32(command.ExecuteScalar());
                 connection.Close();
+                return type;
             }
             catch (Exception ex)
             {

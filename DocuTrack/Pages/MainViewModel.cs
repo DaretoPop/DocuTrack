@@ -21,12 +21,12 @@ namespace DocuTrack.Pages
 
             PocetnaPage = new ExpirationsViewModel(this);
             KreirajKorisnikaPage = new UpsertSailorViewModel(this, null);
-            DokumentaPage = new CertificateTypesViewModel(this);
             PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
-            AddNewDocumentPage = new AddNewDocumentViewModel(this);
+            AddNewDocumentPage = new UpsertCertificateTypeViewModel(this, null);
 
             SailorsPage = new SailorsViewModel(this);
+            CertificateTypesPage = new CertificateTypesViewModel(this);
 
 
 
@@ -55,11 +55,11 @@ namespace DocuTrack.Pages
         [ObservableProperty] private BaseViewModel? _profilPomorcaPanelPage;
         [ObservableProperty] private UpsertSailorViewModel? _kreirajKorisnikaPage;
         [ObservableProperty] private BaseViewModel? _loginPage;
-        [ObservableProperty] private BaseViewModel? _dokumentaPage;
         [ObservableProperty] private BaseViewModel? _addNewDocumentPage;
 
 
         [ObservableProperty] private BaseViewModel? _sailorsPage;
+        [ObservableProperty] private BaseViewModel? _certificateTypesPage;
 
 
 
@@ -104,6 +104,21 @@ namespace DocuTrack.Pages
         }
 
 
+        public void ReinitializeCertificateTypes()
+        {
+            CertificateTypesPage = new CertificateTypesViewModel(this);
+        }
+
+        public void GoToCertificateType(CertificateType certificateType)
+        {
+            CurrentPage = new CertificateTypeViewModel(this, certificateType);
+        }
+
+        public void GoToUpsertCertificateType(CertificateType certificateType )
+        {
+            CurrentPage = new UpsertCertificateTypeViewModel(this, certificateType);
+        }
+
         public void ReinitializeSailors()
         {
             SailorsPage = new SailorsViewModel(this);
@@ -135,9 +150,9 @@ namespace DocuTrack.Pages
         }
 
         [RelayCommand]
-        private void GoToDokumenta()
+        public void GoToDokumenta()
         {
-            CurrentPage = DokumentaPage;
+            CurrentPage = CertificateTypesPage;
         }
 
         [RelayCommand]
