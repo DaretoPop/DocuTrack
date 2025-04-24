@@ -43,7 +43,7 @@
 
                             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" >
                                 <Border Classes="sacuvaj-border">
-                                    <Button Content="Izmeni"  Classes="sacuvaj-button" Command="{Binding GoToEditCommand}"/>
+                                    <Button Content="Izmeni"  Classes="sacuvaj-button" Command="{Binding GoToEditCommand}" Cursor="Hand"/>
                                 </Border>
                             </StackPanel>
 
