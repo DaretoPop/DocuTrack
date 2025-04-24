@@ -1,0 +1,107 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+<!-- Main Card -->
+<Style Selector="Border.exp-main-card">
+    <Setter Property="Width" Value="1280"/>
+    <Setter Property="Height" Value="800"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="20"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
+    <Setter Property="Canvas.Left" Value="320"/>
+    <Setter Property="Canvas.Top" Value="140"/>
+</Style>
+
+
+<!-- Header -->
+<Style Selector="Border.exp-main-header">
+    <Setter Property="Grid.Row" Value="0"/>
+    <Setter Property="Background" Value="#F7F7F7"/>
+    <Setter Property="CornerRadius" Value="20,20,0,0"/>
+    <Setter Property="Padding" Value="20"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+</Style>
+
+
+            <Style Selector="TextBlock.exp-main-text">
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+
+<!-- ################################################################################### -->
+
+
+<!-- Content -->
+<Style Selector="TextBlock.imeprezime-label">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>
+
+<Style Selector="TextBlock.typecert-label">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>
+
+<Style Selector="TextBlock.istice-label">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>
+
+
+
+<!-- ################################################################################### -->
+
+<!-- Buttons -->
+
+
+<Style Selector="Button.gotoprofil-button">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="Transparent"/>
+    <Setter Property="Padding" Value="10"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+</Style>
+
+<!-- ################################################################################### -->
+
+<!-- Search -->
+<Style Selector="Border.search-border">
+    <Setter Property="Background" Value="#FAFAFA"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="14"/>
+    <Setter Property="Padding" Value="10"/>
+    <Setter Property="Width" Value="350"/>
+    <Setter Property="Height" Value="55"/>
+</Style>
+
+
+            <Style Selector="TextBlock.search-icon">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Foreground" Value="#808080"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,0,8,0"/>
+            </Style>
+
+<Style Selector="TextBox.search-text">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+</Style>
+
+
+</Styles>
