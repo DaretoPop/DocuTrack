@@ -3,31 +3,17 @@
              xmlns:viewModels="clr-namespace:DocuTrack.ViewModels"
              x:Class="DocuTrack.Views.SailorRowView"
              x:DataType="viewModels:SailorViewModel">
-    <Button Background="Transparent"
-            BorderBrush="Transparent"
-            Padding="10"
-            HorizontalAlignment="Stretch"
+
+
+
+    <Button Classes="gotoSailor-button"
             Command="{Binding GoToSailorPageCommand}"
             CommandParameter="{Binding}">
         <Button.Content>
             <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                <TextBlock Text="{Binding Fullname}"
-                           FontSize="20"
-                           Foreground="#333333"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="1"
-                           Text="{Binding GID}"
-                           FontSize="20"
-                           Foreground="#333333"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-                <TextBlock Grid.Column="2"
-                           Text="{Binding Refresh}"
-                           FontSize="20"
-                           Foreground="#333333"
-                           HorizontalAlignment="Right"
-                           VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Fullname}" Classes="row-text"/>
+                <TextBlock Text="{Binding GID}" Classes="row1-text"/>
+                <TextBlock Text="{Binding Refresh}" Classes="row2-text"/>
             </Grid>
         </Button.Content>
         <Button.Styles>

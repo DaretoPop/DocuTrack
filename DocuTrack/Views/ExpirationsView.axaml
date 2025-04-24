@@ -14,57 +14,28 @@
   <Canvas Background="#808080" Width="1920" Height="1080">
     
     <!-- Main Center Card -->
-    <Border x:Name="MainCard"
-            Width="1280" Height="800"
-            Background="White"
-            CornerRadius="20"
-            BorderBrush="#E0E0E0" BorderThickness="2"
-            BoxShadow="0 20 25 0 #525252"
-            Canvas.Left="320"   
-            Canvas.Top="140">   
+    <Border x:Name="MainCard" Classes="exp-main-card">  
       <Grid RowDefinitions="Auto,*">
 
         <!-- Header -->
-        <Border Grid.Row="0"
-                Background="#F7F7F7"
-                CornerRadius="20,20,0,0"
-                Padding="20"
-                BorderBrush="#E0E0E0"
-                BorderThickness="0,0,0,1">
-          <TextBlock Text="Datumi Isteka Sertifikata"
-                     FontSize="28"
-                     FontWeight="Bold"
-                     Foreground="#333333"
-                     HorizontalAlignment="Center"/>
+        <Border Classes="exp-main-header">
+          <TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/>
         </Border>
         <!-- Scroll of rows -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
           <StackPanel Spacing="10">
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
+                    
+                    <!-- Content -->
               <Button.Content>
                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                  
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -74,30 +45,15 @@
               </Button.Styles>
             </Button>
 
-<Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+          <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -107,30 +63,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -140,30 +81,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -173,30 +99,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -206,30 +117,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -239,30 +135,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -272,30 +153,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -305,30 +171,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -338,30 +189,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -371,30 +207,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -404,30 +225,15 @@
               </Button.Styles>
             </Button>
 
-            <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -437,30 +243,15 @@
               </Button.Styles>
             </Button>
 
-               <Button Background="Transparent"
-                    BorderBrush="Transparent"
-                    Padding="10"
-                    HorizontalAlignment="Stretch"
+               <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
                     Command="{Binding GoToProfilPanelCommand}">
               <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  <TextBlock Text="Ime i Prezime" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Left"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="1" 
-                             Text="📜 Tip Sertifikata" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center"/>
-                  <TextBlock Grid.Column="2" 
-                             Text="📅 Istice: 2026-05-01" 
-                             FontSize="20" 
-                             Foreground="#333333"
-                             HorizontalAlignment="Right"
-                             VerticalAlignment="Center"/>
+                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+
+                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  
                 </Grid>
               </Button.Content>
               <Button.Styles>
@@ -476,31 +267,12 @@
     </Border>
 
     <!-- Search Field on top-left of the main card -->
-    <Border Background="#FAFAFA"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            CornerRadius="14"
-            Padding="10"
-            Width="350" Height="55"
-            Canvas.Left="320"   
-            Canvas.Top="84">   
-
-      <!-- Using a DockPanel to arrange the icon and TextBox side by side -->
+    <Border Classes="search-border" Canvas.Left="320"   
+                                    Canvas.Top="84">   
+<!-- ICON AND TEXT -->
       <DockPanel LastChildFill="True">
-        <!-- iCON -->
-        <TextBlock Text="🔍" 
-                   FontSize="20" 
-                   Foreground="#808080" 
-                   VerticalAlignment="Center" 
-                   Margin="0,0,8,0"
-                   DockPanel.Dock="Left"/>
-        <!-- Search TextBox -->
-        <TextBox Background="Transparent"
-                 BorderThickness="0"
-                 Foreground="#333333"
-                 FontSize="16"
-                 VerticalAlignment="Center"
-                 Watermark="Pretrazi po Tipu/Imenu/Prezimenu"/>
+        <TextBlock Text="🔍" Classes="search-icon"/>
+        <TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu"/>
       </DockPanel>
     </Border>
     

@@ -9,38 +9,16 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
- <!-- Canvas -> for better positions -->
   <Canvas Background="#808080" Width="1920" Height="1080">
     
     <!-- Main Center Card -->
-    <Border x:Name="MainCard"
-            Width="1280" Height="800"
-            Background="White"
-            CornerRadius="20"
-            BorderBrush="#E0E0E0" BorderThickness="1"
-            BoxShadow="0 20 25 0 #525252"
-            Canvas.Left="320"   
-            Canvas.Top="140">   
+    <Border x:Name="MainCard" Classes="sailor-main-card">
       <Grid RowDefinitions="Auto,*">
-
-        <!-- Header -->
-        <Border Grid.Row="0"
-                Background="#F7F7F7"
-                CornerRadius="20,20,0,0"
-                Padding="20"
-                BorderBrush="#E0E0E0"
-                BorderThickness="0,0,0,1">
-          <TextBlock Text="Profil Pomorca"
-                     FontSize="28"
-                     FontWeight="Bold"
-                     Foreground="#333333"
-                     HorizontalAlignment="Center"/>
+        <Border Classes="sailor-card-header">
+            <TextBlock Text="Profil Pomorca" Classes="sailor-card-header-text"/>
         </Border>
-        <!-- Scroll of rows -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30">
           <StackPanel Spacing="10">
-
-
 
 			  <!-- one row -->
               <ItemsControl ItemsSource="{Binding PaginatedSailors}">
@@ -51,26 +29,14 @@
 				  </ItemsControl.ItemTemplate>
               </ItemsControl>
 
-            
-              
-
 			  <!-- end of one row -->
             
-
           </StackPanel>
         </ScrollViewer>
 
-        <!-- Border of pages navigations -->
-        <Border Grid.Row="1" Background="#FAFAFA"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            CornerRadius="20"
-            Padding="5 0 10 8"
-            Width="350" Height="60"
-            Margin="0 725 0 0"
-            BoxShadow="0 20 25 0 #525252">
-
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+        <!-- Border pages navigations -->
+        <Border Classes="page-navigation">
+          <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
            
 			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0"/>
             <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30"/>
@@ -83,56 +49,23 @@
       </Grid>
     </Border>
 
-
     <!-- Search MAIN BORDER-->
-    <Border Background="#FAFAFA"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            CornerRadius="20"
-            Padding="10"
-            Width="350" Height="55"
-            Canvas.Left="320"   
-            Canvas.Top="84">   
+    <Border Classes="sailor-search-border" >
 
-      <!-- Using a DockPanel to arrange the icon and TextBox side by side -->
+<!-- Search -->
       <DockPanel LastChildFill="True">
-        <!-- iCON -->
-        <TextBlock Text="🔍" 
-                   FontSize="20" 
-                   Foreground="#808080" 
-                   VerticalAlignment="Center" 
-                   Margin="0,0,8,0"
-                   DockPanel.Dock="Left"/>
-        <!-- Search TextBox -->
-        <TextBox Background="Transparent"
-                 BorderThickness="0"
-                 Foreground="#333333"
-                 FontSize="16"
-                 VerticalAlignment="Center"
-                 Watermark="Pretrazi"
-                 Text="{Binding SearchTerm, Mode=TwoWay}"
-                 VerticalContentAlignment="Center"/>
+        <TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
+        <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
       </DockPanel>
     </Border>
 
       <!-- Kreiraj Pomorca -->
-    <Border Background="#FAFAFA"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            CornerRadius="20"
-            Padding="10"
-            Width="180" Height="55"
-            Canvas.Left="1420"   
-            Canvas.Top="84">   
-
-
-    <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="18"
-            Command="{Binding GoToKreirajPomorcaPageCommand}"
-            Classes="TransparentHoverButton">
+    <Border Classes="sailor-create-button-frame">   
+      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="18"
+              Command="{Binding GoToKreirajPomorcaPageCommand}"
+              Classes="TransparentHoverButton">
         
       </Button>
     </Border>
-
-    
   </Canvas>
 </UserControl>
