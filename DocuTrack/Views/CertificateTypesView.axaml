@@ -182,38 +182,19 @@
 <!-- ############################################################################################ -->
 
       <!-- Right Panel - Fixed layout-->
-      <Border Grid.Column="2" 
-              Width="400" Height="1015"
-              Background="White"
-              CornerRadius="30"
-              BorderBrush="#E0E0E0"
-              BorderThickness="2"
-              BoxShadow="0 20 25 0 #525252"
-              VerticalAlignment="Center"
-              IsVisible="{Binding IsRightPanelVisible}">
+      <Border Classes="right-panel" IsVisible="{Binding IsRightPanelVisible}">
         <Grid Margin="20">
 
           <Grid.RowDefinitions>
             <!-- Fixed Header -->
             <RowDefinition Height="Auto"/>
-            <!-- Content area (groups) -->
             <RowDefinition Height="*"/>
-            <!-- Fixed Bottom Button -->
             <RowDefinition Height="Auto"/>
           </Grid.RowDefinitions>
 
           <!-- Header -->
-          <Border Grid.Row="0"
-                  Background="#F7F7F7"
-                  CornerRadius="20,20,0,0"
-                  Padding="15"
-                  BorderBrush="#E0E0E0"
-                  BorderThickness="0,0,0,1">
-            <TextBlock Text="Novi/Izmeni"
-                       FontSize="24"
-                       FontWeight="Bold"
-                       Foreground="#333333"
-                       HorizontalAlignment="Center"/>
+          <Border Classes="right-header-panel">
+              <TextBlock Text="Novi/Izmeni" Classes="right-header-text"/>
           </Border>
 
           <!-- Scroll is auto in listbox -->
@@ -222,18 +203,12 @@
             <!-- Sticanje -->
             <StackPanel Spacing="10">
               <TextBlock Text="Ime Tipa:" FontSize="16" Foreground="#555555"/>
-              <TextBlock Text="Sertifikat 1"
-                         FontSize="20"
-                         FontWeight="Bold"
-                         Foreground="#333333"/>
+              <TextBlock Text="Sertifikat 1" FontSize="20" FontWeight="Bold" Foreground="#333333"/>
          <TextBlock Text="Sticanje:" FontSize="16" Foreground="#555555"/>
 
             </StackPanel>
-            <Border Background="#FAFAFA"
-                    CornerRadius="10"
-                    Padding="10"
-                    BorderBrush="#E0E0E0"
-                    BorderThickness="1">
+            <Border Classes="right-container-panel">
+
               <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ListBoxItem>
                   <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
@@ -255,24 +230,15 @@
                 </ListBoxItem>
               </ListBox>
             </Border>
-            <Button Content="Dodaj Zahtev za Sticanje"
-                    HorizontalAlignment="Center"
-                    Width="210"
-                    Height="35"
-                    Background="#808080"
-                    Foreground="White"
-                    CornerRadius="8"
-                    FontSize="16"/>
+            <Button Content="Dodaj Zahtev za Sticanje" Classes="sticanje-button"/>
 
             <!-- Obnova -->
             <StackPanel Spacing="10">
               <TextBlock Text="Obnova:" FontSize="16" Foreground="#555555"/>
             </StackPanel>
-            <Border Background="#FAFAFA"
-                    CornerRadius="10"
-                    Padding="10"
-                    BorderBrush="#E0E0E0"
-                    BorderThickness="1">
+
+              <Border Classes="right-container-panel">
+
               <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ListBoxItem>
                   <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
@@ -288,24 +254,14 @@
                 </ListBoxItem>
               </ListBox>
             </Border>
-            <Button Content="Dodaj Zahtev za Obnovu"
-                    HorizontalAlignment="Center"
-                    Width="205"
-                    Height="35"
-                    Background="#808080"
-                    Foreground="White"
-                    CornerRadius="8"
-                    FontSize="16"/>
+            <Button Content="Dodaj Zahtev za Obnovu" Classes="obnova-button"/>
 
             <!-- Refresh  -->
             <StackPanel Spacing="10">
               <TextBlock Text="Refresh:" FontSize="16" Foreground="#555555"/>
             </StackPanel>
-            <Border Background="#FAFAFA"
-                    CornerRadius="10"
-                    Padding="10"
-                    BorderBrush="#E0E0E0"
-                    BorderThickness="1">
+            <Border Classes="right-container-panel">
+
               <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 <ListBoxItem>
                   <TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
@@ -321,35 +277,13 @@
                 </ListBoxItem>
               </ListBox>
             </Border>
-            <Button Content="Dodaj Zahtev za Refresh"
-                    HorizontalAlignment="Center"
-                    Width="205"
-                    Height="35"
-                    Background="#808080"
-                    Foreground="White"
-                    CornerRadius="8"
-                    FontSize="16"/>
+            <Button Content="Dodaj Zahtev za Refresh" Classes="refresh-button"/>
           </StackPanel>
 
           <!-- Static Sacuvaj Button -->
           <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-  <Border 
-                  Background="#F7F7F7"
-                  CornerRadius="20,20,0,0"
-                  Padding="15"
-                  BorderBrush="#E0E0E0"
-                  BorderThickness="0,0,0,1">
-  <Button Content="Sacuvaj"
-          Command="{Binding ToggleRightPanelCommand}"
-          Width="120"
-          Height="40"
-          Background="#808080"
-          Foreground="White"
-          CornerRadius="8"
-          FontSize="18"
-          FontWeight="SemiBold"
-          HorizontalContentAlignment="Center"
-          VerticalContentAlignment="Center"/>
+  <Border Classes="sacuvaj-border">
+  <Button Content="Sacuvaj" Command="{Binding ToggleRightPanelCommand}" Classes="sacuvaj-button"/>
 </Border> 
 
 </StackPanel>

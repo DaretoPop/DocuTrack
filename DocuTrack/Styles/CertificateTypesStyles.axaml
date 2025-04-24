@@ -75,7 +75,112 @@
 </Style>
 
 
+
+
 <!-- ###################################################################################### -->
+
+<!-- RIGHT PANEL -->
+
+<Style Selector="Border.right-panel">
+    <Setter Property="Grid.Column" Value="2"/>
+    <Setter Property="Width" Value="400"/>
+    <Setter Property="Height" Value="1015"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="30"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="2"/>
+    <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
+</Style>
+
+            <Style Selector="Border.right-header-panel">
+                <Setter Property="Grid.Row" Value="0"/>
+                <Setter Property="Background" Value="#F7F7F7"/>
+                <Setter Property="CornerRadius" Value="20,20,0,0"/>
+                <Setter Property="Padding" Value="15"/>
+                <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            </Style>
+
+<Style Selector="TextBlock.right-header-text">
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+            <Style Selector="Border.right-container-panel">
+                <Setter Property="Background" Value="#FAFAFA"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="BorderBrush" Value="#E0E0E0"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+
+
+
+<!-- ################################################################################## -->
+
+
+<!-- Sacuvaj panel -->
+<Style Selector="Border.sacuvaj-border">
+    <Setter Property="Background" Value="#F7F7F7"/>
+    <Setter Property="CornerRadius" Value="20,20,0,0"/>
+    <Setter Property="Padding" Value="15"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+</Style> 
+
+
+
+<!-- ################################################################################## -->
+
+
+
+<!-- Buttons -->
+
+<Style Selector="Button.sticanje-button">
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="Width" Value="210"/>
+    <Setter Property="Height" Value="35"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="FontSize" Value="16"/>
+</Style>
+
+            <Style Selector="Button.obnova-button">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="205"/>
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="Background" Value="#808080"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+
+<Style Selector="Button.refresh-button">
+    <Setter Property="Width" Value="205"/>
+    <Setter Property="Height" Value="35"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+
+            <Style Selector="Button.sacuvaj-button">
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Background" Value="#808080"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
 
 
 <!-- Kreiraj button -->
@@ -86,12 +191,6 @@
     <Setter Property="Padding" Value="10,10"/>
     <Setter Property="CornerRadius" Value="8"/>
 </Style>
-
-
-<!-- ###################################################################################### -->
-
-<!-- RIGHT PANEL -->
-
 
 
 </Styles>
