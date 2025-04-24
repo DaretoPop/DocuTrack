@@ -24,15 +24,9 @@
         <Border Classes="sailor-profile-header">
             <Grid ColumnDefinitions="350,200,300,550" VerticalAlignment="Center">
 
-              <TextBlock Text="{Binding Fullname}" Classes="profil-name"/>
-              <TextBlock Text="{Binding GID}" Classes="profil-gid"/>
-              <TextBlock Text="{Binding Refresh}"
-                        Grid.Column="2"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Foreground="#333333"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"/>
+              <TextBlock Text="{Binding Fullname}"  Classes="profile-name"/>
+              <TextBlock Text="{Binding GID}"       Classes="profile-gid"/>
+              <TextBlock Text="{Binding Refresh}"   Classes="profile-refresh"/>
               <Button Content="EDIT" Classes="profile-edit-button" Command="{Binding GoToEditSailorPageCommand}"/>
           </Grid>
         </Border>
