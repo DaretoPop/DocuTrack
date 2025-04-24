@@ -1,0 +1,295 @@
+<Styles xmlns="https://github.com/avaloniaui">
+
+
+<!-- Main Border -->
+<Style Selector="Border.sailorview-main-panel">
+    <Setter Property="Width" Value="1300"/>
+    <Setter Property="Height" Value="900"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="30"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="10"/>
+    <Setter Property="BoxShadow" Value="0 20 30 10 #525252"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Canvas.Left" Value="320"/>
+    <Setter Property="Canvas.Top" Value="70"/>
+</Style>
+
+
+ <!-- Profil Panel -->
+<Style Selector="Border.sailor-profile-header">
+    <Setter Property="Grid.Row" Value="0"/>
+    <Setter Property="Background" Value="#F7F7F7"/>
+    <Setter Property="Padding" Value="15"/>
+    <Setter Property="CornerRadius" Value="20,20,0,0"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+</Style>
+
+<!-- Name -->
+<Style Selector="TextBlock.profile-name">
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+   
+</Style>
+
+<!-- Gid -->
+<Style Selector="TextBlock.profile-gid">
+    <Setter Property="Grid.Column" Value="1"/>
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>
+
+<!-- Refresh -->
+<Style Selector="TextBlock.profile-refresh">
+    <Setter Property="Grid.Column" Value="2"/>
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="HorizontalAlignment" Value="Right"/> 
+</Style>
+
+<!-- Edit button -->
+<Style Selector="Button.profile-edit-button">
+    <Setter Property="Grid.Column" Value="3"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Width" Value="70"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+
+<!-- Sticanje button -->
+
+<Style Selector="Button.sailor-sticanje-button">
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+
+<!-- ############################################################################### -->
+<!-- Bottom of panel leftside -->
+
+<Style Selector="TextBlock.skenirana-dokumenta">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Foreground" Value="#555555"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+<!-- listbox1 -->
+<Style Selector="ListBox.sailor-documents-list1">
+    <Setter Property="Height" Value="300"/>
+    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="5"/>
+</Style>
+
+<!-- Listbox2 -->
+<Style Selector="ListBox.sailor-documents-list2">
+    <Setter Property="Height" Value="270"/>
+    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="5"/>
+</Style>
+
+<!-- Print -->
+<Style Selector="Button.sailor-print-button">
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+
+<!-- ######################################################################## -->
+
+<!-- RightSide upper -->
+<Style Selector="StackPanel.rightside-upper-panel">
+    <Setter Property="Grid.Row" Value="0"/>
+    <Setter Property="Spacing" Value="50"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>
+
+
+<!-- TIp -->
+<Style Selector="TextBlock.sailor-tip-text">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Foreground" Value="#555555"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+        <Style Selector="TextBlock.sailor-certificate-name">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+
+<!-- Izadavanje -->
+<Style Selector="TextBlock.sailor-izdavanje-text">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Foreground" Value="#555555"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+        <Style Selector="TextBlock.sailor-izdavanje-datum">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+<!-- Istek -->
+<Style Selector="TextBlock.sailor-istek-text">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Foreground" Value="#555555"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+        <Style Selector="TextBlock.sailor-istek-datum">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+
+<!-- Mesto izdavanja -->
+
+<Style Selector="TextBlock.sailor-mestoizdavanja">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Foreground" Value="#555555"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+</Style>
+
+
+    <Style Selector="TextBlock.sailor-filijala">
+        <Setter Property="Text" Value="Bar/Kotor"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+<!-- ###################################################################### -->
+
+<!-- Bottom of rightside -->
+
+<!-- Zahtevi -->
+<Style Selector="Button.sailor-zahtev-button">
+    <Setter Property="Grid.Column" Value="0"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Width" Value="180"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+<!-- Refresh -->
+<Style Selector="Button.sailor-refresh-button">
+    <Setter Property="Grid.Column" Value="2"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Width" Value="180"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+<!-- Sticanje -->
+<Style Selector="Button.sailor-zahtev-sticanje-button">
+    <Setter Property="Grid.Column" Value="4"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Width" Value="180"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+</Style>
+
+
+<!-- OBNOVA -->
+
+<Style Selector="Button.sailor-obnovi-button">
+    <Setter Property="Grid.Row" Value="3"/>
+    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="Padding" Value="10,5"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Width" Value="180"/>
+    <Setter Property="Height" Value="45"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="10,0,0,0"/>
+</Style>
+
+
+
+<!-- ################################################################################ -->
+
+
+<!-- Back button -->
+
+<Style Selector="Border.sailor-back-border2">
+    <Setter Property="Width" Value="50"/>
+    <Setter Property="Height" Value="40"/>
+    <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="15"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Canvas.Left" Value="200"/>
+    <Setter Property="Canvas.Top" Value="972"/>
+</Style>
+
+<!-- Image -->
+<Style Selector="Image.sailor-back-image">
+    <Setter Property="Source" Value="avares://DocuTrack/Assets/Back.png"/>
+    <Setter Property="Width" Value="25"/>
+    <Setter Property="Height" Value="25"/>
+    <Setter Property="Stretch" Value="Uniform"/>
+</Style>
+
+
+</Styles>

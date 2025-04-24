@@ -13,16 +13,7 @@
 <Canvas Background="#808080" Width="1920" Height="1080">
 
 
-    <Border Width="1300" Height="900"
-           
-            Background="White"
-            CornerRadius="30"
-            BorderBrush="#E0E0E0"
-            BorderThickness="10"
-            BoxShadow="0 20 30 10 #525252"
-            VerticalAlignment="Center"
-            Canvas.Left="320"
-            Canvas.Top="70">
+    <Border Classes="sailorview-main-panel">
       <Grid Margin="20">
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto"/>
@@ -30,43 +21,14 @@
         </Grid.RowDefinitions>
         
         <!-- Profil Panel Header -->
-        <Border Grid.Row="0"
-                Background="#F7F7F7"
-                Padding="15"
-                CornerRadius="20,20,0,0"
-                BorderBrush="#E0E0E0"
-                BorderThickness="0,0,0,1">
+        <Border Classes="sailor-profile-header">
             <Grid ColumnDefinitions="350,200,300,550" VerticalAlignment="Center">
 
-              <TextBlock Text="{Binding Fullname}"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Foreground="#333333"
-                        VerticalAlignment="Center"/>
-              <TextBlock Text="{Binding GID}"
-                        Grid.Column="1"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Foreground="#333333"
-                        VerticalAlignment="Center"/>
+              <TextBlock Text="{Binding Fullname}" Classes="profil-name"/>
+              <TextBlock Text="{Binding GID}" Classes="profil-gid"/>
               <TextBlock Text="{Binding Refresh}"
-                        Grid.Column="2"
-                        FontSize="24"
-                        FontWeight="Bold"
-                        Foreground="#333333"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"/>
-              <Button Grid.Column="3" Content="EDIT"
-                        Background="#808080"
-                        Foreground="White"
-                        FontSize="20"
-                        Padding="10,5"
-                        HorizontalAlignment="Center"
-                        CornerRadius="8"
-                        Width="70"
-                        Height="45"
-                        HorizontalContentAlignment="Center"
-                        VerticalContentAlignment="Center"/>
+/>
+              <Button Content="EDIT" Classes="profile-edit-button"/>
           </Grid>
         </Border>
         
@@ -80,10 +42,7 @@
           
           <!-- TOP of Panel leftSide -->
           <StackPanel Grid.Column="0" Spacing="10">
-            <ListBox Height="300"
-                     BorderBrush="#e0e0e0"
-                     BorderThickness="1"
-                     CornerRadius="5">
+            <ListBox Classes="sailor-documents-list1">
 
               <ListBoxItem><TextBlock Text="Item 1" /></ListBoxItem>
               <ListBoxItem><TextBlock Text="Item 2" /></ListBoxItem>
@@ -94,16 +53,7 @@
             <Grid Width="625" Height="60" ColumnDefinitions="100,90,300" VerticalAlignment="Center">
 
 <!-- STICANJE BUTTON -->
-                 <Button Content="Sticanje"
-                    Background="#808080"
-                    Foreground="White"
-                    FontSize="18"
-                    Padding="10,5"
-                    HorizontalAlignment="Center"
-                    CornerRadius="8"
-                    Height="45"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>
+                 <Button Content="Sticanje" Classes="sailor-sticanje-button"/>
                 </Grid>
 
                 <!-- Separator between upper and lower LEFT SIDE -->
@@ -111,24 +61,13 @@
 
                 <!-- Bottom of Panel LeftSide -->
                <StackPanel Spacing="5" HorizontalAlignment="Center">
-                <TextBlock Text="Skenirana Dokumenta"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                 
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="250"
-                           HorizontalAlignment="Center"/>
-                           
+                <TextBlock Text="Skenirana Dokumenta" Classes="skenirana-dokumenta"/>
+                 <!-- Divider line -->
+                    <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="250" HorizontalAlignment="Center"/>
               </StackPanel>
 
                <StackPanel Grid.Column="0" Spacing="10">
-            <ListBox Height="270"
-                     BorderBrush="#e0e0e0"
-                     BorderThickness="1"
-                     CornerRadius="5">
+            <ListBox Classes="sailor-documents-list2">
 
               <ListBoxItem><TextBlock Text="Skeniran Sertifikat.pdf" /></ListBoxItem>
               <ListBoxItem><TextBlock Text="Skeniran Sertifikat.pdf" /></ListBoxItem>
@@ -136,16 +75,7 @@
             </ListBox>
             </StackPanel>
 <!-- Stmapaj BUTTON -->
-            <Button Content="Stampaj"
-                    Background="#808080"
-                    Foreground="White"
-                    FontSize="18"
-                    Padding="10,5"
-                    HorizontalAlignment="Left"
-                    CornerRadius="8"
-                    Height="45"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"/>              
+            <Button Content="Stampaj" Classes="sailor-print-button"/>              
 
           </StackPanel>
           
@@ -163,85 +93,35 @@
             </Grid.RowDefinitions>
             
             <!-- Upper Side of Right Panel-->
-            <StackPanel Grid.Row="0"
-                        Spacing="50"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
+            <StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center">
 <!-- Tip -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
-                <TextBlock Text="Tip"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="Certifikat 1"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Foreground="#333333"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Classes="sailor-tip-text"/>
+                  <TextBlock Text="Certifikat 1" Classes="sailor-certificate-name"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Izdavanje -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
-                <TextBlock Text="Datum Izdavanja"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="31.05.2024"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Foreground="#333333"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Text="Datum Izdavanja" Classes="sailor-izdavanje-text"/>
+                  <TextBlock Text="31.05.2024" Classes="sailor-izdavanje-datum"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Istek -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
-                <TextBlock Text="Datum Isteka"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="31.05.2026"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Foreground="#333333"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Text="Datum Isteka" Classes="sailor-istek-text"/>
+                  <TextBlock Text="31.05.2026"   Classes="sailor-istek-datum"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Mesto Izdavanja -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
-                <TextBlock Text="Mesto Izdavanja"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="Bar/Kotor"
-                           FontSize="20"
-                           FontWeight="Bold"
-                           Foreground="#333333"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Text="Mesto Izdavanja" Classes="sailor-mestoizdavanja"/>
+                  <TextBlock Text="Bar/Kotor" Classes="sailor-filijala"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
             </StackPanel>
             
             <!-- Horizontal Thick Separator -->
-            <Border Grid.Row="1"
-                    Background="#e0e0e0"
-                    Height="5"
-                    Margin="0,20"/>
+            <Border Grid.Row="1" Background="#e0e0e0" Height="5" Margin="0,20"/>
             
             <!-- Lower Part of RightSIDE-->
             <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
@@ -251,20 +131,12 @@
                 <RowDefinition Height="Auto"/>   <!-- Obnovi Dokument field -->
                 <RowDefinition Height="Auto"/>   <!-- OBNOVI Button -->
                 <RowDefinition Height="Auto"/>   <!-- StareVerzije Button -->
-
               </Grid.RowDefinitions>
               
               <!-- Row 0: "Zahtevi" Field -->
               <StackPanel Grid.Row="0" HorizontalAlignment="Center" Spacing="5" Margin="0,0,0,20">
-                <TextBlock Text="Zahtevi"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Text="Zahtevi" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
               
               
@@ -276,86 +148,25 @@
                   <ColumnDefinition Width="40"/>
                   <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-<!-- Zahtev -->
-                  <Button Grid.Column="0"
-                          Content="Zahtev za Obnovu"
-                          Background="#808080"
-                          Foreground="White"
-                          FontSize="18"
-                          Padding="10,5"
-                          HorizontalAlignment="Center"
-                          CornerRadius="8"
-                          Width="180"
-                          Height="45"
-                          HorizontalContentAlignment="Center"
-                          VerticalContentAlignment="Center"/>
-<!-- Refresh -->
-                  <Button Grid.Column="2"
-                          Content="Zahtev za Refresh"
-                          Background="#808080"
-                          Foreground="White"
-                          FontSize="18"
-                          Padding="10,5"
-                          HorizontalAlignment="Center"
-                          CornerRadius="8"
-                          Width="180"
-                          Height="45"
-                          HorizontalContentAlignment="Center"
-                          VerticalContentAlignment="Center"/>
-<!-- Sticanje -->
-                  <Button Grid.Column="4"
-                          Content="Zahtev za Sticanje"
-                          Background="#808080"
-                          Foreground="White"
-                          FontSize="18"
-                          Padding="10,5"
-                          HorizontalAlignment="Center"
-                          CornerRadius="8"
-                          Width="180"
-                          Height="45"
-                          HorizontalContentAlignment="Center"
-                          VerticalContentAlignment="Center"/>
+
+                  <Button Content="Zahtev za Obnovu" Classes="sailor-zahtev-button"/>
+                  <Button Content="Zahtev za Refresh" Classes="sailor-refresh-button"/>
+                  <Button Content="Zahtev za Sticanje" Classes="sailor-zahtev-sticanje-button"/>
               </Grid>
               
               <!-- Obnovi Dokument -->
               <StackPanel Grid.Row="2" HorizontalAlignment="Center" Spacing="5" Margin="10,40,0,20">
-                <TextBlock Text="Obnovi Dokument"
-                           FontSize="18"
-                           Foreground="#555555"
-                           HorizontalAlignment="Center"/>
-                <Rectangle Height="1"
-                           Fill="#cccccc"
-                           StrokeDashArray="4,2"
-                           Width="200"
-                           HorizontalAlignment="Center"/>
+                  <TextBlock Text="Obnovi Dokument" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
+                  <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
-              
+            
               <!--OBNOVI BUTTON -->
-              <Button Grid.Row="3"
-                      Content="OBNOVI"
-                      Background="#808080"
-                      Foreground="White"
-                      FontSize="18"
-                      Padding="10,5"
-                      HorizontalAlignment="Center"
-                      CornerRadius="8"
-                      Width="180"
-                      Height="45"
-                      HorizontalContentAlignment="Center"
-                      VerticalContentAlignment="Center"
-                      Margin="10,0,0,0"/>
-
+              <Button Content="OBNOVI" Classes="sailor-obnovi-button"/>
+              
               <!-- >Stare Verzije -->
-                       <Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17"
-                      Margin="0,30,0,100">
-                        <Button.Styles>
-                          <Style Selector="Button:pointerover /template/ ContentPresenter">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="BorderBrush" Value="Transparent"/>
-                            <Setter Property="TextBlock.Foreground" Value="#808080"/>
-                          </Style>
-                        </Button.Styles>
-                    </Button>
+                       <Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100" 
+                               Classes="TransparentHoverButton">
+                      </Button>
 
             </Grid>
           </Grid>
@@ -364,31 +175,15 @@
     </Border>
     
     <!-- BACK BUTTON -->
-    <Border Width="50" Height="40"
-            BoxShadow="0 15 30 2 #525252"
-            Background="White"
-            CornerRadius="15"
-            BorderBrush="#E0E0E0"
-            BorderThickness="1"
-            VerticalAlignment="Center"
-            Canvas.Left="200"
-            Canvas.Top="972">
+    <Border Classes="sailor-back-border2">
       <Grid>
-        <Button Background="Transparent"
-              Command="{Binding GoBackCommand}"
-              HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch"
-              Classes="TransparentHoverButton">
-        <Image Source="avares://DocuTrack/Assets/Back.png"
-               Width="25"
-               Height="25"
-               Stretch="Uniform"/>
-      </Button>
+        <Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                 Classes="TransparentHoverButton">
+        <Image   Classes="sailor-back-image"/>
 
-        
+      </Button>
       </Grid>
     </Border>
-
 </Canvas>
 </UserControl>
 
