@@ -83,8 +83,8 @@
 
 <Style Selector="Border.right-panel">
     <Setter Property="Grid.Column" Value="2"/>
-    <Setter Property="Width" Value="400"/>
-    <Setter Property="Height" Value="1015"/>
+    <Setter Property="Width" Value="700"/>
+    <Setter Property="Height" Value="975"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="30"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
