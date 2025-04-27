@@ -13,7 +13,7 @@
       <Grid Background="#808080">
 
 <!--  Back Button -->
-         <Border Classes="upsert-back-button">
+         <Border Classes="upsert-back-border">
 
       <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               Command="{Binding GoBackCommand}"
