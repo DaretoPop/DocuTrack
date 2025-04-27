@@ -34,13 +34,17 @@
                             <TextBox Text="{Binding Naziv}" Classes="nazivdokumenta-text"/>
                         </Border>
 
-                                                        <!-- Error  -->
+                                                        <!-- Upload Button -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+                            <Button Content="Sačuvaj" Command="{Binding SaveCommand}" Classes="addnew-button"/>
+                            <Button Content="Izbriši" IsVisible="{Binding IsNew}" Command="{Binding DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Classes="addnew-button"/>
+                        </StackPanel>
+
+                                                          <!-- Error  -->
                         <Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
                             <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
                         </Border>
-                                                        <!-- Upload Button -->
-                        <Button Content="Sačuvaj" Command="{Binding SaveCommand}" Classes="addnew-button"/>
-                        <Button Content="Izbriši" IsVisible="{Binding IsNew}" Command="{Binding DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Classes="addnew-button"/>
+
                     </StackPanel>
                 </Grid>
             </Grid>

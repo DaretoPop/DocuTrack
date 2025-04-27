@@ -31,7 +31,7 @@
 <!-- Main Card -->
 <Style Selector="Border.addnew-border">
     <Setter Property="Width" Value="700"/>
-    <Setter Property="Height" Value="300"/>
+    <Setter Property="Height" Value="350"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="14"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
@@ -92,6 +92,7 @@
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="FontSize" Value="15"/>
     <Setter Property="FontWeight" Value="Medium"/>
     <Setter Property="Margin" Value="0,0,0,20"/>
