@@ -30,9 +30,18 @@
 
 <!-- #Number of Sailors -->
 
+<Style Selector="StackPanel.totalcount-stack-panel">
+    <Setter Property="Orientation" Value="Horizontal"/>
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0,0,20,0"/>
+</Style>
+
+
+
         <!-- Total Count of Sailors -->
 <Style Selector="TextBlock.sailors-count-text">
-    <Setter Property="FontSize" Value="28"/>
+    <Setter Property="FontSize" Value="25"/>
     <Setter Property="FontWeight" Value="Bold"/>
     <Setter Property="Foreground" Value="#333333"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -43,6 +52,7 @@
                         <Setter Property="Foreground" Value="#555555"/>
                         <Setter Property="HorizontalAlignment" Value="Center"/>
                         <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Margin" Value="0,0,8,0"/>
                     </Style>
 
 

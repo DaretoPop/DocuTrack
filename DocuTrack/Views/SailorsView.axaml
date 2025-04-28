@@ -16,27 +16,22 @@
       <Grid RowDefinitions="Auto,*">
        <Border Classes="sailor-card-header">
     <Grid>
+      <!-- Profil Header -->
           <TextBlock
             Text="Profil Pomorca"
-            Classes="sailor-card-header-text"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"/>
-
+            Classes="sailor-card-header-text"/>
    <!-- One row two text block xD -->
          <StackPanel
-            Orientation="Horizontal"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Margin="0,0,20,0">
+            Classes="totalcount-stack-panel">
             <TextBlock
-              Text="ukupan broj:"
+              Text="Pomorci: "
               Classes="sailors-ukupanBroj-text"/>
 
             <!-- TotalSailorsCound -->
             <TextBlock
               Text="{Binding TotalSailorsCount}"
               Classes="sailors-count-text"/>
-              
+
     </StackPanel>
     </Grid>
 </Border>
