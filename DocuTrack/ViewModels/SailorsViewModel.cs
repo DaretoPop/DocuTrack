@@ -30,6 +30,8 @@ namespace DocuTrack.ViewModels
         [ObservableProperty]
         private string searchTerm = string.Empty;
 
+        public int TotalSailorsCount => Sailors.Count;
+
 
         public ObservableCollection<SailorViewModel> Sailors { get; set; } = new();
         public ObservableCollection<SailorViewModel> FilteredSailors { get; set; } = new();
@@ -69,6 +71,9 @@ namespace DocuTrack.ViewModels
 
             // Calculate total pages
             TotalPages = (int)Math.Ceiling((double)Sailors.Count / PageSize);
+
+            //Show update count of Sailors
+            OnPropertyChanged(nameof(TotalSailorsCount));
         }
 
         private void UpdateFilteredSailors()

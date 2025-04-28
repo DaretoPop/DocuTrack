@@ -14,9 +14,27 @@
     <!-- Main Center Card -->
     <Border x:Name="MainCard" Classes="sailor-main-card">
       <Grid RowDefinitions="Auto,*">
-        <Border Classes="sailor-card-header">
-            <TextBlock Text="Profil Pomorca" Classes="sailor-card-header-text"/>
-        </Border>
+       <Border Classes="sailor-card-header">
+    <Grid>
+      <!-- Profil Header -->
+          <TextBlock
+            Text="Profil Pomorca"
+            Classes="sailor-card-header-text"/>
+   <!-- One row two text block xD -->
+         <StackPanel
+            Classes="totalcount-stack-panel">
+            <TextBlock
+              Text="Pomorci: "
+              Classes="sailors-ukupanBroj-text"/>
+
+            <!-- TotalSailorsCound -->
+            <TextBlock
+              Text="{Binding TotalSailorsCount}"
+              Classes="sailors-count-text"/>
+
+    </StackPanel>
+    </Grid>
+</Border>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30">
           <StackPanel Spacing="10">
 

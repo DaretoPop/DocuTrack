@@ -13,7 +13,7 @@
       <Grid Background="#808080">
 
 <!--  Back Button -->
-         <Border Classes="upsert-back-button">
+         <Border Classes="upsert-back-border">
 
       <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               Command="{Binding GoBackCommand}"
@@ -42,10 +42,6 @@
                         <TextBox Text="{Binding GID , Mode=TwoWay}" Classes="upsert-jmbg-text"/>
                     </Border>
 
-                        <!-- Error  -->
-					<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
-                        <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
-                    </Border>
 
                     <!-- Kreiraj -->
                     <Button Content="Kreiraj"
@@ -53,17 +49,25 @@
                             Command="{Binding SubmitCommand}"
                             Classes="upsert-kreiraj-button"/>
 
+                    <!-- Promeni/Izbrisi -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
                     <Button Content="Promeni"
                             IsVisible="{Binding SailorExists}"
                             Command="{Binding SubmitCommand}"
                             Classes="upsert-kreiraj-button"/>
-
+    
                     <Button Content="Izbriši"
-                            Command="{Binding DeleteSailorCommand}"
                             IsVisible="{Binding SailorExists}"
+                            Command="{Binding DeleteSailorCommand}"
                             CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                            Classes="upsert-kreiraj-button"
-                            />
+                            Classes="upsert-kreiraj-button"/>
+                </StackPanel>
+
+                             <!-- Error  -->
+					<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                        <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+                    </Border>
+
                 </StackPanel>
                            
                             <!-- Checkbox for Refresh -->
