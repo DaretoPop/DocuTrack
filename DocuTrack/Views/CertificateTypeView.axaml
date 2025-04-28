@@ -76,7 +76,7 @@
 								</ListBoxItem>
 							</ListBox>
 						</Border>
-						<Button Content="Dodaj Zahtev za Sticanje" Classes="sticanje-button"/>
+						<Button Content="Dodaj Zahtev za Sticanje" Classes="sticanje-button" Command="{Binding DodajZahtevZaSticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
 						<!-- Obnova -->
 						<StackPanel Spacing="10">
@@ -88,6 +88,7 @@
 							<ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
 								<ListBoxItem>
 									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
+									
 								</ListBoxItem>
 								<ListBoxItem>
 									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>

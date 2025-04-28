@@ -18,6 +18,9 @@ namespace DocuTrack.Data
     // Use AppContext.BaseDirectory for Release builds
     $"Data Source={AppContext.BaseDirectory}Data/identifier.sqlite";
 #endif
+        private static readonly string CertificateTypeDocumentsBaseFolder = $"Data/CertificateTypes";
+
+
 
         public static SqliteConnection GetConnection()
         {
@@ -229,8 +232,89 @@ namespace DocuTrack.Data
                 throw new Exception("Error deleting certificate type from the database", ex);
             }
         }
+
         #endregion
 
+        #region Certificate Types - Documents
+        // File path : Data/CertificateTypes/ID/Type/FileName
+
+        internal static string getCertificateTypeDocumentPath(RequestFile file)
+        {
+            return $"{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}/{file.FilePath}";
+        }
+
+        internal static List<RequestFile> getCertificateTypeDocuments(int certificateTypeID)
+        {
+            var files = new List<RequestFile>();
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, FilePath, CertificateTypeID FROM RequestFiles WHERE CertificateTypeID = @certificateTypeID";
+                command.Parameters.AddWithValue("@certificateTypeID", certificateTypeID);
+                using var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var file = new RequestFile
+                    {
+                        ID = reader.GetInt32(0), // ID
+                        FilePath = reader.GetString(1), // FilePath
+                        CertificateTypeID = reader.GetInt32(2) // CertificateTypeID
+                    };
+                    files.Add(file);
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving certificate type documents from the database", ex);
+            }
+            return files;
+        }
+
+        internal static byte[] getCertificateTypeDocumentData(RequestFile file)
+        {
+            return null;
+        }
+        
+        internal static void addCertificateTypeDocument(RequestFile file, byte[] fileData)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO RequestFiles (FilePath, CertificateTypeID) VALUES (@filePath, @certificateTypeID)";
+                command.Parameters.AddWithValue("@filePath", file.FilePath);
+                command.Parameters.AddWithValue("@certificateTypeID", file.CertificateTypeID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error adding certificate type document to the database", ex);
+            }
+        }
+
+        internal static void deleteCertificateTypeDocument(RequestFile file)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM RequestFiles WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", file.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate type document from the database", ex);
+            }
+        }
+
+
+
+        #endregion
 
 
 
