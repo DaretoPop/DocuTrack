@@ -31,7 +31,7 @@
 
                 </StackPanel>
                 
-                        <Border x:Name="ErrorBox" Classes="error-message">          <!-- Error message(change(false/true)) -->
+                        <Border x:Name="ErrorBox" Classes="error-message" IsVisible="{Binding IsError}">     
                             <TextBlock Text="{Binding ErrorMessage}" Classes="error-textbox"/>
                         </Border>
             </Grid>

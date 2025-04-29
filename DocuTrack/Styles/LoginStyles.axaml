@@ -78,8 +78,8 @@
     <Setter Property="Margin" Value="20"/>
     <Setter Property="VerticalAlignment" Value="Bottom"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="IsVisible" Value="True"/>
 </Style>
+
             <Style Selector="TextBlock.error-textbox">
                 <Setter Property="Foreground" Value="#F44336"/>
                 <Setter Property="FontSize" Value="13"/>

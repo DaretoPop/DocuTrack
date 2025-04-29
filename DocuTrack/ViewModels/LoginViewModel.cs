@@ -16,6 +16,7 @@ namespace DocuTrack.ViewModels
 
         public LoginViewModel()
         {
+            isError = false;
         }
 
         public LoginViewModel(MainViewModel mainViewModel)
@@ -27,6 +28,7 @@ namespace DocuTrack.ViewModels
 
         [ObservableProperty] public string login = "Login";
         [ObservableProperty] public string errorMessage = string.Empty;
+        [ObservableProperty] public bool isError;
         [ObservableProperty] public string username = "";
         [ObservableProperty] public string password = "";
 
@@ -48,7 +50,8 @@ namespace DocuTrack.ViewModels
                 }
                 else
                 {
-                    ErrorMessage = "Invalid Credentials";
+                    IsError = true;
+                    ErrorMessage = "Pogresan Username ili Password";
                 }
             }
             catch (Exception ex)
