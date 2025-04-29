@@ -29,7 +29,6 @@ namespace DocuTrack.Pages
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
 
-
             //temp
             CurrentPage = PocetnaPage;
             IsLoggedIn = true;
@@ -39,10 +38,10 @@ namespace DocuTrack.Pages
 
         // DataContex
         [ObservableProperty] private string app = "DocuTrack";
-        [ObservableProperty] private string pocetna = "• Pocetna";
-        [ObservableProperty] private string pomorci = "• Pomorac";
+        [ObservableProperty] private string pocetna = "Pocetna";
+        [ObservableProperty] private string pomorci = "Pomorac";
         [ObservableProperty] private string kreirajKorisnika = "Kreiraj Pomorca";
-        [ObservableProperty] private string dokumenta = "• Tip Dokumenta";
+        [ObservableProperty] private string dokumenta = "Dokumenta";
         [ObservableProperty] private string sertifikati = "Sertifikati";
         [ObservableProperty] private string izadji = "• Izadji"; //todo: app.exit(izadji button)
 
@@ -67,8 +66,34 @@ namespace DocuTrack.Pages
         [ObservableProperty] private bool _isVisable;
         [ObservableProperty] private bool isPocetnaView;
 
+        [ObservableProperty] private bool _isPocetnaSelected;
+        [ObservableProperty] private bool _isPomorciSelected;
+        [ObservableProperty] private bool _isDokumentaSelected;
 
 
+// Display arrow 2 based on the navigation
+[RelayCommand]
+private void SetSelectedPage(string page)
+{
+            // Restart
+            IsPocetnaSelected = false;
+            IsPomorciSelected = false;
+            IsDokumentaSelected = false;
+
+
+    if (page == "Pocetna")
+        {
+            IsPocetnaSelected = true;
+        }
+    else if (page == "Pomorci")
+        {
+            IsPomorciSelected = true;
+        }
+    else if (page == "Dokumenta")
+        {
+            IsDokumentaSelected = true;
+        }
+}
 
 // Change States
 
@@ -76,19 +101,21 @@ namespace DocuTrack.Pages
         {
             CurrentPage = PocetnaPage;
             IsLoggedIn = true;
+            IsPocetnaSelected = true;
         }
 
         [RelayCommand]
         private void GoToPocetna()
         {
             CurrentPage = PocetnaPage;
+            SetSelectedPage("Pocetna");
         }
 
         [RelayCommand]
         public void GoToPomorci()
         {
             CurrentPage = PomorciPage;
-
+            SetSelectedPage("Pomorci");
         }
 
         [RelayCommand]
@@ -153,6 +180,8 @@ namespace DocuTrack.Pages
         public void GoToDokumenta()
         {
             CurrentPage = CertificateTypesPage;
+            SetSelectedPage("Dokumenta");
+
         }
 
         [RelayCommand]

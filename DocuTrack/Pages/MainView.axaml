@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
         Width="1400" Height="800"
         MinWidth="1280" MinHeight="800"
         WindowStartupLocation="CenterScreen"
@@ -33,22 +33,109 @@
                 </StackPanel>
 
                 <!-- POCETNA  -->
-                <Button Content="{Binding Pocetna}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
-                        Command="{Binding GoToPocetnaCommand}"
-                        Classes="TransparentHoverButton">
+                <Button
+                    Background="Transparent"
+                    Foreground="White"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToPocetnaCommand}"
+                    Classes="TransparentHoverButton"
+                    Padding="0">
+
+                <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
+    
+                    <Rectangle
+                        Grid.Column="0"
+                        Fill="#FF6347"
+                        IsVisible="{Binding IsPocetnaSelected}"
+                        Margin="0 0 2 0"/>
+
+                    <!-- 2) Page label -->
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{Binding Pocetna}"
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Margin="5 0 0 0"/>
+                        
+
+                    <!-- 3) Arrow indicator -->
+                    <TextBlock
+                        Grid.Column="2"
+                        Text="◀"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        Margin="0,0,100,0"
+                        IsVisible="{Binding IsPocetnaSelected}"/>
+                </Grid>
                 </Button>
 
+                 <!-- POMORCI -->
+                <Button
+                    Background="Transparent"
+                    Foreground="White"
+                    HorizontalAlignment="Stretch"
+                    Command="{Binding GoToPomorciCommand}"
+                    Classes="TransparentHoverButton"
+                    Padding="0">
 
-                <!-- POMORCI  -->
-                 <Button Content="{Binding Pomorci}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
-                         Command="{Binding GoToPomorciCommand}"
-                         Classes="TransparentHoverButton">
+                <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
+    
+                    <Rectangle
+                        Grid.Column="0"
+                        Fill="#FF6347"
+                        IsVisible="{Binding IsPomorciSelected}"
+                        Margin="0 0 2 0"/>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{Binding Pomorci}"
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Margin="5,0,0,0"/>
+                        
+                    <TextBlock
+                        Grid.Column="2"
+                        Text="◀"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        Margin="0,0,95,0"
+                        IsVisible="{Binding IsPomorciSelected}"/>
+                </Grid>
                 </Button>
+
 
                 <!-- DOKUMENTA -->
-                 <Button Content="{Binding Dokumenta}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"
-                         Command="{Binding GoToDokumentaCommand}"
-                         Classes="TransparentHoverButton">
+           <Button
+                Background="Transparent"
+                Foreground="White"
+                HorizontalAlignment="Stretch"
+                Command="{Binding GoToDokumentaCommand}"
+                Classes="TransparentHoverButton"
+                Padding="0">
+
+                <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
+
+                    <Rectangle
+                        Grid.Column="0"
+                        Fill="#FF6347"
+                        IsVisible="{Binding IsDokumentaSelected}"
+                        Margin="0,0,2,0"/>
+
+                    <TextBlock
+                        Grid.Column="1"
+                        Text="{Binding Dokumenta}"
+                        FontSize="20"
+                        VerticalAlignment="Center"
+                        Margin="5,0,0,0"/>
+
+                    <TextBlock
+                        Grid.Column="2"
+                        Text="◀"
+                        FontSize="12"
+                        VerticalAlignment="Center"
+                        Margin="0,0,70,0"
+                        IsVisible="{Binding IsDokumentaSelected}"/>
+                </Grid>
                 </Button>
 
 
