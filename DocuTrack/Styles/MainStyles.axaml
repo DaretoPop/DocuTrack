@@ -12,5 +12,97 @@
   </Style>
 
 
+<!-- ############################################################## -->
+
+<!-- Pocetna -->
+
+<Style Selector="TextBlock.main-pocetnaStrana-text">
+  <Setter Property="Grid.Column" Value="1"/>
+  <Setter Property="FontSize" Value="20"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="5,0,0,0"/>
+</Style>
+
+<Style Selector="TextBlock.main-pocetna-arrow">
+  <Setter Property="Grid.Column" Value="2"/>
+  <Setter Property="FontSize" Value="12"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="0,0,100,0"/>
+</Style>
+
+
+<!-- ################################################################## -->
+
+<!--  Logo separator -->
+<Style Selector="Separator.main-logo-separator">
+  <Setter Property="Grid.Row" Value="1"/>
+  <Setter Property="Background" Value="Black"/>
+  <Setter Property="Height" Value="1"/>
+  <Setter Property="Margin" Value="0,-30,0,40"/>
+</Style>
+
+<!-- Separator -->
+<Style Selector="Border.main-line-separator">
+  <Setter Property="Width" Value="100"/>
+  <Setter Property="Height" Value="1"/>
+  <Setter Property="Background" Value="White"/>
+  <Setter Property="Opacity" Value="0.3"/>
+</Style>
+
+
+<!-- ################################################################## -->
+
+<!-- Pomorci -->
+
+<Style Selector="TextBlock.main-pomorciStrana-text">
+  <Setter Property="Grid.Column" Value="1"/>
+  <Setter Property="FontSize" Value="20"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="5,0,0,0"/>
+</Style>
+
+
+<Style Selector="TextBlock.pomorci-arrow">
+  <Setter Property="Grid.Column" Value="2"/>
+  <Setter Property="FontSize" Value="12"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="0,0,95,0"/>
+  <Setter Property="Foreground" Value="White"/>
+</Style>
+
+<!-- ################################################################## -->
+
+<!-- Dokumenta -->
+
+<Style Selector="Button.main-dokumentaPage-button">
+  <Setter Property="Background" Value="Transparent"/>
+  <Setter Property="Foreground" Value="White"/>
+  <Setter Property="HorizontalAlignment" Value="Stretch"/>
+  <Setter Property="Padding" Value="0"/>
+</Style>
+
+
+<!-- Grid -->
+<Style Selector="Grid.main-default-grid">
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="0,4"/>
+</Style>
+
+
+
+<Style Selector="TextBlock.main-dokumentaPage-text">
+  <Setter Property="Grid.Column" Value="1"/>
+  <Setter Property="FontSize" Value="20"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="5,0,0,0"/>
+</Style>
+
+<Style Selector="TextBlock.main-dokumenta-arrow">
+  <Setter Property="Grid.Column" Value="2"/>
+  <Setter Property="FontSize" Value="12"/>
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="Margin" Value="0,0,70,0"/>
+</Style>
+
 </Styles>
 
