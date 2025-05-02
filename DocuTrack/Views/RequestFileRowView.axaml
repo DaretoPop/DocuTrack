@@ -10,18 +10,39 @@
              x:Class="DocuTrack.Views.RequestFileRowView">
 
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
-        <Grid>
-			<Button Content="{Binding FilePath}"
-                    Cursor="Hand"
-                    VerticalAlignment="Center"
-                    Classes="file-path-text"
-                    Command="{Binding OpenFileCommand}" />
-			<Button Content="X"
-                    Cursor="Hand"
-                    Classes="delete-button"
-                    VerticalAlignment="Center"
-                    Command="{Binding DeleteFileCommand}" />
+			<Button Grid.Column="0" Content="{Binding FilePath}"
+                                Cursor="Hand"
+                                VerticalAlignment="Center"
+                                Classes="file-path-text"
+                                Command="{Binding OpenFileCommand}" />
+
+                        <Button Grid.Column="1"
+                                Width="28" Height="26"
+                                CornerRadius="12"
+                                Background="Silver"
+                                BorderBrush="Transparent"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Cursor="Hand"
+                                Margin="8,0,0,0"
+                                Command="{Binding DeleteFileCommand}">
+                        <Button.Styles>
+                        <Style x:SetterTargetType="Button"
+                                Selector=":pointerover">
+                        <Setter Property="Background" Value="#c50000"/>
+                        </Style>
+                        </Button.Styles>
+                        <TextBlock Text="✕"
+                                Foreground="White"
+                                FontSize="12"/>
+                        </Button>
+
         </Grid>
 
 </UserControl>
