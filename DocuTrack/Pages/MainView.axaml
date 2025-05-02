@@ -96,6 +96,7 @@
                         <!-- IZADJI--> 
              <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"    
                      Command="{Binding ExitCommand}"
+                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                      Classes="TransparentHoverButton">    
                 </Button>
             </Grid>

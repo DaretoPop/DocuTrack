@@ -187,7 +187,7 @@ private void SetSelectedPage(string page)
         [RelayCommand]
         private void Exit(Window window)
         {
-            window.Close(); //! Bad immplementation, try another way
+            if (window != null) window.Close(); //! Bad immplementation, try another way
         }
 
 
