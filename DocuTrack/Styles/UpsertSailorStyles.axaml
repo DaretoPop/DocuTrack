@@ -5,7 +5,7 @@
     <Setter Property="Height" Value="40"/>
     <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
     <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="15"/>
+    <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Margin" Value="50,0,0,50"/>
@@ -29,7 +29,7 @@
     <Setter Property="Width" Value="700"/>
     <Setter Property="Height" Value="400"/>
     <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="14"/>
+    <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="BorderBrush" Value="#e0e0e0"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="BoxShadow" Value="0 10 25 0 #525252"/>
@@ -41,7 +41,7 @@
 <!-- Ime -->
 <Style Selector="Border.upsert-ime-border">
     <Setter Property="Height" Value="50"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="12"/>
     <Setter Property="BorderBrush" Value="#808080"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 15"/>
@@ -60,7 +60,7 @@
 <!-- Prezime -->
 <Style Selector="Border.upsert-prezime-border">
     <Setter Property="Height" Value="50"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="12"/>
     <Setter Property="BorderBrush" Value="#808080"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 25"/>
@@ -80,7 +80,7 @@
 
 <Style Selector="Border.upsert-jmbg-border">
     <Setter Property="Height" Value="50"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="12"/>
     <Setter Property="BorderBrush" Value="#808080"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 25"/>
@@ -102,7 +102,7 @@
     <Setter Property="Background" Value="#FFF5F5"/>
     <Setter Property="BorderBrush" Value="#FFEBEE"/>
     <Setter Property="BorderThickness" Value="2"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="12"/>
     <Setter Property="Padding" Value="12"/>
     <Setter Property="Margin" Value="0 0 0 20"/>
 </Style>
@@ -120,7 +120,7 @@
 <Style Selector="Button.upsert-kreiraj-button">
     <Setter Property="Height" Value="45"/>
     <Setter Property="Width" Value="100"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="12"/>
     <Setter Property="Background" Value="#808080"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
