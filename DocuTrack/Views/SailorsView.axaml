@@ -56,11 +56,11 @@
         <Border Classes="page-navigation">
           <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
            
-			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0"/>
-            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30"/>
+			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0" CornerRadius="12"/>
+            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30" CornerRadius="12"/>
             <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin=" 0 0 3 0"/>
-            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" />
+            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin=" 0 0 3 0" CornerRadius="12"/>
+            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Width="50" CornerRadius="12"/>
            
         </StackPanel>
          </Border>
@@ -79,7 +79,7 @@
 
       <!-- Kreiraj Pomorca -->
     <Border Classes="sailor-create-button-frame">   
-      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="18"
+      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="15.5"
               Command="{Binding GoToKreirajPomorcaPageCommand}"
               Classes="TransparentHoverButton">
         

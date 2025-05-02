@@ -102,7 +102,7 @@
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="Watermark" Value="Pretrazi"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
-    <Setter Property="Margin" Value="30,0,0,0"/> <!-- Adjust margin to position after icon -->
+    <Setter Property="Margin" Value="10,0,0,0"/> <!-- Adjust margin to position after icon -->
 </Style>
 
 
@@ -113,9 +113,9 @@
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="Padding" Value="10"/>
-    <Setter Property="Width" Value="180"/>
+    <Setter Property="Width" Value="160"/>
     <Setter Property="Height" Value="55"/>
-    <Setter Property="Canvas.Left" Value="1420"/>
+    <Setter Property="Canvas.Left" Value="1440"/>
     <Setter Property="Canvas.Top" Value="84"/>
 </Style>
 
