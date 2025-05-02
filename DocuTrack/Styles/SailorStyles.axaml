@@ -6,7 +6,7 @@
     <Setter Property="Width" Value="1300"/>
     <Setter Property="Height" Value="900"/>
     <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="30"/>
+    <Setter Property="CornerRadius" Value="50"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
     <Setter Property="BorderThickness" Value="10"/>
     <Setter Property="BoxShadow" Value="0 20 30 10 #525252"/>
@@ -62,7 +62,7 @@
     <Setter Property="FontSize" Value="20"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Width" Value="70"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -78,7 +78,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -99,7 +99,7 @@
     <Setter Property="Height" Value="300"/>
     <Setter Property="BorderBrush" Value="#e0e0e0"/>
     <Setter Property="BorderThickness" Value="1"/>
-    <Setter Property="CornerRadius" Value="5"/>
+    <Setter Property="CornerRadius" Value="15"/>
 </Style>
 
 <!-- Listbox2 -->
@@ -107,7 +107,7 @@
     <Setter Property="Height" Value="270"/>
     <Setter Property="BorderBrush" Value="#e0e0e0"/>
     <Setter Property="BorderThickness" Value="1"/>
-    <Setter Property="CornerRadius" Value="5"/>
+    <Setter Property="CornerRadius" Value="15"/>
 </Style>
 
 <!-- Print -->
@@ -117,7 +117,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -208,7 +208,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Width" Value="180"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -223,7 +223,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Width" Value="180"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -238,7 +238,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Width" Value="180"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -255,7 +255,7 @@
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
-    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="CornerRadius" Value="15"/>
     <Setter Property="Width" Value="180"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -275,7 +275,7 @@
     <Setter Property="Height" Value="40"/>
     <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
     <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="15"/>
+    <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
