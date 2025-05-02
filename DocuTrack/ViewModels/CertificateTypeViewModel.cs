@@ -120,5 +120,84 @@ namespace DocuTrack.ViewModels
                 }
             }
         }
+
+        [RelayCommand]
+        private async Task DodajZahtevZaObnovu(Window parentWindow)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Title = "Select Files",
+                AllowMultiple = true,
+                Filters = new List<FileDialogFilter>
+                {
+                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "doc", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                    new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
+                    new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
+                    new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
+
+                }
+            };
+
+            var result = await dialog.ShowAsync(parentWindow);
+
+            if (result != null && result.Any())
+            {
+                if (CertificateType.Documents == null)
+                {
+                    CertificateType.Documents = new List<RequestFile>();
+                }
+                foreach (var filePath in result)
+                {
+                    // Process each selected file
+                    // Example: Add to the CertificateType's Documents collection
+                    CertificateType.Documents.Add(new RequestFile
+                    {
+                        FilePath = filePath,
+                        CertificateTypeID = CertificateType.ID,
+                        RequestType = RequestTypeEnum.Obnova // Replace with appropriate enum value
+                    });
+                }
+            }
+        }
+
+        [RelayCommand]
+        private async Task DodajZahtevZaRefresh(Window parentWindow)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Title = "Select Files",
+                AllowMultiple = true,
+                Filters = new List<FileDialogFilter>
+                {
+                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "doc", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                    new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
+                    new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
+                    new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
+
+                }
+            };
+
+            var result = await dialog.ShowAsync(parentWindow);
+
+            if (result != null && result.Any())
+            {
+                if (CertificateType.Documents == null)
+                {
+                    CertificateType.Documents = new List<RequestFile>();
+                }
+                foreach (var filePath in result)
+                {
+                    // Process each selected file
+                    // Example: Add to the CertificateType's Documents collection
+                    CertificateType.Documents.Add(new RequestFile
+                    {
+                        FilePath = filePath,
+                        CertificateTypeID = CertificateType.ID,
+                        RequestType = RequestTypeEnum.Refresh // Replace with appropriate enum value
+                    });
+                }
+            }
+        }
+
     }
 }
