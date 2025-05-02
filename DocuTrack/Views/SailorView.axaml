@@ -52,7 +52,7 @@
             <Grid Width="625" Height="60" ColumnDefinitions="100,90,300" VerticalAlignment="Center">
 
 <!-- STICANJE BUTTON -->
-                 <Button Content="Sticanje" Classes="sailor-sticanje-button"/>
+                 <Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}"/>
                 </Grid>
 
                 <!-- Separator between upper and lower LEFT SIDE -->
@@ -74,7 +74,7 @@
             </ListBox>
             </StackPanel>
 <!-- Stmapaj BUTTON -->
-            <Button Content="Stampaj" Classes="sailor-print-button"/>              
+            <Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}"/>              
 
           </StackPanel>
           
@@ -148,9 +148,9 @@
                   <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                  <Button Content="Zahtev za Obnovu" Classes="sailor-zahtev-button"/>
-                  <Button Content="Zahtev za Refresh" Classes="sailor-refresh-button"/>
-                  <Button Content="Zahtev za Sticanje" Classes="sailor-zahtev-sticanje-button"/>
+                  <Button Content="Zahtev za Obnovu" Classes="sailor-zahtev-button" Command="{Binding ZahtevZaObnovuCommand}"/>
+                  <Button Content="Zahtev za Refresh" Classes="sailor-refresh-button" Command="{Binding ZahtevZaRefreshCommand}"/>
+                  <Button Content="Zahtev za Sticanje" Classes="sailor-zahtev-sticanje-button" Command="{Binding ZahtevZaSticanjeCommand}"/>
               </Grid>
               
               <!-- Obnovi Dokument -->
@@ -160,11 +160,12 @@
               </StackPanel>
             
               <!--OBNOVI BUTTON -->
-              <Button Content="OBNOVI" Classes="sailor-obnovi-button"/>
+              <Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}"/>
               
               <!-- >Stare Verzije -->
                        <Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100" 
-                               Classes="TransparentHoverButton">
+                               Classes="TransparentHoverButton"
+                               Command="{Binding StareVerzijeCommand}">
                       </Button>
 
             </Grid>
