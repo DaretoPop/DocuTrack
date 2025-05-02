@@ -41,11 +41,13 @@
           
           <!-- TOP of Panel leftSide -->
           <StackPanel Grid.Column="0" Spacing="10">
-            <ListBox Classes="sailor-documents-list1">
-
-              <ListBoxItem><TextBlock Text="Item 1" /></ListBoxItem>
-              <ListBoxItem><TextBlock Text="Item 2" /></ListBoxItem>
-              <ListBoxItem><TextBlock Text="Item 3" /></ListBoxItem>
+            <!-- DOKUMENTI LIST BOX 1 -->
+            <ListBox Classes="sailor-documents-list1" ItemsSource="{Binding DocumentIteams}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
            <!-- Grid if is need to add more button in same row -->
@@ -65,13 +67,16 @@
                     <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="250" HorizontalAlignment="Center"/>
               </StackPanel>
 
+            <!-- SCANNED DOCUMENTS LIST BOX 2 -->
                <StackPanel Grid.Column="0" Spacing="10">
-            <ListBox Classes="sailor-documents-list2">
-
-              <ListBoxItem><TextBlock Text="Skeniran Sertifikat.pdf" /></ListBoxItem>
-              <ListBoxItem><TextBlock Text="Skeniran Sertifikat.pdf" /></ListBoxItem>
-              <ListBoxItem><TextBlock Text="Skeniran Sertifikat.pdf" /></ListBoxItem>
+            <ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+
             </StackPanel>
 <!-- Stmapaj BUTTON -->
             <Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}"/>              

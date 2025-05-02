@@ -28,6 +28,11 @@ namespace DocuTrack.ViewModels
         {
             _mainViewModel = mainViewModel;
             _sailor = sailor;
+
+            //! Obrisi, testirao sam binding
+            // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
+            // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
+            // DocumentIteams.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
         }
 
 
@@ -56,6 +61,11 @@ namespace DocuTrack.ViewModels
                 return Sailor?.Refresh ?? string.Empty;
             }
         }
+
+
+     public ObservableCollection<RequestFileViewModel> DocumentIteams { get; set; } = new();
+     public ObservableCollection<RequestFileViewModel> ScannedDocuments { get; set; } = new();
+
 
         // Back Button to navigate to ProfilPage or PocentaPage(sertifikati)
         [RelayCommand]
@@ -148,8 +158,5 @@ namespace DocuTrack.ViewModels
             Console.WriteLine("VIDI STARE VERZIJE");
         } 
          
-
-
-
     }
 }
