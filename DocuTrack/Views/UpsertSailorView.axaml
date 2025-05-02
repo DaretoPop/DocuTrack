@@ -25,7 +25,13 @@
 
         <!--  Main CARD -->
         <Border Classes="upsert-main-card">
-            <Grid>
+            <Grid RowDefinitions="Auto,*">
+                <!-- Header -->
+                 <Border Classes="addnew-header">
+                        <TextBlock Text="Kreiraj Pomorca" Classes="header-text"/>
+                </Border>
+
+            <Grid Grid.Row="1">
                 <StackPanel Margin="40" Spacing="0">
                     <!-- IME -->
                     <Border Classes="upsert-ime-border">
@@ -73,9 +79,7 @@
                             <!-- Checkbox for Refresh -->
                         <CheckBox x:Name="termsOfServiceCheckBox" IsChecked="{Binding IsRefresh, Mode=TwoWay}" Content="Refresh" Margin="100 200 0 0" FontSize="20"/>
             </Grid>
+            </Grid>
         </Border>
     </Grid>
-
-
-
 </UserControl>
