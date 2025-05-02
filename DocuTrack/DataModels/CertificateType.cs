@@ -12,6 +12,6 @@ namespace DocuTrack.DataModels
         public int ID { get; set; }
         public string Name { get; set; }
 
-        public ICollection<RequestFile> Documents { get; set; }
+        public List<RequestFile> Documents { get; set; }
     }
 }

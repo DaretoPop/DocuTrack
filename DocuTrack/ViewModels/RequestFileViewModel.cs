@@ -11,6 +11,7 @@ using DocuTrack.DataModels;
 using DocuTrack.Pages;
 using DocuTrack.Views;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace DocuTrack.ViewModels
 {
@@ -35,7 +36,13 @@ namespace DocuTrack.ViewModels
             get { return _requestFile?.FilePath ?? string.Empty; }
             set { _requestFile.FilePath = value; }
         }
-    
+
+        public string FileName
+        {
+            get { return _requestFile?.FileName ?? string.Empty; }
+            set { _requestFile.FileName = value; }
+        }
+
 
 
         [RelayCommand]
@@ -53,13 +60,27 @@ namespace DocuTrack.ViewModels
         }
 
         [RelayCommand]
-        private void DeleteFile()
+        private async Task  DeleteFile(Window parentWindow)
         {
-            if (_requestFile != null)
+            
+
+
+            if (MainViewModel == null || _requestFile == null)
+                return;
+
+            var dialog = new ConfirmationDialog
             {
-                // Remove the file from the collection and delete it from storage
-                // Example: Notify the parent view model to handle deletion
-                //ParentViewModel?.DeleteRequestFile(file);
+                Message = $"Are you sure you want to delete {_requestFile.FileName}?"
+            };
+
+            // Show the dialog as a modal window
+            var result = await dialog.ShowDialog<bool>(parentWindow);
+
+            if (result)
+            {
+
+                DatabaseHelper.deleteCertificateTypeDocument(this._requestFile);
+                MainViewModel.ReinitializeCertificateType();
             }
         }
 

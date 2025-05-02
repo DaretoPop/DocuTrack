@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -18,8 +20,17 @@ namespace DocuTrack.ViewModels
         {
             MainViewModel = mainViewModel;
             CertificateType = type;
-            CertificateType.Documents = CertificateType.Documents ?? DatabaseHelper.getCertificateTypeDocuments(CertificateType.ID);
+            Initialize();
+        }
+
+        internal void Initialize()
+        {
+            CertificateType.Documents =  DatabaseHelper.getCertificateTypeDocuments(CertificateType.ID);
             LoadRequestFiles();
+        }
+        internal void Reinitilaize()
+        {
+            Initialize();
         }
 
         [ObservableProperty] private CertificateType? certificateType;
@@ -104,19 +115,28 @@ namespace DocuTrack.ViewModels
 
             if (result != null && result.Any())
             {
-                if (CertificateType?.Documents == null)
-                {
-                    CertificateType.Documents = new List<RequestFile>();
-                }
+                var documentsForAdd = new List<RequestFile>();
 
                 foreach (var filePath in result)
                 {
-                    CertificateType.Documents.Add(new RequestFile
+                    documentsForAdd.Add(new RequestFile
                     {
                         FilePath = filePath,
+                        FileName = Path.GetFileName(filePath),
                         CertificateTypeID = CertificateType.ID,
                         RequestType = RequestTypeEnum.Sticanje
                     });
+                }
+
+                if (documentsForAdd.Count > 0)
+                {
+                    if (CertificateType.Documents == null)
+                    {
+                        CertificateType.Documents = new List<RequestFile>();
+                    }
+                    CertificateType.Documents.AddRange(documentsForAdd);
+                    DatabaseHelper.addCertificateTypeDocuments(documentsForAdd);
+                    OpenCertificateType();
                 }
             }
         }
@@ -134,7 +154,6 @@ namespace DocuTrack.ViewModels
                     new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
                     new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
                     new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
-
                 }
             };
 
@@ -142,20 +161,28 @@ namespace DocuTrack.ViewModels
 
             if (result != null && result.Any())
             {
-                if (CertificateType.Documents == null)
-                {
-                    CertificateType.Documents = new List<RequestFile>();
-                }
+                var documentsForAdd = new List<RequestFile>();
+
                 foreach (var filePath in result)
                 {
-                    // Process each selected file
-                    // Example: Add to the CertificateType's Documents collection
-                    CertificateType.Documents.Add(new RequestFile
+                    documentsForAdd.Add(new RequestFile
                     {
                         FilePath = filePath,
+                        FileName = Path.GetFileName(filePath),
                         CertificateTypeID = CertificateType.ID,
-                        RequestType = RequestTypeEnum.Obnova // Replace with appropriate enum value
+                        RequestType = RequestTypeEnum.Obnova
                     });
+                }
+
+                if (documentsForAdd.Count > 0)
+                {
+                    if (CertificateType.Documents == null)
+                    {
+                        CertificateType.Documents = new List<RequestFile>();
+                    }
+                    CertificateType.Documents.AddRange(documentsForAdd);
+                    DatabaseHelper.addCertificateTypeDocuments(documentsForAdd);
+                    OpenCertificateType();
                 }
             }
         }
@@ -173,7 +200,6 @@ namespace DocuTrack.ViewModels
                     new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
                     new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
                     new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
-
                 }
             };
 
@@ -181,23 +207,32 @@ namespace DocuTrack.ViewModels
 
             if (result != null && result.Any())
             {
-                if (CertificateType.Documents == null)
-                {
-                    CertificateType.Documents = new List<RequestFile>();
-                }
+                var documentsForAdd = new List<RequestFile>();
+
                 foreach (var filePath in result)
                 {
-                    // Process each selected file
-                    // Example: Add to the CertificateType's Documents collection
-                    CertificateType.Documents.Add(new RequestFile
+                    documentsForAdd.Add(new RequestFile
                     {
                         FilePath = filePath,
+                        FileName = Path.GetFileName(filePath),
                         CertificateTypeID = CertificateType.ID,
-                        RequestType = RequestTypeEnum.Refresh // Replace with appropriate enum value
+                        RequestType = RequestTypeEnum.Refresh
                     });
+                }
+
+                if (documentsForAdd.Count > 0)
+                {
+                    if (CertificateType.Documents == null)
+                    {
+                        CertificateType.Documents = new List<RequestFile>();
+                    }
+                    CertificateType.Documents.AddRange(documentsForAdd);
+                    DatabaseHelper.addCertificateTypeDocuments(documentsForAdd);
+                    OpenCertificateType();
                 }
             }
         }
 
+        
     }
 }

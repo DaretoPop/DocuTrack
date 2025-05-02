@@ -2,6 +2,7 @@
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection.Metadata.Ecma335;
 using Tmds.DBus.Protocol;
 
@@ -240,7 +241,7 @@ namespace DocuTrack.Data
 
         internal static string getCertificateTypeDocumentPath(RequestFile file)
         {
-            return $"{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}/{file.FilePath}";
+            return $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}/{file.FileName}";
         }
 
         internal static List<RequestFile> getCertificateTypeDocuments(int certificateTypeID)
@@ -258,10 +259,12 @@ namespace DocuTrack.Data
                     var file = new RequestFile
                     {
                         ID = reader.GetInt32(0), // ID
-                        FilePath = reader.GetString(1), // FilePath
+                        FileName = reader.GetString(1), // FilePath
+
                         CertificateTypeID = reader.GetInt32(2), // CertificateTypeID
                         RequestType = (RequestTypeEnum)reader.GetInt32(3)
                     };
+                    file.FilePath = getCertificateTypeDocumentPath(file);
                     files.Add(file);
                 }
                 connection.Close();
@@ -282,13 +285,39 @@ namespace DocuTrack.Data
         {
             try
             {
+                //create a directory if it doesnt exist
+                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}";
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+                //check if the file exists and change the name of the new one so it wont override
+                var fileName = Path.GetFileName(file.FilePath);
+                var filePath = Path.Combine(directoryPath, fileName);
+                if (File.Exists(filePath))
+                {
+                    var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+                    var fileExtension = Path.GetExtension(fileName);
+                    var newFileName = $"{fileNameWithoutExtension}_{DateTime.Now:yyyyMMddHHmmss}{fileExtension}";
+                    file.FileName = newFileName;
+                    file.FilePath = Path.Combine(directoryPath, newFileName);
+                }
+                else
+                {
+                    file.FilePath = filePath;
+                }
+
+                File.WriteAllBytes(file.FilePath, fileData);
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO RequestFiles (FilePath, CertificateTypeID) VALUES (@filePath, @certificateTypeID)";
-                command.Parameters.AddWithValue("@filePath", file.FilePath);
+                command.CommandText = "INSERT INTO RequestFiles (FilePath, RequestType, CertificateTypeID) VALUES (@filePath, @requestType, @certificateTypeID)";
+                command.Parameters.AddWithValue("@filePath", file.FileName); //Save File Name insetad
+                //Save RequestType as int
+                command.Parameters.AddWithValue("@requestType", (int)file.RequestType);
                 command.Parameters.AddWithValue("@certificateTypeID", file.CertificateTypeID);
                 command.ExecuteNonQuery();
                 connection.Close();
+                
             }
             catch (Exception ex)
             {
@@ -300,16 +329,42 @@ namespace DocuTrack.Data
         {
             try
             {
+
+
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
                 command.CommandText = "DELETE FROM RequestFiles WHERE ID = @id";
                 command.Parameters.AddWithValue("@id", file.ID);
                 command.ExecuteNonQuery();
                 connection.Close();
+
+                //delete the file from the directory
+                if (File.Exists(file.FilePath))
+                {
+                    File.Delete(file.FilePath);
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception("Error deleting certificate type document from the database", ex);
+            }
+        }
+
+        internal static void addCertificateTypeDocuments(List<RequestFile> documentsForAdd)
+        {
+            if (documentsForAdd.Count > 0)
+            {
+                
+                foreach (var file in documentsForAdd)
+                {
+                    //get the file in byte array
+                    byte[] fileData = File.ReadAllBytes(file.FilePath);
+
+                    //Override the file path with the new one
+                    file.FilePath = getCertificateTypeDocumentPath(file);
+                    // Save the file to the new path
+                    addCertificateTypeDocument(file, fileData);
+                }
             }
         }
 

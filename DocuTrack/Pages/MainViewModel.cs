@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Remote.Protocol.Designer;
@@ -59,6 +60,7 @@ namespace DocuTrack.Pages
 
         [ObservableProperty] private BaseViewModel? _sailorsPage;
         [ObservableProperty] private BaseViewModel? _certificateTypesPage;
+        [ObservableProperty] private CertificateTypeViewModel? _certificateTypePage;
 
 
 
@@ -138,7 +140,14 @@ private void SetSelectedPage(string page)
 
         public void GoToCertificateType(CertificateType certificateType)
         {
-            CurrentPage = new CertificateTypeViewModel(this, certificateType);
+            CertificateTypePage = new CertificateTypeViewModel(this, certificateType);
+            CurrentPage = CertificateTypePage;
+        }
+
+        internal void ReinitializeCertificateType()
+        {
+            CertificateTypePage = new CertificateTypeViewModel(this, CertificateTypePage.CertificateType);
+            CurrentPage = CertificateTypePage;
         }
 
         public void GoToUpsertCertificateType(CertificateType certificateType )
@@ -189,7 +198,6 @@ private void SetSelectedPage(string page)
         {
             if (window != null) window.Close(); //! Bad immplementation, try another way
         }
-
 
     } // End of class
 
