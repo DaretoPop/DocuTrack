@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -33,6 +34,17 @@ namespace DocuTrack.ViewModels
             // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
             // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
             // DocumentIteams.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
+
+
+            List<RequestFileViewModel> mockupList = new List<RequestFileViewModel>();
+            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png",ID=1, RequestType = RequestTypeEnum.Obnova}));
+            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back1.png",ID=1, RequestType = RequestTypeEnum.Sticanje}));
+            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back2.png",ID=1, RequestType = RequestTypeEnum.Sticanje}));
+            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back3.png",ID=1, RequestType = RequestTypeEnum.Refresh}));
+            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png",ID=1, RequestType = RequestTypeEnum.Obnova}));
+
+            ScannedDocuments = new ObservableCollection<RequestFileViewModel>(mockupList);
+            DocumentIteams = new ObservableCollection<RequestFileViewModel>(mockupList);
         }
 
 
