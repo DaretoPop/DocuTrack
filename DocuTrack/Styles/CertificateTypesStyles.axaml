@@ -2,9 +2,11 @@
 
 <!-- Center LEFT Panel -->
 <Style Selector="Border.centerleft-panel">
+    <Setter Property="Canvas.Left" Value="200"/>
+    <Setter Property="Canvas.Top" Value="100"/>
     <Setter Property="Grid.Column" Value="0"/>
-    <Setter Property="Width" Value="1000"/>
-    <Setter Property="Height" Value="900"/>
+    <Setter Property="Width" Value="1280"/>
+    <Setter Property="Height" Value="800"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
@@ -184,14 +186,55 @@
 
 
 <!-- Kreiraj button -->
-<Style Selector="Button.create-document-button">
-    <Setter Property="Background" Value="#808080"/>
-    <Setter Property="Foreground" Value="White"/>
-    <Setter Property="FontSize" Value="20"/>
-    <Setter Property="Padding" Value="10,10"/>
-    <Setter Property="CornerRadius" Value="8"/>
+<Style Selector="Border.cert-create-button-border">
+    <Setter Property="Canvas.Left" Value="1277"/>
+    <Setter Property="Canvas.Top" Value="43"/>
+    <Setter Property="Background" Value="#FAFAFA"/>
+    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="20"/>
+    <Setter Property="Padding" Value="10"/>
+    <Setter Property="Width" Value="200"/> 
+    <Setter Property="Height" Value="55"/> 
 </Style>
 
+ <Style Selector="Button.cert-kreiraj-button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
 
-</Styles>
 
+<!-- #@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@#@# -->
+
+<!-- Pagination/Navigation -->
+
+    <Style Selector="Border.cert-pagination-border">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="Background" Value="#FAFAFA"/>
+        <Setter Property="BorderBrush" Value="#E0E0E0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Padding" Value="5 0 10 8"/>
+        <Setter Property="Width" Value="350"/>
+        <Setter Property="Height" Value="60"/>
+        <Setter Property="Margin" Value="0 725 0 0"/>
+        <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
+    </Style>
+
+
+ <Style Selector="StackPanel.cert-pagination-stack"> <!-- Add your own class name -->
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Spacing" Value="10"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
+
+
+
+
+    </Styles>
