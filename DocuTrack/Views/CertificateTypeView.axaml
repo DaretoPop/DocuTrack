@@ -99,7 +99,7 @@
 								</ListBoxItem>
 							</ListBox>
 						</Border>
-						<Button Content="Dodaj Zahtev za Obnovu" Classes="obnova-button"/>
+						<Button Content="Dodaj Zahtev za Obnovu" Classes="obnova-button" Command="{Binding DodajZahtevZaObnovuCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
 						<!-- Refresh  -->
 						<StackPanel Spacing="10">
@@ -122,7 +122,7 @@
 								</ListBoxItem>
 							</ListBox>
 						</Border>
-						<Button Content="Dodaj Zahtev za Refresh" Classes="refresh-button"/>
+						<Button Content="Dodaj Zahtev za Refresh" Classes="refresh-button" Command="{Binding DodajZahtevZaRefreshCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 					</StackPanel>
 
 					<!-- Static Sacuvaj Button -->
