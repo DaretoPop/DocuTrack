@@ -39,6 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\RequestFileRowView.axaml.cs">
+      <DependentUpon>RequestFileRowView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\UpsertCertificateTypeView.axaml.cs">
       <DependentUpon>UpsertCertificateTypeView.axaml</DependentUpon>
     </Compile>

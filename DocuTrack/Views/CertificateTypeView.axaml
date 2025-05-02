@@ -3,6 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
               xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             xmlns:views="clr-namespace:DocuTrack.Views"
              x:DataType="vm:CertificateTypeViewModel"
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              x:Class="DocuTrack.Views.CertificateTypeView">
@@ -53,26 +54,13 @@
                         </StackPanel>
 						<Border Classes="right-container-panel">
 
-							<ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-							</ListBox>
+                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding SticanjeFiles}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <views:RequestFileRowView DataContext="{Binding}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
 						</Border>
 						<Button Content="Dodaj Zahtev za Sticanje" Classes="sticanje-button" Command="{Binding DodajZahtevZaSticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
@@ -82,22 +70,13 @@
 						</StackPanel>
 
 						<Border Classes="right-container-panel">
-
-							<ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-									
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-							</ListBox>
+                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ObnovaFiles}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+										<views:RequestFileRowView DataContext="{Binding}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
 						</Border>
 						<Button Content="Dodaj Zahtev za Obnovu" Classes="obnova-button"/>
 
@@ -106,21 +85,13 @@
 							<TextBlock Text="Refresh:" FontSize="16" Foreground="#555555"/>
 						</StackPanel>
 						<Border Classes="right-container-panel">
-
-							<ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto">
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" FontWeight="Bold" Foreground="#333333"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-								<ListBoxItem>
-									<TextBlock Text="document.pdf" Foreground="Red"/>
-								</ListBoxItem>
-							</ListBox>
+                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding RefreshFiles}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+										<views:RequestFileRowView DataContext="{Binding}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
 						</Border>
 						<Button Content="Dodaj Zahtev za Refresh" Classes="refresh-button"/>
 					</StackPanel>

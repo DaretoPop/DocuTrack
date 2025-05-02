@@ -250,7 +250,7 @@ namespace DocuTrack.Data
             {
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT ID, FilePath, CertificateTypeID FROM RequestFiles WHERE CertificateTypeID = @certificateTypeID";
+                command.CommandText = "SELECT ID, FilePath, CertificateTypeID, RequestType FROM RequestFiles WHERE CertificateTypeID = @certificateTypeID";
                 command.Parameters.AddWithValue("@certificateTypeID", certificateTypeID);
                 using var reader = command.ExecuteReader();
                 while (reader.Read())
@@ -259,7 +259,8 @@ namespace DocuTrack.Data
                     {
                         ID = reader.GetInt32(0), // ID
                         FilePath = reader.GetString(1), // FilePath
-                        CertificateTypeID = reader.GetInt32(2) // CertificateTypeID
+                        CertificateTypeID = reader.GetInt32(2), // CertificateTypeID
+                        RequestType = (RequestTypeEnum)reader.GetInt32(3)
                     };
                     files.Add(file);
                 }
