@@ -100,7 +100,7 @@
             <StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center">
 <!-- Tip -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
-                  <TextBlock Classes="sailor-tip-text"/>
+                  <TextBlock Text="Naziv/Tip" Classes="sailor-tip-text"/>
                   <TextBlock Text="Certifikat 1" Classes="sailor-certificate-name"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
