@@ -54,7 +54,7 @@
                         </StackPanel>
 						<Border Classes="right-container-panel">
 
-                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding SticanjeFiles}">
+                            <ListBox Height="150" MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding SticanjeFiles}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <views:RequestFileRowView DataContext="{Binding}" />
@@ -70,7 +70,7 @@
 						</StackPanel>
 
 						<Border Classes="right-container-panel">
-                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ObnovaFiles}">
+                            <ListBox Height="150" MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding ObnovaFiles}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
 										<views:RequestFileRowView DataContext="{Binding}" />
@@ -85,7 +85,7 @@
 							<TextBlock Text="Refresh:" FontSize="16" Foreground="#555555"/>
 						</StackPanel>
 						<Border Classes="right-container-panel">
-                            <ListBox MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding RefreshFiles}">
+                            <ListBox Height="150" MaxHeight="150" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding RefreshFiles}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
 										<views:RequestFileRowView DataContext="{Binding}" />
