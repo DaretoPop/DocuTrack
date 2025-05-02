@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -104,7 +105,49 @@ namespace DocuTrack.ViewModels
             }
         }
 
+
+         [RelayCommand]
+        private void Sticanje()
+        {
+            Console.WriteLine("SticanjeButton");
+        }   
+
+          [RelayCommand]
+        private void Print()
+        {
+            Console.WriteLine("Stampaj");
+        }
+
+          [RelayCommand]
+        private void ZahtevZaObnovu()
+        {
+            Console.WriteLine("ZahtevzaOBNOVU");
+        }
+
+          [RelayCommand]
+        private void ZahtevZaRefresh()
+        {
+            Console.WriteLine("ZahtevzarREFRESH");
+        }
+
+          [RelayCommand]
+        private void ZahtevZaSticanje()
+        {
+            Console.WriteLine("ZahtevzaSTICANJE");
+        } 
+
+           [RelayCommand]
+        private void OBNOVI()
+        {
+            Console.WriteLine("OBNOVI DOKUMENT");
+        } 
         
+           [RelayCommand]
+        private void StareVerzije()
+        {
+            Console.WriteLine("VIDI STARE VERZIJE");
+        } 
+         
 
 
 
