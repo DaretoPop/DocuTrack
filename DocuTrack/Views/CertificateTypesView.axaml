@@ -42,11 +42,11 @@
                 <Border Classes="cert-pagination-border">
                     <StackPanel Classes="cert-pagination-stack">
 
-                        <Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30"/>
-                        <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30"/>
+                        <Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Background="#5D8AA8"/>
+                        <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30" Background="#5D8AA8"/>
                           <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin="0 0 3 0"/>
-                        <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30"/>
+                        <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin="0 0 3 0" Background="#5D8AA8"/>
+                        <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Background="#5D8AA8"/>
                     </StackPanel>
                 </Border>
             </Grid>
