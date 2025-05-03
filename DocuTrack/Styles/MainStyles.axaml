@@ -28,6 +28,7 @@
   <Setter Property="FontSize" Value="12"/>
   <Setter Property="VerticalAlignment" Value="Center"/>
   <Setter Property="Margin" Value="0,0,100,0"/>
+  <Setter Property="Foreground" Value="#0b218e"/>
 </Style>
 
 
@@ -67,7 +68,7 @@
   <Setter Property="FontSize" Value="12"/>
   <Setter Property="VerticalAlignment" Value="Center"/>
   <Setter Property="Margin" Value="0,0,95,0"/>
-  <Setter Property="Foreground" Value="White"/>
+  <Setter Property="Foreground" Value="#0b218e"/>
 </Style>
 
 <!-- ################################################################## -->
@@ -102,6 +103,7 @@
   <Setter Property="FontSize" Value="12"/>
   <Setter Property="VerticalAlignment" Value="Center"/>
   <Setter Property="Margin" Value="0,0,70,0"/>
+  <Setter Property="Foreground" Value="#0b218e"/>
 </Style>
 
 </Styles>
