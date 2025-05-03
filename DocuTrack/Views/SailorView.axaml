@@ -84,7 +84,7 @@
           </StackPanel>
           
           <!-- Vertical Separator -->
-          <Border Grid.Column="1" Background="#e0e0e0" Width="5"/>
+          <Border Grid.Column="1" Background="#5D8AA8" Width="5"/>
           
 <!-- ############################################################################### -->
           
@@ -125,7 +125,7 @@
             </StackPanel>
             
             <!-- Horizontal Thick Separator -->
-            <Border Grid.Row="1" Background="#e0e0e0" Height="5" Margin="0,20"/>
+            <Border Grid.Row="1" Background="#5D8AA8" Height="5" Margin="0,20"/>
             
             <!-- Lower Part of RightSIDE-->
             <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
