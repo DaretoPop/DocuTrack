@@ -29,7 +29,7 @@
             <Style Selector="TextBlock.document-text">
                 <Setter Property="FontSize" Value="28"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="Foreground" Value="#5D8AA8"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
             </Style>
 
@@ -106,7 +106,7 @@
 <Style Selector="TextBlock.right-header-text">
     <Setter Property="FontSize" Value="24"/>
     <Setter Property="FontWeight" Value="Bold"/>
-    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="Foreground" Value="#5D8AA8"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
 </Style>
 
@@ -144,7 +144,7 @@
     <Setter Property="HorizontalAlignment" Value="Center"/>
     <Setter Property="Width" Value="210"/>
     <Setter Property="Height" Value="35"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="CornerRadius" Value="8"/>
     <Setter Property="FontSize" Value="16"/>
@@ -154,7 +154,7 @@
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="Width" Value="205"/>
                 <Setter Property="Height" Value="35"/>
-                <Setter Property="Background" Value="#808080"/>
+                <Setter Property="Background" Value="#5D8AA8"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="CornerRadius" Value="8"/>
                 <Setter Property="FontSize" Value="16"/>
@@ -164,7 +164,7 @@
 <Style Selector="Button.refresh-button">
     <Setter Property="Width" Value="205"/>
     <Setter Property="Height" Value="35"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="CornerRadius" Value="8"/>
     <Setter Property="FontSize" Value="16"/>
@@ -175,7 +175,7 @@
             <Style Selector="Button.sacuvaj-button">
                 <Setter Property="Width" Value="120"/>
                 <Setter Property="Height" Value="40"/>
-                <Setter Property="Background" Value="#808080"/>
+                <Setter Property="Background" Value="#5D8AA8"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="CornerRadius" Value="8"/>
                 <Setter Property="FontSize" Value="18"/>
