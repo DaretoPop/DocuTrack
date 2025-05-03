@@ -24,8 +24,12 @@ namespace DocuTrack.ViewModels
         [ObservableProperty]
         private int totalPages;
 
+        [ObservableProperty] 
+        private string _searchTerm = string.Empty;
+
 
         public ObservableCollection<CertificateTypeViewModel> CertificateTypes { get; set; } = new();
+        public ObservableCollection<CertificateTypeViewModel> FilteredCertificateTypes { get; set; } = new();
         public ObservableCollection<CertificateTypeViewModel> PaginatedCertificateTypes { get; set; } = new();
 
 
@@ -33,6 +37,7 @@ namespace DocuTrack.ViewModels
         {
             MainViewModel = mainViewModel;
             LoadCertificateTypes();
+            UpdateFilteredCertificateTypes();
             UpdatePagination();
         }
 
@@ -88,13 +93,41 @@ namespace DocuTrack.ViewModels
         {
             PaginatedCertificateTypes.Clear();
             var startIndex = (CurrentPage - 1) * PageSize;
-            var paginatedItems = CertificateTypes.Skip(startIndex).Take(PageSize);
-
+// Update to be Filtered
+            var paginatedItems = FilteredCertificateTypes.Skip(startIndex).Take(PageSize);
             foreach (var sailor in paginatedItems)
             {
                 PaginatedCertificateTypes.Add(sailor);
             }
         }
+
+    private void UpdateFilteredCertificateTypes()
+    {
+        FilteredCertificateTypes.Clear();
+        var filtered = CertificateTypes.Where(s =>
+            string.IsNullOrEmpty(SearchTerm) ||
+            s.Name.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+            (s.Naziv?.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ?? false));
+
+        foreach (var type in filtered)
+        {
+            FilteredCertificateTypes.Add(type);
+        }
+
+        TotalPages = (int)Math.Ceiling((double)FilteredCertificateTypes.Count / PageSize);
+        CurrentPage = 1; // Reset to first page when filtering
+        UpdatePagination();
+    }
+
+    partial void OnSearchTermChanged(string value)
+    {
+        UpdateFilteredCertificateTypes();
+        OnPropertyChanged(nameof(CanGoToFirstOrPrevious));
+        OnPropertyChanged(nameof(CanGoToNextOrLast));
+    }
+
+
+
 
         public bool CanGoToFirstOrPrevious => CurrentPage > 1;
         public bool CanGoToNextOrLast => CurrentPage < TotalPages;
