@@ -221,12 +221,30 @@ namespace DocuTrack.Data
         {
             try
             {
+                //DELETE ALL FILES IN THE FOLDER
+                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{type.ID}";
+                if (Directory.Exists(directoryPath))
+                {
+                    Directory.Delete(directoryPath, true);
+                }
+                //DELETE ALL FILES IN THE FOLDER
+                var connection2 = GetConnection();
+                var command2 = connection2.CreateCommand();
+                command2.CommandText = "DELETE FROM RequestFiles WHERE CertificateTypeID = @id";
+                command2.Parameters.AddWithValue("@id", type.ID);
+                command2.ExecuteNonQuery();
+                connection2.Close();
+                //Delete all certificates for the people
+
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
                 command.CommandText = "DELETE FROM CertificateTypes WHERE ID = @id";
                 command.Parameters.AddWithValue("@id", type.ID);
                 command.ExecuteNonQuery();
                 connection.Close();
+
+                
+
             }
             catch (Exception ex)
             {
