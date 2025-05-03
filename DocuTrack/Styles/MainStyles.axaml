@@ -36,16 +36,16 @@
 <!--  Logo separator -->
 <Style Selector="Separator.main-logo-separator">
   <Setter Property="Grid.Row" Value="1"/>
-  <Setter Property="Background" Value="Black"/>
-  <Setter Property="Height" Value="1"/>
+  <Setter Property="Background" Value="#5D8AA8"/>
+  <Setter Property="Height" Value="2"/>
   <Setter Property="Margin" Value="0,-30,0,40"/>
 </Style>
 
 <!-- Separator -->
 <Style Selector="Border.main-line-separator">
   <Setter Property="Width" Value="100"/>
-  <Setter Property="Height" Value="1"/>
-  <Setter Property="Background" Value="White"/>
+  <Setter Property="Height" Value="2"/>
+  <Setter Property="Background" Value="#5D8AA8"/>
   <Setter Property="Opacity" Value="0.3"/>
 </Style>
 

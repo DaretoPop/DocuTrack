@@ -10,7 +10,7 @@
 
 <!-- Profil Panel -->
 
-<Canvas Background="#808080" Width="1920" Height="1080">
+<Canvas Background="#5D8AA8" Width="1920" Height="1080">
 
 
     <Border Classes="sailorview-main-panel">

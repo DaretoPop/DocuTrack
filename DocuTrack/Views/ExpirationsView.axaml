@@ -11,7 +11,7 @@
 
 
   <!-- Canvas -> for better positions -->
-  <Canvas Background="#808080" Width="1920" Height="1080">
+  <Canvas Background="#5D8AA8" Width="1920" Height="1080">
     
     <!-- Main Center Card -->
     <Border x:Name="MainCard" Classes="exp-main-card">  

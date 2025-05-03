@@ -9,7 +9,7 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-  <Canvas Background="#808080" Width="1920" Height="1080">
+  <Canvas Background="#5D8AA8" Width="1920" Height="1080">
     
     <!-- Main Center Card -->
     <Border x:Name="MainCard" Classes="sailor-main-card">
@@ -79,7 +79,7 @@
 
       <!-- Kreiraj Pomorca -->
     <Border Classes="sailor-create-button-frame">   
-      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="15.5"
+      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="#676767" HorizontalAlignment="Stretch" FontSize="15.5"
               Command="{Binding GoToKreirajPomorcaPageCommand}"
               Classes="TransparentHoverButton">
         
