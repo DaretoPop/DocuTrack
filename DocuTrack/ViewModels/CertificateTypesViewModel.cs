@@ -53,7 +53,7 @@ namespace DocuTrack.ViewModels
         {
             if(MainViewModel != null)
             {
-                MainViewModel.CurrentPage = MainViewModel.AddNewDocumentPage;
+                MainViewModel.CurrentPage = new UpsertCertificateTypeViewModel(MainViewModel,null);
             }
         }
 
