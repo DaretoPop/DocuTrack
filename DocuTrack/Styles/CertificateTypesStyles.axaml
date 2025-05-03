@@ -3,10 +3,10 @@
 <!-- Center LEFT Panel -->
 <Style Selector="Border.centerleft-panel">
     <Setter Property="Canvas.Left" Value="200"/>
-    <Setter Property="Canvas.Top" Value="100"/>
+    <Setter Property="Canvas.Top" Value="80"/>
     <Setter Property="Grid.Column" Value="0"/>
     <Setter Property="Width" Value="1280"/>
-    <Setter Property="Height" Value="800"/>
+    <Setter Property="Height" Value="820"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
@@ -188,7 +188,7 @@
 <!-- Kreiraj button -->
 <Style Selector="Border.cert-create-button-border">
     <Setter Property="Canvas.Left" Value="1277"/>
-    <Setter Property="Canvas.Top" Value="43"/>
+    <Setter Property="Canvas.Top" Value="23"/>
     <Setter Property="Background" Value="#FAFAFA"/>
     <Setter Property="BorderBrush" Value="#E0E0E0"/>
     <Setter Property="BorderThickness" Value="1"/>
@@ -220,7 +220,7 @@
         <Setter Property="Padding" Value="5 0 10 8"/>
         <Setter Property="Width" Value="350"/>
         <Setter Property="Height" Value="60"/>
-        <Setter Property="Margin" Value="0 725 0 0"/>
+        <Setter Property="Margin" Value="0 744 20 0"/>
         <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
     </Style>
 
