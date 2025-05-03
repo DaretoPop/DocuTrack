@@ -32,15 +32,16 @@
               <Button.Content>
                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
                   
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+                  <TextBlock Text="Darko Aksentijevic" Classes="imeprezime-label"/>
+                  <TextBlock Grid.Column="1" Text="📜 CCNA(Cisco Certified Network Associate)" Classes="typecert-label"/>
+                  <TextBlock Grid.Column="2" Text="2026-05-01" Classes="istice-label"/>
 
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <!-- This set color on hover Horizon -->
+                 <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                    <Setter Property="Foreground" Value="#5D8AA8"/>            
                 </Style>
               </Button.Styles>
             </Button>
@@ -57,8 +58,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -75,8 +76,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -93,8 +94,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -111,8 +112,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -129,8 +130,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -147,8 +148,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -165,8 +166,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -183,8 +184,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -201,8 +202,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -219,8 +220,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -237,8 +238,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
@@ -255,8 +256,8 @@
                 </Grid>
               </Button.Content>
               <Button.Styles>
-                <Style Selector="Button:pointerover">
-                  <Setter Property="Foreground" Value="#808080"/>             
+                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+                  <Setter Property="Foreground" Value="#5D8AA8"/>             
                 </Style>
               </Button.Styles>
             </Button>
