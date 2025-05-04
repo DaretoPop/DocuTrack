@@ -26,7 +26,7 @@ namespace DocuTrack.ViewModels
         {
         }
 
-        public SailorViewModel(MainViewModel mainViewModel, Sailor sailor)
+        public SailorViewModel(MainViewModel mainViewModel, Sailor sailor, Certificate selectedCertificate=null)
         {
             _mainViewModel = mainViewModel;
             _sailor = sailor;
@@ -53,7 +53,7 @@ namespace DocuTrack.ViewModels
                 DateAcquired = "27.05.1994", DateExpiration = "27.05.1995", Place = "Kotor", ID = 0,
                 CertificateTypeID = 0
             };
-            _selectedCertificate = null;
+            //_selectedCertificate = selectedCertificate;
         }
 
 
