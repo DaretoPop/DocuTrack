@@ -38,19 +38,60 @@
                     </StackPanel>
                 </ScrollViewer>
 
-<!-- Pagination/Navigation -->
-                <Border Classes="cert-pagination-border">
-                    <StackPanel Classes="cert-pagination-stack">
 
-                        <Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Background="#5D8AA8"/>
-                        <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30" Background="#5D8AA8"/>
-                          <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin="0 0 3 0" Background="#5D8AA8"/>
-                        <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Background="#5D8AA8"/>
-                    </StackPanel>
-                </Border>
-            </Grid>
-        </Border>
+<!-- Border pages navigations -->
+        <Border Classes="cert-pagination-border">
+          <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+
+                         <!-- FIRST PAGE -->
+              <Button Command="{Binding GoToFirstPageCommand}"
+                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
+                      Background="Transparent"
+                      Focusable="False"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+                      Stretch="Uniform"
+                      Width="24" Height="24"/>
+              </Button>
+                        <!-- LEFT ARROW -->
+              <Button Command="{Binding GoToPreviousPageCommand}"
+                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
+                      Background="Transparent"
+                      Focusable="False"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/left-arrow.png"
+                      Stretch="Uniform"
+                      Width="32" Height="32"/>
+              </Button>
+
+            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            
+                              <!-- RIGHT ARROW -->
+              <Button Command="{Binding GoToNextPageCommand}"
+                      IsEnabled="{Binding CanGoToNextOrLast}"
+                      Background="Transparent"
+                      Focusable="True"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/right-arrow.png"
+                      Stretch="Uniform"
+                      Width="32" Height="32"/>
+              </Button>
+
+            <!-- LAST PAGE -->
+            <Button Command="{Binding GoToLastPageCommand}"
+                    IsEnabled="{Binding CanGoToNextOrLast}"
+                    Background="Transparent"
+                    Focusable="False"
+                    Classes="TransparentHoverButton">
+              <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+                    Stretch="Uniform"
+                    Width="24" Height="24"/>
+            </Button>
+
+        </StackPanel>
+         </Border>
+      </Grid>
+    </Border>
 
         <!-- Outside kreiraj button -->
         <Border Classes="cert-create-button-border">
