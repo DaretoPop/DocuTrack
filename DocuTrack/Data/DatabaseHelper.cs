@@ -1,8 +1,11 @@
-﻿using DocuTrack.DataModels;
+﻿using DocumentFormat.OpenXml.Packaging;
+using DocuTrack.DataModels;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using Tmds.DBus.Protocol;
 
@@ -462,6 +465,117 @@ namespace DocuTrack.Data
             catch (Exception ex)
             {
                 throw new Exception("Error deleting certificate type document from the database", ex);
+            }
+        }
+        private static string GetFullFilePath(CertificateFile file)
+        {
+            return Path.Combine(AppContext.BaseDirectory, "Data", "Certificates", file.CertificateID.ToString() ,file.FilePath);
+        }
+
+        private static string ConvertDocxToPdf(string docxFilePath)
+        {
+            try
+            {
+                // Define the output PDF path
+                var outputPdfPath = Path.ChangeExtension(docxFilePath, ".pdf");
+
+                // Read the .docx content using Open XML SDK
+                using (var wordDoc = WordprocessingDocument.Open(docxFilePath, false))
+                {
+                    var body = wordDoc.MainDocumentPart.Document.Body;
+                    var text = body.InnerText;
+
+                    // Use PdfSharp to create a PDF
+                    var document = new PdfSharp.Pdf.PdfDocument();
+                    var page = document.AddPage();
+                    var graphics = PdfSharp.Drawing.XGraphics.FromPdfPage(page);
+                    var font = new PdfSharp.Drawing.XFont("Arial", 12);
+                    graphics.DrawString(text, font, PdfSharp.Drawing.XBrushes.Black,
+                        new PdfSharp.Drawing.XRect(0, 0, page.Width, page.Height),
+                        PdfSharp.Drawing.XStringFormats.TopLeft);
+
+                    document.Save(outputPdfPath);
+                }
+
+                return outputPdfPath;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error converting .docx to PDF: {ex.Message}", ex);
+            }
+        }
+
+        internal static string? GeneratePrintFile(ObservableCollection<CertificateFile> selectedFiles)
+        {
+            try
+            {
+                // Define the output directory and file name
+                var outputDirectory = Path.Combine(AppContext.BaseDirectory, "PrintOutput");
+                if (!Directory.Exists(outputDirectory))
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
+
+                var outputFilePath = Path.Combine(outputDirectory, "CombinedOutput.pdf");
+
+                // If only one file is selected, return the file path directly
+                if (selectedFiles.Count() == 1)
+                {
+                    var singleFile = selectedFiles.First();
+                    var singleFilePath = GetFullFilePath(singleFile);
+                    return singleFilePath;
+                }
+
+                // Combine multiple files into a single PDF
+                using (var outputDocument = new PdfSharp.Pdf.PdfDocument())
+                {
+                    foreach (var file in selectedFiles)
+                    {
+                        var filePath = GetFullFilePath(file);
+
+                        if (Path.GetExtension(filePath).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+                        {
+                            // Add PDF pages to the output document
+                            using (var inputDocument = PdfSharp.Pdf.IO.PdfReader.Open(filePath, PdfSharp.Pdf.IO.PdfDocumentOpenMode.Import))
+                            {
+                                foreach (var page in inputDocument.Pages)
+                                {
+                                    outputDocument.AddPage(page);
+                                }
+                            }
+                        }
+                        else if (Path.GetExtension(filePath).Equals(".docx", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var pdfPath = ConvertDocxToPdf(filePath);
+                            using (var inputDocument = PdfSharp.Pdf.IO.PdfReader.Open(pdfPath, PdfSharp.Pdf.IO.PdfDocumentOpenMode.Import))
+                            {
+                                foreach (var page in inputDocument.Pages)
+                                {
+                                    outputDocument.AddPage(page);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Handle other file types (e.g., images)
+                            var page = outputDocument.AddPage();
+                            using (var graphics = PdfSharp.Drawing.XGraphics.FromPdfPage(page))
+                            {
+                                var image = PdfSharp.Drawing.XImage.FromFile(filePath);
+                                graphics.DrawImage(image, 0, 0, page.Width, page.Height);
+                            }
+                        }
+                    }
+
+                    // Save the combined PDF
+                    outputDocument.Save(outputFilePath);
+                }
+
+                return outputFilePath;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error generating print file: {ex.Message}", ex);
             }
         }
 

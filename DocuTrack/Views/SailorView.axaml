@@ -69,7 +69,7 @@
 
             <!-- SCANNED DOCUMENTS LIST BOX 2 -->
                <StackPanel Grid.Column="0" Spacing="10" IsVisible="{Binding IsCertificateSelected}">
-            <ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}">
+            <ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}" SelectedItems="{Binding SelectedFiles, Mode=TwoWay}" SelectionMode="Multiple">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding FilePath}"/>

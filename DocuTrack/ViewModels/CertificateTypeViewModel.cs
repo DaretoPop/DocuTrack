@@ -104,9 +104,9 @@ namespace DocuTrack.ViewModels
                 AllowMultiple = true,
                 Filters = new List<FileDialogFilter>
                     {
-                        new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "doc", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                        new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf",  "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
                         new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
-                        new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
+                        new FileDialogFilter { Name = "Word Documents", Extensions = { "docx" } },
                         new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
                     }
             };
@@ -150,9 +150,9 @@ namespace DocuTrack.ViewModels
                 AllowMultiple = true,
                 Filters = new List<FileDialogFilter>
                 {
-                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "doc", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
                     new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
-                    new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
+                    new FileDialogFilter { Name = "Word Documents", Extensions = { "docx" } },
                     new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
                 }
             };
@@ -196,9 +196,9 @@ namespace DocuTrack.ViewModels
                 AllowMultiple = true,
                 Filters = new List<FileDialogFilter>
                 {
-                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "doc", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf", "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
                     new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
-                    new FileDialogFilter { Name = "Word Documents", Extensions = { "doc", "docx" } },
+                    new FileDialogFilter { Name = "Word Documents", Extensions = { "docx" } },
                     new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
                 }
             };

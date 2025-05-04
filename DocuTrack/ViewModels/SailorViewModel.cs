@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -23,6 +25,9 @@ namespace DocuTrack.ViewModels
         public bool IsCertificateSelected => _selectedCertificate != null;
         public ObservableCollection<Certificate> Certificates { get; set; } = new();
         public ObservableCollection<CertificateFile> ScannedDocuments { get; set; } = new();
+
+        public ObservableCollection<CertificateFile> SelectedFiles { get; set;  } = new();
+
 
 
         partial void OnSelectedCertificateChanged(Certificate? value)
@@ -163,7 +168,32 @@ namespace DocuTrack.ViewModels
           [RelayCommand]
         private void Print()
         {
-            Console.WriteLine("Stampaj");
+            if (SelectedFiles.Count == 0)
+            {
+                Console.WriteLine("No files selected for printing.");
+                return;
+            }
+
+            try
+            {
+                // Submit selected files to DatabaseHelper for processing
+                var outputFilePath = DatabaseHelper.GeneratePrintFile(SelectedFiles);
+
+                // Open the generated file (optional)
+                if (!string.IsNullOrEmpty(outputFilePath) && File.Exists(outputFilePath))
+                {
+                    Console.WriteLine($"Generated print file: {outputFilePath}");
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = outputFilePath,
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during printing: {ex.Message}");
+            }
         }
 
           [RelayCommand]
