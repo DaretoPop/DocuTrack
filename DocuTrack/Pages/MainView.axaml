@@ -10,6 +10,7 @@
         xmlns:vm="clr-namespace:DocuTrack.Pages"
         xmlns:view="clr-namespace:DocuTrack.Pages"
         x:DataType="vm:MainViewModel"
+        Icon="avares://DocuTrack/Assets/AppIcon.ico"
         Title="DocuTrack">
 
 

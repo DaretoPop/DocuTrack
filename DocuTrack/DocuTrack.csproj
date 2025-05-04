@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -20,7 +21,9 @@
   <ItemGroup>
   <!-- ASSETS -->
     <AvaloniaResource Include="Assets/logo.png" />        <!-- INCLUDE LOGO PNG -->
-    <AvaloniaResource Include="Assets/BlueLogoIMG.png" />
+    <AvaloniaResource Include="Assets/BlueLogoIMG.png"/>
+    <AvaloniaResource Include="Assets/AppIcon.ico"/>
+
     <AvaloniaResource Include="Assets/Back.png" />
   
   <!-- END OF ASSETS -->
