@@ -31,7 +31,7 @@
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="50"/>
     <Setter Property="BorderBrush" Value="#24648E"/>
-    <Setter Property="BorderThickness" Value="10"/>
+    <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="BoxShadow" Value="0 10 25 0 #525252"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
