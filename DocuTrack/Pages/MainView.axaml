@@ -10,6 +10,7 @@
         xmlns:vm="clr-namespace:DocuTrack.Pages"
         xmlns:view="clr-namespace:DocuTrack.Pages"
         x:DataType="vm:MainViewModel"
+        Icon="avares://DocuTrack/Assets/AppIcon.ico"
         Title="DocuTrack">
 
 
@@ -29,7 +30,7 @@
                <!-- LOGO -->
     <StackPanel Orientation="Horizontal">
         <Image Classes="main-image"/>
-        <Label Content="{Binding App}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="30"/>
+        <Label Content="{Binding App}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="30" Foreground="#676767"/>
     </StackPanel>
 
                 <!-- Separator line -->
@@ -98,7 +99,7 @@
              <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="#5D8AA8" HorizontalAlignment="Stretch" FontSize="20"    
                      Command="{Binding ExitCommand}"
                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                     Classes="TransparentHoverButton">    
+                     Classes="TransparentHoverButton">
                 </Button>
             </Grid>
         </Border>

@@ -71,6 +71,21 @@
     <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
 </Style>
 
+<Style Selector="Border.sailors-arrow-border">
+    <Setter Property="Width" Value="50"/>
+    <Setter Property="Height" Value="40"/>
+    <Setter Property="Background" Value="White"/>
+    <Setter Property="CornerRadius" Value="20"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Bottom"/>
+</Style>
+
+
+
+
+
 
 
 <!-- Search -->

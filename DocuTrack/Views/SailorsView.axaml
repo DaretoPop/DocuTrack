@@ -55,13 +55,62 @@
         <!-- Border pages navigations -->
         <Border Classes="page-navigation">
           <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
-           
-			<Button Content="First" Command="{Binding GoToFirstPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinHeight="30" Margin="0 0 0 0" CornerRadius="12"/>
-            <Button Content="Previous" Command="{Binding GoToPreviousPageCommand}" IsEnabled="{Binding CanGoToFirstOrPrevious}" MinWidth="20" MinHeight="30" CornerRadius="12"/>
+
+                         <!-- FIRST PAGE -->
+      <Border Classes="sailors-arrow-border">
+              <Button Command="{Binding GoToFirstPageCommand}"
+                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
+                      Background="Transparent"
+                      Focusable="False"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+                      Stretch="Uniform"
+                      Width="24" Height="24"/>
+              </Button>
+      </Border>
+                        <!-- LEFT ARROW -->
+          <Border Classes="sailors-arrow-border">
+              <Button Command="{Binding GoToPreviousPageCommand}"
+                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
+                      Background="Transparent"
+                      Focusable="False"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/left-arrow.png"
+                      Stretch="Uniform"
+                      Width="32" Height="32"/>
+              </Button>
+          </Border>
+
             <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-            <Button Content="Next" Command="{Binding GoToNextPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Margin=" 0 0 3 0" CornerRadius="12"/>
-            <Button Content="Last" Command="{Binding GoToLastPageCommand}" IsEnabled="{Binding CanGoToNextOrLast}" MinHeight="30" Width="50" CornerRadius="12"/>
-           
+            
+                              <!-- RIGHT ARROW -->
+          <Border Classes="sailors-arrow-border">
+              <Button Command="{Binding GoToNextPageCommand}"
+                      IsEnabled="{Binding CanGoToNextOrLast}"
+                      Background="Transparent"
+                      Focusable="False"
+                      Classes="TransparentHoverButton">
+                <Image Source="avares://DocuTrack/Assets/right-arrow.png"
+                      Stretch="Uniform"
+                      Width="32" Height="32"/>
+              </Button>
+          </Border>
+            <!-- LAST PAGE -->
+          <Border Classes="sailors-arrow-border">
+            <Button Command="{Binding GoToLastPageCommand}"
+                    IsEnabled="{Binding CanGoToNextOrLast}"
+                    Background="Transparent"
+                    Focusable="False"
+                    Classes="TransparentHoverButton">
+              <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+                    Stretch="Uniform"
+                    Width="24" Height="24"/>
+            </Button>
+          </Border>
+
+
+
+ 
         </StackPanel>
          </Border>
       </Grid>

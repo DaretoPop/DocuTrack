@@ -3,7 +3,7 @@
 
 <!-- Image LOGO -->
   <Style Selector="Image.main-image">
-      <Setter Property="Source" Value="avares://DocuTrack/Assets/LogoIMG.png"/>
+      <Setter Property="Source" Value="avares://DocuTrack/Assets/BlueLogoIMG.png"/>
       <Setter Property="Width" Value="60"/>
       <Setter Property="Height" Value="70"/>
       <Setter Property="Stretch" Value="Uniform"/>
