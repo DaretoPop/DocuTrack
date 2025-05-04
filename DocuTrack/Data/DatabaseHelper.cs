@@ -386,6 +386,85 @@ namespace DocuTrack.Data
             }
         }
 
+        internal static List<Certificate> GetCertificateForSailor(Sailor? sailor)
+        {
+            try
+            {
+                if (sailor == null)
+                {
+                    return new List<Certificate>();
+                }
+
+
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT c.ID, SailorID, CertificateTypeID, DateAcquired, DateExpiration, Place, Name FROM Certificates c INNER JOIN CertificateTypes t ON t.ID = c.CertificateTypeID WHERE SailorID = @sailorID";
+                command.Parameters.AddWithValue("@sailorID", sailor.ID);
+                command.ExecuteNonQuery();
+                using var reader = command.ExecuteReader();
+                var certificates = new List<Certificate>();
+                while (reader.Read())
+                {
+                    var certificate = new Certificate
+                    {
+                        ID = reader.GetInt32(0), // ID
+
+                        SailorID = reader.GetInt32(1), // SailorID
+                        CertificateTypeID = reader.GetInt32(2), // CertificateTypeID
+                        DateAcquired = reader.GetString(3), // DateAcquired
+                        DateExpiration = reader.GetString(4), // DateExpiration
+                        Place = reader.GetString(5), // Place
+                        Name = reader.GetString(6) // Name
+                    };
+                    certificates.Add(certificate);
+                }
+                connection.Close();
+                return certificates;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error GetCertificateForSailor from db", ex);
+            }
+        }
+
+        internal static List<CertificateFile> getCertificateFilesForSailor(Certificate? certificate)
+        {
+            try
+            {
+                if (certificate == null)
+                {
+                    return new List<CertificateFile>();
+                }
+
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT ID, CertificateID, FilePath FROM CertificateFiles WHERE CertificateID = @certificateID";
+                command.Parameters.AddWithValue("@certificateID", certificate.ID);
+                command.ExecuteNonQuery();
+                using var reader = command.ExecuteReader();
+                var output = new List<CertificateFile>();
+                while (reader.Read())
+                {
+                    var file = new CertificateFile
+                    {
+                        ID = reader.GetInt32(0), // ID
+
+                        CertificateID = reader.GetInt32(1), // SailorID
+                        FilePath = reader.GetString(2)
+                    };
+                    output.Add(file);
+                }
+                connection.Close();
+                return output;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate type document from the database", ex);
+            }
+        }
+
 
 
         #endregion

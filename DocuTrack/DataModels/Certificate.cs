@@ -14,6 +14,7 @@ namespace DocuTrack.DataModels
         public string DateAcquired { get; set; }
         public string DateExpiration { get; set; }
         public string Place { get; set; }
+        public string Name { get; set; }
 
 
 

@@ -20,7 +20,19 @@ namespace DocuTrack.ViewModels
         [ObservableProperty] private Sailor? _sailor;
         [ObservableProperty] private MainViewModel? _mainViewModel;
         [ObservableProperty] private Certificate? _selectedCertificate = null;
-        [ObservableProperty] public bool IsCertificateSelected => _selectedCertificate != null;
+        public bool IsCertificateSelected => _selectedCertificate != null;
+        public ObservableCollection<Certificate> Certificates { get; set; } = new();
+        public ObservableCollection<CertificateFile> ScannedDocuments { get; set; } = new();
+
+
+        partial void OnSelectedCertificateChanged(Certificate? value)
+        {
+            // Notify that IsCertificateSelected has changed
+            ScannedDocuments =
+                new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(value));
+            OnPropertyChanged(nameof(IsCertificateSelected));
+            OnPropertyChanged(nameof(ScannedDocuments));
+        }
 
         public SailorViewModel()
         {
@@ -30,30 +42,34 @@ namespace DocuTrack.ViewModels
         {
             _mainViewModel = mainViewModel;
             _sailor = sailor;
+            SelectedCertificate = selectedCertificate;
 
-            //! Obrisi, testirao sam binding
-            // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
-            // ScannedDocuments.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
-            // DocumentIteams.Add(new RequestFileViewModel(mainViewModel, new RequestFile{ FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png" }));
+            initialize();
+        }
+
+        private void initialize()
+        {
+           
 
 
             List<RequestFileViewModel> mockupList = new List<RequestFileViewModel>();
-            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png",ID=1, RequestType = RequestTypeEnum.Obnova}));
-            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back1.png",ID=1, RequestType = RequestTypeEnum.Sticanje}));
-            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back2.png",ID=1, RequestType = RequestTypeEnum.Sticanje}));
-            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back3.png",ID=1, RequestType = RequestTypeEnum.Refresh}));
-            mockupList.Add(new RequestFileViewModel(mainViewModel, new RequestFile() {CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png",ID=1, RequestType = RequestTypeEnum.Obnova}));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back1.png", ID = 1, RequestType = RequestTypeEnum.Sticanje }));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back2.png", ID = 1, RequestType = RequestTypeEnum.Sticanje }));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back3.png", ID = 1, RequestType = RequestTypeEnum.Refresh }));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
+            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
 
-            ScannedDocuments = new ObservableCollection<RequestFileViewModel>(mockupList);
-            DocumentIteams = new ObservableCollection<RequestFileViewModel>(mockupList);
+            //ScannedDocuments = new ObservableCollection<CertificateFile>(mockupList);
+            Certificates = new ObservableCollection<Certificate>(DatabaseHelper.GetCertificateForSailor(Sailor));
 
-            _selectedCertificate = new Certificate()
-            {
-                CertificateType = new CertificateType() { ID = 0, Name = "Mockup Display" },
-                DateAcquired = "27.05.1994", DateExpiration = "27.05.1995", Place = "Kotor", ID = 0,
-                CertificateTypeID = 0
-            };
-            //_selectedCertificate = selectedCertificate;
+
+
+            OnPropertyChanged(nameof(Sailor));
+            OnPropertyChanged(nameof(SelectedCertificate));
+            OnPropertyChanged(nameof(ScannedDocuments));
+            OnPropertyChanged(nameof(Certificates));
+
         }
 
 
@@ -84,8 +100,7 @@ namespace DocuTrack.ViewModels
         }
 
 
-     public ObservableCollection<RequestFileViewModel> DocumentIteams { get; set; } = new();
-     public ObservableCollection<RequestFileViewModel> ScannedDocuments { get; set; } = new();
+
 
 
         // Back Button to navigate to ProfilPage or PocentaPage(sertifikati)
@@ -141,6 +156,8 @@ namespace DocuTrack.ViewModels
         private void Sticanje()
         {
             Console.WriteLine("SticanjeButton");
+            initialize();
+            
         }   
 
           [RelayCommand]

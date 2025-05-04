@@ -42,10 +42,10 @@
           <!-- TOP of Panel leftSide -->
           <StackPanel Grid.Column="0" Spacing="10">
             <!-- DOKUMENTI LIST BOX 1 -->
-            <ListBox Classes="sailor-documents-list1" ItemsSource="{Binding DocumentIteams}">
+            <ListBox Classes="sailor-documents-list1" ItemsSource="{Binding Certificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -72,7 +72,7 @@
             <ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}"/>
+                        <TextBlock Text="{Binding FilePath}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -101,7 +101,7 @@
 <!-- Tip -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
                   <TextBlock Text="Naziv/Tip" Classes="sailor-tip-text"/>
-                  <TextBlock Text="{Binding SelectedCertificate.CertificateType.Name}" Classes="sailor-certificate-name"/>
+                  <TextBlock Text="{Binding SelectedCertificate.Name}" Classes="sailor-certificate-name"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Izdavanje -->
