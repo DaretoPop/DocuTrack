@@ -22,7 +22,6 @@ namespace DocuTrack.Pages
 
             PocetnaPage = new ExpirationsViewModel(this);
             KreirajKorisnikaPage = new UpsertSailorViewModel(this, null);
-            PomorciPage = new SailorsViewModel(this);
             ProfilPomorcaPanelPage = new SailorViewModel(this, null);
             AddNewDocumentPage = new UpsertCertificateTypeViewModel(this, null);
 
@@ -51,7 +50,6 @@ namespace DocuTrack.Pages
 
         [ObservableProperty] private BaseViewModel? _currentPage;
         [ObservableProperty] private ExpirationsViewModel? _pocetnaPage;
-        [ObservableProperty] private SailorsViewModel? _pomorciPage;
         [ObservableProperty] private BaseViewModel? _profilPomorcaPanelPage;
         [ObservableProperty] private UpsertSailorViewModel? _kreirajKorisnikaPage;
         [ObservableProperty] private BaseViewModel? _loginPage;
@@ -116,7 +114,7 @@ private void SetSelectedPage(string page)
         [RelayCommand]
         public void GoToPomorci()
         {
-            CurrentPage = PomorciPage;
+            CurrentPage = new SailorsViewModel(this);
             SetSelectedPage("Pomorci");
         }
 

@@ -112,7 +112,7 @@ namespace DocuTrack.ViewModels
         {
             if (MainViewModel != null)
             {
-                MainViewModel.CurrentPage = MainViewModel.KreirajKorisnikaPage;
+                MainViewModel.GoToAddEditSailorPage(null);
             }
         }
 
