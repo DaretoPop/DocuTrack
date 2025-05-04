@@ -25,6 +25,11 @@
     <AvaloniaResource Include="Assets/AppIcon.ico"/>
 
     <AvaloniaResource Include="Assets/Back.png" />
+    <AvaloniaResource Include="Assets/left-arrow.png"/>
+    <AvaloniaResource Include="Assets/right-arrow.png"/>
+    <AvaloniaResource Include="Assets/last-page-arrow.png"/>
+    <AvaloniaResource Include="Assets/first-page-arrow.png"/>
+
   
   <!-- END OF ASSETS -->
 
