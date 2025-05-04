@@ -17,8 +17,11 @@
             </Grid>
         </Button.Content>
         <Button.Styles>
-            <Style Selector="Button:pointerover">
-                <Setter Property="Foreground" Value="#808080"/>
+            <!-- Adding color on hover -->
+               <Style Selector="Button:pointerover TextBlock.row-text,
+                                Button:pointerover TextBlock.row1-text,
+                                Button:pointerover TextBlock.row2-text">
+        <Setter Property="Foreground" Value="#5D8AA8"/>
             </Style>
         </Button.Styles>
     </Button>

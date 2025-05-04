@@ -6,7 +6,7 @@
     <Setter Property="Height" Value="800"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
     <Setter Property="Canvas.Left" Value="320"/>
@@ -20,7 +20,7 @@
     <Setter Property="Background" Value="#F7F7F7"/>
     <Setter Property="CornerRadius" Value="20,20,0,0"/>
     <Setter Property="Padding" Value="20"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="0,0,0,1"/>
 </Style>
 
@@ -28,7 +28,7 @@
             <Style Selector="TextBlock.exp-main-text">
                 <Setter Property="FontSize" Value="28"/>
                 <Setter Property="FontWeight" Value="Bold"/>
-                <Setter Property="Foreground" Value="#333333"/>
+                <Setter Property="Foreground" Value="#5D8AA8"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
             </Style>
 
@@ -76,7 +76,7 @@
 <!-- Search -->
 <Style Selector="Border.search-border">
     <Setter Property="Background" Value="#FAFAFA"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="CornerRadius" Value="20"/>
     <Setter Property="Padding" Value="10"/>

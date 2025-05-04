@@ -7,7 +7,7 @@
     <Setter Property="Height" Value="900"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="50"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#24648E"/>
     <Setter Property="BorderThickness" Value="10"/>
     <Setter Property="BoxShadow" Value="0 20 30 10 #525252"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -22,7 +22,7 @@
     <Setter Property="Background" Value="#F7F7F7"/>
     <Setter Property="Padding" Value="15"/>
     <Setter Property="CornerRadius" Value="20,20,0,0"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="0,0,0,1"/>
 </Style>
 
@@ -57,7 +57,7 @@
 <!-- Edit button -->
 <Style Selector="Button.profile-edit-button">
     <Setter Property="Grid.Column" Value="3"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="20"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -73,7 +73,7 @@
 <!-- Sticanje button -->
 
 <Style Selector="Button.sailor-sticanje-button">
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -97,7 +97,7 @@
 <!-- listbox1 -->
 <Style Selector="ListBox.sailor-documents-list1">
     <Setter Property="Height" Value="300"/>
-    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="CornerRadius" Value="15"/>
 </Style>
@@ -105,14 +105,14 @@
 <!-- Listbox2 -->
 <Style Selector="ListBox.sailor-documents-list2">
     <Setter Property="Height" Value="270"/>
-    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="CornerRadius" Value="15"/>
 </Style>
 
 <!-- Print -->
 <Style Selector="Button.sailor-print-button">
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -203,7 +203,7 @@
 <!-- Zahtevi -->
 <Style Selector="Button.sailor-zahtev-button">
     <Setter Property="Grid.Column" Value="0"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -218,7 +218,7 @@
 <!-- Refresh -->
 <Style Selector="Button.sailor-refresh-button">
     <Setter Property="Grid.Column" Value="2"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -233,7 +233,7 @@
 <!-- Sticanje -->
 <Style Selector="Button.sailor-zahtev-sticanje-button">
     <Setter Property="Grid.Column" Value="4"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -250,7 +250,7 @@
 
 <Style Selector="Button.sailor-obnovi-button">
     <Setter Property="Grid.Row" Value="3"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="FontSize" Value="18"/>
     <Setter Property="Padding" Value="10,5"/>
@@ -276,7 +276,7 @@
     <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="Canvas.Left" Value="200"/>

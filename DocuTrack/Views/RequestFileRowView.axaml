@@ -19,8 +19,11 @@
 			<Button Grid.Column="0" Content="{Binding FileName}"
                                 Cursor="Hand"
                                 VerticalAlignment="Center"
-                                Classes="file-path-text"
-                                Command="{Binding OpenFileCommand}" />
+                                Classes="TransparentHoverButton"
+                                Background="Transparent"
+                                Foreground="#676767"
+                                Command="{Binding OpenFileCommand}"
+                                 />
 
                         <Button Grid.Column="1"
                                 Width="28" Height="26"
@@ -40,7 +43,7 @@
                         </Style>
                         </Button.Styles>
                         <TextBlock Text="✕"
-                                Foreground="White"
+                                Foreground="#5D8AA8"
                                 FontSize="12"/>
                         </Button>
 

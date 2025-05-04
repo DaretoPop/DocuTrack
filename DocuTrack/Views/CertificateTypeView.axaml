@@ -9,7 +9,7 @@
              x:Class="DocuTrack.Views.CertificateTypeView">
 
 
-    <Grid Background="#808080">
+    <Grid Background="#5D8AA8">
         <Border Classes="back-button-container">
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">

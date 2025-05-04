@@ -6,7 +6,7 @@
     <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="BorderBrush" Value="#E0E0E0"/>
+    <Setter Property="BorderBrush" Value="#24648E"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Margin" Value="50,0,0,50"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -30,7 +30,7 @@
     <Setter Property="Height" Value="470"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="50"/>
-    <Setter Property="BorderBrush" Value="#e0e0e0"/>
+    <Setter Property="BorderBrush" Value="#24648E"/>
     <Setter Property="BorderThickness" Value="10"/>
     <Setter Property="BoxShadow" Value="0 10 25 0 #525252"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -42,7 +42,7 @@
 <Style Selector="Border.upsert-ime-border">
     <Setter Property="Height" Value="50"/>
     <Setter Property="CornerRadius" Value="12"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 15"/>
     <Setter Property="Background" Value="White"/>
@@ -61,7 +61,7 @@
 <Style Selector="Border.upsert-prezime-border">
     <Setter Property="Height" Value="50"/>
     <Setter Property="CornerRadius" Value="12"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 25"/>
     <Setter Property="Background" Value="White"/>
@@ -81,7 +81,7 @@
 <Style Selector="Border.upsert-jmbg-border">
     <Setter Property="Height" Value="50"/>
     <Setter Property="CornerRadius" Value="12"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Margin" Value="0 0 0 25"/>
     <Setter Property="Background" Value="White"/>
@@ -121,7 +121,7 @@
     <Setter Property="Height" Value="45"/>
     <Setter Property="Width" Value="100"/>
     <Setter Property="CornerRadius" Value="12"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="HorizontalAlignment" Value="Center"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>

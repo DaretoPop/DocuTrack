@@ -13,7 +13,7 @@
         Title="DocuTrack">
 
 
-
+<!-- Outside Background of LoginView -->
 <!-- Background                   Sidebar  -->
 <Grid Background="#808080" ColumnDefinitions="Auto,*">
 
@@ -22,7 +22,7 @@
 
 
                             <!-- Color of Sidebar -->
-    <Border Padding="20" Background="#525252" IsVisible="{Binding IsLoggedIn}">
+    <Border Padding="20" Background="#FAFAFA" IsVisible="{Binding IsLoggedIn}">
         <Grid RowDefinitions="*,Auto">
             <StackPanel Spacing="12">
                 
@@ -44,12 +44,13 @@
                 <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
     
                     <Rectangle
-                        Grid.Column="0" Fill="#FF6347" Margin="0 0 2 0"
+                        Grid.Column="0" Fill="#0b218e" Margin="0 0 2 0"
                         IsVisible="{Binding IsPocetnaSelected}"/>
 
                     <TextBlock
                         Text="{Binding Pocetna}"
-                        Classes="main-pocetnaStrana-text"/>
+                        Classes="main-pocetnaStrana-text"
+                        Foreground="#5D8AA8"/>
 
                     <TextBlock Text="◀" IsVisible="{Binding IsPocetnaSelected}" Classes="main-pocetna-arrow"/> 
                 </Grid>
@@ -66,22 +67,22 @@
                     Classes="TransparentHoverButton">
 
                 <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
-                    <Rectangle Grid.Column="0" Fill="#FF6347" IsVisible="{Binding IsPomorciSelected}" Margin="0 0 2 0"/>
-                    <TextBlock Text="{Binding Pomorci}" Classes="main-pomorciStrana-text"/>
+                    <Rectangle Grid.Column="0" Fill="#0b218e" IsVisible="{Binding IsPomorciSelected}" Margin="0 0 2 0"/>
+                    <TextBlock Text="{Binding Pomorci}" Classes="main-pomorciStrana-text" Foreground="#5D8AA8"/>
                     <TextBlock Text="◀" Classes="pomorci-arrow" IsVisible="{Binding IsPomorciSelected}"/>
                 </Grid>
                 </Button>
 
 <StackPanel HorizontalAlignment="Left">
-    <Border Width="100" Height="1" Background="White" Opacity="0.3"/>
+    <Border Classes="main-line-separator"/>
 </StackPanel>
 
                 <!-- DOKUMENTA -->
            <Button Command="{Binding GoToDokumentaCommand}" Classes="TransparentHoverButton main-dokumentaPage-button">
                 <Grid ColumnDefinitions="4,*,Auto" Classes="main-default-grid">
 
-                    <Rectangle Grid.Column="0" Fill="#FF6347" IsVisible="{Binding IsDokumentaSelected}" Margin="0,0,2,0"/>
-                    <TextBlock Text="{Binding Dokumenta}" Classes="main-dokumentaPage-text"/>
+                    <Rectangle Grid.Column="0" Fill="#0b218e" IsVisible="{Binding IsDokumentaSelected}" Margin="0,0,2,0"/>
+                    <TextBlock Text="{Binding Dokumenta}" Classes="main-dokumentaPage-text" Foreground="#5D8AA8"/>
                     <TextBlock Text="◀" Classes="main-dokumenta-arrow" IsVisible="{Binding IsDokumentaSelected}"/>
                 </Grid>
                 </Button>
@@ -94,7 +95,7 @@
             </StackPanel>
         
                         <!-- IZADJI--> 
-             <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="White" HorizontalAlignment="Stretch" FontSize="20"    
+             <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="#5D8AA8" HorizontalAlignment="Stretch" FontSize="20"    
                      Command="{Binding ExitCommand}"
                      CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
                      Classes="TransparentHoverButton">    
