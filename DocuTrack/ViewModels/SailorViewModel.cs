@@ -19,7 +19,8 @@ namespace DocuTrack.ViewModels
     {
         [ObservableProperty] private Sailor? _sailor;
         [ObservableProperty] private MainViewModel? _mainViewModel;
-
+        [ObservableProperty] private Certificate? _selectedCertificate = null;
+        [ObservableProperty] public bool IsCertificateSelected => _selectedCertificate != null;
 
         public SailorViewModel()
         {
@@ -45,6 +46,14 @@ namespace DocuTrack.ViewModels
 
             ScannedDocuments = new ObservableCollection<RequestFileViewModel>(mockupList);
             DocumentIteams = new ObservableCollection<RequestFileViewModel>(mockupList);
+
+            _selectedCertificate = new Certificate()
+            {
+                CertificateType = new CertificateType() { ID = 0, Name = "Mockup Display" },
+                DateAcquired = "27.05.1994", DateExpiration = "27.05.1995", Place = "Kotor", ID = 0,
+                CertificateTypeID = 0
+            };
+            _selectedCertificate = null;
         }
 
 

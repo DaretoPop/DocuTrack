@@ -61,14 +61,14 @@
 
 
                 <!-- Bottom of Panel LeftSide -->
-               <StackPanel Spacing="5" HorizontalAlignment="Center">
+               <StackPanel Spacing="5" HorizontalAlignment="Center" IsVisible="{Binding IsCertificateSelected}">
                 <TextBlock Text="Skenirana Dokumenta" Classes="skenirana-dokumenta"/>
                  <!-- Divider line -->
                     <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="250" HorizontalAlignment="Center"/>
               </StackPanel>
 
             <!-- SCANNED DOCUMENTS LIST BOX 2 -->
-               <StackPanel Grid.Column="0" Spacing="10">
+               <StackPanel Grid.Column="0" Spacing="10" IsVisible="{Binding IsCertificateSelected}">
             <ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -79,7 +79,7 @@
 
             </StackPanel>
 <!-- Stmapaj BUTTON -->
-            <Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}"/>              
+            <Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>              
 
           </StackPanel>
           
@@ -97,38 +97,38 @@
             </Grid.RowDefinitions>
             
             <!-- Upper Side of Right Panel-->
-            <StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding IsCertificateSelected}">
 <!-- Tip -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
                   <TextBlock Text="Naziv/Tip" Classes="sailor-tip-text"/>
-                  <TextBlock Text="Certifikat 1" Classes="sailor-certificate-name"/>
+                  <TextBlock Text="{Binding SelectedCertificate.CertificateType.Name}" Classes="sailor-certificate-name"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Izdavanje -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
                   <TextBlock Text="Datum Izdavanja" Classes="sailor-izdavanje-text"/>
-                  <TextBlock Text="31.05.2024" Classes="sailor-izdavanje-datum"/>
+                  <TextBlock Text="{Binding SelectedCertificate.DateAcquired}" Classes="sailor-izdavanje-datum"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Istek -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
                   <TextBlock Text="Datum Isteka" Classes="sailor-istek-text"/>
-                  <TextBlock Text="31.05.2026"   Classes="sailor-istek-datum"/>
+                  <TextBlock Text="{Binding SelectedCertificate.DateExpiration}"   Classes="sailor-istek-datum"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
 <!-- Mesto Izdavanja -->
               <StackPanel Spacing="5" HorizontalAlignment="Center">
                   <TextBlock Text="Mesto Izdavanja" Classes="sailor-mestoizdavanja"/>
-                  <TextBlock Text="Bar/Kotor" Classes="sailor-filijala"/>
+                  <TextBlock Text="{Binding SelectedCertificate.Place}" Classes="sailor-filijala"/>
                   <Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
               </StackPanel>
             </StackPanel>
             
             <!-- Horizontal Thick Separator -->
-            <Border Grid.Row="1" Background="#e0e0e0" Height="5" Margin="0,20"/>
+            <Border Grid.Row="1" Background="#e0e0e0" Height="5" Margin="0,20" IsVisible="{Binding IsCertificateSelected}"/>
             
             <!-- Lower Part of RightSIDE-->
-            <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20">
+            <Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20" IsVisible="{Binding IsCertificateSelected}">
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>   <!-- Zahtevi field -->
                 <RowDefinition Height="Auto"/>   <!-- Grid with 3 Request Buttons -->

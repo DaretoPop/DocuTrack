@@ -17,8 +17,7 @@ namespace DocuTrack.DataModels
 
 
 
-        
-
+        public CertificateType CertificateType { get; set; }
         public List<CertificateFile> CertificateFiles { get; set; }
     }
 }
