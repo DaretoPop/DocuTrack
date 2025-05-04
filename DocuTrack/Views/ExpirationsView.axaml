@@ -25,242 +25,731 @@
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
           <StackPanel Spacing="10">
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-                    
-                    <!-- Content -->
-              <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                  
-                  <TextBlock Text="Darko Aksentijevic" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 CCNA(Cisco Certified Network Associate)" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="2026-05-01" Classes="istice-label"/>
+<!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
 
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <!-- This set color on hover Horizon -->
-                 <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                    <Setter Property="Foreground" Value="#5D8AA8"/>            
-                </Style>
-              </Button.Styles>
-            </Button>
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
 
-          <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+    </Grid>
+  </Button.Content>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+        <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+    </Grid>
+  </Button.Content>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+            <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+    </Grid>
+  </Button.Content>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+          <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
 
-            <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-               <Button Background="Transparent" BorderBrush="Transparent" Padding="10" HorizontalAlignment="Stretch"
-                    Command="{Binding GoToProfilPanelCommand}">
-              <Button.Content>
-                 <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
 
-                  <TextBlock Text="Ime i Prezime" Classes="imeprezime-label"/>
-                  <TextBlock Grid.Column="1" Text="📜 Tip Sertifikata" Classes="typecert-label"/>
-                  <TextBlock Grid.Column="2" Text="📅 Istice: 2026-05-01" Classes="istice-label"/>
-                  
-                </Grid>
-              </Button.Content>
-              <Button.Styles>
-                <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                  <Setter Property="Foreground" Value="#5D8AA8"/>             
-                </Style>
-              </Button.Styles>
-            </Button>
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+          <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+         <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+          <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+        <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+         <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+         <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+         <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+         <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
+
+            <!-- ONE ROW -->
+<Button Background="Transparent"
+        BorderBrush="Transparent"
+        Padding="10"
+        HorizontalAlignment="Stretch"
+        Command="{Binding GoToProfilPanelCommand}">
+
+  <Button.Content>
+    <Grid Width="1100"
+          Height="45"
+          ColumnDefinitions="*,*,*"
+          VerticalAlignment="Center">
+
+      <TextBlock Grid.Column="0"
+                 Text="Darko Aksentijevic"
+                 Classes="imeprezime-label"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Left"/>
+
+      <StackPanel Grid.Column="1"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Center">
+        <TextBlock Text="📜"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="CCNA (Cisco Certified Network Associate)"
+                   Classes="typecert-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+      <StackPanel Grid.Column="2"
+                  Orientation="Horizontal"
+                  VerticalAlignment="Center"
+                  HorizontalAlignment="Right">
+        <TextBlock Text="📅"
+                   Margin="0,0,5,0"
+                   VerticalAlignment="Center"
+                   Foreground="Black"/>
+        <TextBlock Text="2026-01-02 Januar"
+                   Classes="istice-label"
+                   VerticalAlignment="Center"/>
+      </StackPanel>
+
+    </Grid>
+  </Button.Content>
+
+  <!-- Hover Styles -->
+  <Button.Styles>
+    <Style Selector="Button:pointerover TextBlock.imeprezime-label">
+      <Setter Property="Foreground" Value="#5D8AA8"/>
+    </Style>
+  </Button.Styles>
+</Button>
 
           </StackPanel>
         </ScrollViewer>
