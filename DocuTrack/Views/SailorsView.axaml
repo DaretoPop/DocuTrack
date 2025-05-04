@@ -57,7 +57,6 @@
           <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
                          <!-- FIRST PAGE -->
-      <Border Classes="sailors-arrow-border">
               <Button Command="{Binding GoToFirstPageCommand}"
                       IsEnabled="{Binding CanGoToFirstOrPrevious}"
                       Background="Transparent"
@@ -67,9 +66,7 @@
                       Stretch="Uniform"
                       Width="24" Height="24"/>
               </Button>
-      </Border>
                         <!-- LEFT ARROW -->
-          <Border Classes="sailors-arrow-border">
               <Button Command="{Binding GoToPreviousPageCommand}"
                       IsEnabled="{Binding CanGoToFirstOrPrevious}"
                       Background="Transparent"
@@ -79,24 +76,21 @@
                       Stretch="Uniform"
                       Width="32" Height="32"/>
               </Button>
-          </Border>
 
             <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
             
                               <!-- RIGHT ARROW -->
-          <Border Classes="sailors-arrow-border">
               <Button Command="{Binding GoToNextPageCommand}"
                       IsEnabled="{Binding CanGoToNextOrLast}"
                       Background="Transparent"
-                      Focusable="False"
+                      Focusable="True"
                       Classes="TransparentHoverButton">
                 <Image Source="avares://DocuTrack/Assets/right-arrow.png"
                       Stretch="Uniform"
                       Width="32" Height="32"/>
               </Button>
-          </Border>
+
             <!-- LAST PAGE -->
-          <Border Classes="sailors-arrow-border">
             <Button Command="{Binding GoToLastPageCommand}"
                     IsEnabled="{Binding CanGoToNextOrLast}"
                     Background="Transparent"
@@ -106,7 +100,6 @@
                     Stretch="Uniform"
                     Width="24" Height="24"/>
             </Button>
-          </Border>
 
 
 
