@@ -170,7 +170,7 @@ namespace DocuTrack.ViewModels
         {
             if (SelectedFiles.Count == 0)
             {
-                Console.WriteLine("No files selected for printing.");
+                //No files selected for printing.
                 return;
             }
 
@@ -182,7 +182,6 @@ namespace DocuTrack.ViewModels
                 // Open the generated file (optional)
                 if (!string.IsNullOrEmpty(outputFilePath) && File.Exists(outputFilePath))
                 {
-                    Console.WriteLine($"Generated print file: {outputFilePath}");
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = outputFilePath,
@@ -199,19 +198,67 @@ namespace DocuTrack.ViewModels
           [RelayCommand]
         private void ZahtevZaObnovu()
         {
-            Console.WriteLine("ZahtevzaOBNOVU");
+            try
+            {
+                var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Obnova);
+
+                if (!string.IsNullOrEmpty(outputFilePath) && File.Exists(outputFilePath))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = outputFilePath,
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during printing: {ex.Message}");
+            }
         }
 
           [RelayCommand]
         private void ZahtevZaRefresh()
         {
-            Console.WriteLine("ZahtevzarREFRESH");
+            try
+            {
+                var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Refresh);
+
+                if (!string.IsNullOrEmpty(outputFilePath) && File.Exists(outputFilePath))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = outputFilePath,
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during printing: {ex.Message}");
+            }
         }
 
           [RelayCommand]
         private void ZahtevZaSticanje()
         {
-            Console.WriteLine("ZahtevzaSTICANJE");
+            try
+            {
+                var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Sticanje);
+
+                if (!string.IsNullOrEmpty(outputFilePath) && File.Exists(outputFilePath))
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = outputFilePath,
+                        UseShellExecute = true
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error during printing: {ex.Message}");
+            }
         } 
 
            [RelayCommand]

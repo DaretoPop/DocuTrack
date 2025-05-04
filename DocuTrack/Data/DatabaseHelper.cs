@@ -579,6 +579,86 @@ namespace DocuTrack.Data
             }
         }
 
+        internal static string? GenerateZahtevi(int certificateTypeID, RequestTypeEnum obnova)
+        {
+            try
+            {
+                var files = getCertificateTypeDocuments(certificateTypeID);
+                var outputDirectory = Path.Combine(AppContext.BaseDirectory, "PrintOutput");
+                if (!Directory.Exists(outputDirectory))
+                {
+                    Directory.CreateDirectory(outputDirectory);
+                }
+
+                var outputFilePath = Path.Combine(outputDirectory, "CombinedOutput.pdf");
+                var zahtevi = files.Where(x => x.RequestType == obnova);
+                if (zahtevi.Count() == 0)
+                {
+                    return null;
+                }
+
+                if (zahtevi.Count() == 1)
+                {
+                    var singleFile = zahtevi.First();
+                    
+                    return singleFile.FilePath;
+                }
+
+                using (var outputDocument = new PdfSharp.Pdf.PdfDocument())
+                {
+                    foreach (var file in zahtevi)
+                    {
+                        var filePath = file.FilePath;
+
+                        if (Path.GetExtension(filePath).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
+                        {
+                            // Add PDF pages to the output document
+                            using (var inputDocument = PdfSharp.Pdf.IO.PdfReader.Open(filePath, PdfSharp.Pdf.IO.PdfDocumentOpenMode.Import))
+                            {
+                                foreach (var page in inputDocument.Pages)
+                                {
+                                    outputDocument.AddPage(page);
+                                }
+                            }
+                        }
+                        else if (Path.GetExtension(filePath).Equals(".docx", StringComparison.OrdinalIgnoreCase))
+                        {
+                            var pdfPath = ConvertDocxToPdf(filePath);
+                            using (var inputDocument = PdfSharp.Pdf.IO.PdfReader.Open(pdfPath, PdfSharp.Pdf.IO.PdfDocumentOpenMode.Import))
+                            {
+                                foreach (var page in inputDocument.Pages)
+                                {
+                                    outputDocument.AddPage(page);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Handle other file types (e.g., images)
+                            var page = outputDocument.AddPage();
+                            using (var graphics = PdfSharp.Drawing.XGraphics.FromPdfPage(page))
+                            {
+                                var image = PdfSharp.Drawing.XImage.FromFile(filePath);
+                                graphics.DrawImage(image, 0, 0, page.Width, page.Height);
+                            }
+                        }
+                    }
+
+                    // Save the combined PDF
+                    outputDocument.Save(outputFilePath);
+                }
+
+                return outputFilePath;
+
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error generating Zahtevi: {ex.Message}", ex);
+            }
+        }
+
 
 
         #endregion
