@@ -18,7 +18,22 @@
 
                 <!-- Header TIP DOKUMENATA -->
                 <Border Classes="document-header">
-                    <TextBlock Text="Tip Dokumenata" Classes="document-text"/>
+                    <Grid>
+						<TextBlock Text="Tip Dokumenata" Classes="document-text"/>
+
+                        <StackPanel
+                        Classes="totalcount-stack-panel">
+                        <TextBlock
+                            Text="Ukupno: "
+                            Classes="sailors-ukupanBroj-text"/>
+
+                        <!-- TotalSailorsCound -->
+                        <TextBlock
+                            Text="{Binding TotalCertificateTypes}"
+                            Classes="sailors-count-text"/>
+
+                        </StackPanel>
+                    </Grid>
                 </Border>
 
                 <!-- Scroll List -->

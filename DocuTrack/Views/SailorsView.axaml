@@ -9,123 +9,123 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-  <Canvas Background="#5D8AA8" Width="1920" Height="1080">
-    
-    <!-- Main Center Card -->
-    <Border x:Name="MainCard" Classes="sailor-main-card">
-      <Grid RowDefinitions="Auto,*">
-       <Border Classes="sailor-card-header">
-    <Grid>
-      <!-- Profil Header -->
-          <TextBlock
-            Text="Profil Pomorca"
-            Classes="sailor-card-header-text"/>
-   <!-- One row two text block xD -->
-         <StackPanel
-            Classes="totalcount-stack-panel">
-            <TextBlock
-              Text="Pomorci: "
-              Classes="sailors-ukupanBroj-text"/>
+	<Canvas Background="#5D8AA8" Width="1920" Height="1080">
 
-            <!-- TotalSailorsCound -->
-            <TextBlock
-              Text="{Binding TotalSailorsCount}"
-              Classes="sailors-count-text"/>
+		<!-- Main Center Card -->
+		<Border x:Name="MainCard" Classes="sailor-main-card">
+			<Grid RowDefinitions="Auto,*">
+				<Border Classes="sailor-card-header">
+					<Grid>
+						<!-- Profil Header -->
+						<TextBlock
+						  Text="Profil Pomorca"
+						  Classes="sailor-card-header-text"/>
+						<!-- One row two text block xD -->
+						<StackPanel
+						   Classes="totalcount-stack-panel">
+							<TextBlock
+							  Text="Pomorci: "
+							  Classes="sailors-ukupanBroj-text"/>
 
-    </StackPanel>
-    </Grid>
-</Border>
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30">
-          <StackPanel Spacing="10">
+							<!-- TotalSailorsCound -->
+							<TextBlock
+							  Text="{Binding TotalSailorsCount}"
+							  Classes="sailors-count-text"/>
 
-			  <!-- one row -->
-              <ItemsControl ItemsSource="{Binding PaginatedSailors}">
-				  <ItemsControl.ItemTemplate>
-					  <DataTemplate>
-						  <views:SailorRowView DataContext="{Binding}" />
-					  </DataTemplate>
-				  </ItemsControl.ItemTemplate>
-              </ItemsControl>
+						</StackPanel>
+					</Grid>
+				</Border>
+				<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="30">
+					<StackPanel Spacing="10">
 
-			  <!-- end of one row -->
-            
-          </StackPanel>
-        </ScrollViewer>
+						<!-- one row -->
+						<ItemsControl ItemsSource="{Binding PaginatedSailors}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate>
+									<views:SailorRowView DataContext="{Binding}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
 
-        <!-- Border pages navigations -->
-        <Border Classes="page-navigation">
-          <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+						<!-- end of one row -->
 
-                         <!-- FIRST PAGE -->
-              <Button Command="{Binding GoToFirstPageCommand}"
-                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                      Background="Transparent"
-                      Focusable="False"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-                      Stretch="Uniform"
-                      Width="24" Height="24"/>
-              </Button>
-                        <!-- LEFT ARROW -->
-              <Button Command="{Binding GoToPreviousPageCommand}"
-                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                      Background="Transparent"
-                      Focusable="False"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/left-arrow.png"
-                      Stretch="Uniform"
-                      Width="32" Height="32"/>
-              </Button>
+					</StackPanel>
+				</ScrollViewer>
 
-            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-            
-                              <!-- RIGHT ARROW -->
-              <Button Command="{Binding GoToNextPageCommand}"
-                      IsEnabled="{Binding CanGoToNextOrLast}"
-                      Background="Transparent"
-                      Focusable="True"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/right-arrow.png"
-                      Stretch="Uniform"
-                      Width="32" Height="32"/>
-              </Button>
+				<!-- Border pages navigations -->
+				<Border Classes="page-navigation">
+					<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
-            <!-- LAST PAGE -->
-            <Button Command="{Binding GoToLastPageCommand}"
-                    IsEnabled="{Binding CanGoToNextOrLast}"
-                    Background="Transparent"
-                    Focusable="False"
-                    Classes="TransparentHoverButton">
-              <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-                    Stretch="Uniform"
-                    Width="24" Height="24"/>
-            </Button>
+						<!-- FIRST PAGE -->
+						<Button Command="{Binding GoToFirstPageCommand}"
+								IsEnabled="{Binding CanGoToFirstOrPrevious}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+								  Stretch="Uniform"
+								  Width="24" Height="24"/>
+						</Button>
+						<!-- LEFT ARROW -->
+						<Button Command="{Binding GoToPreviousPageCommand}"
+								IsEnabled="{Binding CanGoToFirstOrPrevious}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/left-arrow.png"
+								  Stretch="Uniform"
+								  Width="32" Height="32"/>
+						</Button>
+
+						<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+						<!-- RIGHT ARROW -->
+						<Button Command="{Binding GoToNextPageCommand}"
+								IsEnabled="{Binding CanGoToNextOrLast}"
+								Background="Transparent"
+								Focusable="True"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/right-arrow.png"
+								  Stretch="Uniform"
+								  Width="32" Height="32"/>
+						</Button>
+
+						<!-- LAST PAGE -->
+						<Button Command="{Binding GoToLastPageCommand}"
+								IsEnabled="{Binding CanGoToNextOrLast}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+								  Stretch="Uniform"
+								  Width="24" Height="24"/>
+						</Button>
 
 
 
- 
-        </StackPanel>
-         </Border>
-      </Grid>
-    </Border>
 
-    <!-- Search MAIN BORDER-->
-    <Border Classes="sailor-search-border" >
+					</StackPanel>
+				</Border>
+			</Grid>
+		</Border>
 
-<!-- Search -->
-      <DockPanel LastChildFill="True">
-        <TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
-        <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
-      </DockPanel>
-    </Border>
+		<!-- Search MAIN BORDER-->
+		<Border Classes="sailor-search-border" >
 
-      <!-- Kreiraj Pomorca -->
-    <Border Classes="sailor-create-button-frame">   
-      <Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="#676767" HorizontalAlignment="Stretch" FontSize="15.5"
-              Command="{Binding GoToKreirajPomorcaPageCommand}"
-              Classes="TransparentHoverButton">
-        
-      </Button>
-    </Border>
-  </Canvas>
+			<!-- Search -->
+			<DockPanel LastChildFill="True">
+				<TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
+				<TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
+			</DockPanel>
+		</Border>
+
+		<!-- Kreiraj Pomorca -->
+		<Border Classes="sailor-create-button-frame">
+			<Button Content="Kreiraj Pomorca" Background="Transparent" Foreground="#676767" HorizontalAlignment="Stretch" FontSize="15.5"
+					Command="{Binding GoToKreirajPomorcaPageCommand}"
+					Classes="TransparentHoverButton">
+
+			</Button>
+		</Border>
+	</Canvas>
 </UserControl>

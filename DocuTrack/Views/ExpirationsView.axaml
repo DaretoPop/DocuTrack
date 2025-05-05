@@ -10,166 +10,168 @@
 
 
 
-  <!-- Canvas -> for better positions -->
-  <Canvas Background="#5D8AA8" Width="1920" Height="1080">
-    
-    <!-- Main Center Card -->
-    <Border x:Name="MainCard" Classes="exp-main-card">  
-      <Grid RowDefinitions="Auto,*">
+	<!-- Canvas -> for better positions -->
+	<Canvas Background="#5D8AA8" Width="1920" Height="1080">
 
-        <!-- Header -->
-        <Border Classes="exp-main-header">
-          
-          <StackPanel Classes="totalcount-stack-panel">
-              <TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/> 
-              <TextBlock
-                  Text="Sertifikati: "
-                  Classes="sailors-ukupanBroj-text"/>
+		<!-- Main Center Card -->
+		<Border x:Name="MainCard" Classes="exp-main-card">
+			<Grid RowDefinitions="Auto,*">
 
-              <!-- TotalSailorsCound -->
-              <TextBlock
-                  Text="{Binding TotalSertificateCount}"
-                  Classes="sailors-count-text"/>
+				<!-- Header -->
+				<Border Classes="exp-main-header">
+					<Grid>
+						<TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/>
+						<StackPanel Classes="totalcount-stack-panel">
 
-          </StackPanel>
-        </Border>
-        <!-- Scroll of rows -->
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
-          <StackPanel Spacing="10">
+							<TextBlock
+								Text="Ukupno: "
+								Classes="sailors-ukupanBroj-text"/>
 
+							<!-- TotalSailorsCound -->
+							<TextBlock
+								Text="{Binding TotalSertificateCount}"
+								Classes="sailors-count-text"/>
 
-              <ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
-                  <ListBox.ItemTemplate>
-                      <DataTemplate>
-
-                          <Button Background="Transparent"
-                                  BorderBrush="Transparent"
-                                  Padding="10"
-                                  HorizontalAlignment="Stretch">
-
-                              <Button.Content>
-                                  <Grid Width="1100"
-                                        Height="45"
-                                        ColumnDefinitions="*,*,*"
-                                        VerticalAlignment="Center">
-
-                                      <TextBlock Grid.Column="0"
-                                                 Text="{Binding SailorName}"
-                                                 Classes="imeprezime-label"
-                                                 VerticalAlignment="Center"
-                                                 HorizontalAlignment="Left"/>
-
-                                      <StackPanel Grid.Column="1"
-                                                  Orientation="Horizontal"
-                                                  VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center">
-                                          <TextBlock Text="📜"
-                                                     Margin="0,0,5,0"
-                                                     VerticalAlignment="Center"
-                                                     Foreground="Black"/>
-                                          <TextBlock Text="{Binding CertificateTypeName}"
-                                                     Classes="typecert-label"
-                                                     VerticalAlignment="Center"/>
-                                      </StackPanel>
-
-                                      <StackPanel Grid.Column="2"
-                                                  Orientation="Horizontal"
-                                                  VerticalAlignment="Center"
-                                                  HorizontalAlignment="Right">
-                                          <TextBlock Text="📅"
-                                                     Margin="0,0,5,0"
-                                                     VerticalAlignment="Center"
-                                                     Foreground="Black"/>
-                                          <TextBlock Text="{Binding DateOfExpiration}"
-                                                     Classes="istice-label"
-                                                     VerticalAlignment="Center"/>
-                                      </StackPanel>
-
-                                  </Grid>
-                              </Button.Content>
-
-                              <!-- Hover Styles -->
-                              <Button.Styles>
-                                  <Style Selector="Button:pointerover TextBlock.imeprezime-label">
-                                      <Setter Property="Foreground" Value="#5D8AA8"/>
-                                  </Style>
-                              </Button.Styles>
-                          </Button>
+						</StackPanel>
+					</Grid>
+				</Border>
+				<!-- Scroll of rows -->
+				<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
+					<StackPanel Spacing="10">
 
 
+						<ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
 
-                      </DataTemplate>
-                  </ListBox.ItemTemplate>
-              </ListBox>
+									<Button Background="Transparent"
+											BorderBrush="Transparent"
+											Padding="10"
+											HorizontalAlignment="Stretch">
 
+										<Button.Content>
+											<Grid Width="1100"
+												  Height="45"
+												  ColumnDefinitions="*,*,*"
+												  VerticalAlignment="Center">
 
-          </StackPanel>
-        </ScrollViewer>
-		  <Border Classes="page-navigation">
-			  <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+												<TextBlock Grid.Column="0"
+														   Text="{Binding SailorName}"
+														   Classes="imeprezime-label"
+														   VerticalAlignment="Center"
+														   HorizontalAlignment="Left"/>
 
-				  <!-- FIRST PAGE -->
-				  <Button Command="{Binding GoToFirstPageCommand}"
-						  IsEnabled="{Binding CanGoToFirstOrPrevious}"
-						  Background="Transparent"
-						  Focusable="False"
-						  Classes="TransparentHoverButton">
-					  <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-							Stretch="Uniform"
-							Width="24" Height="24"/>
-				  </Button>
-				  <!-- LEFT ARROW -->
-				  <Button Command="{Binding GoToPreviousPageCommand}"
-						  IsEnabled="{Binding CanGoToFirstOrPrevious}"
-						  Background="Transparent"
-						  Focusable="False"
-						  Classes="TransparentHoverButton">
-					  <Image Source="avares://DocuTrack/Assets/left-arrow.png"
-							Stretch="Uniform"
-							Width="32" Height="32"/>
-				  </Button>
+												<StackPanel Grid.Column="1"
+															Orientation="Horizontal"
+															VerticalAlignment="Center"
+															HorizontalAlignment="Center">
+													<TextBlock Text="📜"
+															   Margin="0,0,5,0"
+															   VerticalAlignment="Center"
+															   Foreground="Black"/>
+													<TextBlock Text="{Binding CertificateTypeName}"
+															   Classes="typecert-label"
+															   VerticalAlignment="Center"/>
+												</StackPanel>
 
-				  <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+												<StackPanel Grid.Column="2"
+															Orientation="Horizontal"
+															VerticalAlignment="Center"
+															HorizontalAlignment="Right">
+													<TextBlock Text="📅"
+															   Margin="0,0,5,0"
+															   VerticalAlignment="Center"
+															   Foreground="Black"/>
+													<TextBlock Text="{Binding DateOfExpiration}"
+															   Classes="istice-label"
+															   VerticalAlignment="Center"/>
+												</StackPanel>
 
-				  <!-- RIGHT ARROW -->
-				  <Button Command="{Binding GoToNextPageCommand}"
-						  IsEnabled="{Binding CanGoToNextOrLast}"
-						  Background="Transparent"
-						  Focusable="True"
-						  Classes="TransparentHoverButton">
-					  <Image Source="avares://DocuTrack/Assets/right-arrow.png"
-							Stretch="Uniform"
-							Width="32" Height="32"/>
-				  </Button>
+											</Grid>
+										</Button.Content>
 
-				  <!-- LAST PAGE -->
-				  <Button Command="{Binding GoToLastPageCommand}"
-						  IsEnabled="{Binding CanGoToNextOrLast}"
-						  Background="Transparent"
-						  Focusable="False"
-						  Classes="TransparentHoverButton">
-					  <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-							Stretch="Uniform"
-							Width="24" Height="24"/>
-				  </Button>
+										<!-- Hover Styles -->
+										<Button.Styles>
+											<Style Selector="Button:pointerover TextBlock.imeprezime-label">
+												<Setter Property="Foreground" Value="#5D8AA8"/>
+											</Style>
+										</Button.Styles>
+									</Button>
 
 
 
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
 
-			  </StackPanel>
-		  </Border>
-      </Grid>
-    </Border>
 
-    <!-- Search Field on top-left of the main card -->
-    <Border Classes="search-border" Canvas.Left="320"   
-                                    Canvas.Top="84">   
-<!-- ICON AND TEXT -->
-      <DockPanel LastChildFill="True">
-        <TextBlock Text="🔍" Classes="search-icon"/>
-        <TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
-      </DockPanel>
-    </Border>
-    
-  </Canvas>
+					</StackPanel>
+				</ScrollViewer>
+				<Border Classes="page-navigation">
+					<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+
+						<!-- FIRST PAGE -->
+						<Button Command="{Binding GoToFirstPageCommand}"
+								IsEnabled="{Binding CanGoToFirstOrPrevious}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+								  Stretch="Uniform"
+								  Width="24" Height="24"/>
+						</Button>
+						<!-- LEFT ARROW -->
+						<Button Command="{Binding GoToPreviousPageCommand}"
+								IsEnabled="{Binding CanGoToFirstOrPrevious}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/left-arrow.png"
+								  Stretch="Uniform"
+								  Width="32" Height="32"/>
+						</Button>
+
+						<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+						<!-- RIGHT ARROW -->
+						<Button Command="{Binding GoToNextPageCommand}"
+								IsEnabled="{Binding CanGoToNextOrLast}"
+								Background="Transparent"
+								Focusable="True"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/right-arrow.png"
+								  Stretch="Uniform"
+								  Width="32" Height="32"/>
+						</Button>
+
+						<!-- LAST PAGE -->
+						<Button Command="{Binding GoToLastPageCommand}"
+								IsEnabled="{Binding CanGoToNextOrLast}"
+								Background="Transparent"
+								Focusable="False"
+								Classes="TransparentHoverButton">
+							<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+								  Stretch="Uniform"
+								  Width="24" Height="24"/>
+						</Button>
+
+
+
+
+					</StackPanel>
+				</Border>
+			</Grid>
+		</Border>
+
+		<!-- Search Field on top-left of the main card -->
+		<Border Classes="search-border" Canvas.Left="320"
+										Canvas.Top="84">
+			<!-- ICON AND TEXT -->
+			<DockPanel LastChildFill="True">
+				<TextBlock Text="🔍" Classes="search-icon"/>
+				<TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
+			</DockPanel>
+		</Border>
+
+	</Canvas>
 </UserControl>
