@@ -19,6 +19,32 @@ namespace DocuTrack.DataModels
 
 
         public CertificateType CertificateType { get; set; }
+        public Sailor Sailor { get; set; }
         public List<CertificateFile> CertificateFiles { get; set; }
+
+
+        public string SailorName
+        {
+            get
+            {
+                return Sailor?.Name + " " + Sailor.Surname;
+            }
+        }
+
+        public string CertificateTypeName
+        {
+            get
+            {
+                return CertificateType?.Name;
+            }
+        }
+
+        public string DateOfExpiration
+        {
+            get
+            {
+                return DateTime.ParseExact(DateExpiration, "yyyy-MM-dd", null).ToString("dd-MM-yyyy");
+            }
+        }
     }
 }

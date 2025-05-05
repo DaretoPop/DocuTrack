@@ -660,6 +660,60 @@ namespace DocuTrack.Data
         }
 
 
+        internal static List<Certificate> GetCertificatesWhichWillExpire(int days = 260) //switch to 300
+        {
+            try
+            {
+                var list = new List<Certificate>();
+
+
+                DateTime dateThreshold = DateTime.Today.AddDays(days);
+                string formattedDate = dateThreshold.ToString("yyyy-MM-dd");
+
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT c.ID, c.SailorID, c.CertificateTypeID, c.DateAcquired, c.DateExpiration, c.Place, s.ID, s.GID, s.Name,s.Surname, s.IsRefresh, CT.ID, CT.Name FROM Certificates c INNER JOIN Sailors s ON c.SailorID = s.ID INNER JOIN CertificateTypes CT on c.CertificateTypeID = CT.ID WHERE (c.SailorID, c.CertificateTypeID, c.ID) IN (    SELECT SailorID, CertificateTypeID, MAX(ID)    FROM Certificates    GROUP BY SailorID, CertificateTypeID) AND c.DateExpiration <= @expDate ORDER BY c.DateExpiration ASC;";
+                command.Parameters.AddWithValue("@expDate", formattedDate);
+                using var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    var certificate = new Certificate()
+                    {
+                        ID = reader.GetInt32(0), // ID
+                        SailorID = reader.GetInt32(1), // SailorID  
+                        CertificateTypeID = reader.GetInt32(2), // CertificateTypeID
+                        DateAcquired = reader.GetString(3), // DateAcquired
+                        DateExpiration = reader.GetString(4), // DateExpiration
+                        Place = reader.GetString(5), // Place
+                        Name = reader.GetString(12),
+                        Sailor = new Sailor()
+                        {
+                            ID = reader.GetInt32(6), // ID
+                            GID = reader.GetString(7), // GID
+                            Name = reader.GetString(8), // Name
+                            Surname = reader.GetString(9), // Surname
+                            IsRefresh = reader.GetBoolean(10) // IsRefresh
+                        },
+                        CertificateType = new CertificateType()
+                        {
+                            ID = reader.GetInt32(11), // ID
+                            Name = reader.GetString(12) // Name
+                        }
+                    };
+                    list.Add(certificate);
+                }
+                connection.Close();
+
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error GetCertificatesWhichWillExpire{ex.Message}", ex);
+            }
+        }
+
 
         #endregion
 
