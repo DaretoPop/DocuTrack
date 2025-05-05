@@ -6,7 +6,7 @@
     <Setter Property="Height" Value="650"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="CornerRadius" Value="30"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#24648E"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="BoxShadow" Value="0 20 15 0 #525252"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -31,7 +31,7 @@
   <Style Selector="Border.username-border">
     <Setter Property="Height" Value="50"/>
     <Setter Property="CornerRadius" Value="8"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="Margin" Value="0 0 0 15"/>
@@ -51,7 +51,7 @@
 <Style Selector="Border.password-border">
     <Setter Property="Height" Value="50"/>
     <Setter Property="CornerRadius" Value="8"/>
-    <Setter Property="BorderBrush" Value="#808080"/>
+    <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
     <Setter Property="Background" Value="White"/>
     <Setter Property="Margin" Value="0 0 0 25"/>
@@ -92,7 +92,7 @@
     <Setter Property="Width" Value="100"/>
     <Setter Property="Height" Value="45"/>
     <Setter Property="CornerRadius" Value="8"/>
-    <Setter Property="Background" Value="#808080"/>
+    <Setter Property="Background" Value="#5D8AA8"/>
     <Setter Property="Foreground" Value="White"/>
     <Setter Property="HorizontalContentAlignment" Value="Center"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
