@@ -19,14 +19,26 @@
 
         <!-- Header -->
         <Border Classes="exp-main-header">
-          <TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/>
+          
+          <StackPanel Classes="totalcount-stack-panel">
+              <TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/> 
+              <TextBlock
+                  Text="Sertifikati: "
+                  Classes="sailors-ukupanBroj-text"/>
+
+              <!-- TotalSailorsCound -->
+              <TextBlock
+                  Text="{Binding TotalSertificateCount}"
+                  Classes="sailors-count-text"/>
+
+          </StackPanel>
         </Border>
         <!-- Scroll of rows -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
           <StackPanel Spacing="10">
 
 
-              <ListBox ItemsSource="{Binding Certificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
+              <ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
                   <ListBox.ItemTemplate>
                       <DataTemplate>
 
@@ -93,6 +105,59 @@
 
           </StackPanel>
         </ScrollViewer>
+		  <Border Classes="page-navigation">
+			  <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+
+				  <!-- FIRST PAGE -->
+				  <Button Command="{Binding GoToFirstPageCommand}"
+						  IsEnabled="{Binding CanGoToFirstOrPrevious}"
+						  Background="Transparent"
+						  Focusable="False"
+						  Classes="TransparentHoverButton">
+					  <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+							Stretch="Uniform"
+							Width="24" Height="24"/>
+				  </Button>
+				  <!-- LEFT ARROW -->
+				  <Button Command="{Binding GoToPreviousPageCommand}"
+						  IsEnabled="{Binding CanGoToFirstOrPrevious}"
+						  Background="Transparent"
+						  Focusable="False"
+						  Classes="TransparentHoverButton">
+					  <Image Source="avares://DocuTrack/Assets/left-arrow.png"
+							Stretch="Uniform"
+							Width="32" Height="32"/>
+				  </Button>
+
+				  <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
+				  <!-- RIGHT ARROW -->
+				  <Button Command="{Binding GoToNextPageCommand}"
+						  IsEnabled="{Binding CanGoToNextOrLast}"
+						  Background="Transparent"
+						  Focusable="True"
+						  Classes="TransparentHoverButton">
+					  <Image Source="avares://DocuTrack/Assets/right-arrow.png"
+							Stretch="Uniform"
+							Width="32" Height="32"/>
+				  </Button>
+
+				  <!-- LAST PAGE -->
+				  <Button Command="{Binding GoToLastPageCommand}"
+						  IsEnabled="{Binding CanGoToNextOrLast}"
+						  Background="Transparent"
+						  Focusable="False"
+						  Classes="TransparentHoverButton">
+					  <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+							Stretch="Uniform"
+							Width="24" Height="24"/>
+				  </Button>
+
+
+
+
+			  </StackPanel>
+		  </Border>
       </Grid>
     </Border>
 
@@ -102,7 +167,7 @@
 <!-- ICON AND TEXT -->
       <DockPanel LastChildFill="True">
         <TextBlock Text="🔍" Classes="search-icon"/>
-        <TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu"/>
+        <TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
       </DockPanel>
     </Border>
     
