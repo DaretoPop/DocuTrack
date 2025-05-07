@@ -20,7 +20,15 @@ namespace DocuTrack.DataModels
 
         public CertificateType CertificateType { get; set; }
         public Sailor Sailor { get; set; }
+        public List<Certificate> Versions { get; set; } = new List<Certificate>();
         public List<CertificateFile> CertificateFiles { get; set; }
+
+        public bool isOldVersion { get; set; } = false;
+
+        public bool isNew
+        {
+            get { return !isOldVersion; }
+        }
 
 
         public string SailorName
@@ -44,6 +52,14 @@ namespace DocuTrack.DataModels
             get
             {
                 return DateTime.ParseExact(DateExpiration, "yyyy-MM-dd", null).ToString("dd-MM-yyyy");
+            }
+        }
+
+        public string NameWithDateSpan
+        {
+            get
+            {
+                return Name + " (" + DateTime.ParseExact(DateAcquired, "yyyy-MM-dd", null).ToString("dd-MM-yyyy") + " - " + DateTime.ParseExact(DateExpiration, "yyyy-MM-dd", null).ToString("dd-MM-yyyy") + ")";
             }
         }
     }

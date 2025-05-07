@@ -422,7 +422,29 @@ namespace DocuTrack.Data
                     certificates.Add(certificate);
                 }
                 connection.Close();
-                return certificates;
+
+                var output = new List<Certificate>();
+                //Group by CertificateTypeID and get the latest one, while others are added to the versions
+                var oderededCertificatesByIDDesc = certificates.OrderByDescending(x => x.ID).ToList();
+                foreach (var certificate in oderededCertificatesByIDDesc)
+                {
+                    //check if output contains an certificate with that certificateTypeID 
+                    if (output.Any(x => x.CertificateTypeID == certificate.CertificateTypeID))
+                    {
+                        //add the certificate to the versions
+                        var index = output.FindIndex(x => x.CertificateTypeID == certificate.CertificateTypeID);
+                        certificate.isOldVersion = true;
+                        output[index].Versions.Add(certificate);
+                        //output.Add(certificate);
+                    }
+                    else
+                    {
+                        
+                            output.Add(certificate);
+                    }
+                }
+
+                return output;
 
             }
             catch (Exception ex)
@@ -660,7 +682,7 @@ namespace DocuTrack.Data
         }
 
 
-        internal static List<Certificate> GetCertificatesWhichWillExpire(int days = 260) //switch to 300
+        internal static List<Certificate> GetCertificatesWhichWillExpire(int days = 300) //switch to 300
         {
             try
             {
