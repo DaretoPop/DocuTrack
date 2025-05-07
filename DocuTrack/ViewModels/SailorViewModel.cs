@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -28,6 +29,17 @@ namespace DocuTrack.ViewModels
 
         public ObservableCollection<CertificateFile> SelectedFiles { get; set;  } = new();
 
+        public bool? haveMultipleVersions => SelectedCertificate?.Versions?.Any();
+
+        [ObservableProperty] public Certificate selectedCertificateListBox = null;
+
+        partial void OnSelectedCertificateListBoxChanged(Certificate? value)
+        {
+            SelectedCertificate = value;
+            OnPropertyChanged(nameof(SelectedCertificateListBox));
+        }
+
+
 
 
         partial void OnSelectedCertificateChanged(Certificate? value)
@@ -37,6 +49,7 @@ namespace DocuTrack.ViewModels
                 new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(value));
             OnPropertyChanged(nameof(IsCertificateSelected));
             OnPropertyChanged(nameof(ScannedDocuments));
+            OnPropertyChanged(nameof(haveMultipleVersions));
         }
 
         public SailorViewModel()
@@ -47,23 +60,16 @@ namespace DocuTrack.ViewModels
         {
             _mainViewModel = mainViewModel;
             _sailor = sailor;
-            SelectedCertificate = selectedCertificate;
+            
 
             initialize();
+            SelectedCertificate = selectedCertificate;
+            OnPropertyChanged(nameof(SelectedCertificate));
         }
 
         private void initialize()
         {
            
-
-
-            List<RequestFileViewModel> mockupList = new List<RequestFileViewModel>();
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back1.png", ID = 1, RequestType = RequestTypeEnum.Sticanje }));
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back2.png", ID = 1, RequestType = RequestTypeEnum.Sticanje }));
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back3.png", ID = 1, RequestType = RequestTypeEnum.Refresh }));
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
-            mockupList.Add(new RequestFileViewModel(_mainViewModel, new RequestFile() { CertificateTypeID = 1, FilePath = "/home/pop/docutrack/DocuTrack/Assets/Back4.png", ID = 1, RequestType = RequestTypeEnum.Obnova }));
 
             //ScannedDocuments = new ObservableCollection<CertificateFile>(mockupList);
             Certificates = new ObservableCollection<Certificate>(DatabaseHelper.GetCertificateForSailor(Sailor));
@@ -268,9 +274,30 @@ namespace DocuTrack.ViewModels
         } 
         
            [RelayCommand]
-        private void StareVerzije()
+        private async void StareVerzije(Window parentWindow)
         {
-            Console.WriteLine("VIDI STARE VERZIJE");
+            if (SelectedCertificate == null || SelectedCertificate.Versions == null || !SelectedCertificate.Versions.Any())
+            {
+                Console.WriteLine("No older versions available.");
+                return;
+            }
+
+            // Create the view and view model for selecting a version
+            var selectVersionViewModel = new SelectCertificateVersionViewModel(SelectedCertificate.Versions);
+            var selectVersionView = new SelectCertificateVersionView
+            {
+                DataContext = selectVersionViewModel
+            };
+
+            // Show the window as a dialog
+            await selectVersionView.ShowDialog(parentWindow);
+
+            // Update the SelectedCertificate with the selected version
+            if (selectVersionViewModel.SelectedVersion != null)
+            {
+                SelectedCertificate = selectVersionViewModel.SelectedVersion;
+                OnPropertyChanged(nameof(SelectedCertificate));
+            }
         } 
          
     }

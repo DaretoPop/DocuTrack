@@ -42,10 +42,10 @@
           <!-- TOP of Panel leftSide -->
           <StackPanel Grid.Column="0" Spacing="10">
             <!-- DOKUMENTI LIST BOX 1 -->
-            <ListBox Classes="sailor-documents-list1" ItemsSource="{Binding Certificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
+            <ListBox Classes="sailor-documents-list1" ItemsSource="{Binding Certificates}" SelectedItem="{Binding SelectedCertificateListBox, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock IsVisible="{Binding isNew}" Text="{Binding Name}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
@@ -169,8 +169,9 @@
               
               <!-- >Stare Verzije -->
                        <Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100" 
+                               IsVisible="{Binding haveMultipleVersions}"
                                Classes="TransparentHoverButton"
-                               Command="{Binding StareVerzijeCommand}">
+                               Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
                       </Button>
 
             </Grid>
