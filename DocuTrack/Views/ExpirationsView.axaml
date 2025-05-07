@@ -8,6 +8,11 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
+  <UserControl.Styles>
+        <Style Selector="ListBoxItem:pointerover">
+    <Setter Property="Background" Value="#FFE0E0E0"/>
+</Style>
+    </UserControl.Styles>
 
 
 	<!-- Canvas -> for better positions -->
@@ -39,61 +44,63 @@
 				<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
 					<StackPanel Spacing="10">
 
-<!-- Fali  SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}"> -->
-<ItemsControl ItemsSource="{Binding PaginatedCertificates}" >
-    <ItemsControl.ItemTemplate>
-        <DataTemplate>
-            <Button
-                Background="Transparent"
-                BorderBrush="Transparent"
-                Padding="10"
-                HorizontalAlignment="Stretch">
+					<ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Background="White" >
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+											<Grid Width="1100"
+												  Height="45"
+												  ColumnDefinitions="*,*,*"
+												  VerticalAlignment="Center">
 
+												<TextBlock Grid.Column="0"
+														   Text="{Binding SailorName}"
+														   Classes="imeprezime-label"
+														   VerticalAlignment="Center"
+														   HorizontalAlignment="Left"
+														   FontSize="20"/>
 
-                <Button.Content>
-                    <Grid Width="1100"
-                          Height="45"
-                          ColumnDefinitions="*,*,*"
-                          VerticalAlignment="Center">
+												<StackPanel Grid.Column="1"
+															Orientation="Horizontal"
+															VerticalAlignment="Center"
+															HorizontalAlignment="Center">
+													<TextBlock Text="📜"
+															   Margin="0,0,5,0"
+															   VerticalAlignment="Center"
+															   FontSize="20"/>
+													<TextBlock Text="{Binding CertificateTypeName}"
+															   Classes="typecert-label"
+															   VerticalAlignment="Center"
+															   FontSize="20"/>
+												</StackPanel>
 
-                        <TextBlock Grid.Column="0"
-                                   Text="{Binding SailorName}"
-                                   Classes="imeprezime-label"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"/>
+												<StackPanel Grid.Column="2"
+															Orientation="Horizontal"
+															VerticalAlignment="Center"
+															HorizontalAlignment="Right">
+													<TextBlock Text="📅"
+															   Margin="0,0,5,0"
+															   VerticalAlignment="Center"/>
+													<TextBlock Text="{Binding DateOfExpiration}"
+															   Classes="istice-label"
+															   VerticalAlignment="Center"
+															   FontSize="20"/>
+												</StackPanel>
 
-                        <StackPanel Grid.Column="1"
-                                    Orientation="Horizontal"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Center">
-                            <TextBlock Text="📜"
-                                       Margin="0,0,5,0"
-                                       VerticalAlignment="Center"
-                                       Foreground="Black"/>
-                            <TextBlock Text="{Binding CertificateTypeName}"
-                                       Classes="typecert-label"
-                                       VerticalAlignment="Center"/>
-                        </StackPanel>
+											</Grid>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+							<ListBox.Styles>
+								<!-- Text color on hover for SailorName -->
+								<Style Selector="ListBoxItem:pointerover TextBlock.imeprezime-label">
+									<Setter Property="Foreground" Value="#5D8AA8"/>
+								</Style>
 
-                        <StackPanel Grid.Column="2"
-                                    Orientation="Horizontal"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Right">
-                            <TextBlock Text="📅"
-                                       Margin="0,0,5,0"
-                                       VerticalAlignment="Center"
-                                       Foreground="Black"/>
-                            <TextBlock Text="{Binding DateOfExpiration}"
-                                       Classes="istice-label"
-                                       VerticalAlignment="Center"/>
-                        </StackPanel>
-
-                    </Grid>
-                </Button.Content>
-            </Button>
-        </DataTemplate>
-    </ItemsControl.ItemTemplate>
-</ItemsControl>
+								<!-- Bold text on selected item -->
+								<Style Selector="ListBoxItem:selected TextBlock.imeprezime-label">
+									<Setter Property="FontWeight" Value="Bold"/>
+								</Style>
+							</ListBox.Styles>
+						</ListBox>
 
 					</StackPanel>
 				</ScrollViewer>
