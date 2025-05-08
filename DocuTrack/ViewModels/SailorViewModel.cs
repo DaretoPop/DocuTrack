@@ -164,10 +164,18 @@ namespace DocuTrack.ViewModels
 
 
          [RelayCommand]
-        private void Sticanje()
+        private async void Sticanje(Window parentWindow)
         {
             Console.WriteLine("SticanjeButton");
             initialize();
+
+
+            // Open the CertificateAcquiredView
+            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(); // Instantiate your ViewModel
+            var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
+
+             // Show the window as a dialog asynchronously
+            await certificateAcquiredView.ShowDialog(parentWindow);
             
         }   
 
