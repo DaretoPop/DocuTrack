@@ -307,6 +307,12 @@ namespace DocuTrack.ViewModels
                 OnPropertyChanged(nameof(SelectedCertificate));
             }
         } 
-         
+        
+         [RelayCommand]
+        private void DodajDokument()
+        {
+            Console.WriteLine("Deaaaaam boy");
+        }
+
     }
 }
