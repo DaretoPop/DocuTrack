@@ -6,6 +6,7 @@
         x:DataType="vm:SelectCertificateVersionViewModel"
         Width="400" Height="200"
         WindowStartupLocation="CenterScreen"
+        CanResize="False"
         x:Class="DocuTrack.Views.SelectCertificateVersionView">
 
 
