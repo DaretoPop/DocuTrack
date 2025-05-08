@@ -3,8 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-        Width="1400" Height="800"
-        MinWidth="1280" MinHeight="800"
+        MinWidth="800" MinHeight="600"
         WindowStartupLocation="CenterScreen"
         x:Class="DocuTrack.Pages.MainWindow"
         xmlns:vm="clr-namespace:DocuTrack.Pages"
@@ -13,10 +12,10 @@
         Icon="avares://DocuTrack/Assets/AppIcon.ico"
         Title="DocuTrack">
 
-
+<Viewbox Stretch="Fill">
 <!-- Outside Background of LoginView -->
 <!-- Background                   Sidebar  -->
-<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
+<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*" Height="1080" Width="1920">
 
 <!-- Change the pageViews -->
 <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
@@ -104,6 +103,7 @@
             </Grid>
         </Border>
     </Grid>
+    </Viewbox>
 </Window>
 
 

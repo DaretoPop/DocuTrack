@@ -8,8 +8,8 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              x:Class="DocuTrack.Views.CertificateTypeView">
 
-
-    <Grid Background="#5D8AA8">
+<Viewbox Stretch="Fill">
+    <Grid Background="#5D8AA8" Width="1920" Height="1080">
         <Border Classes="back-button-container">
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
@@ -102,5 +102,6 @@
 			</Border>
         </Grid>
     </Grid>
+    </Viewbox>
 
 </UserControl>
