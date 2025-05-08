@@ -4,10 +4,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:DocuTrack.ViewModels"
         x:DataType="vm:CertificateAcquiredViewModel"
-        Width="400" Height="400"
+        Width="400" Height="450"
         WindowStartupLocation="CenterScreen"
         CanResize="False"
         x:Class="DocuTrack.Views.CertificateAcquiredView">
+
 
 
   <StackPanel Margin="20" Spacing="10">
@@ -22,11 +23,11 @@
 
     <!-- Date Acquired -->
     <TextBlock Text="Date Acquired"/>
-      <DatePicker DayFormat="ddd dd"/>
+        <CalendarDatePicker />
 
     <!-- Date Expired -->
     <TextBlock Text="Date Expired"/>
-   <DatePicker DayFormat="ddd dd"/>
+        <CalendarDatePicker />
 
     <!-- Place Dropdown with inline items -->
     <TextBlock Text="Place"/>
@@ -35,10 +36,11 @@
       <ComboBoxItem Content="Kotor"/>
     </ComboBox>
 
-    <Button Content="Sacuvaj" Margin="140 50 0 0"> 
+    <Button Content="Sacuvaj" Margin="0 30 0 0"> 
     </Button>
 
+      <Button Content="> Dodaj Dokument" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="190,10,0,100" 
+      Classes="TransparentHoverButton"/>
+
   </StackPanel>
-
-
 </Window>
