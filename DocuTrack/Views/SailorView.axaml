@@ -51,10 +51,20 @@
             </ListBox>
 
            <!-- Grid if is need to add more button in same row -->
-            <Grid Width="625" Height="60" ColumnDefinitions="100,90,300" VerticalAlignment="Center">
+            <Grid Width="625" Height="60" ColumnDefinitions="*,Auto,*" VerticalAlignment="Center">
 
 <!-- STICANJE BUTTON -->
-                 <Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                 <Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                 Margin="0 0 220 0"/>
+
+    <!-- DODAJ DOKUMENT BUTTON -->
+    <Button Grid.Column="2"
+            Content="Dodaj Dokument"
+            Classes="sailor-sticanje-button"
+            Margin="130 0 0 0"
+            Command="{Binding DodajDokumentCommand}"
+            />
+                
                 </Grid>
 
                 <!-- Separator between upper and lower LEFT SIDE -->
