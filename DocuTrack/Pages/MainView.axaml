@@ -16,7 +16,7 @@
 
 <!-- Outside Background of LoginView -->
 <!-- Background                   Sidebar  -->
-<Grid Background="#808080" ColumnDefinitions="Auto,*">
+<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
 
 <!-- Change the pageViews -->
 <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
