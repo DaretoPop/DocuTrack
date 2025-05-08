@@ -4,10 +4,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:DocuTrack.ViewModels"
         x:DataType="vm:CertificateAcquiredViewModel"
-        Width="400" Height="200"
+        Width="400" Height="400"
         WindowStartupLocation="CenterScreen"
         CanResize="False"
         x:Class="DocuTrack.Views.CertificateAcquiredView">
 
-Welcome
+
+  <StackPanel Margin="20" Spacing="10">
+
+    <!-- Certificate Type Dropdown with inline items -->
+    <TextBlock Text="Certificate Type"/>
+    <ComboBox Width="200">
+      <ComboBoxItem Content="CertType1"/>
+      <ComboBoxItem Content="CertType2"/>
+      <ComboBoxItem Content="CertType3"/>
+    </ComboBox>
+
+    <!-- Date Acquired -->
+    <TextBlock Text="Date Acquired"/>
+      <DatePicker DayFormat="ddd dd"/>
+
+    <!-- Date Expired -->
+    <TextBlock Text="Date Expired"/>
+   <DatePicker DayFormat="ddd dd"/>
+
+    <!-- Place Dropdown with inline items -->
+    <TextBlock Text="Place"/>
+    <ComboBox Width="200">
+      <ComboBoxItem Content="Bar"/>
+      <ComboBoxItem Content="Kotor"/>
+    </ComboBox>
+
+    <Button Content="Sacuvaj" Margin="140 50 0 0"> 
+    </Button>
+
+  </StackPanel>
+
+
 </Window>
