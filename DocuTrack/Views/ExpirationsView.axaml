@@ -14,7 +14,7 @@
 </Style>
     </UserControl.Styles>
 
-
+<Viewbox Stretch="Fill">
 	<!-- Canvas -> for better positions -->
 	<Canvas Background="#5D8AA8" Width="1920" Height="1080">
 
@@ -171,4 +171,5 @@
 		</Border>
 
 	</Canvas>
+	</Viewbox>
 </UserControl>

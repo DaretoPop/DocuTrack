@@ -10,9 +10,9 @@
         mc:Ignorable="d">
 
         <!-- Change width and height to resolve ivanov bug  -->
-
+<Viewbox Stretch="Fill">
     <!-- OUTSIDE LOGIN CARD -->
-      <Grid Background="#5D8AA8">
+      <Grid Background="#5D8AA8" Width="1920" Height="1080">
         
     <!-- LOGIN CARD -->
         <Border Classes="login-border">
@@ -39,6 +39,7 @@
             </Grid>
         </Border>
     </Grid>
+    </Viewbox>
 </UserControl>
 
 

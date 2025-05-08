@@ -8,7 +8,10 @@
              x:Class="DocuTrack.Views.SailorsView"
              Foreground="White">
 
-  <Grid Background="#5D8AA8"
+
+<Viewbox Stretch="Fill">
+    <Grid Width="1920" Height="1080"
+        Background="#5D8AA8"
         RowDefinitions="Auto,*,Auto"
         ColumnDefinitions="*">
 <!-- Row 0: Search (left) and Create button (right) -->
@@ -138,4 +141,5 @@
     </Border>
 
   </Grid>
+  </Viewbox>
 </UserControl>

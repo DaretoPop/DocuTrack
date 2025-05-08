@@ -9,7 +9,8 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-    <Canvas Background="#5D8AA8">
+<Viewbox Stretch="Fill">
+    <Canvas Background="#5D8AA8" Height="1080" Width="1920">
 
       <!-- MainCard -->
         <Border Classes="centerleft-panel" >
@@ -126,4 +127,5 @@
     </Border>
     
     </Canvas>
+    </Viewbox>
 </UserControl>

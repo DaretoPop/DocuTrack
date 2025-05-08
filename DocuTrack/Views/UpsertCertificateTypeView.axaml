@@ -8,9 +8,9 @@
              x:Class="DocuTrack.Views.UpsertCertificateTypeView">
 
 
-
+<Viewbox Stretch="Fill">
                                                         <!-- OUTSIDE CARD -->
-    <Grid Background="#5D8AA8">
+    <Grid Background="#5D8AA8" Width="1920" Height="1080">
 
                                                         <!-- Back Button (inside card area if desired) -->
         <Border Classes="back-button-container">
@@ -50,5 +50,6 @@
             </Grid>
         </Border>
     </Grid>
+    </Viewbox>
 
 </UserControl>
