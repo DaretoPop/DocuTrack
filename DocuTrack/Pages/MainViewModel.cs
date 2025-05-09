@@ -99,7 +99,7 @@ private void SetSelectedPage(string page)
 
         public void OnLoginSuccessful()
         {
-            CurrentPage = PocetnaPage;
+            CurrentPage = new ExpirationsViewModel(this);
             IsLoggedIn = true;
             IsPocetnaSelected = true;
         }
@@ -107,7 +107,7 @@ private void SetSelectedPage(string page)
         [RelayCommand]
         private void GoToPocetna()
         {
-            CurrentPage = PocetnaPage;
+            CurrentPage = new ExpirationsViewModel(this);
             SetSelectedPage("Pocetna");
         }
 

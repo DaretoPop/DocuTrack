@@ -15,10 +15,14 @@
 
     <!-- Certificate Type Dropdown with inline items -->
     <TextBlock Text="Certificate Type"/>
-    <ComboBox Width="200">
-      <ComboBoxItem Content="CertType1"/>
-      <ComboBoxItem Content="CertType2"/>
-      <ComboBoxItem Content="CertType3"/>
+	  <ComboBox Width="200"
+                ItemsSource="{Binding CertificateTypes}"
+                SelectedItem="{Binding Certificate.CertificateType, Mode=TwoWay}">
+		<ComboBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
     </ComboBox>
 
     <!-- Date Acquired -->

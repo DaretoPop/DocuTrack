@@ -14,5 +14,7 @@ namespace DocuTrack.DataModels
 
         public string FilePath { get; set; }
 
+        public string FileName { get; set; }
+
     }
 }

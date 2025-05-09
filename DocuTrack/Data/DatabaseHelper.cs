@@ -23,6 +23,7 @@ namespace DocuTrack.Data
     $"Data Source={AppContext.BaseDirectory}Data/identifier.sqlite";
 #endif
         private static readonly string CertificateTypeDocumentsBaseFolder = $"Data/CertificateTypes";
+        private static readonly string CertificateFilesBaseFolder = $"Data/Certificates";
 
 
 
@@ -734,6 +735,72 @@ namespace DocuTrack.Data
             {
                 throw new Exception($"Error GetCertificatesWhichWillExpire{ex.Message}", ex);
             }
+        }
+
+
+
+        internal static void addCertificateFile(CertificateFile file, byte[] fileData)
+        {
+            try
+            {
+                //create a directory if it doesnt exist
+                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{file.CertificateID}";
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+                //check if the file exists and change the name of the new one so it wont override
+                var fileName = Path.GetFileName(file.FilePath);
+                var filePath = Path.Combine(directoryPath, fileName);
+                if (File.Exists(filePath))
+                {
+                    var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+                    var fileExtension = Path.GetExtension(fileName);
+                    var newFileName = $"{fileNameWithoutExtension}_{DateTime.Now:yyyyMMddHHmmss}{fileExtension}";
+                    file.FileName = newFileName;
+                    file.FilePath = Path.Combine(directoryPath, newFileName);
+                }
+                else
+                {
+                    file.FilePath = filePath;
+                }
+
+                File.WriteAllBytes(file.FilePath, fileData);
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO CertificateFiles (FilePath, CertificateID) VALUES (@filePath, @certificateTypeID)";
+                command.Parameters.AddWithValue("@filePath", file.FileName); //Save File Name insetad
+                command.Parameters.AddWithValue("@certificateTypeID", file.CertificateID);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error adding certificate type document to the database", ex);
+            }
+        }
+        internal static void addCertificateFiles(List<CertificateFile> documentsForAdd)
+        {
+            if (documentsForAdd.Count > 0)
+            {
+
+                foreach (var file in documentsForAdd)
+                {
+                    //get the file in byte array
+                    byte[] fileData = File.ReadAllBytes(file.FilePath);
+
+                    //Override the file path with the new one
+                    file.FilePath = getCertificatFilePath(file);
+                    // Save the file to the new path
+                    addCertificateFile(file, fileData);
+                }
+            }
+        }
+
+        private static string getCertificatFilePath(CertificateFile file)
+        {
+            return $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FileName}";
         }
 
 

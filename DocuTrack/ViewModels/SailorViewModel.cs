@@ -56,6 +56,13 @@ namespace DocuTrack.ViewModels
         {
         }
 
+        private void initializeDocuments()
+        {
+            ScannedDocuments =
+                new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(SelectedCertificate));
+            OnPropertyChanged(nameof(ScannedDocuments));
+        }
+
         public SailorViewModel(MainViewModel mainViewModel, Sailor sailor, Certificate selectedCertificate=null)
         {
             _mainViewModel = mainViewModel;
@@ -171,7 +178,7 @@ namespace DocuTrack.ViewModels
 
 
             // Open the CertificateAcquiredView
-            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(); // Instantiate your ViewModel
+            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null); // Instantiate your ViewModel
             var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
 
              // Show the window as a dialog asynchronously
@@ -303,15 +310,54 @@ namespace DocuTrack.ViewModels
             // Update the SelectedCertificate with the selected version
             if (selectVersionViewModel.SelectedVersion != null)
             {
+                SelectedCertificateListBox = null;
+                OnPropertyChanged(nameof(SelectedCertificateListBox));
+
                 SelectedCertificate = selectVersionViewModel.SelectedVersion;
                 OnPropertyChanged(nameof(SelectedCertificate));
             }
         } 
         
-         [RelayCommand]
-        private void DodajDokument()
+        
+
+        [RelayCommand]
+        private async Task DodajDokument(Window parentWindow)
         {
-            Console.WriteLine("Deaaaaam boy");
+            var dialog = new OpenFileDialog
+            {
+                Title = "Select Files",
+                AllowMultiple = true,
+                Filters = new List<FileDialogFilter>
+                {
+                    new FileDialogFilter { Name = "All Supported Files", Extensions = { "pdf",  "docx", "jpg", "jpeg", "png", "bmp", "gif" } },
+                    new FileDialogFilter { Name = "PDF Files", Extensions = { "pdf" } },
+                    new FileDialogFilter { Name = "Word Documents", Extensions = { "docx" } },
+                    new FileDialogFilter { Name = "Images", Extensions = { "jpg", "jpeg", "png", "bmp", "gif" } }
+                }
+            };
+
+            var result = await dialog.ShowAsync(parentWindow);
+
+            if (result != null && result.Any())
+            {
+                var documentsForAdd = new List<CertificateFile>();
+
+                foreach (var filePath in result)
+                {
+                    documentsForAdd.Add(new CertificateFile
+                    {
+                        FilePath = filePath,
+                        FileName = Path.GetFileName(filePath),
+                        CertificateID = SelectedCertificate.ID
+                    });
+                }
+
+                if (documentsForAdd.Count > 0)
+                {
+                    DatabaseHelper.addCertificateFiles(documentsForAdd);
+                    initializeDocuments();
+                }
+            }
         }
 
     }
