@@ -53,8 +53,8 @@ namespace DocuTrack.Views
     private void IncreaseScale()
     {
         _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
+            // This is button [+,-] Scaling
         OnPropertyChanged(nameof(ScalingFactor));
-        PocetnaPage.OnScalingChanged();    
     }
 
     [RelayCommand]
@@ -62,7 +62,6 @@ namespace DocuTrack.Views
     {
         _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
         OnPropertyChanged(nameof(ScalingFactor));
-        PocetnaPage.OnScalingChanged();
     }
 
 

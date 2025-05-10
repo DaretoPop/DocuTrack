@@ -20,12 +20,11 @@
 
 <!-- Change the pageViews -->
 <ContentControl Grid.Column="1" Content="{Binding CurrentPage}">
-
-             <!--Set Scaling  -->
+             <!--Set Scaling for all current Pages  -->
         <ContentControl.RenderTransform>
-            <ScaleTransform ScaleX="{Binding ScalingFactor}" ScaleY="{Binding ScalingFactor}" />
+            <ScaleTransform ScaleX="{Binding ScalingFactor}" ScaleY="{Binding ScalingFactor}"/>
         </ContentControl.RenderTransform>
-    </ContentControl>
+</ContentControl>
 
 
 

@@ -8,10 +8,7 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-<!-- Set Scaling -->
-<UserControl.RenderTransform>
-        <ScaleTransform ScaleX="{Binding ScalingFactor}" ScaleY="{Binding ScalingFactor}" />
-    </UserControl.RenderTransform>
+
 
   <UserControl.Styles>
         <Style Selector="ListBoxItem:pointerover">
