@@ -96,11 +96,16 @@
 
 <Border
     x:Name="BottomRightCorner"
-    Width="100" Height="100"
-    HorizontalAlignment="Right"
-    VerticalAlignment="Bottom"
+    Width="180" Height="20"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
     Background="Transparent"
-    Cursor="Hand"/>
+    Cursor="Hand"
+    Margin=" 0 20 0 0">
+    <TextBlock Text="- move left [x] move right - "
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+</Border>
                 
             <!-- End of sidebar -->
             </StackPanel>

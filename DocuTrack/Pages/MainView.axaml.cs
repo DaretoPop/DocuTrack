@@ -15,7 +15,18 @@ namespace DocuTrack.Views
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            // Create the ViewModel first
+        var viewModel = new MainViewModel();
+        
+        // Register the window with ScalingProvider
+        ScalingProvider.Register(this, viewModel); // Ensure MainViewModel implements IViewModel
+        
+        // Retrieve the ScalingManager instance
+        ScalingManager mainWindowManager = ScalingProvider.GetInstance<MainWindow>();
+        mainWindowManager.SetScaling(1.5); // Apply scaling here
+        
+        // Set DataContext AFTER registration
+        this.DataContext = viewModel;
         }
 
         
