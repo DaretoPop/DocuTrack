@@ -94,18 +94,14 @@
     <Border Classes="main-line-separator" Width="130"/>
 </StackPanel>
 
-<Border
-    x:Name="BottomRightCorner"
-    Width="180" Height="20"
-    HorizontalAlignment="Center"
-    VerticalAlignment="Center"
-    Background="Transparent"
-    Cursor="Hand"
-    Margin=" 0 20 0 0">
-    <TextBlock Text="- move left [x] move right - "
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
-</Border>
+<TextBlock Text="Scaling" Margin="80 50 0 0">
+    
+</TextBlock>
+<!-- BottomRightCorner -->
+<StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="4">
+  <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="32" Height="32" Margin="0 20 0 20"/>
+  <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="32" Height="32" Margin="0 20 80 20"/>
+</StackPanel>
                 
             <!-- End of sidebar -->
             </StackPanel>

@@ -16,8 +16,12 @@ namespace DocuTrack.Views
     public partial class MainViewModel : BaseViewModel
     {
 
-        public MainViewModel()
+        public MainViewModel(ScalingManager? scalingManager = null)
         {
+
+                _scalingManager = scalingManager;
+
+             
             //Default CurrentPage State
             IsLoggedIn = false;
             IsPocetnaView = false;
@@ -37,6 +41,24 @@ namespace DocuTrack.Views
             IsLoggedIn = true;
 
         }
+
+
+
+                    //Scaling 
+    private readonly ScalingManager _scalingManager;
+
+  [RelayCommand]
+private void IncreaseScale()
+{
+    _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
+}
+
+[RelayCommand]
+private void DecreaseScale()
+{
+    _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
+}
+
 
 
         // DataContex

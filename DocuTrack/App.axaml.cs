@@ -13,16 +13,11 @@ public partial class App : Application
         DataTemplates.Add(new ViewLocator());
     }
 
-    public override void OnFrameworkInitializationCompleted()
+public override void OnFrameworkInitializationCompleted()
 {
     if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
     {
-        var mainVM = new MainViewModel();
-
-        desktop.MainWindow = new MainWindow
-        {
-            DataContext = mainVM // Dyniamlically change states
-        };
+        desktop.MainWindow = new MainWindow(); 
     }
     base.OnFrameworkInitializationCompleted();
 }
