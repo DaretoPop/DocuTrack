@@ -42,23 +42,6 @@ namespace DocuTrack.ViewModels {
             BindScaling(mainViewModel);
         }
 
-    [ObservableProperty]
-    private double _scalingFactor = 1.0;
-
-    private void BindScaling(MainViewModel mainViewModel)
-{
-    // Set initial scaling
-    ScalingFactor = mainViewModel.ScalingFactor;
-
-    // Subscribe to updates
-    mainViewModel.PropertyChanged += (s, e) =>
-    {
-        if (e.PropertyName == nameof(MainViewModel.ScalingFactor))
-        {
-            ScalingFactor = mainViewModel.ScalingFactor;
-        }
-    };
-}
 
         private void LoadCertificates()
         {

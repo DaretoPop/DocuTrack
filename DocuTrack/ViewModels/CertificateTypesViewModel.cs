@@ -40,6 +40,8 @@ namespace DocuTrack.ViewModels
             LoadCertificateTypes();
             UpdateFilteredCertificateTypes();
             UpdatePagination();
+
+            BindScaling(mainViewModel);
         }
 
 

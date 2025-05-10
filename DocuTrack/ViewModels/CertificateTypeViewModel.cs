@@ -20,6 +20,9 @@ namespace DocuTrack.ViewModels
             MainViewModel = mainViewModel;
             CertificateType = type;
             Initialize();
+            BindScaling(mainViewModel);
+
+
         }
 
         internal void Initialize()

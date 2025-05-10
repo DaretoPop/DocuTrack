@@ -21,6 +21,7 @@ namespace DocuTrack.ViewModels
         public LoginViewModel(MainViewModel mainViewModel)
         {
             _mainViewModel = mainViewModel;
+            BindScaling(mainViewModel);
         }
 
 

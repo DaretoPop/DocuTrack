@@ -43,6 +43,7 @@ namespace DocuTrack.ViewModels
             LoadSailors();
             UpdateFilteredSailors();
             UpdatePagination();
+            BindScaling(mainViewModel);
 
             //Sailors = new ObservableCollection<SailorViewModel>(_getSailors());
         }

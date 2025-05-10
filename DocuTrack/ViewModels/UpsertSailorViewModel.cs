@@ -32,7 +32,7 @@ namespace DocuTrack.ViewModels {
                 _sailor = sailor;
 
             }
-
+                BindScaling(mainViewModel);
         }
 
         public string Name

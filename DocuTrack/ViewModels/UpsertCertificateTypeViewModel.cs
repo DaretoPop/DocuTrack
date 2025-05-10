@@ -23,6 +23,8 @@ namespace DocuTrack.ViewModels
                 type = new CertificateType();
             }
             _certificateType = type;
+
+            BindScaling(mainViewModel);
         }
 
 

@@ -64,6 +64,7 @@ namespace DocuTrack.ViewModels
             initialize();
             SelectedCertificate = selectedCertificate;
             OnPropertyChanged(nameof(SelectedCertificate));
+            BindScaling(mainViewModel);
         }
 
         private void initialize()
