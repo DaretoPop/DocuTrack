@@ -5,10 +5,13 @@ using Avalonia.Remote.Protocol.Designer;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.DataModels;
-using DocuTrack.Pages;
+using DocuTrack.Views;
 using DocuTrack.ViewModels;
+using DocuTrack.UI.ViewModels;
+using DocuTrack.UI.Scaling;
 
-namespace DocuTrack.Pages
+
+namespace DocuTrack.Views
 {
     public partial class MainViewModel : BaseViewModel
     {

@@ -8,9 +8,8 @@
              x:Class="DocuTrack.Views.UpsertSailorView">
 
 
-<Viewbox Stretch="Fill">
   <!-- OUTSIDE CARD -->
-      <Grid Background="#5D8AA8" Height="1080" Width="1920">
+      <Grid Background="#5D8AA8" >
 
 <!--  Back Button -->
          <Border Classes="upsert-back-border">
@@ -82,5 +81,4 @@
             </Grid>
         </Border>
     </Grid>
-    </Viewbox>
 </UserControl>

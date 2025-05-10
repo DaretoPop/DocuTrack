@@ -4,6 +4,7 @@
         Width="400" Height="200"
         WindowStartupLocation="CenterScreen"
         CanResize="False">
+        
     <Grid RowDefinitions="*,Auto">
         <!-- Message -->
         <TextBlock x:Name="MessageTextBlock" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />

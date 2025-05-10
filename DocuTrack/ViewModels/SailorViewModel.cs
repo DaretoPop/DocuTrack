@@ -10,7 +10,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Data;
 using DocuTrack.DataModels;
-using DocuTrack.Pages;
 using DocuTrack.Views;
 
 namespace DocuTrack.ViewModels
@@ -282,7 +281,7 @@ namespace DocuTrack.ViewModels
         } 
         
            [RelayCommand]
-        private async void StareVerzije(Window parentWindow)
+        private async Task StareVerzije(Window parentWindow)
         {
             if (SelectedCertificate == null || SelectedCertificate.Versions == null || !SelectedCertificate.Versions.Any())
             {

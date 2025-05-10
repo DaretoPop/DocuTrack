@@ -1,24 +1,27 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window     xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-        MinWidth="800" MinHeight="600"
+        MinWidth="800" MinHeight="600"  
         WindowStartupLocation="CenterScreen"
-        x:Class="DocuTrack.Pages.MainWindow"
-        xmlns:vm="clr-namespace:DocuTrack.Pages"
-        xmlns:view="clr-namespace:DocuTrack.Pages"
+        x:Class="DocuTrack.Views.MainWindow"
+        xmlns:vm="clr-namespace:DocuTrack.Views"
+        xmlns:view="clr-namespace:DocuTrack.Views"
         x:DataType="vm:MainViewModel"
         Icon="avares://DocuTrack/Assets/AppIcon.ico"
         Title="DocuTrack">
 
-<Viewbox Stretch="Fill">
+
 <!-- Outside Background of LoginView -->
 <!-- Background                   Sidebar  -->
-<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*" Height="1080" Width="1920">
+
+<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
 
 <!-- Change the pageViews -->
 <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
+
+
 
 
                             <!-- Color of Sidebar -->
@@ -90,6 +93,14 @@
 <StackPanel HorizontalAlignment="Left">
     <Border Classes="main-line-separator" Width="130"/>
 </StackPanel>
+
+<Border
+    x:Name="BottomRightCorner"
+    Width="100" Height="100"
+    HorizontalAlignment="Right"
+    VerticalAlignment="Bottom"
+    Background="Transparent"
+    Cursor="Hand"/>
                 
             <!-- End of sidebar -->
             </StackPanel>
@@ -103,7 +114,6 @@
             </Grid>
         </Border>
     </Grid>
-    </Viewbox>
 </Window>
 
 

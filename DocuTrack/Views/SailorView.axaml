@@ -9,8 +9,7 @@
 
 
 <!-- Profil Panel -->
-<Viewbox Stretch="Fill">
-<Canvas Background="#5D8AA8" Width="1920" Height="1080">
+<Canvas Background="#5D8AA8" >
 
 
     <Border Classes="sailorview-main-panel">
@@ -201,7 +200,6 @@
       </Grid>
     </Border>
 </Canvas>
-</Viewbox>
 </UserControl>
 
 
