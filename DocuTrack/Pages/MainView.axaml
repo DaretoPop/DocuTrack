@@ -19,7 +19,13 @@
 <Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
 
 <!-- Change the pageViews -->
-<ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
+<ContentControl Grid.Column="1" Content="{Binding CurrentPage}">
+
+             <!--Set Scaling  -->
+        <ContentControl.RenderTransform>
+            <ScaleTransform ScaleX="{Binding ScalingFactor}" ScaleY="{Binding ScalingFactor}" />
+        </ContentControl.RenderTransform>
+    </ContentControl>
 
 
 

@@ -35,7 +35,6 @@ namespace DocuTrack.Views
             SailorsPage = new SailorsViewModel(this);
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
-
             //temp
             CurrentPage = PocetnaPage;
             IsLoggedIn = true;
@@ -44,20 +43,27 @@ namespace DocuTrack.Views
 
 
 
+
                     //Scaling 
     private readonly ScalingManager _scalingManager;
 
-  [RelayCommand]
-private void IncreaseScale()
-{
-    _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
-}
+    public double ScalingFactor => _scalingManager.CurrentScaling;
 
-[RelayCommand]
-private void DecreaseScale()
-{
-    _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
-}
+    [RelayCommand]
+    private void IncreaseScale()
+    {
+        _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
+        OnPropertyChanged(nameof(ScalingFactor));
+        PocetnaPage.OnScalingChanged();    
+    }
+
+    [RelayCommand]
+    private void DecreaseScale()
+    {
+        _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
+        OnPropertyChanged(nameof(ScalingFactor));
+        PocetnaPage.OnScalingChanged();
+    }
 
 
 

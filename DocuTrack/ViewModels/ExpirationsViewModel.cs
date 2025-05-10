@@ -40,6 +40,17 @@ namespace DocuTrack.ViewModels {
             UpdatePagination();
         }
 
+            
+            // Scaling
+        public double ScalingFactor => MainViewModel?.ScalingFactor ?? 0.1;
+        
+        [RelayCommand]
+        public void OnScalingChanged()
+        {
+            OnPropertyChanged(nameof(ScalingFactor));
+        }
+
+
         private void LoadCertificates()
         {
             // Load all sailors from the database
