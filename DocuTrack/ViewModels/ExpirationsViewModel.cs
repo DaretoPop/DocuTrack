@@ -38,7 +38,25 @@ namespace DocuTrack.ViewModels {
             LoadCertificates();
             UpdateFilteredCertificates();
             UpdatePagination();
+
+
+                // Move to function
+            // Get scaling from parent VM
+        ScalingFactor = mainViewModel.ScalingFactor;
+        
+        // Subscribe to scaling changes
+        mainViewModel.PropertyChanged += (s, e) => 
+        {
+            if (e.PropertyName == nameof(MainViewModel.ScalingFactor))
+            {
+                ScalingFactor = mainViewModel.ScalingFactor;
+            }
+        };
         }
+
+         [ObservableProperty]
+    private double _scalingFactor = 1.0;
+
 
         private void LoadCertificates()
         {

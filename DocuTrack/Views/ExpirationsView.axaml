@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:ExpirationsViewModel"
              x:Class="DocuTrack.Views.ExpirationsView"
+			 xmlns:scaling="clr-namespace:DocuTrack.UI.Scaling"
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
@@ -16,8 +17,15 @@
 </Style>
     </UserControl.Styles>
 
-	<!-- Canvas -> for better positions -->
-	<Canvas Background="#5D8AA8" >
+ <Viewbox Stretch="Fill">
+        <!-- Base canvas with fixed dimensions -->
+        <Canvas Width="1920" Height="1080" Background="#5D8AA8">
+            <Canvas.RenderTransform>
+                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+                                ScaleY="{Binding ScalingFactor}"/>
+            </Canvas.RenderTransform>
+
+		
 
 		<!-- Main Center Card -->
 		<Border x:Name="MainCard" Classes="exp-main-card">
@@ -170,6 +178,9 @@
 				<TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
 			</DockPanel>
 		</Border>
+		
 
 	</Canvas>
+	</Viewbox>
+
 </UserControl>
