@@ -17,6 +17,28 @@ namespace DocuTrack.Views
         set => SetProperty(ref _isResizing, value);
     }
 
+     private double _scalingFactor = 1.0;
+    public double ScalingFactor
+        {
+            get => _scalingFactor;
+            set => SetProperty(ref _scalingFactor, value);
+        }
+
+        protected void BindScaling(MainViewModel mainViewModel)
+        {
+            // Set initial value
+            ScalingFactor = mainViewModel.ScalingFactor;
+
+            // Subscribe to scaling changes
+            mainViewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(MainViewModel.ScalingFactor))
+                {
+                    ScalingFactor = mainViewModel.ScalingFactor;
+                }
+            };
+        }
+
     }
 
 }
