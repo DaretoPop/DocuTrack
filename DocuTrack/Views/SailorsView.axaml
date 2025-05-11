@@ -8,37 +8,28 @@
              x:Class="DocuTrack.Views.SailorsView"
              Foreground="White">
 
- <!-- <ScrollViewer HorizontalScrollBarVisibility=""
-                  VerticalScrollBarVisibility="Auto"
-				  > -->            
+          
 <Viewbox Stretch="Uniform">
 
-    <Grid Width="1920" Height="1080"
+    <Canvas Width="1920" Height="1080"
         Background="#5D8AA8"
-        RowDefinitions="Auto,*,Auto"
-        ColumnDefinitions="*">
+        >
 
-            <Grid.RenderTransform>
+            <Canvas.RenderTransform>
                 <ScaleTransform ScaleX="{Binding ScalingFactor}" 
                                 ScaleY="{Binding ScalingFactor}"/>
-			    </Grid.RenderTransform>
+			    </Canvas.RenderTransform>
 
-<!-- Row 0: Search (left) and Create button (right) -->
-<Grid Grid.Row="0"
-      Margin="0,10,0,0"
-      HorizontalAlignment="Stretch"
-      VerticalAlignment="Top">
-  <Grid.ColumnDefinitions>
-    <ColumnDefinition Width="Auto"/> <!-- Search -->
-    <ColumnDefinition Width="*"/>    <!-- Spacer -->
-    <ColumnDefinition Width="Auto"/> <!-- Button -->
-  </Grid.ColumnDefinitions>
+
 
   <!-- Search bar -->
-  <Border Grid.Column="0"
-          Margin="230,35,0,0" 
+  <Border 
+          
           VerticalAlignment="Top"
-          Classes="sailor-search-border">
+          Classes="sailor-search-border"
+          Canvas.Top="85"
+          Canvas.Left="335">
+
     <DockPanel LastChildFill="True">
       <TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
       <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
@@ -46,8 +37,8 @@
   </Border>
 
   <!-- Kreiraj button -->
-  <Border Grid.Column="2"
-          Margin="0,35,230,0"
+  <Border Canvas.Top="85"
+          Canvas.Left="1380"
           VerticalAlignment="Top"
           Classes="sailor-create-button-frame">
     <Button Content="Kreiraj Pomorca"
@@ -57,7 +48,6 @@
             Foreground="#676767"
             FontSize="15.5"/>
   </Border>
-</Grid>
 
     <!-- Main Card: Row 1 -->
     <Border Grid.Row="1"
@@ -102,7 +92,8 @@
     <Border Grid.Row="2"
             Classes="page-navigation"
             HorizontalAlignment="Center"
-            Margin="20,10,20,30">
+            Canvas.Top="220"
+            Canvas.Left="750">
       <StackPanel Orientation="Horizontal"
                   HorizontalAlignment="Center"
                   Spacing="10">
@@ -149,7 +140,7 @@
       </StackPanel>
     </Border>
 
-  </Grid>
+  </Canvas>
   </Viewbox>
   <!-- </ScrollViewer> -->
 </UserControl>
