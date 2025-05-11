@@ -7,7 +7,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.Data;
 using DocuTrack.DataModels;
-using DocuTrack.Pages;
 using DocuTrack.Views;
 
 
@@ -33,7 +32,7 @@ namespace DocuTrack.ViewModels {
                 _sailor = sailor;
 
             }
-
+                BindScaling(mainViewModel);
         }
 
         public string Name

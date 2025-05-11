@@ -1,24 +1,25 @@
-<Window xmlns="https://github.com/avaloniaui"
+<Window     xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-        MinWidth="800" MinHeight="600"
+        MinWidth="800" MinHeight="600"  
         WindowStartupLocation="CenterScreen"
-        x:Class="DocuTrack.Pages.MainWindow"
-        xmlns:vm="clr-namespace:DocuTrack.Pages"
-        xmlns:view="clr-namespace:DocuTrack.Pages"
+        x:Class="DocuTrack.Views.MainWindow"
+        xmlns:vm="clr-namespace:DocuTrack.Views"
+        xmlns:view="clr-namespace:DocuTrack.Views"
         x:DataType="vm:MainViewModel"
         Icon="avares://DocuTrack/Assets/AppIcon.ico"
         Title="DocuTrack">
 
-<Viewbox Stretch="Fill">
+
 <!-- Outside Background of LoginView -->
 <!-- Background                   Sidebar  -->
-<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*" Height="1080" Width="1920">
 
-<!-- Change the pageViews -->
-<ContentControl Grid.Column="1" Content="{Binding CurrentPage}"></ContentControl>
+<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
+    <!-- Change the pageViews -->
+    <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
+ 
 
 
                             <!-- Color of Sidebar -->
@@ -90,6 +91,16 @@
 <StackPanel HorizontalAlignment="Left">
     <Border Classes="main-line-separator" Width="130"/>
 </StackPanel>
+
+<TextBlock Text="Scaling" Margin="80 50 0 0">
+    
+</TextBlock>
+<!-- BottomRightCorner -->
+<StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="4">
+  <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="32" Height="32" Margin="0 20 0 20"/>
+  <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="32" Height="32" Margin="0 20 80 20"/>
+  <TextBlock Text="{Binding ScalingPercent}" FontSize="15" Foreground="Black"/>
+</StackPanel>
                 
             <!-- End of sidebar -->
             </StackPanel>
@@ -103,7 +114,6 @@
             </Grid>
         </Border>
     </Grid>
-    </Viewbox>
 </Window>
 
 

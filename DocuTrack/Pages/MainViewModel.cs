@@ -5,16 +5,23 @@ using Avalonia.Remote.Protocol.Designer;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using DocuTrack.DataModels;
-using DocuTrack.Pages;
+using DocuTrack.Views;
 using DocuTrack.ViewModels;
+using DocuTrack.UI.ViewModels;
+using DocuTrack.UI.Scaling;
 
-namespace DocuTrack.Pages
+
+namespace DocuTrack.Views
 {
     public partial class MainViewModel : BaseViewModel
     {
 
-        public MainViewModel()
+        public MainViewModel(ScalingManager? scalingManager = null)
         {
+
+                _scalingManager = scalingManager;
+
+             
             //Default CurrentPage State
             IsLoggedIn = false;
             IsPocetnaView = false;
@@ -28,12 +35,58 @@ namespace DocuTrack.Pages
             SailorsPage = new SailorsViewModel(this);
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
-
             //temp
             CurrentPage = PocetnaPage;
             IsLoggedIn = true;
 
         }
+
+
+
+
+     // Scaling properties
+private readonly ScalingManager _scalingManager;
+public int ScalingPercent => (int)(ScalingFactor * 100);
+public double ScalingFactor => _scalingManager.CurrentScaling;
+
+[RelayCommand]
+private void IncreaseScale()
+{
+    const double maxScale = 1.15;  // 115% maximum
+    const double increment = 0.05; // 5% increment
+    
+    var newScale = _scalingManager.CurrentScaling + increment;
+    
+    // Apply upper limit
+    if (newScale > maxScale)
+    {
+        newScale = maxScale;
+    }
+    
+    _scalingManager.SetScaling(newScale);
+    OnPropertyChanged(nameof(ScalingFactor));
+    OnPropertyChanged(nameof(ScalingPercent));
+}
+
+[RelayCommand]
+private void DecreaseScale()
+{
+    const double minScale = 0.5;  // 50% minimum
+    const double decrement = 0.05; // 5% decrement
+    
+    var newScale = _scalingManager.CurrentScaling - decrement;
+    
+    // Apply lower limit
+    if (newScale < minScale)
+    {
+        newScale = minScale;
+    }
+    
+    _scalingManager.SetScaling(newScale);
+    OnPropertyChanged(nameof(ScalingFactor));
+    OnPropertyChanged(nameof(ScalingPercent));
+}
+
 
 
         // DataContex

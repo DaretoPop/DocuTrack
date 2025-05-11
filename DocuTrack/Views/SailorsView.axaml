@@ -8,12 +8,21 @@
              x:Class="DocuTrack.Views.SailorsView"
              Foreground="White">
 
+ <!-- <ScrollViewer HorizontalScrollBarVisibility=""
+                  VerticalScrollBarVisibility="Auto"
+				  > -->            
+<Viewbox Stretch="Uniform">
 
-<Viewbox Stretch="Fill">
     <Grid Width="1920" Height="1080"
         Background="#5D8AA8"
         RowDefinitions="Auto,*,Auto"
         ColumnDefinitions="*">
+
+            <Grid.RenderTransform>
+                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+                                ScaleY="{Binding ScalingFactor}"/>
+			    </Grid.RenderTransform>
+
 <!-- Row 0: Search (left) and Create button (right) -->
 <Grid Grid.Row="0"
       Margin="0,10,0,0"
@@ -142,4 +151,5 @@
 
   </Grid>
   </Viewbox>
+  <!-- </ScrollViewer> -->
 </UserControl>

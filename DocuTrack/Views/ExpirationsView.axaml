@@ -5,18 +5,29 @@
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:ExpirationsViewModel"
              x:Class="DocuTrack.Views.ExpirationsView"
+			 xmlns:scaling="clr-namespace:DocuTrack.UI.Scaling"
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
+
+
 
   <UserControl.Styles>
         <Style Selector="ListBoxItem:pointerover">
     <Setter Property="Background" Value="#FFE0E0E0"/>
 </Style>
     </UserControl.Styles>
+<!-- <ScrollViewer HorizontalScrollBarVisibility=""
+                  VerticalScrollBarVisibility="Auto"
+				  > -->
+ <Viewbox Stretch="Uniform">
+        <!-- Base canvas with fixed dimensions -->
+        <Canvas Width="1920" Height="1080" Background="#5D8AA8">
+            <Canvas.RenderTransform>
+                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+                                ScaleY="{Binding ScalingFactor}"/>
+            </Canvas.RenderTransform>
 
-<Viewbox Stretch="Fill">
-	<!-- Canvas -> for better positions -->
-	<Canvas Background="#5D8AA8" Width="1920" Height="1080">
+		
 
 		<!-- Main Center Card -->
 		<Border x:Name="MainCard" Classes="exp-main-card">
@@ -169,7 +180,10 @@
 				<TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
 			</DockPanel>
 		</Border>
+		
 
 	</Canvas>
 	</Viewbox>
+	<!-- </ScrollViewer> -->
+
 </UserControl>

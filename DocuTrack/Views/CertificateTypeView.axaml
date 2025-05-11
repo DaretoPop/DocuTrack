@@ -8,8 +8,17 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              x:Class="DocuTrack.Views.CertificateTypeView">
 
+<!-- <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                  VerticalScrollBarVisibility="Auto"> -->
 <Viewbox Stretch="Fill">
     <Grid Background="#5D8AA8" Width="1920" Height="1080">
+
+        <Grid.RenderTransform>
+            <ScaleTransform 
+                    ScaleX="{Binding ScalingFactor}" 
+                    ScaleY="{Binding ScalingFactor}"/>
+			</Grid.RenderTransform>
+
         <Border Classes="back-button-container">
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
@@ -103,5 +112,6 @@
         </Grid>
     </Grid>
     </Viewbox>
+    <!-- </ScrollViewer> -->
 
 </UserControl>
