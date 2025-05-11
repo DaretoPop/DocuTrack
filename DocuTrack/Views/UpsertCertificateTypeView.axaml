@@ -7,9 +7,14 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="DocuTrack.Views.UpsertCertificateTypeView">
 
-
+<Viewbox Stretch="Uniform">
                                                         <!-- OUTSIDE CARD -->
-    <Grid Background="#5D8AA8">
+    <Grid Background="#5D8AA8" Width="1920" Height="1080">
+        <Grid.RenderTransform>
+            <ScaleTransform 
+                    ScaleX="{Binding ScalingFactor}" 
+                    ScaleY="{Binding ScalingFactor}"/>
+	</Grid.RenderTransform>
 
                                                         <!-- Back Button (inside card area if desired) -->
         <Border Classes="back-button-container">
@@ -49,5 +54,5 @@
             </Grid>
         </Border>
     </Grid>
-
+</Viewbox>
 </UserControl>

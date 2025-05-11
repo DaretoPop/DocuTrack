@@ -22,6 +22,9 @@ namespace DocuTrack.Views
     //  Get scaling manager
     var manager = ScalingProvider.GetInstance<MainWindow>();
 
+    // Default App Scaling
+    manager.SetScaling(0.95);
+
     //  Create VM with injected manager
     var viewModel = new MainViewModel(manager);
 

@@ -7,9 +7,13 @@
              x:DataType="vm:SailorViewModel"
              x:Class="DocuTrack.Views.SailorView">
 
-
+<Viewbox Stretch="Uniform">
 <!-- Profil Panel -->
-<Canvas Background="#5D8AA8" >
+<Canvas Background="#5D8AA8" Width="1920" Height="1080" >
+   <Canvas.RenderTransform>
+                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+                                ScaleY="{Binding ScalingFactor}"/>
+			    </Canvas.RenderTransform>
 
 
     <Border Classes="sailorview-main-panel">
@@ -200,6 +204,7 @@
       </Grid>
     </Border>
 </Canvas>
+</Viewbox>
 </UserControl>
 
 

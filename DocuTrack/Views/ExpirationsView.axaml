@@ -16,8 +16,10 @@
     <Setter Property="Background" Value="#FFE0E0E0"/>
 </Style>
     </UserControl.Styles>
-
- <Viewbox Stretch="Fill">
+<!-- <ScrollViewer HorizontalScrollBarVisibility=""
+                  VerticalScrollBarVisibility="Auto"
+				  > -->
+ <Viewbox Stretch="Uniform">
         <!-- Base canvas with fixed dimensions -->
         <Canvas Width="1920" Height="1080" Background="#5D8AA8">
             <Canvas.RenderTransform>
@@ -182,5 +184,6 @@
 
 	</Canvas>
 	</Viewbox>
+	<!-- </ScrollViewer> -->
 
 </UserControl>

@@ -9,7 +9,16 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-    <Canvas Background="#5D8AA8" >
+<!-- <ScrollViewer HorizontalScrollBarVisibility=""
+                  VerticalScrollBarVisibility="Auto"
+				  > -->
+<Viewbox Stretch="Uniform">
+    <Canvas Background="#5D8AA8" Width="1920" Height="1080" >
+        <Canvas.RenderTransform>
+                <ScaleTransform 
+                    ScaleX="{Binding ScalingFactor}" 
+                    ScaleY="{Binding ScalingFactor}"/>
+		</Canvas.RenderTransform>
 
       <!-- MainCard -->
         <Border Classes="centerleft-panel" >
@@ -126,4 +135,6 @@
     </Border>
     
     </Canvas>
+    </Viewbox>
+    <!-- </ScrollViewer> -->
 </UserControl>
