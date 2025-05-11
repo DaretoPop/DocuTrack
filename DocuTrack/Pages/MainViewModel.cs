@@ -46,7 +46,7 @@ namespace DocuTrack.Views
 
                     //Scaling 
     private readonly ScalingManager _scalingManager;
-
+    public int ScalingPercent => (int)(ScalingFactor * 100);
     public double ScalingFactor => _scalingManager.CurrentScaling;
 
     [RelayCommand]
@@ -55,6 +55,7 @@ namespace DocuTrack.Views
         _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
             // This is button [+,-] Scaling
         OnPropertyChanged(nameof(ScalingFactor));
+        OnPropertyChanged(nameof(ScalingPercent));
     }
 
     [RelayCommand]
@@ -62,6 +63,8 @@ namespace DocuTrack.Views
     {
         _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
         OnPropertyChanged(nameof(ScalingFactor));
+        OnPropertyChanged(nameof(ScalingPercent));
+
     }
 
 

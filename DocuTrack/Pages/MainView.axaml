@@ -99,6 +99,7 @@
 <StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="4">
   <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="32" Height="32" Margin="0 20 0 20"/>
   <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="32" Height="32" Margin="0 20 80 20"/>
+  <TextBlock Text="{Binding ScalingPercent}" FontSize="15" Foreground="Black"/>
 </StackPanel>
                 
             <!-- End of sidebar -->
