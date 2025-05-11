@@ -25,6 +25,20 @@
      </Style>
 
 
+                  <!-- Back border -->
+      <Style Selector="Border.back-button-canvas">
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="BoxShadow" Value="0 15 30 2 #525252"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="BorderBrush" Value="#396c8e"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <!-- <Setter Property="ZIndex" Value="1000"/> Ensures visibility -->
+     </Style>
+
 <!-- ########################################################################### -->
 
 

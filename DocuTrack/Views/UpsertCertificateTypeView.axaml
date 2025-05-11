@@ -17,7 +17,7 @@
 	</Canvas.RenderTransform>
 
                                                         <!-- Back Button (inside card area if desired) -->
-        <Border Classes="back-button-container" Canvas.Top="490" Canvas.Left="400">
+        <Border Classes="back-button-canvas" Canvas.Top="490" Canvas.Left="400">
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
                 <Image Classes="back-image"/>
