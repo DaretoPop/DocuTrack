@@ -44,28 +44,48 @@ namespace DocuTrack.Views
 
 
 
-                    //Scaling 
-    private readonly ScalingManager _scalingManager;
-    public int ScalingPercent => (int)(ScalingFactor * 100);
-    public double ScalingFactor => _scalingManager.CurrentScaling;
+     // Scaling properties
+private readonly ScalingManager _scalingManager;
+public int ScalingPercent => (int)(ScalingFactor * 100);
+public double ScalingFactor => _scalingManager.CurrentScaling;
 
-    [RelayCommand]
-    private void IncreaseScale()
+[RelayCommand]
+private void IncreaseScale()
+{
+    const double maxScale = 1.15;  // 115% maximum
+    const double increment = 0.05; // 5% increment
+    
+    var newScale = _scalingManager.CurrentScaling + increment;
+    
+    // Apply upper limit
+    if (newScale > maxScale)
     {
-        _scalingManager.SetScaling(_scalingManager.CurrentScaling * 1.1);
-            // This is button [+,-] Scaling
-        OnPropertyChanged(nameof(ScalingFactor));
-        OnPropertyChanged(nameof(ScalingPercent));
+        newScale = maxScale;
     }
+    
+    _scalingManager.SetScaling(newScale);
+    OnPropertyChanged(nameof(ScalingFactor));
+    OnPropertyChanged(nameof(ScalingPercent));
+}
 
-    [RelayCommand]
-    private void DecreaseScale()
+[RelayCommand]
+private void DecreaseScale()
+{
+    const double minScale = 0.5;  // 50% minimum
+    const double decrement = 0.05; // 5% decrement
+    
+    var newScale = _scalingManager.CurrentScaling - decrement;
+    
+    // Apply lower limit
+    if (newScale < minScale)
     {
-        _scalingManager.SetScaling(_scalingManager.CurrentScaling * 0.9);
-        OnPropertyChanged(nameof(ScalingFactor));
-        OnPropertyChanged(nameof(ScalingPercent));
-
+        newScale = minScale;
     }
+    
+    _scalingManager.SetScaling(newScale);
+    OnPropertyChanged(nameof(ScalingFactor));
+    OnPropertyChanged(nameof(ScalingPercent));
+}
 
 
 
