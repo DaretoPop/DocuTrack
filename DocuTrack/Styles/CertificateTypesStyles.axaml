@@ -91,7 +91,7 @@
     <Setter Property="CornerRadius" Value="30"/>
     <Setter Property="BorderBrush" Value="#5D8AA8"/>
     <Setter Property="BorderThickness" Value="2"/>
-    <Setter Property="BoxShadow" Value="0 20 25 0 #525252"/>
+    <Setter Property="BoxShadow" Value="0 5 5 0 #525252"/>
 </Style>
 
             <Style Selector="Border.right-header-panel">
