@@ -284,9 +284,15 @@ namespace DocuTrack.ViewModels
         } 
 
            [RelayCommand]
-        private void OBNOVI()
+        private async void OBNOVI(Window parentWindow)
         {
-            Console.WriteLine("OBNOVI DOKUMENT");
+            // Open the CertificateAcquiredView
+            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null, Sailor, new CertificateType(){ID = SelectedCertificate.CertificateTypeID, Name = SelectedCertificate.Name}); // Instantiate your ViewModel
+            var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
+
+            // Show the window as a dialog asynchronously
+            await certificateAcquiredView.ShowDialog(parentWindow);
+            initialize();
         } 
         
            [RelayCommand]

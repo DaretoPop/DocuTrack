@@ -15,9 +15,10 @@
 
 		<!-- Certificate Type Dropdown with inline items -->
 		<TextBlock Text="Certificate Type"/>
-		<ComboBox Width="200"
-				  ItemsSource="{Binding CertificateTypes}"
-				  SelectedItem="{Binding Certificate.CertificateType, Mode=TwoWay}">
+		<TextBlock Text="{Binding PreselectedCertificateType.Name}" IsVisible="{Binding !IsObnovi}"/>
+        <ComboBox Width="200"
+                  ItemsSource="{Binding CertificateTypes}"
+                  SelectedItem="{Binding Certificate.CertificateType, Mode=TwoWay}" IsVisible="{Binding IsObnovi}">
 			<ComboBox.ItemTemplate>
 				<DataTemplate>
 					<TextBlock Text="{Binding Name}" />
@@ -44,8 +45,7 @@
 			<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
 		</Border>
 
-		<Button Content="Sacuvaj" Command="{Binding SaveCertificateCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="0 30 0 0">
-		</Button>
+		<Button Content="Sacuvaj" Command="{Binding SaveCertificateCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="0 30 0 0" />
 
         <TextBlock Text="{Binding HowManyFilesAreSelected}" IsVisible="{Binding HowManyFilesAreSelected, Converter={StaticResource StringNotEmptyToBoolConverter}}"/>
 		<Button Content="> Dodaj Dokumenta" Command="{Binding DodajDokumentaCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="190,10,0,100" Classes="TransparentHoverButton"/>

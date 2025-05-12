@@ -37,10 +37,13 @@ namespace DocuTrack.ViewModels
         [ObservableProperty] private List<CertificateFile> files = new();
 
         [ObservableProperty] private string howManyFilesAreSelected = "";
+        [ObservableProperty] private CertificateType preselectedCertificateType = new();
+        [ObservableProperty] private bool isObnovi = false;
 
-        public CertificateAcquiredViewModel(Certificate cert, Sailor sailor=null)
+        public CertificateAcquiredViewModel(Certificate cert, Sailor sailor=null, CertificateType preselectedCertificateType = null)
         {
             Sailor= sailor ?? new Sailor();
+            PreselectedCertificateType = preselectedCertificateType ?? new CertificateType();
             if (cert != null)
             {
                 Certificate = cert;
@@ -51,10 +54,14 @@ namespace DocuTrack.ViewModels
                 Certificate = new Certificate
                 {
                     DateAcquiredDate = DateTime.Today,
-                    DateExpirationDate = DateTime.Today.AddYears(1)
+                    DateExpirationDate = DateTime.Today.AddYears(1),
+                    CertificateType = PreselectedCertificateType
                 };
-                SelectedCertificateType = new CertificateType();
             }
+
+            IsObnovi = PreselectedCertificateType.ID == 0;
+            OnPropertyChanged(nameof(IsObnovi));
+
             CertificateTypes = new ObservableCollection<CertificateType>(DatabaseHelper.geCertificateTypes());
         }
 
@@ -63,14 +70,35 @@ namespace DocuTrack.ViewModels
         {
             errorMessage = "";
             OnPropertyChanged(nameof(ErrorMessage));
-            if (SelectedCertificateType == null ||  certificate.PlaceComboBox ==null )
+            if (IsObnovi)
             {
-                errorMessage = "All fields are required.";
-                OnPropertyChanged(nameof(ErrorMessage));
-                return;
+                if (certificate.CertificateType == null || certificate.PlaceComboBox == null)
+                {
+                    errorMessage = "All fields are required.";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                    return;
+                }
+            }
+            else
+            {
+                if (certificate.PlaceComboBox == null)
+                {
+                    errorMessage = "All fields are required.";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                    return;
+                }
             }
 
-            certificate.CertificateTypeID = certificate.CertificateType.ID;
+
+            if (isObnovi)
+            {
+                certificate.CertificateTypeID = certificate.CertificateType.ID;
+
+            }
+            else
+            {
+                certificate.CertificateTypeID = PreselectedCertificateType.ID;
+            }
             certificate.SailorID = sailor.ID;
             certificate.DateAcquired = certificate.DateAcquiredDate.Value.ToString("yyyy-MM-dd");
             certificate.DateExpiration = certificate.DateExpirationDate.Value.ToString("yyyy-MM-dd");

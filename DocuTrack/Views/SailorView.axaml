@@ -186,9 +186,8 @@
 								</StackPanel>
 
 								<!--OBNOVI BUTTON -->
-								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}"/>
-
-								<!-- >Stare Verzije -->
+								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                        <!-- >Stare Verzije -->
 								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
 										IsVisible="{Binding haveMultipleVersions}"
 										Classes="TransparentHoverButton"
