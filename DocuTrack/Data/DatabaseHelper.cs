@@ -247,7 +247,7 @@ namespace DocuTrack.Data
                 command.ExecuteNonQuery();
                 connection.Close();
 
-                
+
 
             }
             catch (Exception ex)
@@ -302,7 +302,7 @@ namespace DocuTrack.Data
         {
             return null;
         }
-        
+
         internal static void addCertificateTypeDocument(RequestFile file, byte[] fileData)
         {
             try
@@ -339,7 +339,7 @@ namespace DocuTrack.Data
                 command.Parameters.AddWithValue("@certificateTypeID", file.CertificateTypeID);
                 command.ExecuteNonQuery();
                 connection.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -376,7 +376,7 @@ namespace DocuTrack.Data
         {
             if (documentsForAdd.Count > 0)
             {
-                
+
                 foreach (var file in documentsForAdd)
                 {
                     //get the file in byte array
@@ -440,8 +440,8 @@ namespace DocuTrack.Data
                     }
                     else
                     {
-                        
-                            output.Add(certificate);
+
+                        output.Add(certificate);
                     }
                 }
 
@@ -492,7 +492,7 @@ namespace DocuTrack.Data
         }
         private static string GetFullFilePath(CertificateFile file)
         {
-            return Path.Combine(AppContext.BaseDirectory, "Data", "Certificates", file.CertificateID.ToString() ,file.FilePath);
+            return Path.Combine(AppContext.BaseDirectory, "Data", "Certificates", file.CertificateID.ToString(), file.FilePath);
         }
 
         private static string ConvertDocxToPdf(string docxFilePath)
@@ -623,7 +623,7 @@ namespace DocuTrack.Data
                 if (zahtevi.Count() == 1)
                 {
                     var singleFile = zahtevi.First();
-                    
+
                     return singleFile.FilePath;
                 }
 
@@ -832,7 +832,7 @@ namespace DocuTrack.Data
         {
             try
             {
-                var id= AddCertificate(certificate);
+                var id = AddCertificate(certificate);
                 foreach (var file in files)
                 {
                     file.CertificateID = id;
@@ -845,11 +845,42 @@ namespace DocuTrack.Data
             }
         }
 
-        #endregion
 
-
-
-
+        internal static void DeleteCertificate(Certificate certificate)
+        {
+            try
+            {
+                //DELETE ALL FILES IN THE FOLDER
+                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{certificate.ID}";
+                if (Directory.Exists(directoryPath))
+                {
+                    Directory.Delete(directoryPath, true);
+                }
+                //DELETE ALL FILES IN THE FOLDER
+                var connection2 = GetConnection();
+                var command2 = connection2.CreateCommand();
+                command2.CommandText = "DELETE FROM CertificateFiles WHERE CertificateID = @id";
+                command2.Parameters.AddWithValue("@id", certificate.ID);
+                command2.ExecuteNonQuery();
+                connection2.Close();
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Certificates WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", certificate.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate from the database", ex);
+            }
+        }
     }
+    #endregion
+
+
+
+
+
 
 }

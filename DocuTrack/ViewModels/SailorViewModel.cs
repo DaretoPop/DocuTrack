@@ -398,5 +398,29 @@ namespace DocuTrack.ViewModels
             }
         }
 
+
+        [RelayCommand]
+        private async Task Delete(Window parentWindow)
+        {
+            if (MainViewModel == null || _selectedCertificate == null)
+                return;
+
+            _selectedCertificate.Sailor = Sailor;
+            var dialog = new ConfirmationDialog
+            {
+                Message = $"Da li ste sigurni da želite da obrišete {_selectedCertificate.Name} za {_selectedCertificate.SailorName}?"
+            };
+
+            // Show the dialog as a modal window
+            var result = await dialog.ShowDialog<bool>(parentWindow);
+
+            if (result)
+            {
+
+                DatabaseHelper.DeleteCertificate(_selectedCertificate);
+                initialize();
+            }
+        }
+
     }
 }

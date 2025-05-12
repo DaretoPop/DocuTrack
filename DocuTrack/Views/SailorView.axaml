@@ -98,6 +98,15 @@
 							<Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>
 							<!-- DODAJ DOKUMENT BUTTON -->
 
+                            <!-- DODAJ DOKUMENT BUTTON -->
+                            <Button 
+                                    Content="Obrisi"
+                                    Classes="sailor-print-button"
+                                    Command="{Binding DeleteCommand}"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+                                    IsVisible="{Binding IsCertificateSelected}"
+                            />
+
 						</StackPanel>
 
 						<!-- Vertical Separator -->
