@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 
 namespace DocuTrack.DataModels
 {
@@ -13,7 +14,12 @@ namespace DocuTrack.DataModels
         public int CertificateTypeID { get; set; }
         public string DateAcquired { get; set; }
         public string DateExpiration { get; set; }
+
+        public DateTime? DateAcquiredDate { get; set; } = DateTime.Today;
+        public DateTime? DateExpirationDate { get; set; } = DateTime.Today.AddYears(1);
         public string Place { get; set; }
+
+        public ComboBoxItem PlaceComboBox { get; set; }
         public string Name { get; set; }
 
 

@@ -178,11 +178,12 @@ namespace DocuTrack.ViewModels
 
 
             // Open the CertificateAcquiredView
-            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null); // Instantiate your ViewModel
+            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null, Sailor); // Instantiate your ViewModel
             var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
 
              // Show the window as a dialog asynchronously
             await certificateAcquiredView.ShowDialog(parentWindow);
+            initialize();
             
         }   
 
