@@ -94,18 +94,20 @@
 								</ListBox>
 
 							</StackPanel>
-							<!-- Stmapaj BUTTON -->
-							<Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>
-							<!-- DODAJ DOKUMENT BUTTON -->
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" IsVisible="{Binding IsCertificateSelected}" Spacing="10">
+								<!-- Stmapaj BUTTON -->
+								<Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>
+								<!-- DODAJ DOKUMENT BUTTON -->
 
-                            <!-- DODAJ DOKUMENT BUTTON -->
-                            <Button 
-                                    Content="Obrisi"
-                                    Classes="sailor-print-button"
-                                    Command="{Binding DeleteCommand}"
-                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                    IsVisible="{Binding IsCertificateSelected}"
+								<!-- DODAJ DOKUMENT BUTTON -->
+								<Button
+										Content="Obrisi"
+										Classes="sailor-print-button"
+										Command="{Binding DeleteCommand}"
+										CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+										IsVisible="{Binding IsCertificateSelected}"
                             />
+							</StackPanel>
 
 						</StackPanel>
 
@@ -196,16 +198,16 @@
 
 								<!--OBNOVI BUTTON -->
 								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-                                        <!-- >Stare Verzije -->
+								<!-- >Stare Verzije -->
 								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
 										IsVisible="{Binding haveMultipleVersions}"
 										Classes="TransparentHoverButton"
 										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 								</Button>
 
-                                <Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
-                                    <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
-                                </Border>
+								<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+									<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+								</Border>
 
 
 							</Grid>
