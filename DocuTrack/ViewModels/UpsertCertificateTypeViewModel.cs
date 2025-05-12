@@ -34,7 +34,7 @@ namespace DocuTrack.ViewModels
 
         private CertificateType _certificateType = new CertificateType();
 
-        public string UpsertTitle  => _certificateType?.ID == 0 ? "Add Certificate Type" : "Edit Certificate Type";
+        public string UpsertTitle  => _certificateType?.ID == 0 ? "Dodaj Tip Dokumenta" : "Izmeni Tip Dokumenta";
         public bool IsNew => _certificateType.ID != 0;
 
         public string Naziv
@@ -101,7 +101,7 @@ namespace DocuTrack.ViewModels
 
             var dialog = new ConfirmationDialog
             {
-                Message = $"Are you sure you want to delete {_certificateType.Name}?"
+                Message = $"Da li ste sigurni da želite da obrišete {_certificateType.Name}?"
             };
 
             // Show the dialog as a modal window

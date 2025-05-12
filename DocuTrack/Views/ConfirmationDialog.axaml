@@ -11,8 +11,8 @@
 
         <!-- Buttons -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-            <Button Content="Yes" Click="OnYesClicked" Width="80" CornerRadius="12" Background="#5D8AA8"/>
-            <Button Content="No" Click="OnNoClicked" Width="80" Margin="0 30 10 30" CornerRadius="12" Background="#5D8AA8"/>
+            <Button Content="Da" Click="OnYesClicked" Width="80" CornerRadius="12" Background="#5D8AA8"/>
+            <Button Content="Ne" Click="OnNoClicked" Width="80" Margin="0 30 10 30" CornerRadius="12" Background="#5D8AA8"/>
         </StackPanel>
     </Grid>
 </Window>

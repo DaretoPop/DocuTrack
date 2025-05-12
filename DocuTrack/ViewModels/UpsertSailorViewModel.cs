@@ -140,7 +140,7 @@ namespace DocuTrack.ViewModels {
 
             var dialog = new ConfirmationDialog
             {
-                Message = $"Are you sure you want to delete {Sailor.Name} {Sailor.Surname}?"
+                Message = $"Da li ste sigurni da želite da obrišete {Sailor.Name} {Sailor.Surname}?"
             };
 
             // Show the dialog as a modal window
