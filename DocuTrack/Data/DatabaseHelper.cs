@@ -803,6 +803,47 @@ namespace DocuTrack.Data
             return $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FileName}";
         }
 
+        internal static int AddCertificate(Certificate certificate)
+        {
+            try
+            {
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO Certificates (SailorID, CertificateTypeID, DateAcquired, DateExpiration, Place) VALUES (@sailorID, @certificateTypeID, @dateAcquired, @dateExpiration, @place)";
+                command.Parameters.AddWithValue("@sailorID", certificate.SailorID);
+                command.Parameters.AddWithValue("@certificateTypeID", certificate.CertificateTypeID);
+                command.Parameters.AddWithValue("@dateAcquired", certificate.DateAcquired);
+                command.Parameters.AddWithValue("@dateExpiration", certificate.DateExpiration);
+                command.Parameters.AddWithValue("@place", certificate.Place);
+                command.ExecuteNonQuery();
+                // Fix: Retrieve the last inserted row ID using SQLite's built-in function
+                command.CommandText = "SELECT last_insert_rowid()";
+                certificate.ID = Convert.ToInt32(command.ExecuteScalar());
+                connection.Close();
+                return certificate.ID;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error adding certificate to the database", e);
+            }
+        }
+
+        internal static void AddCertificate(Certificate certificate, List<CertificateFile> files)
+        {
+            try
+            {
+                var id= AddCertificate(certificate);
+                foreach (var file in files)
+                {
+                    file.CertificateID = id;
+                }
+                addCertificateFiles(files);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error adding certificate to the database", e);
+            }
+        }
 
         #endregion
 

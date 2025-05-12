@@ -7,13 +7,13 @@
              x:DataType="vm:SailorViewModel"
              x:Class="DocuTrack.Views.SailorView">
 
-<Viewbox Stretch="Uniform">
-<!-- Profil Panel -->
-<Canvas Background="#5D8AA8" Width="1920" Height="1080" >
-   <Canvas.RenderTransform>
-                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+	<Viewbox Stretch="Uniform">
+		<!-- Profil Panel -->
+		<Canvas Background="#5D8AA8" Width="1920" Height="1080" >
+			<Canvas.RenderTransform>
+				<ScaleTransform ScaleX="{Binding ScalingFactor}"
                                 ScaleY="{Binding ScalingFactor}"/>
-			    </Canvas.RenderTransform>
+			</Canvas.RenderTransform>
 
 
 			<Border Classes="sailorview-main-panel">
@@ -61,8 +61,8 @@
 								<Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
 								Margin="0 0 220 0"/>
 
-                                <!-- DODAJ DOKUMENT BUTTON -->
-                                <Button Grid.Column="2"
+								<!-- DODAJ DOKUMENT BUTTON -->
+								<Button Grid.Column="2"
                                         Content="Dodaj Dokument"
                                         Classes="sailor-sticanje-button"
                                         Margin="130 0 0 0"
@@ -96,13 +96,12 @@
 							</StackPanel>
 							<!-- Stmapaj BUTTON -->
 							<Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>
-                            <!-- DODAJ DOKUMENT BUTTON -->
+							<!-- DODAJ DOKUMENT BUTTON -->
 
 						</StackPanel>
 
 						<!-- Vertical Separator -->
 						<Border Grid.Column="1" Background="#5D8AA8" Width="5"/>
-
 						<!-- ############################################################################### -->
 
 						<!-- RIGHT SIDE of Profil Panel -->
@@ -187,14 +186,14 @@
 								</StackPanel>
 
 								<!--OBNOVI BUTTON -->
-								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}"/>
-
-								<!-- >Stare Verzije -->
+								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                        <!-- >Stare Verzije -->
 								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
 										IsVisible="{Binding haveMultipleVersions}"
 										Classes="TransparentHoverButton"
 										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 								</Button>
+
 
 							</Grid>
 						</Grid>
@@ -203,14 +202,12 @@
 			</Border>
 
 			<!-- BACK BUTTON -->
-			<Border Classes="sailor-back-border2">
-				<Grid>
-					<Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-							 Classes="TransparentHoverButton">
-						<Image   Classes="sailor-back-image"/>
+			<Border Classes="sailor-back-border2" Canvas.Top="540" Canvas.Left="180">
+				<Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+						 Classes="TransparentHoverButton">
+					<Image   Classes="sailor-back-image"/>
 
-					</Button>
-				</Grid>
+				</Button>
 			</Border>
 		</Canvas>
 	</Viewbox>
