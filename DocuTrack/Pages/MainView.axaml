@@ -25,6 +25,25 @@
                             <!-- Color of Sidebar -->
     <Border Padding="20" Background="#FAFAFA" IsVisible="{Binding IsLoggedIn}">
         <Grid RowDefinitions="*,Auto">
+
+            <!-- BottomRightCorner -->
+            <StackPanel x:Name="BottomRightCorner"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="0,110,0,0"
+                        Spacing="6"
+                        >
+                <!-- Buttons in a horizontal row -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+                    <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="28" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#5D8AA8"/>
+                    <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="28" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#5D8AA8"/>
+                    <TextBlock Text="{Binding ScalingPercent}" FontSize="20" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+
+
             <StackPanel Spacing="12">
                 
                <!-- LOGO -->
@@ -36,6 +55,8 @@
                 <!-- Separator line -->
    <Separator Classes="main-logo-separator"/>
 
+
+
                 <!-- POCETNA  -->
                 <Button
                     Background="Transparent" HorizontalAlignment="Stretch" Padding="0"
@@ -45,7 +66,7 @@
                 <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
     
                     <Rectangle
-                        Grid.Column="0" Fill="#0b218e" Margin="0 0 2 0"
+                        Grid.Column="0" Fill="#0b218e" Margin="0 0 3 0"
                         IsVisible="{Binding IsPocetnaSelected}"/>
 
                     <TextBlock
@@ -92,16 +113,6 @@
     <Border Classes="main-line-separator" Width="130"/>
 </StackPanel>
 
-<TextBlock Text="Scaling" Margin="80 50 0 0">
-    
-</TextBlock>
-<!-- BottomRightCorner -->
-<StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Spacing="4">
-  <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="32" Height="32" Margin="0 20 0 20"/>
-  <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="32" Height="32" Margin="0 20 80 20"/>
-  <TextBlock Text="{Binding ScalingPercent}" FontSize="15" Foreground="Black"/>
-</StackPanel>
-                
             <!-- End of sidebar -->
             </StackPanel>
         

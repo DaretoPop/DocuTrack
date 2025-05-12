@@ -9,10 +9,10 @@
 
 
 
-        <Border Classes="document-type-container">
+        <Border Classes="document-type-container" Height="58" >
             <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
                 <TextBlock Text="{Binding Name}" Classes="document-container-text"/>
-                <Button Content="VIDI" Command="{Binding OpenCertificateTypeCommand}" Classes="view-button"/>
+                <Button Content="VIDI" Command="{Binding OpenCertificateTypeCommand}" Classes="view-button" />
             </Grid>
         </Border>
 

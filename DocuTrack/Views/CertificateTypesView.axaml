@@ -9,9 +9,7 @@
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              Foreground="White">
 
-<!-- <ScrollViewer HorizontalScrollBarVisibility=""
-                  VerticalScrollBarVisibility="Auto"
-				  > -->
+
 <Viewbox Stretch="Uniform">
     <Canvas Background="#5D8AA8" Width="1920" Height="1080" >
         <Canvas.RenderTransform>
@@ -21,7 +19,7 @@
 		</Canvas.RenderTransform>
 
       <!-- MainCard -->
-        <Border Classes="centerleft-panel" >
+        <Border Classes="centerleft-panel" Canvas.Top="140" Canvas.Left="320">
 
             <Grid RowDefinitions="Auto,*,Auto">
 
@@ -61,10 +59,11 @@
                         </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
+      </Grid>
+    </Border>
 
-
-<!-- Border pages navigations -->
-        <Border Classes="cert-pagination-border">
+    <!-- Border pages navigations -->
+        <Border Classes="cert-pagination-border" Canvas.Left="785" Canvas.Top="198">
           <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
                          <!-- FIRST PAGE -->
@@ -114,18 +113,16 @@
 
         </StackPanel>
          </Border>
-      </Grid>
-    </Border>
 
         <!-- Outside kreiraj button -->
-        <Border Classes="cert-create-button-border">
+        <Border Classes="cert-create-button-border" Canvas.Top="85" Canvas.Left="1400">
             <Button Content="Kreiraj Dokument" 
                     Command="{Binding GoToAddNewDocumentCommand}" 
                     Classes="TransparentHoverButton cert-kreiraj-button"/>
         </Border>
 
          <!-- Search MAIN BORDER-->
-    <Border Classes="sailor-search-border" Canvas.Left="199" Canvas.Top="24.5">
+    <Border Classes="sailor-search-border" Canvas.Top="85" Canvas.Left="319">
 
 <!-- Search -->
       <DockPanel LastChildFill="True">

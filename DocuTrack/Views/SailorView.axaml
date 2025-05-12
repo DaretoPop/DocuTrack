@@ -196,24 +196,22 @@
 										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 								</Button>
 
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Border>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Border>
+    
+    <!-- BACK BUTTON -->
+    <Border Classes="sailor-back-border2" Canvas.Top="540" Canvas.Left="180">
+        <Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                 Classes="TransparentHoverButton">
+        <Image   Classes="sailor-back-image"/>
 
-			<!-- BACK BUTTON -->
-			<Border Classes="sailor-back-border2">
-				<Grid>
-					<Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-							 Classes="TransparentHoverButton">
-						<Image   Classes="sailor-back-image"/>
-
-					</Button>
-				</Grid>
-			</Border>
-		</Canvas>
-	</Viewbox>
+      </Button>
+    </Border>
+</Canvas>
+</Viewbox>
 </UserControl>
 
 
