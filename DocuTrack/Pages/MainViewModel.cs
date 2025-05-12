@@ -19,9 +19,9 @@ namespace DocuTrack.Views
         public MainViewModel(ScalingManager? scalingManager = null)
         {
 
-                _scalingManager = scalingManager;
+            _scalingManager = scalingManager;
 
-             
+
             //Default CurrentPage State
             IsLoggedIn = false;
             IsPocetnaView = false;
@@ -36,56 +36,56 @@ namespace DocuTrack.Views
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
             //temp
-            CurrentPage = PocetnaPage;
-            IsLoggedIn = true;
+            //CurrentPage = PocetnaPage;
+            //IsLoggedIn = true;
 
         }
 
 
 
 
-     // Scaling properties
-private readonly ScalingManager _scalingManager;
-public int ScalingPercent => (int)(ScalingFactor * 100);
-public double ScalingFactor => _scalingManager.CurrentScaling;
+        // Scaling properties
+        private readonly ScalingManager _scalingManager;
+        public int ScalingPercent => (int)(ScalingFactor * 100);
+        public double ScalingFactor => _scalingManager.CurrentScaling;
 
-[RelayCommand]
-private void IncreaseScale()
-{
-    const double maxScale = 1.15;  // 115% maximum
-    const double increment = 0.05; // 5% increment
-    
-    var newScale = _scalingManager.CurrentScaling + increment;
-    
-    // Apply upper limit
-    if (newScale > maxScale)
-    {
-        newScale = maxScale;
-    }
-    
-    _scalingManager.SetScaling(newScale);
-    OnPropertyChanged(nameof(ScalingFactor));
-    OnPropertyChanged(nameof(ScalingPercent));
-}
+        [RelayCommand]
+        private void IncreaseScale()
+        {
+            const double maxScale = 1.15;  // 115% maximum
+            const double increment = 0.05; // 5% increment
 
-[RelayCommand]
-private void DecreaseScale()
-{
-    const double minScale = 0.5;  // 50% minimum
-    const double decrement = 0.05; // 5% decrement
-    
-    var newScale = _scalingManager.CurrentScaling - decrement;
-    
-    // Apply lower limit
-    if (newScale < minScale)
-    {
-        newScale = minScale;
-    }
-    
-    _scalingManager.SetScaling(newScale);
-    OnPropertyChanged(nameof(ScalingFactor));
-    OnPropertyChanged(nameof(ScalingPercent));
-}
+            var newScale = _scalingManager.CurrentScaling + increment;
+
+            // Apply upper limit
+            if (newScale > maxScale)
+            {
+                newScale = maxScale;
+            }
+
+            _scalingManager.SetScaling(newScale);
+            OnPropertyChanged(nameof(ScalingFactor));
+            OnPropertyChanged(nameof(ScalingPercent));
+        }
+
+        [RelayCommand]
+        private void DecreaseScale()
+        {
+            const double minScale = 0.5;  // 50% minimum
+            const double decrement = 0.05; // 5% decrement
+
+            var newScale = _scalingManager.CurrentScaling - decrement;
+
+            // Apply lower limit
+            if (newScale < minScale)
+            {
+                newScale = minScale;
+            }
+
+            _scalingManager.SetScaling(newScale);
+            OnPropertyChanged(nameof(ScalingFactor));
+            OnPropertyChanged(nameof(ScalingPercent));
+        }
 
 
 
@@ -99,7 +99,7 @@ private void DecreaseScale()
         [ObservableProperty] private string izadji = "• Izadji"; //todo: app.exit(izadji button)
 
 
-// Pages/States Members
+        // Pages/States Members
 
         [ObservableProperty] private BaseViewModel? _currentPage;
         [ObservableProperty] private ExpirationsViewModel? _pocetnaPage;
@@ -124,31 +124,31 @@ private void DecreaseScale()
         [ObservableProperty] private bool _isDokumentaSelected;
 
 
-// Display arrow 2 based on the navigation
-[RelayCommand]
-private void SetSelectedPage(string page)
-{
+        // Display arrow 2 based on the navigation
+        [RelayCommand]
+        private void SetSelectedPage(string page)
+        {
             // Restart
             IsPocetnaSelected = false;
             IsPomorciSelected = false;
             IsDokumentaSelected = false;
 
 
-    if (page == "Pocetna")
-        {
-            IsPocetnaSelected = true;
+            if (page == "Pocetna")
+            {
+                IsPocetnaSelected = true;
+            }
+            else if (page == "Pomorci")
+            {
+                IsPomorciSelected = true;
+            }
+            else if (page == "Dokumenta")
+            {
+                IsDokumentaSelected = true;
+            }
         }
-    else if (page == "Pomorci")
-        {
-            IsPomorciSelected = true;
-        }
-    else if (page == "Dokumenta")
-        {
-            IsDokumentaSelected = true;
-        }
-}
 
-// Change States
+        // Change States
 
         public void OnLoginSuccessful()
         {
@@ -201,7 +201,7 @@ private void SetSelectedPage(string page)
             CurrentPage = CertificateTypePage;
         }
 
-        public void GoToUpsertCertificateType(CertificateType certificateType )
+        public void GoToUpsertCertificateType(CertificateType certificateType)
         {
             CurrentPage = new UpsertCertificateTypeViewModel(this, certificateType);
         }
