@@ -10,128 +10,128 @@
              Foreground="White">
 
 
-<Viewbox Stretch="Uniform">
-    <Canvas Background="#5D8AA8" Width="1920" Height="1080" >
-        <Canvas.RenderTransform>
-                <ScaleTransform 
-                    ScaleX="{Binding ScalingFactor}" 
+	<Viewbox Stretch="Uniform">
+		<Canvas Background="#5D8AA8" Width="1920" Height="1080" >
+			<Canvas.RenderTransform>
+				<ScaleTransform
+                    ScaleX="{Binding ScalingFactor}"
                     ScaleY="{Binding ScalingFactor}"/>
-		</Canvas.RenderTransform>
+			</Canvas.RenderTransform>
 
-      <!-- MainCard -->
-        <Border Classes="centerleft-panel" Canvas.Top="140" Canvas.Left="320">
+			<!-- MainCard -->
+			<Border Classes="centerleft-panel" Canvas.Top="140" Canvas.Left="320">
 
-            <Grid RowDefinitions="Auto,*,Auto">
+				<Grid RowDefinitions="Auto,*,Auto">
 
-                <!-- Header TIP DOKUMENATA -->
-                <Border Classes="document-header">
-                    <Grid>
-						<TextBlock Text="Tip Dokumenata" Classes="document-text"/>
+					<!-- Header TIP DOKUMENATA -->
+					<Border Classes="document-header">
+						<Grid>
+							<TextBlock Text="Tip Dokumenata" Classes="document-text"/>
 
-                        <StackPanel
-                        Classes="totalcount-stack-panel">
-                        <TextBlock
-                            Text="Ukupno: "
-                            Classes="sailors-ukupanBroj-text"/>
+							<StackPanel
+							Classes="totalcount-stack-panel">
+								<TextBlock
+									Text="Ukupno: "
+									Classes="sailors-ukupanBroj-text"/>
 
-                        <!-- TotalSailorsCound -->
-                        <TextBlock
-                            Text="{Binding TotalCertificateTypes}"
-                            Classes="sailors-count-text"/>
+								<!-- TotalSailorsCound -->
+								<TextBlock
+									Text="{Binding TotalCertificateTypes}"
+									Classes="sailors-count-text"/>
 
-                        </StackPanel>
-                    </Grid>
-                </Border>
+							</StackPanel>
+						</Grid>
+					</Border>
 
-                <!-- Scroll List -->
-                <ScrollViewer Classes="main-document-scroll">
-                    <StackPanel Spacing="12" Margin="0,0,0,20">
-                        <Border Background="#FAFAFA"/>
-                        
-                        <ItemsControl ItemsSource="{Binding PaginatedCertificateTypes}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <views:CertificateTypeRowView DataContext="{Binding}"
-                                    Margin="0,0,0,10"/>
-                                    
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </StackPanel>
-                </ScrollViewer>
-      </Grid>
-    </Border>
+					<!-- Scroll List -->
+					<ScrollViewer Classes="main-document-scroll">
+						<StackPanel Spacing="12" Margin="0,0,0,20">
+							<Border Background="#FAFAFA"/>
+                            <TextBlock Text="Trenutno nema dokumenata" IsVisible="{Binding NoData}" TextAlignment="Center"  Foreground="Black" FontSize="24"/>
+							<ItemsControl ItemsSource="{Binding PaginatedCertificateTypes}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<views:CertificateTypeRowView DataContext="{Binding}"
+										Margin="0,0,0,10"/>
 
-    <!-- Border pages navigations -->
-        <Border Classes="cert-pagination-border" Canvas.Left="785" Canvas.Top="198">
-          <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+					</ScrollViewer>
+				</Grid>
+			</Border>
 
-                         <!-- FIRST PAGE -->
-              <Button Command="{Binding GoToFirstPageCommand}"
-                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                      Background="Transparent"
-                      Focusable="False"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-                      Stretch="Uniform"
-                      Width="24" Height="24"/>
-              </Button>
-                        <!-- LEFT ARROW -->
-              <Button Command="{Binding GoToPreviousPageCommand}"
-                      IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                      Background="Transparent"
-                      Focusable="False"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/left-arrow.png"
-                      Stretch="Uniform"
-                      Width="32" Height="32"/>
-              </Button>
+			<!-- Border pages navigations -->
+			<Border Classes="cert-pagination-border" Canvas.Left="785" Canvas.Top="198" IsVisible="{Binding !NoData}" >
+				<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
-            <TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-            
-                              <!-- RIGHT ARROW -->
-              <Button Command="{Binding GoToNextPageCommand}"
-                      IsEnabled="{Binding CanGoToNextOrLast}"
-                      Background="Transparent"
-                      Focusable="True"
-                      Classes="TransparentHoverButton">
-                <Image Source="avares://DocuTrack/Assets/right-arrow.png"
-                      Stretch="Uniform"
-                      Width="32" Height="32"/>
-              </Button>
+					<!-- FIRST PAGE -->
+					<Button Command="{Binding GoToFirstPageCommand}"
+							IsEnabled="{Binding CanGoToFirstOrPrevious}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+							  Stretch="Uniform"
+							  Width="24" Height="24"/>
+					</Button>
+					<!-- LEFT ARROW -->
+					<Button Command="{Binding GoToPreviousPageCommand}"
+							IsEnabled="{Binding CanGoToFirstOrPrevious}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/left-arrow.png"
+							  Stretch="Uniform"
+							  Width="32" Height="32"/>
+					</Button>
 
-            <!-- LAST PAGE -->
-            <Button Command="{Binding GoToLastPageCommand}"
-                    IsEnabled="{Binding CanGoToNextOrLast}"
-                    Background="Transparent"
-                    Focusable="False"
-                    Classes="TransparentHoverButton">
-              <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-                    Stretch="Uniform"
-                    Width="24" Height="24"/>
-            </Button>
+					<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
-        </StackPanel>
-         </Border>
+					<!-- RIGHT ARROW -->
+					<Button Command="{Binding GoToNextPageCommand}"
+							IsEnabled="{Binding CanGoToNextOrLast}"
+							Background="Transparent"
+							Focusable="True"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/right-arrow.png"
+							  Stretch="Uniform"
+							  Width="32" Height="32"/>
+					</Button>
 
-        <!-- Outside kreiraj button -->
-        <Border Classes="cert-create-button-border" Canvas.Top="85" Canvas.Left="1400">
-            <Button Content="Kreiraj Dokument" 
-                    Command="{Binding GoToAddNewDocumentCommand}" 
-                    Classes="TransparentHoverButton cert-kreiraj-button"/>
-        </Border>
+					<!-- LAST PAGE -->
+					<Button Command="{Binding GoToLastPageCommand}"
+							IsEnabled="{Binding CanGoToNextOrLast}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+							  Stretch="Uniform"
+							  Width="24" Height="24"/>
+					</Button>
 
-         <!-- Search MAIN BORDER-->
-    <Border Classes="sailor-search-border" Canvas.Top="85" Canvas.Left="319">
+				</StackPanel>
+			</Border>
 
-<!-- Search -->
-      <DockPanel LastChildFill="True">
-        <TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
-        <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
-      </DockPanel>
-    </Border>
-    
-    </Canvas>
-    </Viewbox>
-    <!-- </ScrollViewer> -->
+			<!-- Outside kreiraj button -->
+			<Border Classes="cert-create-button-border" Canvas.Top="85" Canvas.Left="1400">
+				<Button Content="Kreiraj Dokument"
+						Command="{Binding GoToAddNewDocumentCommand}"
+						Classes="TransparentHoverButton cert-kreiraj-button"/>
+			</Border>
+
+			<!-- Search MAIN BORDER-->
+			<Border Classes="sailor-search-border" Canvas.Top="85" Canvas.Left="319">
+
+				<!-- Search -->
+				<DockPanel LastChildFill="True">
+					<TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
+					<TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
+				</DockPanel>
+			</Border>
+
+		</Canvas>
+	</Viewbox>
+	<!-- </ScrollViewer> -->
 </UserControl>

@@ -8,139 +8,141 @@
              x:Class="DocuTrack.Views.SailorsView"
              Foreground="White">
 
-          
-<Viewbox Stretch="Uniform">
 
-    <Canvas Width="1920" Height="1080"
-        Background="#5D8AA8"
+	<Viewbox Stretch="Uniform">
+
+		<Canvas Width="1920" Height="1080"
+			Background="#5D8AA8"
         >
 
-            <Canvas.RenderTransform>
-                <ScaleTransform ScaleX="{Binding ScalingFactor}" 
+			<Canvas.RenderTransform>
+				<ScaleTransform ScaleX="{Binding ScalingFactor}"
                                 ScaleY="{Binding ScalingFactor}"/>
-			    </Canvas.RenderTransform>
+			</Canvas.RenderTransform>
 
 
 
-  <!-- Search bar -->
-  <Border 
+			<!-- Search bar -->
+			<Border
           
-          VerticalAlignment="Top"
-          Classes="sailor-search-border"
-          Canvas.Top="85"
-          Canvas.Left="335">
+					VerticalAlignment="Top"
+					Classes="sailor-search-border"
+					Canvas.Top="85"
+					Canvas.Left="335">
 
-    <DockPanel LastChildFill="True">
-      <TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
-      <TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
-    </DockPanel>
-  </Border>
+				<DockPanel LastChildFill="True">
+					<TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
+					<TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
+				</DockPanel>
+			</Border>
 
-  <!-- Kreiraj button -->
-  <Border Canvas.Top="85"
-          Canvas.Left="1380"
-          VerticalAlignment="Top"
-          Classes="sailor-create-button-frame">
-    <Button Content="Kreiraj Pomorca"
-            Command="{Binding GoToKreirajPomorcaPageCommand}"
-            Classes="TransparentHoverButton"
-            Background="Transparent"
-            Foreground="#676767"
-            FontSize="15.5"/>
-  </Border>
+			<!-- Kreiraj button -->
+			<Border Canvas.Top="85"
+					Canvas.Left="1380"
+					VerticalAlignment="Top"
+					Classes="sailor-create-button-frame">
+				<Button Content="Kreiraj Pomorca"
+						Command="{Binding GoToKreirajPomorcaPageCommand}"
+						Classes="TransparentHoverButton"
+						Background="Transparent"
+						Foreground="#676767"
+						FontSize="15.5"/>
+			</Border>
 
-    <!-- Main Card: Row 1 -->
-    <Border Grid.Row="1"
-            x:Name="MainCard"
-            Classes="sailor-main-card"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Stretch"
-            MaxWidth="1200"
-            Margin="20,0,20,0">
-      <Grid RowDefinitions="Auto,*">
-        <Border Classes="sailor-card-header">
-          <Grid>
-            <TextBlock Text="Profil Pomorca" Classes="sailor-card-header-text"/>
-            <StackPanel Classes="totalcount-stack-panel">
-              <TextBlock Text="Pomorci: " Classes="sailors-ukupanBroj-text"/>
-              <TextBlock Text="{Binding TotalSailorsCount}" Classes="sailors-count-text"/>
-            </StackPanel>
-          </Grid>
-        </Border>
+			<!-- Main Card: Row 1 -->
+			<Border Grid.Row="1"
+					x:Name="MainCard"
+					Classes="sailor-main-card"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Stretch"
+					MaxWidth="1200"
+					Margin="20,0,20,0">
+				<Grid RowDefinitions="Auto,*">
+					<Border Classes="sailor-card-header">
+						<Grid>
+							<TextBlock Text="Profil Pomorca" Classes="sailor-card-header-text"/>
+							<StackPanel Classes="totalcount-stack-panel">
+								<TextBlock Text="Pomorci: " Classes="sailors-ukupanBroj-text"/>
+								<TextBlock Text="{Binding TotalSailorsCount}" Classes="sailors-count-text"/>
+							</StackPanel>
+						</Grid>
+					</Border>
 
-        <ScrollViewer Grid.Row="1"
-                      VerticalScrollBarVisibility="Auto"
-                      Padding="30"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch">
+					<ScrollViewer Grid.Row="1"
+								  VerticalScrollBarVisibility="Auto"
+								  Padding="30"
+								  HorizontalAlignment="Stretch"
+								  VerticalAlignment="Stretch">
 
-                      
-          <StackPanel Spacing="10">
-            <ItemsControl ItemsSource="{Binding PaginatedSailors}">
-              <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                  <views:SailorRowView DataContext="{Binding}" />
-                </DataTemplate>
-              </ItemsControl.ItemTemplate>
-            </ItemsControl>
-          </StackPanel>
-        </ScrollViewer>
-      </Grid>
-    </Border>
 
-    <!-- Pagination: Row 2 -->
-    <Border Grid.Row="2"
-            Classes="page-navigation"
-            HorizontalAlignment="Center"
-            Canvas.Top="215"
-            Canvas.Left="785">
-      <StackPanel Orientation="Horizontal"
-                  HorizontalAlignment="Center"
-                  Spacing="10">
-        <Button Command="{Binding GoToFirstPageCommand}"
-                IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                Background="Transparent"
-                Focusable="False"
-                Classes="TransparentHoverButton">
-          <Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-                 Stretch="Uniform" Width="24" Height="24"/>
-        </Button>
+						<StackPanel Spacing="10">
+                            <TextBlock Text="Trenutno nema pomorca" IsVisible="{Binding NoData}" TextAlignment="Center"  Foreground="Black" FontSize="24"/>
+							<ItemsControl ItemsSource="{Binding PaginatedSailors}">
+								<ItemsControl.ItemTemplate>
+									<DataTemplate>
+										<views:SailorRowView DataContext="{Binding}" />
+									</DataTemplate>
+								</ItemsControl.ItemTemplate>
+							</ItemsControl>
+						</StackPanel>
+					</ScrollViewer>
+				</Grid>
+			</Border>
 
-        <Button Command="{Binding GoToPreviousPageCommand}"
-                IsEnabled="{Binding CanGoToFirstOrPrevious}"
-                Background="Transparent"
-                Focusable="False"
-                Classes="TransparentHoverButton">
-          <Image Source="avares://DocuTrack/Assets/left-arrow.png"
-                 Stretch="Uniform" Width="32" Height="32"/>
-        </Button>
+			<!-- Pagination: Row 2 -->
+			<Border Grid.Row="2"
+					Classes="page-navigation"
+					HorizontalAlignment="Center"
+					Canvas.Top="215"
+                    IsVisible="{Binding !NoData}"
+					Canvas.Left="785">
+				<StackPanel Orientation="Horizontal"
+							HorizontalAlignment="Center"
+							Spacing="10">
+					<Button Command="{Binding GoToFirstPageCommand}"
+							IsEnabled="{Binding CanGoToFirstOrPrevious}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
+							   Stretch="Uniform" Width="24" Height="24"/>
+					</Button>
 
-        <TextBlock Text="{Binding CurrentPage}"
-                   FontSize="16"
-                   Foreground="Black"
-                   VerticalAlignment="Center"/>
+					<Button Command="{Binding GoToPreviousPageCommand}"
+							IsEnabled="{Binding CanGoToFirstOrPrevious}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/left-arrow.png"
+							   Stretch="Uniform" Width="32" Height="32"/>
+					</Button>
 
-        <Button Command="{Binding GoToNextPageCommand}"
-                IsEnabled="{Binding CanGoToNextOrLast}"
-                Background="Transparent"
-                Focusable="True"
-                Classes="TransparentHoverButton">
-          <Image Source="avares://DocuTrack/Assets/right-arrow.png"
-                 Stretch="Uniform" Width="32" Height="32"/>
-        </Button>
+					<TextBlock Text="{Binding CurrentPage}"
+							   FontSize="16"
+							   Foreground="Black"
+							   VerticalAlignment="Center"/>
 
-        <Button Command="{Binding GoToLastPageCommand}"
-                IsEnabled="{Binding CanGoToNextOrLast}"
-                Background="Transparent"
-                Focusable="False"
-                Classes="TransparentHoverButton">
-          <Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-                 Stretch="Uniform" Width="24" Height="24"/>
-        </Button>
-      </StackPanel>
-    </Border>
+					<Button Command="{Binding GoToNextPageCommand}"
+							IsEnabled="{Binding CanGoToNextOrLast}"
+							Background="Transparent"
+							Focusable="True"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/right-arrow.png"
+							   Stretch="Uniform" Width="32" Height="32"/>
+					</Button>
 
-  </Canvas>
-  </Viewbox>
-  <!-- </ScrollViewer> -->
+					<Button Command="{Binding GoToLastPageCommand}"
+							IsEnabled="{Binding CanGoToNextOrLast}"
+							Background="Transparent"
+							Focusable="False"
+							Classes="TransparentHoverButton">
+						<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
+							   Stretch="Uniform" Width="24" Height="24"/>
+					</Button>
+				</StackPanel>
+			</Border>
+
+		</Canvas>
+	</Viewbox>
+	<!-- </ScrollViewer> -->
 </UserControl>
