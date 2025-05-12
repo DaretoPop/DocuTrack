@@ -9,22 +9,22 @@
 
 <Viewbox Stretch="Uniform">
                                                         <!-- OUTSIDE CARD -->
-    <Grid Background="#5D8AA8" Width="1920" Height="1080">
-        <Grid.RenderTransform>
+    <Canvas Background="#5D8AA8" Width="1920" Height="1080">
+        <Canvas.RenderTransform>
             <ScaleTransform 
                     ScaleX="{Binding ScalingFactor}" 
                     ScaleY="{Binding ScalingFactor}"/>
-	</Grid.RenderTransform>
+	</Canvas.RenderTransform>
 
                                                         <!-- Back Button (inside card area if desired) -->
-        <Border Classes="back-button-container">
+        <Border Classes="back-button-canvas" Canvas.Top="490" Canvas.Left="400">
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
                 <Image Classes="back-image"/>
             </Button>
         </Border>
                                                         <!-- Main Card -->
-        <Border Classes="addnew-border">
+        <Border Classes="addnew-border" Canvas.Top="300" Canvas.Left="600">
             <Grid RowDefinitions="Auto, *">
                                                         <!-- MainCardHeader -->
                 <Border Classes="addnew-header">
@@ -53,6 +53,6 @@
                 </Grid>
             </Grid>
         </Border>
-    </Grid>
+    </Canvas>
 </Viewbox>
 </UserControl>

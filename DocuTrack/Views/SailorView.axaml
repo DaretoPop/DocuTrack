@@ -103,117 +103,22 @@
 						<!-- Vertical Separator -->
 						<Border Grid.Column="1" Background="#5D8AA8" Width="5"/>
 
-						<!-- ############################################################################### -->
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Border>
+    
+    <!-- BACK BUTTON -->
+    <Border Classes="sailor-back-border2" Canvas.Top="540" Canvas.Left="180">
+        <Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                 Classes="TransparentHoverButton">
+        <Image   Classes="sailor-back-image"/>
 
-						<!-- RIGHT SIDE of Profil Panel -->
-						<Grid Grid.Column="2">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto"/>
-								<RowDefinition Height="5"/>
-								<RowDefinition Height="Auto"/>
-							</Grid.RowDefinitions>
-
-							<!-- Upper Side of Right Panel-->
-							<StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding IsCertificateSelected}">
-								<!-- Tip -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Naziv/Tip" Classes="sailor-tip-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.Name}" Classes="sailor-certificate-name"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Izdavanje -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Datum Izdavanja" Classes="sailor-izdavanje-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.DateAcquired}" Classes="sailor-izdavanje-datum"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Istek -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Datum Isteka" Classes="sailor-istek-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.DateExpiration}"   Classes="sailor-istek-datum"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Mesto Izdavanja -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Mesto Izdavanja" Classes="sailor-mestoizdavanja"/>
-									<TextBlock Text="{Binding SelectedCertificate.Place}" Classes="sailor-filijala"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-							</StackPanel>
-
-							<!-- Horizontal Thick Separator -->
-							<Border Grid.Row="1" Background="#5D8AA8" Height="5" Margin="0,20" IsVisible="{Binding IsCertificateSelected}"/>
-
-							<!-- Lower Part of RightSIDE-->
-							<Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20" IsVisible="{Binding IsCertificateSelected}">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto"/>
-									<!-- Zahtevi field -->
-									<RowDefinition Height="Auto"/>
-									<!-- Grid with 3 Request Buttons -->
-									<RowDefinition Height="Auto"/>
-									<!-- Obnovi Dokument field -->
-									<RowDefinition Height="Auto"/>
-									<!-- OBNOVI Button -->
-									<RowDefinition Height="Auto"/>
-									<!-- StareVerzije Button -->
-								</Grid.RowDefinitions>
-
-								<!-- Row 0: "Zahtevi" Field -->
-								<StackPanel Grid.Row="0" HorizontalAlignment="Center" Spacing="5" Margin="0,0,0,20">
-									<TextBlock Text="Zahtevi" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-
-
-								<Grid Grid.Row="1" Width="605" Height="45" Margin="0,0,0,20">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="Auto"/>
-										<ColumnDefinition Width="40"/>
-										<ColumnDefinition Width="Auto"/>
-										<ColumnDefinition Width="40"/>
-										<ColumnDefinition Width="Auto"/>
-									</Grid.ColumnDefinitions>
-
-									<Button Content="Zahtev za Obnovu" Classes="sailor-zahtev-button" Command="{Binding ZahtevZaObnovuCommand}"/>
-									<Button Content="Zahtev za Refresh" Classes="sailor-refresh-button" Command="{Binding ZahtevZaRefreshCommand}"/>
-									<Button Content="Zahtev za Sticanje" Classes="sailor-zahtev-sticanje-button" Command="{Binding ZahtevZaSticanjeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-								</Grid>
-
-								<!-- Obnovi Dokument -->
-								<StackPanel Grid.Row="2" HorizontalAlignment="Center" Spacing="5" Margin="10,40,0,20">
-									<TextBlock Text="Obnovi Dokument" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-
-								<!--OBNOVI BUTTON -->
-								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}"/>
-
-								<!-- >Stare Verzije -->
-								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
-										IsVisible="{Binding haveMultipleVersions}"
-										Classes="TransparentHoverButton"
-										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-								</Button>
-
-							</Grid>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Border>
-
-			<!-- BACK BUTTON -->
-			<Border Classes="sailor-back-border2">
-				<Grid>
-					<Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-							 Classes="TransparentHoverButton">
-						<Image   Classes="sailor-back-image"/>
-
-					</Button>
-				</Grid>
-			</Border>
-		</Canvas>
-	</Viewbox>
+      </Button>
+    </Border>
+</Canvas>
+</Viewbox>
 </UserControl>
 
 

@@ -24,6 +24,9 @@ namespace DocuTrack.ViewModels
 
 
         }
+        
+        // Max 110%
+        public double ScalingFactor => Math.Min(MainViewModel?.ScalingFactor ?? 1.0, 1.10);
 
         internal void Initialize()
         {

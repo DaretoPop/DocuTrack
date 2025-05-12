@@ -7,10 +7,10 @@
              x:DataType="vm:CertificateTypeViewModel"
              mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              x:Class="DocuTrack.Views.CertificateTypeView">
-
-<!-- <ScrollViewer HorizontalScrollBarVisibility="Auto"
+<!-- 
+<ScrollViewer HorizontalScrollBarVisibility="Auto"
                   VerticalScrollBarVisibility="Auto"> -->
-<Viewbox Stretch="Fill">
+<Viewbox Stretch="Uniform">
     <Grid Background="#5D8AA8" Width="1920" Height="1080">
 
         <Grid.RenderTransform>
@@ -19,7 +19,7 @@
                     ScaleY="{Binding ScalingFactor}"/>
 			</Grid.RenderTransform>
 
-        <Border Classes="back-button-container">
+        <Border Classes="back-button-container" >
             <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Command="{Binding GoToBackCommand}" Classes="TransparentHoverButton">
                 <Image Classes="back-image"/>

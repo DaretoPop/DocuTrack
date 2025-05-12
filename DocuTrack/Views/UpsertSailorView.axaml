@@ -9,15 +9,15 @@
 
 <Viewbox Stretch="Uniform">
   <!-- OUTSIDE CARD -->
-    <Grid Background="#5D8AA8" Width="1920" Height="1080">
-        <Grid.RenderTransform>
+    <Canvas Background="#5D8AA8" Width="1920" Height="1080">
+        <Canvas.RenderTransform>
             <ScaleTransform 
                     ScaleX="{Binding ScalingFactor}" 
                     ScaleY="{Binding ScalingFactor}"/>
-	    </Grid.RenderTransform>
+	    </Canvas.RenderTransform>
 
 <!--  Back Button -->
-         <Border Classes="upsert-back-border">
+         <Border Classes="upsert-back-border" Canvas.Top="520" Canvas.Left="400">
 
       <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
               Command="{Binding GoBackCommand}"
@@ -28,7 +28,7 @@
     </Border>
 
         <!--  Main CARD -->
-        <Border Classes="upsert-main-card">
+        <Border Classes="upsert-main-card" Canvas.Top="300" Canvas.Left="600">
             <Grid RowDefinitions="Auto,*">
                 <!-- Header -->
                  <Border Classes="addnew-header">
@@ -85,6 +85,6 @@
             </Grid>
             </Grid>
         </Border>
-    </Grid>
+    </Canvas>
     </Viewbox>
 </UserControl>
