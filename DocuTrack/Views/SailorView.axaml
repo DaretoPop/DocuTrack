@@ -194,6 +194,10 @@
 										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 								</Button>
 
+                                <Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+                                    <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+                                </Border>
+
 
 							</Grid>
 						</Grid>

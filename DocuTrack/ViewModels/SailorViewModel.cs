@@ -29,6 +29,7 @@ namespace DocuTrack.ViewModels
         public ObservableCollection<CertificateFile> SelectedFiles { get; set;  } = new();
 
         public bool? haveMultipleVersions => SelectedCertificate?.Versions?.Any();
+        [ObservableProperty] private string errorMessage = "";
 
         [ObservableProperty] public Certificate selectedCertificateListBox = null;
 
@@ -46,6 +47,8 @@ namespace DocuTrack.ViewModels
             // Notify that IsCertificateSelected has changed
             ScannedDocuments =
                 new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(value));
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             OnPropertyChanged(nameof(IsCertificateSelected));
             OnPropertyChanged(nameof(ScannedDocuments));
             OnPropertyChanged(nameof(haveMultipleVersions));
@@ -195,7 +198,8 @@ namespace DocuTrack.ViewModels
                 //No files selected for printing.
                 return;
             }
-
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 // Submit selected files to DatabaseHelper for processing
@@ -210,6 +214,11 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nije selektovan ni jedan dokument";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
@@ -220,6 +229,8 @@ namespace DocuTrack.ViewModels
           [RelayCommand]
         private void ZahtevZaObnovu()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Obnova);
@@ -232,6 +243,11 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za obnovu za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
@@ -242,6 +258,8 @@ namespace DocuTrack.ViewModels
           [RelayCommand]
         private void ZahtevZaRefresh()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Refresh);
@@ -254,6 +272,11 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za refresh za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
@@ -264,6 +287,8 @@ namespace DocuTrack.ViewModels
           [RelayCommand]
         private void ZahtevZaSticanje()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Sticanje);
@@ -276,6 +301,12 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za sticanje za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
+
             }
             catch (Exception ex)
             {
