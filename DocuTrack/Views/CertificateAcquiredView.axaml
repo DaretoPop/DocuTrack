@@ -11,40 +11,44 @@
 
 
 
-  <StackPanel Margin="20" Spacing="10">
+	<StackPanel Margin="20" Spacing="10">
 
-    <!-- Certificate Type Dropdown with inline items -->
-    <TextBlock Text="Certificate Type"/>
-	  <ComboBox Width="200"
-                ItemsSource="{Binding CertificateTypes}"
-                SelectedItem="{Binding Certificate.CertificateType, Mode=TwoWay}">
-		<ComboBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding Name}" />
-            </DataTemplate>
-        </ComboBox.ItemTemplate>
-    </ComboBox>
+		<!-- Certificate Type Dropdown with inline items -->
+		<TextBlock Text="Certificate Type"/>
+		<TextBlock Text="{Binding PreselectedCertificateType.Name}" IsVisible="{Binding !IsObnovi}"/>
+        <ComboBox Width="200"
+                  ItemsSource="{Binding CertificateTypes}"
+                  SelectedItem="{Binding Certificate.CertificateType, Mode=TwoWay}" IsVisible="{Binding IsObnovi}">
+			<ComboBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Name}" />
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
 
-    <!-- Date Acquired -->
-    <TextBlock Text="Date Acquired"/>
-        <CalendarDatePicker />
+		<!-- Date Acquired -->
+		<TextBlock Text="Date Acquired"/>
+		<CalendarDatePicker SelectedDate="{Binding Certificate.DateAcquiredDate, Mode=TwoWay}" />
 
-    <!-- Date Expired -->
-    <TextBlock Text="Date Expired"/>
-        <CalendarDatePicker />
+		<!-- Date Expired -->
+		<TextBlock Text="Date Expired"/>
+		<CalendarDatePicker SelectedDate="{Binding Certificate.DateExpirationDate, Mode=TwoWay}" />
 
-    <!-- Place Dropdown with inline items -->
-    <TextBlock Text="Place"/>
-    <ComboBox Width="200">
-      <ComboBoxItem Content="Bar"/>
-      <ComboBoxItem Content="Kotor"/>
-    </ComboBox>
+		<!-- Place Dropdown with inline items -->
+		<TextBlock Text="Place"/>
+		<ComboBox Width="200" SelectedItem="{Binding Certificate.PlaceComboBox, Mode=TwoWay}">
+			<ComboBoxItem Content="Bar"/>
+			<ComboBoxItem Content="Kotor"/>
+		</ComboBox>
 
-    <Button Content="Sacuvaj" Margin="0 30 0 0"> 
-    </Button>
+		<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+			<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+		</Border>
 
-      <Button Content="> Dodaj Dokument" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="190,10,0,100" 
-      Classes="TransparentHoverButton"/>
+		<Button Content="Sacuvaj" Command="{Binding SaveCertificateCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="0 30 0 0" />
 
-  </StackPanel>
+        <TextBlock Text="{Binding HowManyFilesAreSelected}" IsVisible="{Binding HowManyFilesAreSelected, Converter={StaticResource StringNotEmptyToBoolConverter}}"/>
+		<Button Content="> Dodaj Dokumenta" Command="{Binding DodajDokumentaCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="190,10,0,100" Classes="TransparentHoverButton"/>
+
+	</StackPanel>
 </Window>

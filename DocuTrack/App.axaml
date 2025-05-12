@@ -31,7 +31,8 @@
 
   </Application.Styles>
     <Application.Resources>
-        <converters:StringNotEmptyToBoolConverter x:Key="StringNotEmptyToBoolConverter"/>
+		<converters:StringNotEmptyToBoolConverter x:Key="StringNotEmptyToBoolConverter"/>
+		<converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
     </Application.Resources>
 
 </Application>
