@@ -12,5 +12,7 @@ NuGet packages:
 | CommunityToolkit.Mvvm      | 8.4.0     | 8.4.0   |
 | Microsoft.Data.Sqlite      | 9.0.4     | 9.0.4   |
 | Microsoft.NET.ILLink.Tasks | 9.0.4     | 9.0.4   |
+| PDFsharp                   | 6.1.1     | 6.1.1   |
+| System.Reactive            | 6.0.1     | 6.0.1   |
 
 
