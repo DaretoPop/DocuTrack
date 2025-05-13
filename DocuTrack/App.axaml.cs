@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 using DocuTrack.Views;
 using DocuTrack.Services;
 using System;
-using System.Timers;             // ← for the timer
+using System.Timers;            
 
 namespace DocuTrack;
 
@@ -38,7 +38,8 @@ public override void OnFrameworkInitializationCompleted()
                 if (TrialManager.IsTrialExpired())
                 {
                     Console.WriteLine("⚠️ Trial expired after 1 minute.");
-                    // Optionally delete DB:
+                    
+                    // REMOVE to delete Data/identifier.sqlite
                     TrialManager.DeleteDatabase();
                     Environment.Exit(0);
                 }

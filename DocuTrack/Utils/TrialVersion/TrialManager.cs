@@ -21,7 +21,7 @@ namespace DocuTrack.Services
         {
             DateTime startDate;
 
-            // ↓ REMOVE or COMMENT OUT this block so startDate isn’t reset each launch
+            // ↓ REMOVE this block so startDate isn’t reset each launch
             // if (File.Exists(TrialFilePath))
             //     File.Delete(TrialFilePath);
 
@@ -41,7 +41,7 @@ namespace DocuTrack.Services
             // TEST: expire after 1 minute
             return DateTime.Now > startDate.AddMinutes(1);
 
-            // PRODUCTION: expire after 7 days
+            // expire after 7 days
             // return DateTime.Now > startDate.AddDays(7);
         }
 
@@ -50,11 +50,23 @@ namespace DocuTrack.Services
             if (File.Exists(DatabasePath))
                 File.Delete(DatabasePath);
         }
+
+        public static TimeSpan GetTimeRemaining()
+{
+            if (!File.Exists(TrialFilePath))
+                return TimeSpan.Zero;
+
+            var text = File.ReadAllText(TrialFilePath);
+            if (!DateTime.TryParse(text, out var startDate))
+                return TimeSpan.Zero;
+
+            // match with expired date
+            var expiry = startDate.AddMinutes(1);    // or AddDays(7)
+            var remaining = expiry - DateTime.Now;
+            return remaining > TimeSpan.Zero ? remaining : TimeSpan.Zero;
+        }
     }
 }
 
-// Remove to open again app 
-// /home/pop/.local/share/DocuTrack/trial_start.txt <- (LINUX)
-// del $env:LOCALAPPDATA\DocuTrack\trial_start.txt <- WIN
 
 

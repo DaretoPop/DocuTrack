@@ -9,6 +9,9 @@ using DocuTrack.Views;
 using DocuTrack.ViewModels;
 using DocuTrack.UI.ViewModels;
 using DocuTrack.UI.Scaling;
+using System.ComponentModel;
+using System.Timers;
+using DocuTrack.Services;
 
 
 namespace DocuTrack.Views
@@ -16,8 +19,44 @@ namespace DocuTrack.Views
     public partial class MainViewModel : BaseViewModel
     {
 
+            //SET TIMER 
+            
+            public event PropertyChangedEventHandler? PropertyChanged;
+            private readonly Timer _uiTimer;
+            private TimeSpan _remainingTime;
+
+            public TimeSpan RemainingTime
+    {
+        get => _remainingTime;
+        private set
+        {
+            if (_remainingTime != value)
+            {
+                _remainingTime = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RemainingTime)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RemainingTimeDisplay)));
+            }
+        }
+    }
+
+    
+    public string RemainingTimeDisplay =>
+        RemainingTime > TimeSpan.Zero
+            ? RemainingTime.ToString(@"dd\:hh\:mm")
+            : "Expired";
+
+
         public MainViewModel(ScalingManager? scalingManager = null)
         {
+
+                // Shpw update after startup APP
+            RemainingTime = TrialManager.GetTimeRemaining();
+
+            // set up a timer to tick every second (or whatever interval you like)
+            _uiTimer = new Timer(1_000) { AutoReset = true };
+            _uiTimer.Elapsed += (s, e) => RemainingTime = TrialManager.GetTimeRemaining();
+            _uiTimer.Start();
+                
 
             _scalingManager = scalingManager;
 
@@ -36,8 +75,8 @@ namespace DocuTrack.Views
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
             //temp
-            //CurrentPage = PocetnaPage;
-            //IsLoggedIn = true;
+            // CurrentPage = PocetnaPage;
+            // IsLoggedIn = true;
 
         }
 

@@ -113,6 +113,17 @@
     <Border Classes="main-line-separator" Width="130"/>
 </StackPanel>
 
+<StackPanel Margin="20">
+    <!-- your existing UI... -->
+
+    <!-- trial countdown -->
+    <TextBlock Text="DocuTrack trial expires:"
+               FontWeight="Bold" />
+    <TextBlock Text="{Binding RemainingTimeDisplay}"
+               FontSize="16"
+               Foreground="Red" />
+  </StackPanel>
+
             <!-- End of sidebar -->
             </StackPanel>
         
