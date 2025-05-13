@@ -875,6 +875,47 @@ namespace DocuTrack.Data
                 throw new Exception("Error deleting certificate from the database", ex);
             }
         }
+
+        internal static void DeleteCertificateFile(CertificateFile file)
+        {
+            try
+            {
+
+
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM CertificateFiles WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", file.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                //delete the file from the directory
+                var filePath = $"{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FilePath}";
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate document from the database", ex);
+            }
+        }
+
+        internal static void DeleteCertificateFiles(ObservableCollection<CertificateFile> selectedFiles)
+        {
+            try
+            {
+                foreach (var file in selectedFiles)
+                {
+                    DeleteCertificateFile(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate document from the database", ex);
+            }
+        }
     }
     #endregion
 
