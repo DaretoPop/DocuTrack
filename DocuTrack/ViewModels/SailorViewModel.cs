@@ -408,7 +408,7 @@ namespace DocuTrack.ViewModels
             _selectedCertificate.Sailor = Sailor;
             var dialog = new ConfirmationDialog
             {
-                Message = $"Da li ste sigurni da želite da obrišete {_selectedCertificate.Name} za {_selectedCertificate.SailorName}?"
+                Message = $"Da li ste sigurni da ï¿½elite da obriï¿½ete {_selectedCertificate.Name} za {_selectedCertificate.SailorName}?"
             };
 
             // Show the dialog as a modal window
@@ -421,6 +421,34 @@ namespace DocuTrack.ViewModels
                 initialize();
             }
         }
+
+
+
+        [RelayCommand]
+        private async Task DeleteSkenirano(Window parentWindow)
+        {
+            // if (MainViewModel == null || _selectedCertificate == null)
+            //     return;
+
+            // _selectedCertificate.Sailor = Sailor;
+            // var dialog = new ConfirmationDialog
+            // {
+            //     Message = $"Da li ste sigurni da ï¿½elite da obriï¿½ete {_selectedCertificate.Name} za {_selectedCertificate.SailorName}?"
+            // };
+
+            // // Show the dialog as a modal window
+            // var result = await dialog.ShowDialog<bool>(parentWindow);
+
+            // if (result)
+            // {
+
+            //     DatabaseHelper.DeleteCertificate(_selectedCertificate);
+            //     initialize();
+            // }
+            Console.WriteLine("Helloo madafakaa");
+        }
+
+
 
     }
 }
