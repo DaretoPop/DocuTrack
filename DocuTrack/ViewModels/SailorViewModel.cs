@@ -26,9 +26,10 @@ namespace DocuTrack.ViewModels
         public ObservableCollection<Certificate> Certificates { get; set; } = new();
         public ObservableCollection<CertificateFile> ScannedDocuments { get; set; } = new();
 
-        public ObservableCollection<CertificateFile> SelectedFiles { get; set;  } = new();
+        public ObservableCollection<CertificateFile> SelectedFiles { get; set; } = new();
 
         public bool? haveMultipleVersions => SelectedCertificate?.Versions?.Any();
+        [ObservableProperty] private string errorMessage = "";
 
         [ObservableProperty] public Certificate selectedCertificateListBox = null;
 
@@ -46,6 +47,8 @@ namespace DocuTrack.ViewModels
             // Notify that IsCertificateSelected has changed
             ScannedDocuments =
                 new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(value));
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             OnPropertyChanged(nameof(IsCertificateSelected));
             OnPropertyChanged(nameof(ScannedDocuments));
             OnPropertyChanged(nameof(haveMultipleVersions));
@@ -62,11 +65,11 @@ namespace DocuTrack.ViewModels
             OnPropertyChanged(nameof(ScannedDocuments));
         }
 
-        public SailorViewModel(MainViewModel mainViewModel, Sailor sailor, Certificate selectedCertificate=null)
+        public SailorViewModel(MainViewModel mainViewModel, Sailor sailor, Certificate selectedCertificate = null)
         {
             _mainViewModel = mainViewModel;
             _sailor = sailor;
-            
+
 
             initialize();
             SelectedCertificate = selectedCertificate;
@@ -76,7 +79,7 @@ namespace DocuTrack.ViewModels
 
         private void initialize()
         {
-           
+
 
             //ScannedDocuments = new ObservableCollection<CertificateFile>(mockupList);
             Certificates = new ObservableCollection<Certificate>(DatabaseHelper.GetCertificateForSailor(Sailor));
@@ -170,10 +173,10 @@ namespace DocuTrack.ViewModels
         }
 
 
-         [RelayCommand]
+        [RelayCommand]
         private async void Sticanje(Window parentWindow)
         {
-            Console.WriteLine("SticanjeButton");
+            //Console.WriteLine("SticanjeButton");
             initialize();
 
 
@@ -181,21 +184,25 @@ namespace DocuTrack.ViewModels
             var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null, Sailor); // Instantiate your ViewModel
             var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
 
-             // Show the window as a dialog asynchronously
+            // Show the window as a dialog asynchronously
             await certificateAcquiredView.ShowDialog(parentWindow);
             initialize();
-            
-        }   
 
-          [RelayCommand]
+        }
+
+        [RelayCommand]
         private void Print()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             if (SelectedFiles.Count == 0)
             {
                 //No files selected for printing.
+                ErrorMessage = "Niste izabrali fajlove koje treba da se odstampaju";
+                OnPropertyChanged(nameof(ErrorMessage));
                 return;
             }
-
+            
             try
             {
                 // Submit selected files to DatabaseHelper for processing
@@ -210,16 +217,25 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nije selektovan ni jedan dokument";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during printing: {ex.Message}");
+                ErrorMessage = $"Error during printing: {ex.Message}";
+                OnPropertyChanged(nameof(ErrorMessage));
+                //Console.WriteLine($"Error during printing: {ex.Message}");
             }
         }
 
-          [RelayCommand]
+        [RelayCommand]
         private void ZahtevZaObnovu()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Obnova);
@@ -232,16 +248,25 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za obnovu za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during printing: {ex.Message}");
+                ErrorMessage = $"Error during printing: {ex.Message}";
+                OnPropertyChanged(nameof(ErrorMessage));
+                //Console.WriteLine($"Error during printing: {ex.Message}");
             }
         }
 
-          [RelayCommand]
+        [RelayCommand]
         private void ZahtevZaRefresh()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Refresh);
@@ -254,16 +279,25 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za refresh za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error during printing: {ex.Message}");
+                ErrorMessage = $"Error during printing: {ex.Message}";
+                OnPropertyChanged(nameof(ErrorMessage));
+                //Console.WriteLine($"Error during printing: {ex.Message}");
             }
         }
 
-          [RelayCommand]
+        [RelayCommand]
         private void ZahtevZaSticanje()
         {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
             try
             {
                 var outputFilePath = DatabaseHelper.GenerateZahtevi(SelectedCertificate.CertificateTypeID, RequestTypeEnum.Sticanje);
@@ -276,31 +310,41 @@ namespace DocuTrack.ViewModels
                         UseShellExecute = true
                     });
                 }
+                else
+                {
+                    ErrorMessage = "Nema zahteva za sticanje za ovaj tip dokumenta";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                }
+
             }
             catch (Exception ex)
             {
+                ErrorMessage = $"Error during printing: {ex.Message}";
+                OnPropertyChanged(nameof(ErrorMessage));
                 Console.WriteLine($"Error during printing: {ex.Message}");
             }
-        } 
+        }
 
-           [RelayCommand]
+        [RelayCommand]
         private async void OBNOVI(Window parentWindow)
         {
             // Open the CertificateAcquiredView
-            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null, Sailor, new CertificateType(){ID = SelectedCertificate.CertificateTypeID, Name = SelectedCertificate.Name}); // Instantiate your ViewModel
+            var certificateAcquiredViewModel = new CertificateAcquiredViewModel(null, Sailor, new CertificateType() { ID = SelectedCertificate.CertificateTypeID, Name = SelectedCertificate.Name }); // Instantiate your ViewModel
             var certificateAcquiredView = new CertificateAcquiredView { DataContext = certificateAcquiredViewModel };
 
             // Show the window as a dialog asynchronously
             await certificateAcquiredView.ShowDialog(parentWindow);
             initialize();
-        } 
-        
-           [RelayCommand]
+        }
+
+        [RelayCommand]
         private async Task StareVerzije(Window parentWindow)
         {
             if (SelectedCertificate == null || SelectedCertificate.Versions == null || !SelectedCertificate.Versions.Any())
             {
-                Console.WriteLine("No older versions available.");
+                //Console.WriteLine("No older versions available.");
+                ErrorMessage = "No older versions available.";
+                OnPropertyChanged(nameof(ErrorMessage));
                 return;
             }
 
@@ -323,9 +367,9 @@ namespace DocuTrack.ViewModels
                 SelectedCertificate = selectVersionViewModel.SelectedVersion;
                 OnPropertyChanged(nameof(SelectedCertificate));
             }
-        } 
-        
-        
+        }
+
+
 
         [RelayCommand]
         private async Task DodajDokument(Window parentWindow)
@@ -361,11 +405,87 @@ namespace DocuTrack.ViewModels
 
                 if (documentsForAdd.Count > 0)
                 {
-                    DatabaseHelper.addCertificateFiles(documentsForAdd);
+                    ErrorMessage = "";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                    try
+                    {
+                        DatabaseHelper.addCertificateFiles(documentsForAdd);
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorMessage = $"Error during adding files: {ex.Message}";
+                        OnPropertyChanged(nameof(ErrorMessage));
+                        //Console.WriteLine($"Error during adding files: {ex.Message}");
+                    }
+
                     initializeDocuments();
                 }
             }
         }
+
+
+        [RelayCommand]
+        private async Task Delete(Window parentWindow)
+        {
+            if (MainViewModel == null || _selectedCertificate == null)
+                return;
+
+            _selectedCertificate.Sailor = Sailor;
+            var dialog = new ConfirmationDialog
+            {
+                Message = $"Da li ste sigurni da �elite da obri�ete {_selectedCertificate.Name} za {_selectedCertificate.SailorName}?"
+            };
+
+            // Show the dialog as a modal window
+            var result = await dialog.ShowDialog<bool>(parentWindow);
+
+            if (result)
+            {
+                ErrorMessage = "";
+                OnPropertyChanged(nameof(ErrorMessage));
+                try
+                {
+                    DatabaseHelper.DeleteCertificate(_selectedCertificate);
+
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage = $"Error during deleting files: {ex.Message}";
+                    OnPropertyChanged(nameof(ErrorMessage));
+                    //Console.WriteLine($"Error during deleting files: {ex.Message}");
+                }
+                initialize();
+            }
+        }
+
+
+
+        [RelayCommand]
+        private async Task DeleteSkenirano(Window parentWindow)
+        {
+            ErrorMessage = "";
+            OnPropertyChanged(nameof(ErrorMessage));
+            if (SelectedFiles.Count == 0)
+            {
+                //No files selected for printing.
+                ErrorMessage = "Niste izabrali fajlove koje treba da se izbrisu";
+                OnPropertyChanged(nameof(ErrorMessage));
+                return;
+            }
+
+            try
+            {
+                DatabaseHelper.DeleteCertificateFiles(SelectedFiles);
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = $"Error during deleting: {ex.Message}";
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+            initialize();
+        }
+
+
 
     }
 }

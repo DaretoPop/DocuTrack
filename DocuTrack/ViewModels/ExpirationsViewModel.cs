@@ -30,6 +30,7 @@ namespace DocuTrack.ViewModels {
         [ObservableProperty] private MainViewModel? _mainViewModel;
 
         public int TotalSertificateCount => Certificates.Count;
+        public bool NoCertificates => Certificates.Count == 0;
 
         public ExpirationsViewModel(MainViewModel mainViewModel)
         {
@@ -54,6 +55,7 @@ namespace DocuTrack.ViewModels {
 
             //Show update count of Sailors
             OnPropertyChanged(nameof(TotalSertificateCount));
+            OnPropertyChanged(nameof(NoCertificates));
         }
 
         private void UpdateFilteredCertificates()

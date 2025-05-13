@@ -72,7 +72,7 @@ namespace DocuTrack.ViewModels
             OnPropertyChanged(nameof(ErrorMessage));
             if (IsObnovi)
             {
-                if (certificate.CertificateType == null || certificate.PlaceComboBox == null)
+                if (certificate.CertificateType == null || certificate.CertificateType.ID==0 || certificate.PlaceComboBox == null)
                 {
                     errorMessage = "All fields are required.";
                     OnPropertyChanged(nameof(ErrorMessage));

@@ -61,15 +61,17 @@
 								<Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
 								Margin="0 0 220 0"/>
 
-								<!-- DODAJ DOKUMENT BUTTON -->
 								<Button Grid.Column="2"
-                                        Content="Dodaj Dokument"
-                                        Classes="sailor-sticanje-button"
-                                        Margin="130 0 0 0"
-                                        Command="{Binding DodajDokumentCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                                        IsVisible="{Binding IsCertificateSelected}"
-                                />
+										Content="Obrisi"
+										Classes="sailor-print-button"
+										Command="{Binding DeleteCommand}"
+										CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+										IsVisible="{Binding IsCertificateSelected}"
+										HorizontalAlignment="Right"
+										Margin="10 0"
+                            />
+
+							
 
 							</Grid>
 
@@ -94,9 +96,39 @@
 								</ListBox>
 
 							</StackPanel>
-							<!-- Stmapaj BUTTON -->
-							<Button Content="Stampaj" Classes="sailor-print-button" Command="{Binding PrintCommand}" IsVisible="{Binding IsCertificateSelected}"/>
-							<!-- DODAJ DOKUMENT BUTTON -->
+
+			<Grid IsVisible="{Binding IsCertificateSelected}"
+					HorizontalAlignment="Stretch"
+					Margin="0,0,0,10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Content="Dodaj"
+						Classes="sailor-sticanje-button"
+						Command="{Binding DodajDokumentCommand}"
+						CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+						HorizontalAlignment="Left"
+						IsVisible="{Binding IsCertificateSelected}" />
+
+				<Button Grid.Column="1"
+						Content="Stampaj"
+						Classes="sailor-print-button"
+						Command="{Binding PrintCommand}"
+						HorizontalAlignment="Center"
+						IsVisible="{Binding IsCertificateSelected}" />
+
+				<Button Grid.Column="2"
+						Content="Obrisi"
+						Classes="sailor-print-button"
+						Command="{Binding DeleteSkeniranoCommand}"
+						HorizontalAlignment="Right"
+						IsVisible="{Binding IsCertificateSelected}"
+						Margin="10 0"/>
+				</Grid>
 
 						</StackPanel>
 
@@ -187,12 +219,16 @@
 
 								<!--OBNOVI BUTTON -->
 								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-                                        <!-- >Stare Verzije -->
+								<!-- >Stare Verzije -->
 								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
 										IsVisible="{Binding haveMultipleVersions}"
 										Classes="TransparentHoverButton"
 										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
 								</Button>
+
+								<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+									<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+								</Border>
 
 
 							</Grid>

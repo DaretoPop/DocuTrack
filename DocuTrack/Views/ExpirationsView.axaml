@@ -54,8 +54,9 @@
 					<!-- Scroll of rows -->
 					<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
 						<StackPanel Spacing="10">
+							<TextBlock Text="Nema dokumenta koji ističu u periodu od 10 meseci (300 dana)" IsVisible="{Binding NoCertificates}" TextAlignment="Center"  Foreground="Black" FontSize="24"/>
 
-							<ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Background="White" >
+                            <ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Background="White" >
 								<ListBox.ItemTemplate>
 									<DataTemplate>
 										<Grid Width="1100"
@@ -115,7 +116,7 @@
 
 						</StackPanel>
 					</ScrollViewer>
-					<Border Classes="page-navigation">
+					<Border Classes="page-navigation" IsVisible="{Binding !NoCertificates}">
 						<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
 							<!-- FIRST PAGE -->
@@ -139,7 +140,7 @@
 									  Width="32" Height="32"/>
 							</Button>
 
-							<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+							<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"   />
 
 							<!-- RIGHT ARROW -->
 							<Button Command="{Binding GoToNextPageCommand}"

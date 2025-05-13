@@ -30,6 +30,7 @@ namespace DocuTrack.ViewModels
         private string searchTerm = string.Empty;
 
         public int TotalSailorsCount => Sailors.Count;
+        public bool NoData => Sailors.Count == 0;
 
 
         public ObservableCollection<SailorViewModel> Sailors { get; set; } = new();
@@ -74,6 +75,7 @@ namespace DocuTrack.ViewModels
 
             //Show update count of Sailors
             OnPropertyChanged(nameof(TotalSailorsCount));
+            OnPropertyChanged(nameof(NoData));
         }
 
         private void UpdateFilteredSailors()

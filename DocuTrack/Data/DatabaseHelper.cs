@@ -226,7 +226,7 @@ namespace DocuTrack.Data
             try
             {
                 //DELETE ALL FILES IN THE FOLDER
-                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{type.ID}";
+                var directoryPath = $"{CertificateTypeDocumentsBaseFolder}/{type.ID}";
                 if (Directory.Exists(directoryPath))
                 {
                     Directory.Delete(directoryPath, true);
@@ -238,7 +238,7 @@ namespace DocuTrack.Data
                 command2.Parameters.AddWithValue("@id", type.ID);
                 command2.ExecuteNonQuery();
                 connection2.Close();
-                //Delete all certificates for the people
+
 
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
@@ -247,7 +247,7 @@ namespace DocuTrack.Data
                 command.ExecuteNonQuery();
                 connection.Close();
 
-                
+
 
             }
             catch (Exception ex)
@@ -263,7 +263,7 @@ namespace DocuTrack.Data
 
         internal static string getCertificateTypeDocumentPath(RequestFile file)
         {
-            return $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}/{file.FileName}";
+            return $"{CertificateTypeDocumentsBaseFolder}\\{file.CertificateTypeID}\\{file.RequestType}\\{file.FileName}";
         }
 
         internal static List<RequestFile> getCertificateTypeDocuments(int certificateTypeID)
@@ -302,13 +302,13 @@ namespace DocuTrack.Data
         {
             return null;
         }
-        
+
         internal static void addCertificateTypeDocument(RequestFile file, byte[] fileData)
         {
             try
             {
                 //create a directory if it doesnt exist
-                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}";
+                var directoryPath = $"{CertificateTypeDocumentsBaseFolder}/{file.CertificateTypeID}/{file.RequestType}";
                 if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
@@ -339,7 +339,7 @@ namespace DocuTrack.Data
                 command.Parameters.AddWithValue("@certificateTypeID", file.CertificateTypeID);
                 command.ExecuteNonQuery();
                 connection.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -376,7 +376,7 @@ namespace DocuTrack.Data
         {
             if (documentsForAdd.Count > 0)
             {
-                
+
                 foreach (var file in documentsForAdd)
                 {
                     //get the file in byte array
@@ -440,8 +440,8 @@ namespace DocuTrack.Data
                     }
                     else
                     {
-                        
-                            output.Add(certificate);
+
+                        output.Add(certificate);
                     }
                 }
 
@@ -492,7 +492,7 @@ namespace DocuTrack.Data
         }
         private static string GetFullFilePath(CertificateFile file)
         {
-            return Path.Combine(AppContext.BaseDirectory, "Data", "Certificates", file.CertificateID.ToString() ,file.FilePath);
+            return Path.Combine( "Data", "Certificates", file.CertificateID.ToString(), file.FilePath);
         }
 
         private static string ConvertDocxToPdf(string docxFilePath)
@@ -533,7 +533,7 @@ namespace DocuTrack.Data
             try
             {
                 // Define the output directory and file name
-                var outputDirectory = Path.Combine(AppContext.BaseDirectory, "PrintOutput");
+                var outputDirectory = Path.Combine("Data", "PrintOutput");
                 if (!Directory.Exists(outputDirectory))
                 {
                     Directory.CreateDirectory(outputDirectory);
@@ -607,7 +607,7 @@ namespace DocuTrack.Data
             try
             {
                 var files = getCertificateTypeDocuments(certificateTypeID);
-                var outputDirectory = Path.Combine(AppContext.BaseDirectory, "PrintOutput");
+                var outputDirectory = Path.Combine("Data", "PrintOutput");
                 if (!Directory.Exists(outputDirectory))
                 {
                     Directory.CreateDirectory(outputDirectory);
@@ -623,7 +623,7 @@ namespace DocuTrack.Data
                 if (zahtevi.Count() == 1)
                 {
                     var singleFile = zahtevi.First();
-                    
+
                     return singleFile.FilePath;
                 }
 
@@ -744,7 +744,7 @@ namespace DocuTrack.Data
             try
             {
                 //create a directory if it doesnt exist
-                var directoryPath = $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{file.CertificateID}";
+                var directoryPath = $"{CertificateFilesBaseFolder}/{file.CertificateID}";
                 if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
@@ -800,7 +800,7 @@ namespace DocuTrack.Data
 
         private static string getCertificatFilePath(CertificateFile file)
         {
-            return $"{AppContext.BaseDirectory}/{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FileName}";
+            return $"{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FileName}";
         }
 
         internal static int AddCertificate(Certificate certificate)
@@ -832,7 +832,7 @@ namespace DocuTrack.Data
         {
             try
             {
-                var id= AddCertificate(certificate);
+                var id = AddCertificate(certificate);
                 foreach (var file in files)
                 {
                     file.CertificateID = id;
@@ -845,11 +845,83 @@ namespace DocuTrack.Data
             }
         }
 
-        #endregion
+
+        internal static void DeleteCertificate(Certificate certificate)
+        {
+            try
+            {
+                //DELETE ALL FILES IN THE FOLDER
+                var directoryPath = $"{CertificateFilesBaseFolder}/{certificate.ID}";
+                if (Directory.Exists(directoryPath))
+                {
+                    Directory.Delete(directoryPath, true);
+                }
+                //DELETE ALL FILES IN THE FOLDER
+                var connection2 = GetConnection();
+                var command2 = connection2.CreateCommand();
+                command2.CommandText = "DELETE FROM CertificateFiles WHERE CertificateID = @id";
+                command2.Parameters.AddWithValue("@id", certificate.ID);
+                command2.ExecuteNonQuery();
+                connection2.Close();
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Certificates WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", certificate.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate from the database", ex);
+            }
+        }
+
+        internal static void DeleteCertificateFile(CertificateFile file)
+        {
+            try
+            {
 
 
+                var connection = GetConnection();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM CertificateFiles WHERE ID = @id";
+                command.Parameters.AddWithValue("@id", file.ID);
+                command.ExecuteNonQuery();
+                connection.Close();
 
+                //delete the file from the directory
+                var filePath = $"{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FilePath}";
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate document from the database", ex);
+            }
+        }
 
+        internal static void DeleteCertificateFiles(ObservableCollection<CertificateFile> selectedFiles)
+        {
+            try
+            {
+                foreach (var file in selectedFiles)
+                {
+                    DeleteCertificateFile(file);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting certificate document from the database", ex);
+            }
+        }
     }
+    #endregion
+
+
+
+
+
 
 }

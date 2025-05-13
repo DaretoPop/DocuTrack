@@ -32,6 +32,7 @@ namespace DocuTrack.ViewModels
         public ObservableCollection<CertificateTypeViewModel> PaginatedCertificateTypes { get; set; } = new();
 
         public int TotalCertificateTypes => CertificateTypes.Count;
+        public bool NoData => CertificateTypes.Count == 0;
 
 
         public CertificateTypesViewModel(MainViewModel mainViewModel)
@@ -88,6 +89,8 @@ namespace DocuTrack.ViewModels
             CertificateTypes = new ObservableCollection<CertificateTypeViewModel>(allTypes);
 
             OnPropertyChanged(nameof(TotalCertificateTypes));
+            OnPropertyChanged(nameof(NoData));
+
             // Calculate total pages
             TotalPages = (int)Math.Ceiling((double)CertificateTypes.Count / PageSize);
         }

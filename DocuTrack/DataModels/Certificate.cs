@@ -41,7 +41,7 @@ namespace DocuTrack.DataModels
         {
             get
             {
-                return Sailor?.Name + " " + Sailor.Surname;
+                return Sailor?.Name + " " + Sailor?.Surname;
             }
         }
 
