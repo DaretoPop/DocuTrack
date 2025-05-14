@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using DocuTrack.Data;
 
 namespace DocuTrack.Services
 {
@@ -9,9 +10,14 @@ namespace DocuTrack.Services
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             "DocuTrack", "trial_start.txt");
 
-       private static readonly string DatabasePath = Path.Combine(
-    Environment.CurrentDirectory, "Data", "identifier.sqlite"
-);
+        private static readonly string DatabasePath = Path.Combine(
+            Environment.CurrentDirectory, "Data", "identifier.sqlite"
+        );
+    
+        private static readonly string DataDirectory = Path.Combine(
+            Environment.CurrentDirectory, "Data" 
+        );
+
 
         public static bool IsTrialExpired()
         {
@@ -62,7 +68,32 @@ namespace DocuTrack.Services
                 }
             }
 
-      
+             public static void DeleteTrialData()
+            {
+                try
+                {
+                        // Aj boze pomozi
+                    var connection = DatabaseHelper.GetConnection();
+                        connection.Close();
+
+                    // Brisanje celog foldera 
+                    if (Directory.Exists(DataDirectory))
+                    {
+                        Directory.Delete(DataDirectory, recursive: true);
+                        Console.WriteLine($" Successfully deleted Data folder: {DataDirectory}");
+                    }
+                    else
+                    {
+                        Console.WriteLine(" Data folder not found.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"FAILED to delete Data folder: {ex}");
+                }
+            }
+
+    
 
         public static TimeSpan GetTimeRemaining()
 {
@@ -80,6 +111,7 @@ namespace DocuTrack.Services
         }
     }
 }
+
 
 
 

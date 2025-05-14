@@ -85,15 +85,17 @@
     </None>
   </ItemGroup>
 
-<!-- For TrialVersion -->
   <ItemGroup>
+    <Folder Include="Pages\Sailors\" />
+  </ItemGroup>
+
+<!-- For TrialVersion 
+    - Takodje copy ceo data folder u publish -->
+  <!-- <ItemGroup>
   <Content Include="Data\**\*">
     <CopyToPublishDirectory>Always</CopyToPublishDirectory>
     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
   </Content>
-</ItemGroup>
+</ItemGroup> -->
 
-  <ItemGroup>
-    <Folder Include="Pages\Sailors\" />
-  </ItemGroup>
 </Project>

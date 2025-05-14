@@ -21,21 +21,23 @@ public partial class App : Application
 
 public override void OnFrameworkInitializationCompleted()
 {
-    // Check trial status at startup
+    //  at startup
     if (TrialManager.IsTrialExpired())
     {
         HandleTrialExpiration();
-        return; // Exit early if expired
+        return; // posle expired!
     }
 
-    // Initialize the main window
     if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
     {
         desktop.MainWindow = new MainWindow();
     }
-
-    // Start trial-check timer
-    _trialTimer = new Timer(1_000) { AutoReset = true, Enabled = true };
+        //Set timer -> provera svakih sekund da li je TrialExpired;
+    _trialTimer = new Timer(1_000) 
+    {
+         AutoReset = true,  
+         Enabled = true
+    };
     _trialTimer.Elapsed += (s, e) =>
     {
         if (TrialManager.IsTrialExpired())
@@ -49,7 +51,8 @@ public override void OnFrameworkInitializationCompleted()
 
     private void HandleTrialExpiration()
 {
-    Console.WriteLine("⚠️ Trial expired. Deleting database...");
+    Console.WriteLine(" Trial expired. Deleting database...");
+    TrialManager.DeleteTrialData();
     TrialManager.DeleteDatabase();
 
     // shut down the app after expired !!!
