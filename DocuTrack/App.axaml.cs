@@ -23,7 +23,7 @@ public override void OnFrameworkInitializationCompleted()
                 // 1) Initial check at startup
             if (TrialManager.IsTrialExpired())
             {
-                Console.WriteLine("⚠️ Trial expired at startup.");
+                Console.WriteLine("⚠️ Trial Version expired at startup.");
                 Environment.Exit(0);
             }
 
@@ -37,10 +37,8 @@ public override void OnFrameworkInitializationCompleted()
             {
                 if (TrialManager.IsTrialExpired())
                 {
-                    Console.WriteLine("⚠️ Trial expired after 1 minute.");
+                    Console.WriteLine("⚠️ Trial Version expired.");
                     
-                    // REMOVE to delete Data/identifier.sqlite
-                    TrialManager.DeleteDatabase();
                     Environment.Exit(0);
                 }
             };

@@ -39,17 +39,13 @@ namespace DocuTrack.Services
             }
 
             // TEST: expire after 1 minute
-            return DateTime.Now > startDate.AddMinutes(1);
+            return DateTime.Now > startDate.AddMinutes(4);
 
             // expire after 7 days
             // return DateTime.Now > startDate.AddDays(7);
         }
 
-        public static void DeleteDatabase()
-        {
-            if (File.Exists(DatabasePath))
-                File.Delete(DatabasePath);
-        }
+      
 
         public static TimeSpan GetTimeRemaining()
 {
@@ -61,7 +57,7 @@ namespace DocuTrack.Services
                 return TimeSpan.Zero;
 
             // match with expired date
-            var expiry = startDate.AddMinutes(1);    // or AddDays(7)
+            var expiry = startDate.AddMinutes(4);    // or AddDays(7)
             var remaining = expiry - DateTime.Now;
             return remaining > TimeSpan.Zero ? remaining : TimeSpan.Zero;
         }
