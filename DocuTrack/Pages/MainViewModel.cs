@@ -19,44 +19,21 @@ namespace DocuTrack.Views
     public partial class MainViewModel : BaseViewModel
     {
 
-            //SET TIMER 
-            
-            public event PropertyChangedEventHandler? PropertyChanged;
-            private readonly Timer _uiTimer;
-            private TimeSpan _remainingTime;
+      public string RemainingTimeDisplay { get; }
 
-            public TimeSpan RemainingTime
-    {
-        get => _remainingTime;
-        private set
+      private static string FormatRemaining(TimeSpan remaining)
         {
-            if (_remainingTime != value)
-            {
-                _remainingTime = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RemainingTime)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(RemainingTimeDisplay)));
-            }
+            return remaining > TimeSpan.Zero
+                ? remaining.ToString(@"dd\:hh\:mm\:ss") // Change later to only (dd\:hh)
+                : "Expired";
         }
-    }
-
-    
-    public string RemainingTimeDisplay =>
-        RemainingTime > TimeSpan.Zero
-            ? RemainingTime.ToString(@"dd\:hh\:mm")
-            : "Expired";
-
+        
 
         public MainViewModel(ScalingManager? scalingManager = null)
         {
 
                 // Shpw update after startup APP
-            RemainingTime = TrialManager.GetTimeRemaining();
-
-            // set up a timer to tick every second (or whatever interval you like)
-            _uiTimer = new Timer(1_000) { AutoReset = true };
-            _uiTimer.Elapsed += (s, e) => RemainingTime = TrialManager.GetTimeRemaining();
-            _uiTimer.Start();
-                
+            RemainingTimeDisplay = FormatRemaining(TrialManager.GetTimeRemaining());
 
             _scalingManager = scalingManager;
 
