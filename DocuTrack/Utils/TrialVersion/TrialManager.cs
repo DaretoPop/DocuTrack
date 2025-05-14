@@ -9,13 +9,9 @@ namespace DocuTrack.Services
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             "DocuTrack", "trial_start.txt");
 
-        private static readonly string DatabasePath = Path.Combine(
-#if DEBUG
-            "Data", "identifier.sqlite"
-#else
-            AppContext.BaseDirectory, "Data", "identifier.sqlite"
-#endif
-        );
+       private static readonly string DatabasePath = Path.Combine(
+    Environment.CurrentDirectory, "Data", "identifier.sqlite"
+);
 
         public static bool IsTrialExpired()
         {
@@ -39,11 +35,32 @@ namespace DocuTrack.Services
             }
 
             // TEST: expire after 1 minute
-            return DateTime.Now > startDate.AddMinutes(4);
+            return DateTime.Now > startDate.AddMinutes(1);
 
             // expire after 7 days
-            // return DateTime.Now > startDate.AddDays(7);
+            //  return DateTime.Now > startDate.AddDays(5);
         }
+
+        public static void DeleteDatabase()
+            {
+                Console.WriteLine($"Attempting to delete database at: {DatabasePath}");
+                if (File.Exists(DatabasePath))
+                {
+                    try
+                    {
+                        File.Delete(DatabasePath);
+                        Console.WriteLine("Database deleted successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error deleting database: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Database file not found.");
+                }
+            }
 
       
 
@@ -57,7 +74,7 @@ namespace DocuTrack.Services
                 return TimeSpan.Zero;
 
             // match with expired date
-            var expiry = startDate.AddMinutes(4);    // or AddDays(7)
+            var expiry = startDate.AddMinutes(1);    // or AddDays(7)
             var remaining = expiry - DateTime.Now;
             return remaining > TimeSpan.Zero ? remaining : TimeSpan.Zero;
         }

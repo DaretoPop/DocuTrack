@@ -85,6 +85,14 @@
     </None>
   </ItemGroup>
 
+<!-- For TrialVersion -->
+  <ItemGroup>
+  <Content Include="Data\**\*">
+    <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+  </Content>
+</ItemGroup>
+
   <ItemGroup>
     <Folder Include="Pages\Sailors\" />
   </ItemGroup>

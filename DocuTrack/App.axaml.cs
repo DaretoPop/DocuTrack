@@ -4,7 +4,8 @@ using Avalonia.Markup.Xaml;
 using DocuTrack.Views;
 using DocuTrack.Services;
 using System;
-using System.Timers;            
+using System.Timers;
+using Avalonia.Threading;
 
 namespace DocuTrack;
 
@@ -20,34 +21,45 @@ public partial class App : Application
 
 public override void OnFrameworkInitializationCompleted()
 {
-                // 1) Initial check at startup
-            if (TrialManager.IsTrialExpired())
-            {
-                Console.WriteLine("⚠️ Trial Version expired at startup.");
-                Environment.Exit(0);
-            }
+    // Check trial status at startup
+    if (TrialManager.IsTrialExpired())
+    {
+        HandleTrialExpiration();
+        return; // Exit early if expired
+    }
 
-            // 2) Set up a timer to re-check after 1 minute
-            _trialTimer = new Timer(60_000)  // 60,000 ms = 1 minute
-            {
-                AutoReset = false,            // or true if you want to check repeatedly
-                Enabled = true
-            };
-            _trialTimer.Elapsed += (s, e) =>
-            {
-                if (TrialManager.IsTrialExpired())
-                {
-                    Console.WriteLine("⚠️ Trial Version expired.");
-                    
-                    Environment.Exit(0);
-                }
-            };
-
-
+    // Initialize the main window
     if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
     {
-        desktop.MainWindow = new MainWindow(); 
+        desktop.MainWindow = new MainWindow();
     }
+
+    // Start trial-check timer
+    _trialTimer = new Timer(1_000) { AutoReset = true, Enabled = true };
+    _trialTimer.Elapsed += (s, e) =>
+    {
+        if (TrialManager.IsTrialExpired())
+        {
+            HandleTrialExpiration();
+        }
+    };
+
     base.OnFrameworkInitializationCompleted();
 }
+
+    private void HandleTrialExpiration()
+{
+    Console.WriteLine("⚠️ Trial expired. Deleting database...");
+    TrialManager.DeleteDatabase();
+
+    // shut down the app after expired !!!
+    if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+    {
+        Dispatcher.UIThread.Post(() =>
+        {
+            desktop.Shutdown();
+        });
+    }
+}
+
 }
