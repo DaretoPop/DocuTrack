@@ -34,7 +34,7 @@ namespace DocuTrack.ViewModels
 
         [ObservableProperty] private Sailor sailor = new();
 
-        [ObservableProperty] private List<CertificateFile> files = new();
+        [ObservableProperty] private List<SailorFile> files = new();
 
         [ObservableProperty] private string howManyFilesAreSelected = "";
         [ObservableProperty] private CertificateType preselectedCertificateType = new();
@@ -132,15 +132,15 @@ namespace DocuTrack.ViewModels
 
             if (result != null && result.Any())
             {
-                var documentsForAdd = new List<CertificateFile>();
+                var documentsForAdd = new List<SailorFile>();
 
                 foreach (var filePath in result)
                 {
-                    documentsForAdd.Add(new CertificateFile
+                    documentsForAdd.Add(new SailorFile
                     {
                         FilePath = filePath,
                         FileName = Path.GetFileName(filePath),
-                        CertificateID = 0
+                        SailorID = 0
                     });
                 }
 

@@ -454,29 +454,29 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static List<CertificateFile> getCertificateFilesForSailor(Certificate? certificate)
+        internal static List<SailorFile> getCertificateFilesForSailor(int? id)
         {
             try
             {
-                if (certificate == null)
+                if (id == null || id == 0)
                 {
-                    return new List<CertificateFile>();
+                    return new List<SailorFile>();
                 }
 
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT ID, CertificateID, FilePath FROM CertificateFiles WHERE CertificateID = @certificateID";
-                command.Parameters.AddWithValue("@certificateID", certificate.ID);
+                command.CommandText = "SELECT ID, SailorID, FilePath FROM SailorFiles WHERE SailorID = @certificateID";
+                command.Parameters.AddWithValue("@certificateID", id);
                 command.ExecuteNonQuery();
                 using var reader = command.ExecuteReader();
-                var output = new List<CertificateFile>();
+                var output = new List<SailorFile>();
                 while (reader.Read())
                 {
-                    var file = new CertificateFile
+                    var file = new SailorFile
                     {
                         ID = reader.GetInt32(0), // ID
 
-                        CertificateID = reader.GetInt32(1), // SailorID
+                        SailorID = reader.GetInt32(1), // SailorID
                         FilePath = reader.GetString(2)
                     };
                     output.Add(file);
@@ -490,9 +490,9 @@ namespace DocuTrack.Data
                 throw new Exception("Error deleting certificate type document from the database", ex);
             }
         }
-        private static string GetFullFilePath(CertificateFile file)
+        private static string GetFullFilePath(SailorFile file)
         {
-            return Path.Combine( "Data", "Certificates", file.CertificateID.ToString(), file.FilePath);
+            return Path.Combine( "Data", "Certificates", file.SailorID.ToString(), file.FilePath);
         }
 
         private static string ConvertDocxToPdf(string docxFilePath)
@@ -528,7 +528,7 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static string? GeneratePrintFile(ObservableCollection<CertificateFile> selectedFiles)
+        internal static string? GeneratePrintFile(ObservableCollection<SailorFile> selectedFiles)
         {
             try
             {
@@ -739,12 +739,12 @@ namespace DocuTrack.Data
 
 
 
-        internal static void addCertificateFile(CertificateFile file, byte[] fileData)
+        internal static void addCertificateFile(SailorFile file, byte[] fileData)
         {
             try
             {
                 //create a directory if it doesnt exist
-                var directoryPath = $"{CertificateFilesBaseFolder}/{file.CertificateID}";
+                var directoryPath = $"{CertificateFilesBaseFolder}/{file.SailorID}";
                 if (!Directory.Exists(directoryPath))
                 {
                     Directory.CreateDirectory(directoryPath);
@@ -768,9 +768,9 @@ namespace DocuTrack.Data
                 File.WriteAllBytes(file.FilePath, fileData);
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO CertificateFiles (FilePath, CertificateID) VALUES (@filePath, @certificateTypeID)";
+                command.CommandText = "INSERT INTO SailorFiles (FilePath, SailorID) VALUES (@filePath, @certificateTypeID)";
                 command.Parameters.AddWithValue("@filePath", file.FileName); //Save File Name insetad
-                command.Parameters.AddWithValue("@certificateTypeID", file.CertificateID);
+                command.Parameters.AddWithValue("@certificateTypeID", file.SailorID);
                 command.ExecuteNonQuery();
                 connection.Close();
 
@@ -780,7 +780,7 @@ namespace DocuTrack.Data
                 throw new Exception("Error adding certificate type document to the database", ex);
             }
         }
-        internal static void addCertificateFiles(List<CertificateFile> documentsForAdd)
+        internal static void addCertificateFiles(List<SailorFile> documentsForAdd)
         {
             if (documentsForAdd.Count > 0)
             {
@@ -798,9 +798,9 @@ namespace DocuTrack.Data
             }
         }
 
-        private static string getCertificatFilePath(CertificateFile file)
+        private static string getCertificatFilePath(SailorFile file)
         {
-            return $"{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FileName}";
+            return $"{CertificateFilesBaseFolder}/{file.SailorID}/{file.FileName}";
         }
 
         internal static int AddCertificate(Certificate certificate)
@@ -828,14 +828,14 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static void AddCertificate(Certificate certificate, List<CertificateFile> files)
+        internal static void AddCertificate(Certificate certificate, List<SailorFile> files)
         {
             try
             {
                 var id = AddCertificate(certificate);
                 foreach (var file in files)
                 {
-                    file.CertificateID = id;
+                    file.SailorID = id;
                 }
                 addCertificateFiles(files);
             }
@@ -876,7 +876,7 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static void DeleteCertificateFile(CertificateFile file)
+        internal static void DeleteCertificateFile(SailorFile file)
         {
             try
             {
@@ -884,13 +884,13 @@ namespace DocuTrack.Data
 
                 var connection = GetConnection();
                 var command = connection.CreateCommand();
-                command.CommandText = "DELETE FROM CertificateFiles WHERE ID = @id";
+                command.CommandText = "DELETE FROM SailorFiles WHERE ID = @id";
                 command.Parameters.AddWithValue("@id", file.ID);
                 command.ExecuteNonQuery();
                 connection.Close();
 
                 //delete the file from the directory
-                var filePath = $"{CertificateFilesBaseFolder}/{file.CertificateID}/{file.FilePath}";
+                var filePath = $"{CertificateFilesBaseFolder}/{file.SailorID}/{file.FilePath}";
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
@@ -902,7 +902,7 @@ namespace DocuTrack.Data
             }
         }
 
-        internal static void DeleteCertificateFiles(ObservableCollection<CertificateFile> selectedFiles)
+        internal static void DeleteCertificateFiles(ObservableCollection<SailorFile> selectedFiles)
         {
             try
             {

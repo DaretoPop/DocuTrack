@@ -79,14 +79,14 @@
 
 
 							<!-- Bottom of Panel LeftSide -->
-							<StackPanel Spacing="5" HorizontalAlignment="Center" IsVisible="{Binding IsCertificateSelected}">
+							<StackPanel Spacing="5" HorizontalAlignment="Center">
 								<TextBlock Text="Skenirana Dokumenta" Classes="skenirana-dokumenta"/>
 								<!-- Divider line -->
 								<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="250" HorizontalAlignment="Center"/>
 							</StackPanel>
 
 							<!-- SCANNED DOCUMENTS LIST BOX 2 -->
-							<StackPanel Grid.Column="0" Spacing="10" IsVisible="{Binding IsCertificateSelected}">
+							<StackPanel Grid.Column="0" Spacing="10">
 								<ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}" SelectedItems="{Binding SelectedFiles, Mode=TwoWay}" SelectionMode="Multiple">
 									<ListBox.ItemTemplate>
 										<DataTemplate>
@@ -97,7 +97,7 @@
 
 							</StackPanel>
 
-			<Grid IsVisible="{Binding IsCertificateSelected}"
+			<Grid 
 					HorizontalAlignment="Stretch"
 					Margin="0,0,0,10">
 				<Grid.ColumnDefinitions>
@@ -111,22 +111,19 @@
 						Classes="sailor-sticanje-button"
 						Command="{Binding DodajDokumentCommand}"
 						CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-						HorizontalAlignment="Left"
-						IsVisible="{Binding IsCertificateSelected}" />
+						HorizontalAlignment="Left" />
 
 				<Button Grid.Column="1"
 						Content="Stampaj"
 						Classes="sailor-print-button"
 						Command="{Binding PrintCommand}"
-						HorizontalAlignment="Center"
-						IsVisible="{Binding IsCertificateSelected}" />
+						HorizontalAlignment="Center" />
 
 				<Button Grid.Column="2"
 						Content="Obrisi"
 						Classes="sailor-print-button"
 						Command="{Binding DeleteSkeniranoCommand}"
 						HorizontalAlignment="Right"
-						IsVisible="{Binding IsCertificateSelected}"
 						Margin="10 0"/>
 				</Grid>
 

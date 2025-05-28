@@ -27,7 +27,7 @@ namespace DocuTrack.DataModels
         public CertificateType CertificateType { get; set; }
         public Sailor Sailor { get; set; }
         public List<Certificate> Versions { get; set; } = new List<Certificate>();
-        public List<CertificateFile> CertificateFiles { get; set; }
+        public List<SailorFile> CertificateFiles { get; set; }
 
         public bool isOldVersion { get; set; } = false;
 

@@ -24,9 +24,9 @@ namespace DocuTrack.ViewModels
         [ObservableProperty] private Certificate? _selectedCertificate = null;
         public bool IsCertificateSelected => _selectedCertificate != null;
         public ObservableCollection<Certificate> Certificates { get; set; } = new();
-        public ObservableCollection<CertificateFile> ScannedDocuments { get; set; } = new();
+        public ObservableCollection<SailorFile> ScannedDocuments { get; set; } = new();
 
-        public ObservableCollection<CertificateFile> SelectedFiles { get; set; } = new();
+        public ObservableCollection<SailorFile> SelectedFiles { get; set; } = new();
 
         public bool? haveMultipleVersions => SelectedCertificate?.Versions?.Any();
         [ObservableProperty] private string errorMessage = "";
@@ -45,8 +45,6 @@ namespace DocuTrack.ViewModels
         partial void OnSelectedCertificateChanged(Certificate? value)
         {
             // Notify that IsCertificateSelected has changed
-            ScannedDocuments =
-                new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(value));
             ErrorMessage = "";
             OnPropertyChanged(nameof(ErrorMessage));
             OnPropertyChanged(nameof(IsCertificateSelected));
@@ -61,7 +59,7 @@ namespace DocuTrack.ViewModels
         private void initializeDocuments()
         {
             ScannedDocuments =
-                new ObservableCollection<CertificateFile>(DatabaseHelper.getCertificateFilesForSailor(SelectedCertificate));
+                new ObservableCollection<SailorFile>(DatabaseHelper.getCertificateFilesForSailor(Sailor?.ID));
             OnPropertyChanged(nameof(ScannedDocuments));
         }
 
@@ -72,6 +70,7 @@ namespace DocuTrack.ViewModels
 
 
             initialize();
+            initializeDocuments();
             SelectedCertificate = selectedCertificate;
             OnPropertyChanged(nameof(SelectedCertificate));
             BindScaling(mainViewModel);
@@ -81,9 +80,8 @@ namespace DocuTrack.ViewModels
         {
 
 
-            //ScannedDocuments = new ObservableCollection<CertificateFile>(mockupList);
             Certificates = new ObservableCollection<Certificate>(DatabaseHelper.GetCertificateForSailor(Sailor));
-
+            
 
 
             OnPropertyChanged(nameof(Sailor));
@@ -391,15 +389,15 @@ namespace DocuTrack.ViewModels
 
             if (result != null && result.Any())
             {
-                var documentsForAdd = new List<CertificateFile>();
+                var documentsForAdd = new List<SailorFile>();
 
                 foreach (var filePath in result)
                 {
-                    documentsForAdd.Add(new CertificateFile
+                    documentsForAdd.Add(new SailorFile
                     {
                         FilePath = filePath,
                         FileName = Path.GetFileName(filePath),
-                        CertificateID = SelectedCertificate.ID
+                        SailorID = Sailor.ID
                     });
                 }
 
@@ -482,7 +480,7 @@ namespace DocuTrack.ViewModels
                 ErrorMessage = $"Error during deleting: {ex.Message}";
                 OnPropertyChanged(nameof(ErrorMessage));
             }
-            initialize();
+            initializeDocuments(); 
         }
 
 

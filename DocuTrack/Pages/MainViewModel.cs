@@ -18,10 +18,15 @@ namespace DocuTrack.Views
 {
     public partial class MainViewModel : BaseViewModel
     {
+        private string _remainingTimeDisplay;
+        private readonly Timer _timer;
+        public string RemainingTimeDisplay
+        {
+            get => _remainingTimeDisplay;
+            private set => SetProperty(ref _remainingTimeDisplay, value);
+        }
 
-      public string RemainingTimeDisplay { get; }
-
-      private static string FormatRemaining(TimeSpan remaining)
+        private static string FormatRemaining(TimeSpan remaining)
         {
             return remaining > TimeSpan.Zero
                 ? remaining.ToString(@"dd\:hh\:mm\:ss") // Change later to only (dd\:hh)
@@ -36,6 +41,13 @@ namespace DocuTrack.Views
             RemainingTimeDisplay = FormatRemaining(TrialManager.GetTimeRemaining());
 
             _scalingManager = scalingManager;
+
+            _timer = new Timer(1000);
+            _timer.Elapsed += (s, e) =>
+            {
+                RemainingTimeDisplay = FormatRemaining(TrialManager.GetTimeRemaining());
+            };
+            _timer.Start();
 
 
             //Default CurrentPage State
@@ -266,6 +278,12 @@ namespace DocuTrack.Views
             if (window != null) window.Close(); //! Bad immplementation, try another way
         }
 
+
+        public void Dispose()
+        {
+            _timer?.Stop();
+            _timer?.Dispose();
+        }
     } // End of class
 
 }
