@@ -36,20 +36,21 @@
 				         Classes="search-box" Width="360"/>
 			</Grid>
 
-			<!-- Card with table + pagination -->
+		<!-- Card with table + pagination -->
 			<Border Grid.Row="1" x:Name="MainCard" Classes="card">
 				<Grid RowDefinitions="Auto,*,Auto">
 
-					<!-- Column headers -->
-					<Grid Grid.Row="0" ColumnDefinitions="*,*,*" Classes="table-header-row"
+					<!-- Column headers (aligned with the row cells) -->
+					<Grid Grid.Row="0" ColumnDefinitions="*,*,*"
+					      Margin="37,16,37,0"
 					      IsVisible="{Binding !NoCertificates}">
 						<TextBlock Grid.Column="0" Text="Ime i prezime" Classes="table-header"/>
 						<TextBlock Grid.Column="1" Text="Tip dokumenta" Classes="table-header" HorizontalAlignment="Center"/>
 						<TextBlock Grid.Column="2" Text="Datum isteka" Classes="table-header" HorizontalAlignment="Right"/>
 					</Grid>
 
-					<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="16,8,16,8">
-						<StackPanel Spacing="10">
+					<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20,8,20,0">
+						<StackPanel Spacing="10" Margin="0,0,0,12">
 							<TextBlock Text="Nema dokumenta koji ističu u periodu od 10 meseci (300 dana)"
 							           IsVisible="{Binding NoCertificates}"
 							           Classes="empty-text"/>
@@ -59,7 +60,7 @@
 							         SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
 								<ListBox.ItemTemplate>
 									<DataTemplate>
-										<Grid ColumnDefinitions="*,*,*" MinHeight="40" VerticalAlignment="Center">
+										<Grid ColumnDefinitions="*,*,*" VerticalAlignment="Center">
 											<TextBlock Grid.Column="0" Text="{Binding SailorName}"
 											           Classes="imeprezime-label"/>
 											<TextBlock Grid.Column="1" Text="{Binding CertificateTypeName}"

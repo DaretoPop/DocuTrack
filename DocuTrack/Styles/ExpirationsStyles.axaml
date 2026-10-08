@@ -6,35 +6,63 @@
 
   <!-- ============ NEW: table ============ -->
 
-  <Style Selector="Grid.table-header-row">
-    <Setter Property="Margin" Value="32,16,32,0"/>
-  </Style>
   <Style Selector="TextBlock.table-header">
     <Setter Property="FontSize" Value="12"/>
     <Setter Property="FontWeight" Value="SemiBold"/>
     <Setter Property="Foreground" Value="#6B7280"/>
   </Style>
 
+  <!-- List: each item is a flat card, same as SailorRowView -->
   <Style Selector="ListBox.exp-list">
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="BorderThickness" Value="0"/>
     <Setter Property="Padding" Value="0"/>
   </Style>
   <Style Selector="ListBox.exp-list ListBoxItem">
-    <Setter Property="Padding" Value="16,4"/>
-    <Setter Property="Margin" Value="0,0,0,4"/>
-    <Setter Property="CornerRadius" Value="8"/>
     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Padding" Value="16,4"/>
+    <Setter Property="MinHeight" Value="52"/>
+    <Setter Property="Margin" Value="0,0,0,10"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Cursor" Value="Hand"/>
   </Style>
   <Style Selector="ListBox.exp-list ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="Background" Value="#F9FAFB"/>
+    <Setter Property="BorderBrush" Value="#CBD5E1"/>
   </Style>
   <Style Selector="ListBox.exp-list ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter, ListBox.exp-list ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="Background" Value="#EAF1F8"/>
+    <Setter Property="BorderBrush" Value="#2F5D8A"/>
   </Style>
-  <Style Selector="ListBox.exp-list ListBoxItem:selected TextBlock.imeprezime-label">
+
+  <!-- Cells: same fonts as SailorRowView -->
+  <Style Selector="TextBlock.imeprezime-label">
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="#1F2937"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+  </Style>
+  <Style Selector="ListBox.exp-list ListBoxItem:pointerover TextBlock.imeprezime-label, ListBox.exp-list ListBoxItem:selected TextBlock.imeprezime-label">
     <Setter Property="Foreground" Value="#2F5D8A"/>
+  </Style>
+  <Style Selector="TextBlock.typecert-label">
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="Foreground" Value="#6B7280"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+  </Style>
+  <Style Selector="TextBlock.istice-label">
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="Foreground" Value="#6B7280"/>
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
   </Style>
 
   <!-- Cells -->
