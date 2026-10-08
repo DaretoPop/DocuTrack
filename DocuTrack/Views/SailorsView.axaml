@@ -40,11 +40,21 @@
 				</StackPanel>
 			</Grid>
 
-			<!-- Card with list + pagination -->
+			<!-- Card with column headers + list + pagination -->
 			<Border Grid.Row="1" x:Name="MainCard" Classes="card">
-				<Grid RowDefinitions="*,Auto">
+				<Grid RowDefinitions="Auto,*,Auto">
 
-					<ScrollViewer Grid.Row="0" Classes="main-document-scroll">
+					<!-- Column headers (same column widths as SailorRowView) -->
+					<Grid Grid.Row="0" ColumnDefinitions="2*,*,*"
+					      Margin="37,16,37,0"
+					      IsVisible="{Binding !NoData}">
+						<TextBlock Grid.Column="0" Text="Ime i prezime" Classes="table-header"/>
+						<TextBlock Grid.Column="1" Text="JMBG" Classes="table-header"/>
+						<TextBlock Grid.Column="2" Text="Status" Classes="table-header"
+						           HorizontalAlignment="Right"/>
+					</Grid>
+
+					<ScrollViewer Grid.Row="1" Classes="main-document-scroll">
 						<StackPanel Spacing="10" Margin="0,0,0,12">
 							<TextBlock Text="Trenutno nema pomorca"
 							           IsVisible="{Binding NoData}"
@@ -61,7 +71,7 @@
 					</ScrollViewer>
 
 					<!-- Pagination -->
-					<Border Grid.Row="1" Classes="pagination-bar" IsVisible="{Binding !NoData}">
+					<Border Grid.Row="2" Classes="pagination-bar" IsVisible="{Binding !NoData}">
 						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
 						            VerticalAlignment="Center" Spacing="6">
 							<Button Content="«" Classes="page-btn"
