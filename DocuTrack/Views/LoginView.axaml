@@ -1,54 +1,42 @@
-<UserControl 
-        xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        x:Class="DocuTrack.Views.LoginView"
-        xmlns:vm="clr-namespace:DocuTrack.ViewModels"
-        x:DataType="vm:LoginViewModel"
-        Width="1920" Height="1280"
-        mc:Ignorable="d">
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             x:Class="DocuTrack.Views.LoginView"
+             x:DataType="vm:LoginViewModel"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800">
 
-<Viewbox Stretch="Uniform" >
-        <!-- Change width and height to resolve ivanov bug  -->
-    <!-- OUTSIDE LOGIN CARD -->
-      <Grid Background="#5D8AA8" Width="1920" Height="1080">
-        
- <Grid.RenderTransform>
-            <ScaleTransform 
-                    ScaleX="{Binding ScalingFactor}" 
-                    ScaleY="{Binding ScalingFactor}"/>
-	</Grid.RenderTransform>
+    <Grid Background="#F5F7FA">
+        <LayoutTransformControl HorizontalAlignment="Center" VerticalAlignment="Center">
+            <LayoutTransformControl.LayoutTransform>
+                <ScaleTransform ScaleX="{Binding ScalingFactor}"
+                                ScaleY="{Binding ScalingFactor}"/>
+            </LayoutTransformControl.LayoutTransform>
 
-        
-    <!-- LOGIN CARD -->
-        <Border Classes="login-border">
-            <Grid>
-                <StackPanel Margin="20" Spacing="0"> <!-- Main content  -->
+            <!-- LOGIN CARD -->
+            <Border Classes="login-border">
+                <StackPanel Spacing="0">
 
-                    <Image Classes="login-image" Margin="30 0 0 20"/>        <!-- ImageLogo -->   
+                    <Image Classes="login-image"/>
 
-                        <Border Classes="username-border">     <!-- Username -->
-                            <TextBox Text="{Binding Username, Mode=TwoWay}" Classes="username-textbox"/>
-                        </Border>
-                    
-                        <Border Classes="password-border"> <!-- Password -->
-                            <TextBox Classes="password-textbox" Text="{Binding Password, Mode=TwoWay}"/>
-                        </Border>
-            
-                            <Button Content="{Binding Login}" Command="{Binding LoginCommand}" Classes="login-button"/>  <!-- Login button -->
+                    <Border Classes="username-border">
+                        <TextBox Text="{Binding Username, Mode=TwoWay}" Classes="username-textbox"/>
+                    </Border>
+
+                    <Border Classes="password-border">
+                        <TextBox Text="{Binding Password, Mode=TwoWay}" Classes="password-textbox"/>
+                    </Border>
+
+                    <Button Content="{Binding Login}" Command="{Binding LoginCommand}"
+                            Classes="login-button"/>
+
+                    <Border x:Name="ErrorBox" Classes="error-message" IsVisible="{Binding IsError}">
+                        <TextBlock Text="{Binding ErrorMessage}" Classes="error-textbox"/>
+                    </Border>
 
                 </StackPanel>
-                
-                        <Border x:Name="ErrorBox" Classes="error-message" IsVisible="{Binding IsError}">     
-                            <TextBlock Text="{Binding ErrorMessage}" Classes="error-textbox"/>
-                        </Border>
-            </Grid>
-        </Border>
+            </Border>
+        </LayoutTransformControl>
     </Grid>
-    </Viewbox>
 </UserControl>
-
-
-
-
