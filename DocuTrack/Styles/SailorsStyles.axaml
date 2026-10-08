@@ -1,139 +1,122 @@
 <Styles xmlns="https://github.com/avaloniaui">
 
-<Style Selector="Border.sailor-main-card">
+  <!-- The new SailorsView uses the shared classes from the certificate styles file:
+       page-title, count-badge, count-text, card, empty-text, search-box,
+       primary-button, pagination-bar, page-btn, main-document-scroll.
+       Everything below is the old sailor-* set, restyled so any other view
+       that still uses it keeps working and matches the new look. -->
+
+  <!-- Main card -->
+  <Style Selector="Border.sailor-main-card">
     <Setter Property="Width" Value="1280"/>
     <Setter Property="Height" Value="800"/>
-    <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
-    <Setter Property="BorderThickness" Value="1.5"/>
-    <Setter Property="BoxShadow" Value="0 10 15 0 #525252"/>
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="CornerRadius" Value="12"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BoxShadow" Value="0 1 3 0 #14000000"/>
     <Setter Property="Canvas.Left" Value="320"/>
     <Setter Property="Canvas.Top" Value="140"/>
-</Style>
+  </Style>
 
-<Style Selector="Border.sailor-card-header">
+  <Style Selector="Border.sailor-card-header">
     <Setter Property="Grid.Row" Value="0"/>
-    <Setter Property="Background" Value="#F7F7F7"/>
-    <Setter Property="CornerRadius" Value="20,20,0,0"/>
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="CornerRadius" Value="12,12,0,0"/>
     <Setter Property="Padding" Value="20"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
     <Setter Property="BorderThickness" Value="0,0,0,1"/>
-</Style>
+  </Style>
+  <Style Selector="TextBlock.sailor-card-header-text">
+    <Setter Property="FontSize" Value="22"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="#1F2937"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+  </Style>
 
-        <Style Selector="TextBlock.sailor-card-header-text">
-            <Setter Property="FontSize" Value="28"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="#5D8AA8"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-        </Style>
-
-<!-- #Number of Sailors -->
-
-<Style Selector="StackPanel.totalcount-stack-panel">
+  <!-- Count -->
+  <Style Selector="StackPanel.totalcount-stack-panel">
     <Setter Property="Orientation" Value="Horizontal"/>
     <Setter Property="HorizontalAlignment" Value="Right"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
     <Setter Property="Margin" Value="0,0,20,0"/>
-</Style>
-
-
-
-        <!-- Total Count of Sailors -->
-<Style Selector="TextBlock.sailors-count-text">
-    <Setter Property="FontSize" Value="25"/>
-    <Setter Property="FontWeight" Value="Bold"/>
-    <Setter Property="Foreground" Value="#5D8AA8"/>
+  </Style>
+  <Style Selector="TextBlock.sailors-count-text">
+    <Setter Property="FontSize" Value="18"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="#2F5D8A"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
-</Style>
-            <!-- Ukupan broj -->
-                    <Style Selector="TextBlock.sailors-ukupanBroj-text">
-                        <Setter Property="FontSize" Value="18"/>
-                        <Setter Property="Foreground" Value="#808080"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="VerticalAlignment" Value="Center"/>
-                        <Setter Property="Margin" Value="0,0,8,0"/>
-                    </Style>
+  </Style>
+  <Style Selector="TextBlock.sailors-ukupanBroj-text">
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Foreground" Value="#6B7280"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0,0,8,0"/>
+  </Style>
 
-
-<!-- #Navigation -->
-
-<Style Selector="Border.page-navigation">
+  <!-- Old navigation pill -->
+  <Style Selector="Border.page-navigation">
     <Setter Property="Grid.Row" Value="1"/>
-    <Setter Property="Background" Value="#FAFAFA"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
-    <Setter Property="BorderThickness" Value="1.5"/>
-    <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="Padding" Value="5 0 10 8"/>
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="12"/>
+    <Setter Property="Padding" Value="8"/>
     <Setter Property="Width" Value="350"/>
-    <Setter Property="Height" Value="60"/>
-    <Setter Property="Margin" Value="0 725 0 0"/>
-    <Setter Property="BoxShadow" Value="0 5 5 0 #525252"/>
-</Style>
-
-<Style Selector="Border.sailors-arrow-border">
+    <Setter Property="Height" Value="56"/>
+    <Setter Property="BoxShadow" Value="0 1 3 0 #14000000"/>
+  </Style>
+  <Style Selector="Border.sailors-arrow-border">
     <Setter Property="Width" Value="50"/>
     <Setter Property="Height" Value="40"/>
-    <Setter Property="Background" Value="White"/>
-    <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="HorizontalAlignment" Value="Left"/>
     <Setter Property="VerticalAlignment" Value="Bottom"/>
-</Style>
+  </Style>
 
-
-
-
-
-
-
-<!-- Search -->
-<Style Selector="Border.sailor-search-border">
-    <Setter Property="Background" Value="#FAFAFA"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
-    <Setter Property="BorderThickness" Value="1.5"/>
-    <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="Padding" Value="10"/>
-    <Setter Property="Width" Value="350"/>
-    <Setter Property="Height" Value="55"/>
-    <Setter Property="Canvas.Left" Value="320"/>
-    <Setter Property="Canvas.Top" Value="84"/>
-</Style>
-
-
-            <Style Selector="TextBlock.sailor-search-icon">
-                <Setter Property="FontSize" Value="20"/>
-                <Setter Property="Foreground" Value="#808080"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
-                <Setter Property="Margin" Value="0,0,8,0"/>
-            </Style>
-
-<Style Selector="TextBox.sailor-search-text">
+  <!-- Old search -->
+  <Style Selector="Border.sailor-search-border">
+    <Setter Property="Background" Value="#FFFFFF"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="12,0"/>
+    <Setter Property="Width" Value="320"/>
+    <Setter Property="Height" Value="40"/>
+  </Style>
+  <Style Selector="Border.sailor-search-border:focus-within">
+    <Setter Property="BorderBrush" Value="#2F5D8A"/>
+  </Style>
+  <Style Selector="TextBlock.sailor-search-icon">
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Foreground" Value="#6B7280"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0,0,8,0"/>
+  </Style>
+  <Style Selector="TextBox.sailor-search-text">
     <Setter Property="Background" Value="Transparent"/>
     <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Foreground" Value="#333333"/>
-    <Setter Property="FontSize" Value="16"/>
+    <Setter Property="Foreground" Value="#1F2937"/>
+    <Setter Property="FontSize" Value="14"/>
     <Setter Property="VerticalAlignment" Value="Center"/>
-    <Setter Property="Watermark" Value="Pretrazi"/>
     <Setter Property="VerticalContentAlignment" Value="Center"/>
-    <Setter Property="Margin" Value="10,0,0,0"/> <!-- Adjust margin to position after icon -->
-</Style>
+    <Setter Property="Watermark" Value="Pretraga..."/>
+  </Style>
+  <Style Selector="TextBox.sailor-search-text:pointerover /template/ Border#PART_BorderElement, TextBox.sailor-search-text:focus /template/ Border#PART_BorderElement">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+  </Style>
 
-
-<!-- Border kreiraj -->
-<Style Selector="Border.sailor-create-button-frame">
-    <Setter Property="Background" Value="#FAFAFA"/>
-    <Setter Property="BorderBrush" Value="#5D8AA8"/>
-    <Setter Property="BorderThickness" Value="1.5"/>
-    <Setter Property="CornerRadius" Value="20"/>
-    <Setter Property="Padding" Value="10"/>
-    <Setter Property="Width" Value="160"/>
-    <Setter Property="Height" Value="55"/>
-    <Setter Property="Canvas.Left" Value="1440"/>
-    <Setter Property="Canvas.Top" Value="84"/>
-</Style>
-
-
+  <!-- Old create button frame -->
+  <Style Selector="Border.sailor-create-button-frame">
+    <Setter Property="Background" Value="#2F5D8A"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="6,0"/>
+    <Setter Property="Height" Value="40"/>
+  </Style>
 
 </Styles>
