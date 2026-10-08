@@ -2,51 +2,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
-              xmlns:dataModels="clr-namespace:DocuTrack.DataModels"
-
-              x:DataType="vm:RequestFileViewModel"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             xmlns:dataModels="clr-namespace:DocuTrack.DataModels"
+             x:DataType="vm:RequestFileViewModel"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="40"
              x:Class="DocuTrack.Views.RequestFileRowView">
 
+    <UserControl.Styles>
+        <!-- Small ghost delete button: grey "x", turns red on hover -->
+        <Style Selector="Button.file-delete">
+            <Setter Property="Width" Value="28"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#9CA3AF"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.file-delete:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#FEF2F2"/>
+            <Setter Property="Foreground" Value="#B91C1C"/>
+        </Style>
+    </UserControl.Styles>
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
+    <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
 
-			<Button Grid.Column="0" Content="{Binding FileName}"
-                                Cursor="Hand"
-                                VerticalAlignment="Center"
-                                Classes="TransparentHoverButton"
-                                Background="Transparent"
-                                Foreground="#676767"
-                                Command="{Binding OpenFileCommand}"
-                                 />
+        <!-- File name (opens the file) -->
+        <Button Grid.Column="0"
+                Classes="link-button"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                Command="{Binding OpenFileCommand}">
+            <TextBlock Text="{Binding FileName}"
+                       TextTrimming="CharacterEllipsis"
+                       FontSize="14"/>
+        </Button>
 
-                        <Button Grid.Column="1"
-                                Width="28" Height="26"
-                                CornerRadius="12"
-                                Background="Silver"
-                                BorderBrush="Transparent"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Cursor="Hand"
-                                Margin="8,0,0,0"
-                                Command="{Binding DeleteFileCommand}"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-                        <Button.Styles>
-                        <Style x:SetterTargetType="Button"
-                                Selector=":pointerover">
-                        <Setter Property="Background" Value="#c50000"/>
-                        </Style>
-                        </Button.Styles>
-                        <TextBlock Text="✕"
-                                Foreground="#5D8AA8"
-                                FontSize="12"/>
-                        </Button>
-
-        </Grid>
+        <!-- Delete -->
+        <Button Grid.Column="1"
+                Classes="file-delete"
+                Margin="8,0,0,0"
+                Content="✕"
+                FontSize="12"
+                Command="{Binding DeleteFileCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+    </Grid>
 
 </UserControl>
