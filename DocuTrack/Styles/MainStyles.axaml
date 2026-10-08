@@ -1,110 +1,76 @@
 <Styles xmlns="https://github.com/avaloniaui">
 
-
-<!-- Image LOGO -->
+  <!-- Logo -->
   <Style Selector="Image.main-image">
-      <Setter Property="Source" Value="avares://DocuTrack/Assets/BlueLogoIMG.png"/>
-      <Setter Property="Width" Value="60"/>
-      <Setter Property="Height" Value="70"/>
-      <Setter Property="Stretch" Value="Uniform"/>
-      <Setter Property="HorizontalAlignment" Value="Left"/>
-      <Setter Property="Margin" Value="0 0 0 50"/>
+    <Setter Property="Source" Value="avares://DocuTrack/Assets/BlueLogoIMG.png"/>
+    <Setter Property="Width" Value="40"/>
+    <Setter Property="Height" Value="40"/>
+    <Setter Property="Stretch" Value="Uniform"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
   </Style>
 
+  <!-- Thin divider line -->
+  <Style Selector="Border.divider">
+    <Setter Property="Height" Value="1"/>
+    <Setter Property="Background" Value="#E5E7EB"/>
+  </Style>
 
-<!-- ############################################################## -->
+  <!-- Nav button: flat, no default chrome -->
+  <Style Selector="Button.nav">
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Cursor" Value="Hand"/>
+  </Style>
+  <Style Selector="Button.nav:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="Button.nav:pressed /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
 
-<!-- Pocetna -->
+  <!-- Nav item -->
+  <Style Selector="Border.item">
+    <Setter Property="Padding" Value="14,10"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+  <Style Selector="Button.nav:pointerover Border.item">
+    <Setter Property="Background" Value="#F3F4F6"/>
+  </Style>
+  <Style Selector="Border.item.active">
+    <Setter Property="Background" Value="#EAF1F8"/>
+  </Style>
+  <Style Selector="Button.nav:pointerover Border.item.active">
+    <Setter Property="Background" Value="#EAF1F8"/>
+  </Style>
+  <Style Selector="Border.item TextBlock">
+    <Setter Property="FontSize" Value="15"/>
+    <Setter Property="Foreground" Value="#6B7280"/>
+  </Style>
+  <Style Selector="Border.item.active TextBlock">
+    <Setter Property="Foreground" Value="#2F5D8A"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
 
-<Style Selector="TextBlock.main-pocetnaStrana-text">
-  <Setter Property="Grid.Column" Value="1"/>
-  <Setter Property="FontSize" Value="20"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="5,0,0,0"/>
-</Style>
-
-<Style Selector="TextBlock.main-pocetna-arrow">
-  <Setter Property="Grid.Column" Value="2"/>
-  <Setter Property="FontSize" Value="12"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="0,0,100,0"/>
-  <Setter Property="Foreground" Value="#0b218e"/>
-</Style>
-
-
-<!-- ################################################################## -->
-
-<!--  Logo separator -->
-<Style Selector="Separator.main-logo-separator">
-  <Setter Property="Grid.Row" Value="1"/>
-  <Setter Property="Background" Value="#5D8AA8"/>
-  <Setter Property="Height" Value="2"/>
-  <Setter Property="Margin" Value="0,-30,0,40"/>
-</Style>
-
-<!-- Separator -->
-<Style Selector="Border.main-line-separator">
-  <Setter Property="Width" Value="100"/>
-  <Setter Property="Height" Value="2"/>
-  <Setter Property="Background" Value="#5D8AA8"/>
-  <Setter Property="Opacity" Value="0.3"/>
-</Style>
-
-
-<!-- ################################################################## -->
-
-<!-- Pomorci -->
-
-<Style Selector="TextBlock.main-pomorciStrana-text">
-  <Setter Property="Grid.Column" Value="1"/>
-  <Setter Property="FontSize" Value="20"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="5,0,0,0"/>
-</Style>
-
-
-<Style Selector="TextBlock.pomorci-arrow">
-  <Setter Property="Grid.Column" Value="2"/>
-  <Setter Property="FontSize" Value="12"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="0,0,95,0"/>
-  <Setter Property="Foreground" Value="#0b218e"/>
-</Style>
-
-<!-- ################################################################## -->
-
-<!-- Dokumenta -->
-
-<Style Selector="Button.main-dokumentaPage-button">
-  <Setter Property="Background" Value="Transparent"/>
-  <Setter Property="Foreground" Value="White"/>
-  <Setter Property="HorizontalAlignment" Value="Stretch"/>
-  <Setter Property="Padding" Value="0"/>
-</Style>
-
-
-<!-- Grid -->
-<Style Selector="Grid.main-default-grid">
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="0,4"/>
-</Style>
-
-
-
-<Style Selector="TextBlock.main-dokumentaPage-text">
-  <Setter Property="Grid.Column" Value="1"/>
-  <Setter Property="FontSize" Value="20"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="5,0,0,0"/>
-</Style>
-
-<Style Selector="TextBlock.main-dokumenta-arrow">
-  <Setter Property="Grid.Column" Value="2"/>
-  <Setter Property="FontSize" Value="12"/>
-  <Setter Property="VerticalAlignment" Value="Center"/>
-  <Setter Property="Margin" Value="0,0,70,0"/>
-  <Setter Property="Foreground" Value="#0b218e"/>
-</Style>
+  <!-- Small square tool button (zoom) -->
+  <Style Selector="Button.tool">
+    <Setter Property="Width" Value="30"/>
+    <Setter Property="Height" Value="30"/>
+    <Setter Property="Padding" Value="0"/>
+    <Setter Property="CornerRadius" Value="6"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Foreground" Value="#1F2937"/>
+  </Style>
+  <Style Selector="Button.tool:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#F3F4F6"/>
+    <Setter Property="BorderBrush" Value="#E5E7EB"/>
+  </Style>
 
 </Styles>
-
