@@ -11,44 +11,17 @@ using DocuTrack.UI.ViewModels;
 using DocuTrack.UI.Scaling;
 using System.ComponentModel;
 using System.Timers;
-using DocuTrack.Services;
-
 
 namespace DocuTrack.Views
 {
     public partial class MainViewModel : BaseViewModel
     {
-        private string _remainingTimeDisplay;
-        private readonly Timer _timer;
-        public string RemainingTimeDisplay
-        {
-            get => _remainingTimeDisplay;
-            private set => SetProperty(ref _remainingTimeDisplay, value);
-        }
-
-        private static string FormatRemaining(TimeSpan remaining)
-        {
-            return remaining > TimeSpan.Zero
-                ? remaining.ToString(@"dd\:hh\:mm\:ss") // Change later to only (dd\:hh)
-                : "Expired";
-        }
-        
+              
 
         public MainViewModel(ScalingManager? scalingManager = null)
         {
 
-                // Shpw update after startup APP
-            RemainingTimeDisplay = FormatRemaining(TrialManager.GetTimeRemaining());
-
             _scalingManager = scalingManager;
-
-            _timer = new Timer(1000);
-            _timer.Elapsed += (s, e) =>
-            {
-                RemainingTimeDisplay = FormatRemaining(TrialManager.GetTimeRemaining());
-            };
-            _timer.Start();
-
 
             //Default CurrentPage State
             IsLoggedIn = false;
@@ -63,7 +36,7 @@ namespace DocuTrack.Views
             SailorsPage = new SailorsViewModel(this);
             CertificateTypesPage = new CertificateTypesViewModel(this);
 
-            //temp
+            // Skip Login 
             // CurrentPage = PocetnaPage;
             // IsLoggedIn = true;
 
@@ -279,11 +252,7 @@ namespace DocuTrack.Views
         }
 
 
-        public void Dispose()
-        {
-            _timer?.Stop();
-            _timer?.Dispose();
-        }
+       
     } // End of class
 
 }
