@@ -16,8 +16,7 @@
 			<Setter Property="BorderThickness" Value="1"/>
 			<Setter Property="CornerRadius" Value="8"/>
 			<Setter Property="Padding" Value="4"/>
-			<Setter Property="Height" Value="150"/>
-			<Setter Property="MaxHeight" Value="150"/>
+			<Setter Property="Height" Value="260"/>
 		</Style>
 		<Style Selector="ListBox.files-list ListBoxItem">
 			<Setter Property="Padding" Value="8,4"/>
@@ -37,36 +36,35 @@
 			                ScaleY="{Binding ScalingFactor}"/>
 		</LayoutTransformControl.LayoutTransform>
 
-		<Grid RowDefinitions="Auto,*" Margin="40,32">
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<Grid RowDefinitions="Auto,Auto,Auto" Margin="40,32">
 
-			<!-- Header: back + title -->
-			<Grid Grid.Row="0" ColumnDefinitions="Auto,*" Margin="0,0,0,24">
-				<Button Grid.Column="0" Content="← Nazad" Classes="secondary-button"
-				        Command="{Binding GoToBackCommand}" Margin="0,0,20,0"/>
-				<TextBlock Grid.Column="1" Text="Novi / Izmeni" Classes="page-title"/>
-			</Grid>
+				<!-- Header: back + title -->
+				<Grid Grid.Row="0" ColumnDefinitions="Auto,*" Margin="0,0,0,24">
+					<Button Grid.Column="0" Content="← Nazad" Classes="secondary-button"
+					        Command="{Binding GoToBackCommand}" Margin="0,0,20,0"/>
+					<TextBlock Grid.Column="1" Text="Novi / Izmeni" Classes="page-title"/>
+				</Grid>
 
-			<!-- Content -->
-			<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-				<Border Classes="card" Padding="28" Width="760"
-				        HorizontalAlignment="Center" VerticalAlignment="Top">
-					<StackPanel Spacing="22">
+				<!-- Type name bar -->
+				<Border Grid.Row="1" Classes="card" Padding="24,18" Margin="0,0,0,20">
+					<Grid ColumnDefinitions="*,Auto">
+						<StackPanel Grid.Column="0" Spacing="4" VerticalAlignment="Center">
+							<TextBlock Text="Ime tipa" Classes="field-label"/>
+							<TextBlock Text="{Binding Name}" Classes="field-value" FontSize="20"/>
+						</StackPanel>
+						<Button Grid.Column="1" Content="Izmeni" Classes="primary-button"
+						        VerticalAlignment="Center"
+						        Command="{Binding GoToEditCommand}"/>
+					</Grid>
+				</Border>
 
-						<!-- Type name -->
-						<Grid ColumnDefinitions="*,Auto">
-							<StackPanel Grid.Column="0" Spacing="4">
-								<TextBlock Text="Ime tipa" Classes="field-label"/>
-								<TextBlock Text="{Binding Name}" Classes="field-value" FontSize="20"/>
-							</StackPanel>
-							<Button Grid.Column="1" Content="Izmeni" Classes="primary-button"
-							        VerticalAlignment="Center"
-							        Command="{Binding GoToEditCommand}"/>
-						</Grid>
+				<!-- Three sections side by side -->
+				<Grid Grid.Row="2" ColumnDefinitions="*,20,*,20,*">
 
-						<Border Classes="divider"/>
-
-						<!-- Sticanje -->
-						<StackPanel Spacing="10">
+					<!-- Sticanje -->
+					<Border Grid.Column="0" Classes="card" Padding="24" VerticalAlignment="Top">
+						<StackPanel Spacing="12">
 							<TextBlock Text="Sticanje" Classes="section-title"/>
 							<ListBox Classes="files-list" ItemsSource="{Binding SticanjeFiles}"
 							         ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -77,15 +75,15 @@
 								</ListBox.ItemTemplate>
 							</ListBox>
 							<Button Content="+ Dodaj zahtev za sticanje" Classes="secondary-button"
-							        HorizontalAlignment="Left"
+							        HorizontalAlignment="Stretch"
 							        Command="{Binding DodajZahtevZaSticanjeCommand}"
 							        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 						</StackPanel>
+					</Border>
 
-						<Border Classes="divider"/>
-
-						<!-- Obnova -->
-						<StackPanel Spacing="10">
+					<!-- Obnova -->
+					<Border Grid.Column="2" Classes="card" Padding="24" VerticalAlignment="Top">
+						<StackPanel Spacing="12">
 							<TextBlock Text="Obnova" Classes="section-title"/>
 							<ListBox Classes="files-list" ItemsSource="{Binding ObnovaFiles}"
 							         ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -96,15 +94,15 @@
 								</ListBox.ItemTemplate>
 							</ListBox>
 							<Button Content="+ Dodaj zahtev za obnovu" Classes="secondary-button"
-							        HorizontalAlignment="Left"
+							        HorizontalAlignment="Stretch"
 							        Command="{Binding DodajZahtevZaObnovuCommand}"
 							        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 						</StackPanel>
+					</Border>
 
-						<Border Classes="divider"/>
-
-						<!-- Refresh -->
-						<StackPanel Spacing="10">
+					<!-- Refresh -->
+					<Border Grid.Column="4" Classes="card" Padding="24" VerticalAlignment="Top">
+						<StackPanel Spacing="12">
 							<TextBlock Text="Refresh" Classes="section-title"/>
 							<ListBox Classes="files-list" ItemsSource="{Binding RefreshFiles}"
 							         ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -115,14 +113,13 @@
 								</ListBox.ItemTemplate>
 							</ListBox>
 							<Button Content="+ Dodaj zahtev za refresh" Classes="secondary-button"
-							        HorizontalAlignment="Left"
+							        HorizontalAlignment="Stretch"
 							        Command="{Binding DodajZahtevZaRefreshCommand}"
 							        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 						</StackPanel>
-
-					</StackPanel>
-				</Border>
-			</ScrollViewer>
-		</Grid>
+					</Border>
+				</Grid>
+			</Grid>
+		</ScrollViewer>
 	</LayoutTransformControl>
 </UserControl>
