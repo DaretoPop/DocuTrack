@@ -832,10 +832,10 @@ namespace DocuTrack.Data
         {
             try
             {
-                var id = AddCertificate(certificate);
+                AddCertificate(certificate);
                 foreach (var file in files)
                 {
-                    file.SailorID = id;
+                    file.SailorID = certificate.SailorID;
                 }
                 addCertificateFiles(files);
             }
