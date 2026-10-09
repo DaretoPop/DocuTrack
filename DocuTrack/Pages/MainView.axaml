@@ -58,11 +58,11 @@
                 <!-- Bottom: zoom + exit -->
                 <StackPanel Grid.Row="1" Spacing="12">
                     <StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
-                        <Button Classes="tool" Content="-" Command="{Binding DecreaseScaleCommand}"/>
-                        <TextBlock Text="{Binding ScalingPercent}" MinWidth="44"
+                        <!-- <Button Classes="tool" Content="-" Command="{Binding DecreaseScaleCommand}"/> -->
+                        <!-- <TextBlock Text="{Binding ScalingPercent}" MinWidth="44"
                                    TextAlignment="Center" VerticalAlignment="Center"
-                                   FontSize="14" Foreground="#6B7280"/>
-                        <Button Classes="tool" Content="+" Command="{Binding IncreaseScaleCommand}"/>
+                                   FontSize="14" Foreground="#6B7280"/> -->
+                        <!-- <Button Classes="tool" Content="+" Command="{Binding IncreaseScaleCommand}"/> -->
                     </StackPanel>
 
                     <Border Classes="divider"/>
