@@ -88,7 +88,7 @@
 		</Border>
 
 		<!-- Files -->
-		<StackPanel Spacing="6">
+		<!-- <StackPanel Spacing="6">
 			<TextBlock Text="{Binding HowManyFilesAreSelected}"
 			           Classes="dialog-note"
 			           IsVisible="{Binding HowManyFilesAreSelected, Converter={StaticResource StringNotEmptyToBoolConverter}}"/>
@@ -97,7 +97,7 @@
 			        HorizontalAlignment="Left"
 			        Command="{Binding DodajDokumentaCommand}"
 			        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-		</StackPanel>
+		</StackPanel> -->
 
 		<!-- Save -->
 		<Button Content="Sačuvaj" Classes="primary-button"
