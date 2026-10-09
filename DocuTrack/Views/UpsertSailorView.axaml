@@ -4,87 +4,102 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:UpsertSailorViewModel"
-             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-             x:Class="DocuTrack.Views.UpsertSailorView">
+             x:Class="DocuTrack.Views.UpsertSailorView"
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="900"
+             Foreground="#1F2937">
 
-<Viewbox Stretch="Uniform">
-  <!-- OUTSIDE CARD -->
-    <Canvas Background="#5D8AA8" Width="1920" Height="1080">
-        <Canvas.RenderTransform>
-            <ScaleTransform 
-                    ScaleX="{Binding ScalingFactor}" 
-                    ScaleY="{Binding ScalingFactor}"/>
-	    </Canvas.RenderTransform>
+	<UserControl.Styles>
+		<Style Selector="TextBox.form-input">
+			<Setter Property="MinHeight" Value="44"/>
+			<Setter Property="Padding" Value="14,0"/>
+			<Setter Property="CornerRadius" Value="8"/>
+			<Setter Property="Background" Value="#FFFFFF"/>
+			<Setter Property="BorderBrush" Value="#E5E7EB"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="#1F2937"/>
+			<Setter Property="FontSize" Value="15"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+		<Style Selector="TextBox.form-input:pointerover /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="#FFFFFF"/>
+			<Setter Property="BorderBrush" Value="#CBD5E1"/>
+		</Style>
+		<Style Selector="TextBox.form-input:focus /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="#FFFFFF"/>
+			<Setter Property="BorderBrush" Value="#2F5D8A"/>
+		</Style>
+	</UserControl.Styles>
 
-<!--  Back Button -->
-         <Border Classes="upsert-back-border" Canvas.Top="520" Canvas.Left="400">
+	<LayoutTransformControl>
+		<LayoutTransformControl.LayoutTransform>
+			<ScaleTransform ScaleX="{Binding ScalingFactor}"
+			                ScaleY="{Binding ScalingFactor}"/>
+		</LayoutTransformControl.LayoutTransform>
 
-      <Button Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-              Command="{Binding GoBackCommand}"
-              Classes="TransparentHoverButton">
-       <Image Classes="upsert-back-icon"/>
+		<Grid RowDefinitions="Auto,*" Margin="40,32">
 
-      </Button>
-    </Border>
+			<!-- Header: back + title -->
+			<Grid Grid.Row="0" ColumnDefinitions="Auto,*" Margin="0,0,0,24">
+				<Button Grid.Column="0" Content="← Nazad" Classes="secondary-button"
+				        Command="{Binding GoBackCommand}" Margin="0,0,20,0"/>
+				<Panel Grid.Column="1">
+					<TextBlock Text="Kreiraj Pomorca" Classes="page-title"
+					           IsVisible="{Binding !SailorExists}"/>
+					<TextBlock Text="Izmeni Pomorca" Classes="page-title"
+					           IsVisible="{Binding SailorExists}"/>
+				</Panel>
+			</Grid>
 
-        <!--  Main CARD -->
-        <Border Classes="upsert-main-card" Canvas.Top="300" Canvas.Left="600">
-            <Grid RowDefinitions="Auto,*">
-                <!-- Header -->
-                 <Border Classes="addnew-header">
-                        <TextBlock Text="Kreiraj Pomorca" Classes="header-text"/>
-                </Border>
+			<!-- Form card -->
+			<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+				<Border Classes="card" Padding="32" Width="560"
+				        HorizontalAlignment="Center" VerticalAlignment="Top">
+					<StackPanel Spacing="20">
 
-            <Grid Grid.Row="1">
-                <StackPanel Margin="40" Spacing="0">
-                    <!-- IME -->
-                    <Border Classes="upsert-ime-border">
-                        <TextBox Text="{Binding Name , Mode=TwoWay}" Classes="upsert-ime-text"/>
-                    </Border>
-                    
-                    <!-- PREZIME  -->
-                    <Border Classes="upsert-prezime-border">
-                        <TextBox Text="{Binding Surname , Mode=TwoWay}" Classes="upsert-prezime-text"/>
-                    </Border>
+						<StackPanel Spacing="6">
+							<TextBlock Text="Ime" Classes="field-label"/>
+							<TextBox Text="{Binding Name, Mode=TwoWay}" Classes="form-input"/>
+						</StackPanel>
 
-                            <!-- JMBG -->
-                    <Border Classes="upsert-jmbg-border">
-                        <TextBox Text="{Binding GID , Mode=TwoWay}" Classes="upsert-jmbg-text"/>
-                    </Border>
+						<StackPanel Spacing="6">
+							<TextBlock Text="Prezime" Classes="field-label"/>
+							<TextBox Text="{Binding Surname, Mode=TwoWay}" Classes="form-input"/>
+						</StackPanel>
 
+						<StackPanel Spacing="6">
+							<TextBlock Text="JMBG" Classes="field-label"/>
+							<TextBox Text="{Binding GID, Mode=TwoWay}" Classes="form-input"/>
+						</StackPanel>
 
-                    <!-- Kreiraj -->
-                    <Button Content="Kreiraj"
-                            IsVisible="{Binding !SailorExists}"
-                            Command="{Binding SubmitCommand}"
-                            Classes="upsert-kreiraj-button"/>
+						<!-- Refresh checkbox -->
+						<CheckBox x:Name="termsOfServiceCheckBox"
+						          IsChecked="{Binding IsRefresh, Mode=TwoWay}"
+						          Content="Refresh" FontSize="15"/>
 
-                    <!-- Promeni/Izbrisi -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
-                    <Button Content="Promeni"
-                            IsVisible="{Binding SailorExists}"
-                            Command="{Binding SubmitCommand}"
-                            Classes="upsert-kreiraj-button"/>
-    
-                    <Button Content="Izbriši"
-                            IsVisible="{Binding SailorExists}"
-                            Command="{Binding DeleteSailorCommand}"
-                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                            Classes="upsert-kreiraj-button"/>
-                </StackPanel>
+						<!-- Error -->
+						<Border Classes="upsert-error"
+						        IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+							<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
+						</Border>
 
-                             <!-- Error  -->
-					<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
-                        <TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
-                    </Border>
+						<!-- Actions -->
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+							<Button Content="Izbriši" Classes="danger-button"
+							        IsVisible="{Binding SailorExists}"
+							        Command="{Binding DeleteSailorCommand}"
+							        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
 
-                </StackPanel>
-                           
-                            <!-- Checkbox for Refresh -->
-                        <CheckBox x:Name="termsOfServiceCheckBox" IsChecked="{Binding IsRefresh, Mode=TwoWay}" Content="Refresh" Margin="100 200 0 0" FontSize="20"/>
-            </Grid>
-            </Grid>
-        </Border>
-    </Canvas>
-    </Viewbox>
+							<Button Content="Promeni" Classes="primary-button" MinWidth="110"
+							        IsVisible="{Binding SailorExists}"
+							        Command="{Binding SubmitCommand}"/>
+
+							<Button Content="Kreiraj" Classes="primary-button" MinWidth="110"
+							        IsVisible="{Binding !SailorExists}"
+							        Command="{Binding SubmitCommand}"/>
+						</StackPanel>
+					</StackPanel>
+				</Border>
+			</ScrollViewer>
+		</Grid>
+	</LayoutTransformControl>
 </UserControl>

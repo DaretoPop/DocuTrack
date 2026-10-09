@@ -2,18 +2,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:CertificateTypeViewModel"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="60"
              x:Class="DocuTrack.Views.CertificateTypeRowView">
 
+    <UserControl.Styles>
+        <!-- Whole row is one flat, clickable card (same as SailorRowView) -->
+        <Style Selector="Button.sailor-row">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="16,4"/>
+            <Setter Property="MinHeight" Value="52"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E5E7EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#F9FAFB"/>
+            <Setter Property="BorderBrush" Value="#CBD5E1"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#F3F4F6"/>
+        </Style>
 
+        <!-- Cells -->
+        <Style Selector="TextBlock.cell-name">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#1F2937"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+        </Style>
+        <Style Selector="TextBlock.cell-arrow">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#9CA3AF"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pointerover TextBlock.cell-name">
+            <Setter Property="Foreground" Value="#2F5D8A"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pointerover TextBlock.cell-arrow">
+            <Setter Property="Foreground" Value="#2F5D8A"/>
+        </Style>
+    </UserControl.Styles>
 
-        <Border Classes="document-type-container" Height="58" >
-            <Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
-                <TextBlock Text="{Binding Name}" Classes="document-container-text"/>
-                <Button Content="VIDI" Command="{Binding OpenCertificateTypeCommand}" Classes="view-button" />
-            </Grid>
-        </Border>
-
+    <Button Classes="sailor-row"
+            Command="{Binding OpenCertificateTypeCommand}">
+        <Grid ColumnDefinitions="*,Auto" VerticalAlignment="Center">
+            <TextBlock Grid.Column="0" Text="{Binding Name}" Classes="cell-name"/>
+            <TextBlock Grid.Column="1" Text="›" Classes="cell-arrow"/>
+        </Grid>
+    </Button>
 </UserControl>

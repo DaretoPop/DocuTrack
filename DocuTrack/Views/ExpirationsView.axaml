@@ -3,188 +3,100 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
+             xmlns:scaling="clr-namespace:DocuTrack.UI.Scaling"
              x:DataType="vm:ExpirationsViewModel"
              x:Class="DocuTrack.Views.ExpirationsView"
-			 xmlns:scaling="clr-namespace:DocuTrack.UI.Scaling"
-             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-             Foreground="White">
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="900"
+             Foreground="#1F2937">
 
+	<LayoutTransformControl>
+		<LayoutTransformControl.LayoutTransform>
+			<ScaleTransform ScaleX="{Binding ScalingFactor}"
+			                ScaleY="{Binding ScalingFactor}"/>
+		</LayoutTransformControl.LayoutTransform>
 
+		<Grid RowDefinitions="Auto,*" Margin="40,32">
 
-	<UserControl.Styles>
-		<Style Selector="ListBoxItem:pointerover">
-			<Setter Property="Background" Value="#FFE0E0E0"/>
-		</Style>
-	</UserControl.Styles>
-	<!-- <ScrollViewer HorizontalScrollBarVisibility=""
-                  VerticalScrollBarVisibility="Auto"
-				  > -->
-	<Viewbox Stretch="Uniform">
-		<!-- Base canvas with fixed dimensions -->
-		<Canvas Width="1920" Height="1080" Background="#5D8AA8">
-			<Canvas.RenderTransform>
-				<ScaleTransform ScaleX="{Binding ScalingFactor}"
-                                ScaleY="{Binding ScalingFactor}"/>
-			</Canvas.RenderTransform>
+			<!-- Toolbar: title + count on the left, search on the right -->
+			<Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,24">
 
-
-
-			<!-- Main Center Card -->
-			<Border x:Name="MainCard" Classes="exp-main-card">
-				<Grid RowDefinitions="Auto,*">
-
-					<!-- Header -->
-					<Border Classes="exp-main-header">
-						<Grid>
-							<TextBlock Text="Datumi Isteka Sertifikata" Classes="exp-main-text"/>
-							<StackPanel Classes="totalcount-stack-panel">
-
-								<TextBlock
-									Text="Ukupno: "
-									Classes="sailors-ukupanBroj-text"/>
-
-								<!-- TotalSailorsCound -->
-								<TextBlock
-									Text="{Binding TotalSertificateCount}"
-									Classes="sailors-count-text"/>
-
-							</StackPanel>
-						</Grid>
+				<StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+					<TextBlock Text="Datumi Isteka Sertifikata" Classes="page-title"/>
+					<Border Classes="count-badge">
+						<StackPanel Orientation="Horizontal" Spacing="4">
+							<TextBlock Text="Ukupno:" Classes="count-text"/>
+							<TextBlock Text="{Binding TotalSertificateCount}" Classes="count-text strong"/>
+						</StackPanel>
 					</Border>
-					<!-- Scroll of rows -->
-					<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20">
-						<StackPanel Spacing="10">
-							<TextBlock Text="Nema dokumenta koji ističu u periodu od 10 meseci (300 dana)" IsVisible="{Binding NoCertificates}" TextAlignment="Center"  Foreground="Black" FontSize="24"/>
+				</StackPanel>
 
-                            <ListBox ItemsSource="{Binding PaginatedCertificates}" SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}" Background="White" >
+				<TextBox Grid.Column="1"
+				         Text="{Binding SearchTerm, Mode=TwoWay}"
+				         Watermark="Pretraga po tipu / imenu / prezimenu"
+				         Classes="search-box" Width="360"/>
+			</Grid>
+
+		<!-- Card with table + pagination -->
+			<Border Grid.Row="1" x:Name="MainCard" Classes="card">
+				<Grid RowDefinitions="Auto,*,Auto">
+
+					<!-- Column headers (aligned with the row cells) -->
+					<Grid Grid.Row="0" ColumnDefinitions="*,*,*"
+					      Margin="37,16,37,0"
+					      IsVisible="{Binding !NoCertificates}">
+						<TextBlock Grid.Column="0" Text="Ime i prezime" Classes="table-header"/>
+						<TextBlock Grid.Column="1" Text="Tip dokumenta" Classes="table-header" HorizontalAlignment="Center"/>
+						<TextBlock Grid.Column="2" Text="Datum isteka" Classes="table-header" HorizontalAlignment="Right"/>
+					</Grid>
+
+					<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Padding="20,8,20,0">
+						<StackPanel Spacing="10" Margin="0,0,0,12">
+							<TextBlock Text="Nema dokumenta koji ističu u periodu od 10 meseci (300 dana)"
+							           IsVisible="{Binding NoCertificates}"
+							           Classes="empty-text"/>
+
+							<ListBox Classes="exp-list"
+							         ItemsSource="{Binding PaginatedCertificates}"
+							         SelectedItem="{Binding SelectedCertificate, Mode=TwoWay}">
 								<ListBox.ItemTemplate>
 									<DataTemplate>
-										<Grid Width="1100"
-											  Height="45"
-											  ColumnDefinitions="*,*,*"
-											  VerticalAlignment="Center">
-
-											<TextBlock Grid.Column="0"
-													   Text="{Binding SailorName}"
-													   Classes="imeprezime-label"
-													   VerticalAlignment="Center"
-													   HorizontalAlignment="Left"
-													   FontSize="20"/>
-
-											<StackPanel Grid.Column="1"
-														Orientation="Horizontal"
-														VerticalAlignment="Center"
-														HorizontalAlignment="Center">
-												<TextBlock Text="📜"
-														   Margin="0,0,5,0"
-														   VerticalAlignment="Center"
-														   FontSize="20"/>
-												<TextBlock Text="{Binding CertificateTypeName}"
-														   Classes="typecert-label"
-														   VerticalAlignment="Center"
-														   FontSize="20"/>
-											</StackPanel>
-
-											<StackPanel Grid.Column="2"
-														Orientation="Horizontal"
-														VerticalAlignment="Center"
-														HorizontalAlignment="Right">
-												<TextBlock Text="📅"
-														   Margin="0,0,5,0"
-														   VerticalAlignment="Center"/>
-												<TextBlock Text="{Binding DateOfExpiration}"
-														   Classes="istice-label"
-														   VerticalAlignment="Center"
-														   FontSize="20"/>
-											</StackPanel>
-
+										<Grid ColumnDefinitions="*,*,*" VerticalAlignment="Center">
+											<TextBlock Grid.Column="0" Text="{Binding SailorName}"
+											           Classes="imeprezime-label"/>
+											<TextBlock Grid.Column="1" Text="{Binding CertificateTypeName}"
+											           Classes="typecert-label"/>
+											<TextBlock Grid.Column="2" Text="{Binding DateOfExpiration}"
+											           Classes="istice-label"/>
 										</Grid>
 									</DataTemplate>
 								</ListBox.ItemTemplate>
-								<ListBox.Styles>
-									<!-- Text color on hover for SailorName -->
-									<Style Selector="ListBoxItem:pointerover TextBlock.imeprezime-label">
-										<Setter Property="Foreground" Value="#5D8AA8"/>
-									</Style>
-
-									<!-- Bold text on selected item -->
-									<Style Selector="ListBoxItem:selected TextBlock.imeprezime-label">
-										<Setter Property="FontWeight" Value="Bold"/>
-									</Style>
-								</ListBox.Styles>
 							</ListBox>
-
 						</StackPanel>
 					</ScrollViewer>
-					<Border Classes="page-navigation" IsVisible="{Binding !NoCertificates}">
-						<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10" Margin="5" VerticalAlignment="Bottom">
 
-							<!-- FIRST PAGE -->
-							<Button Command="{Binding GoToFirstPageCommand}"
-									IsEnabled="{Binding CanGoToFirstOrPrevious}"
-									Background="Transparent"
-									Focusable="False"
-									Classes="TransparentHoverButton">
-								<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-									  Stretch="Uniform"
-									  Width="24" Height="24"/>
-							</Button>
-							<!-- LEFT ARROW -->
-							<Button Command="{Binding GoToPreviousPageCommand}"
-									IsEnabled="{Binding CanGoToFirstOrPrevious}"
-									Background="Transparent"
-									Focusable="False"
-									Classes="TransparentHoverButton">
-								<Image Source="avares://DocuTrack/Assets/left-arrow.png"
-									  Stretch="Uniform"
-									  Width="32" Height="32"/>
-							</Button>
-
-							<TextBlock Text="{Binding CurrentPage}" FontSize="16" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"   />
-
-							<!-- RIGHT ARROW -->
-							<Button Command="{Binding GoToNextPageCommand}"
-									IsEnabled="{Binding CanGoToNextOrLast}"
-									Background="Transparent"
-									Focusable="True"
-									Classes="TransparentHoverButton">
-								<Image Source="avares://DocuTrack/Assets/right-arrow.png"
-									  Stretch="Uniform"
-									  Width="32" Height="32"/>
-							</Button>
-
-							<!-- LAST PAGE -->
-							<Button Command="{Binding GoToLastPageCommand}"
-									IsEnabled="{Binding CanGoToNextOrLast}"
-									Background="Transparent"
-									Focusable="False"
-									Classes="TransparentHoverButton">
-								<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-									  Stretch="Uniform"
-									  Width="24" Height="24"/>
-							</Button>
-
-
-
-
+					<!-- Pagination -->
+					<Border Grid.Row="2" Classes="pagination-bar" IsVisible="{Binding !NoCertificates}">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+						            VerticalAlignment="Center" Spacing="6">
+							<Button Content="«" Classes="page-btn"
+							        Command="{Binding GoToFirstPageCommand}"
+							        IsEnabled="{Binding CanGoToFirstOrPrevious}"/>
+							<Button Content="‹" Classes="page-btn"
+							        Command="{Binding GoToPreviousPageCommand}"
+							        IsEnabled="{Binding CanGoToFirstOrPrevious}"/>
+							<TextBlock Text="{Binding CurrentPage}" MinWidth="40"
+							           TextAlignment="Center" VerticalAlignment="Center"
+							           FontSize="15" FontWeight="SemiBold" Foreground="#1F2937"/>
+							<Button Content="›" Classes="page-btn"
+							        Command="{Binding GoToNextPageCommand}"
+							        IsEnabled="{Binding CanGoToNextOrLast}"/>
+							<Button Content="»" Classes="page-btn"
+							        Command="{Binding GoToLastPageCommand}"
+							        IsEnabled="{Binding CanGoToNextOrLast}"/>
 						</StackPanel>
 					</Border>
 				</Grid>
 			</Border>
-
-			<!-- Search Field on top-left of the main card -->
-			<Border Classes="search-border" Canvas.Left="320"
-											Canvas.Top="84">
-				<!-- ICON AND TEXT -->
-				<DockPanel LastChildFill="True">
-					<TextBlock Text="🔍" Classes="search-icon"/>
-					<TextBox Classes="search-text" Watermark="Pretrazi po Tipu/Imenu/Prezimenu" Text="{Binding SearchTerm, Mode=TwoWay}" />
-				</DockPanel>
-			</Border>
-
-
-		</Canvas>
-	</Viewbox>
-	<!-- </ScrollViewer> -->
-
+		</Grid>
+	</LayoutTransformControl>
 </UserControl>

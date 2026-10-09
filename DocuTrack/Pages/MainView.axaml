@@ -1,155 +1,84 @@
-<Window     xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DocuTrack.Views"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-        MinWidth="800" MinHeight="600"  
+        MinWidth="800" MinHeight="600"
         WindowStartupLocation="CenterScreen"
         x:Class="DocuTrack.Views.MainWindow"
-        xmlns:vm="clr-namespace:DocuTrack.Views"
-        xmlns:view="clr-namespace:DocuTrack.Views"
         x:DataType="vm:MainViewModel"
         Icon="avares://DocuTrack/Assets/AppIcon.ico"
+        Background="#F5F7FA"
         Title="DocuTrack">
 
+    <Grid ColumnDefinitions="Auto,*">
 
-<!-- Outside Background of LoginView -->
-<!-- Background                   Sidebar  -->
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Width="230"
+                Background="#FFFFFF"
+                BorderBrush="#E5E7EB" BorderThickness="0,0,1,0"
+                Padding="16,24"
+                IsVisible="{Binding IsLoggedIn}">
+            <Grid RowDefinitions="*,Auto">
 
-<Grid Background="#5D8AA8" ColumnDefinitions="Auto,*">
-    <!-- Change the pageViews -->
-    <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
- 
+                <StackPanel Grid.Row="0" Spacing="4">
 
+                    <!-- Logo -->
+                    <StackPanel Orientation="Horizontal" Spacing="10" Margin="8,0,0,0">
+                        <Image Classes="main-image" VerticalAlignment="Center"/>
+                        <Label Content="{Binding App}" VerticalAlignment="Center"
+                               FontSize="22" FontWeight="SemiBold" Foreground="#1F2937"/>
+                    </StackPanel>
 
-                            <!-- Color of Sidebar -->
-    <Border Padding="20" Background="#FAFAFA" IsVisible="{Binding IsLoggedIn}">
-        <Grid RowDefinitions="*,Auto">
+                    <Border Classes="divider" Margin="0,20,0,16"/>
 
-            <!-- BottomRightCorner -->
-            <StackPanel x:Name="BottomRightCorner"
-                        Orientation="Vertical"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="0,110,0,0"
-                        Spacing="6"
-                        >
-                <!-- Buttons in a horizontal row -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
-                    <Button Content="-" Command="{Binding DecreaseScaleCommand}" Width="28" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#5D8AA8"/>
-                    <Button Content="+" Command="{Binding IncreaseScaleCommand}" Width="28" Height="28" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#5D8AA8"/>
-                    <TextBlock Text="{Binding ScalingPercent}" FontSize="20" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <!-- Početna -->
+                    <Button Classes="nav" Command="{Binding GoToPocetnaCommand}">
+                        <Border Classes="item" Classes.active="{Binding IsPocetnaSelected}">
+                            <TextBlock Text="{Binding Pocetna}"/>
+                        </Border>
+                    </Button>
+
+                    <!-- Pomorci -->
+                    <Button Classes="nav" Command="{Binding GoToPomorciCommand}">
+                        <Border Classes="item" Classes.active="{Binding IsPomorciSelected}">
+                            <TextBlock Text="{Binding Pomorci}"/>
+                        </Border>
+                    </Button>
+
+                    <!-- Dokumenta -->
+                    <Button Classes="nav" Command="{Binding GoToDokumentaCommand}">
+                        <Border Classes="item" Classes.active="{Binding IsDokumentaSelected}">
+                            <TextBlock Text="{Binding Dokumenta}"/>
+                        </Border>
+                    </Button>
                 </StackPanel>
-            </StackPanel>
 
+                <!-- Bottom: zoom + exit -->
+                <StackPanel Grid.Row="1" Spacing="12">
+                    <StackPanel x:Name="BottomRightCorner" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+                        <Button Classes="tool" Content="-" Command="{Binding DecreaseScaleCommand}"/>
+                        <TextBlock Text="{Binding ScalingPercent}" MinWidth="44"
+                                   TextAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="14" Foreground="#6B7280"/>
+                        <Button Classes="tool" Content="+" Command="{Binding IncreaseScaleCommand}"/>
+                    </StackPanel>
 
+                    <Border Classes="divider"/>
 
-            <StackPanel Spacing="12">
-                
-               <!-- LOGO -->
-    <StackPanel Orientation="Horizontal">
-        <Image Classes="main-image"/>
-        <Label Content="{Binding App}" HorizontalAlignment="Left" VerticalAlignment="Stretch" FontSize="30" Foreground="#676767"/>
-    </StackPanel>
-
-                <!-- Separator line -->
-   <Separator Classes="main-logo-separator"/>
-
-
-
-                <!-- POCETNA  -->
-                <Button
-                    Background="Transparent" HorizontalAlignment="Stretch" Padding="0"
-                    Command="{Binding GoToPocetnaCommand}"
-                    Classes="TransparentHoverButton">
-
-                <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
-    
-                    <Rectangle
-                        Grid.Column="0" Fill="#0b218e" Margin="0 0 3 0"
-                        IsVisible="{Binding IsPocetnaSelected}"/>
-
-                    <TextBlock
-                        Text="{Binding Pocetna}"
-                        Classes="main-pocetnaStrana-text"
-                        Foreground="#5D8AA8"/>
-
-                    <TextBlock Text="◀" IsVisible="{Binding IsPocetnaSelected}" Classes="main-pocetna-arrow"/> 
-                </Grid>
-                </Button>
-
-<StackPanel HorizontalAlignment="Left">
-    <Border Classes="main-line-separator"/>
-</StackPanel>
-
-                 <!-- POMORCI -->
-                <Button
-                    Background="Transparent" HorizontalAlignment="Stretch" Padding="0"
-                    Command="{Binding GoToPomorciCommand}"
-                    Classes="TransparentHoverButton">
-
-                <Grid ColumnDefinitions="4,*,Auto" VerticalAlignment="Center" Margin="0,4">
-                    <Rectangle Grid.Column="0" Fill="#0b218e" IsVisible="{Binding IsPomorciSelected}" Margin="0 0 2 0"/>
-                    <TextBlock Text="{Binding Pomorci}" Classes="main-pomorciStrana-text" Foreground="#5D8AA8"/>
-                    <TextBlock Text="◀" Classes="pomorci-arrow" IsVisible="{Binding IsPomorciSelected}"/>
-                </Grid>
-                </Button>
-
-<StackPanel HorizontalAlignment="Left">
-    <Border Classes="main-line-separator"/>
-</StackPanel>
-
-                <!-- DOKUMENTA -->
-           <Button Command="{Binding GoToDokumentaCommand}" Classes="TransparentHoverButton main-dokumentaPage-button">
-                <Grid ColumnDefinitions="4,*,Auto" Classes="main-default-grid">
-
-                    <Rectangle Grid.Column="0" Fill="#0b218e" IsVisible="{Binding IsDokumentaSelected}" Margin="0,0,2,0"/>
-                    <TextBlock Text="{Binding Dokumenta}" Classes="main-dokumentaPage-text" Foreground="#5D8AA8"/>
-                    <TextBlock Text="◀" Classes="main-dokumenta-arrow" IsVisible="{Binding IsDokumentaSelected}"/>
-                </Grid>
-                </Button>
-
-<StackPanel HorizontalAlignment="Left">
-    <Border Classes="main-line-separator" Width="130"/>
-</StackPanel>
-
-<StackPanel Margin="20">
-    <!-- your existing UI... -->
-
-    <!-- trial countdown -->
-    <TextBlock Text="DocuTrack trial expires:"
-               FontWeight="Bold" />
-    <TextBlock Text="{Binding RemainingTimeDisplay}"
-               FontSize="16"
-               Foreground="Red" />
-  </StackPanel>
-
-            <!-- End of sidebar -->
-            </StackPanel>
-        
-                        <!-- IZADJI--> 
-             <Button Grid.Row="1" Content="{Binding Izadji}" Background="Transparent" Foreground="#5D8AA8" HorizontalAlignment="Stretch" FontSize="20"    
-                     Command="{Binding ExitCommand}"
-                     CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-                     Classes="TransparentHoverButton">
-                </Button>
+                    <Button Classes="nav"
+                            Command="{Binding ExitCommand}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                        <Border Classes="item">
+                            <TextBlock Text="{Binding Izadji}"/>
+                        </Border>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
+
+        <!-- Page content -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentPage}"/>
     </Grid>
 </Window>
-
-
-
-
-
-
-
-
-
-
-<!--* This setup MainWindow DataContex of MainViewModel -> Transfer to App.axml.cs -->
-<!--TODO: Delete Later -->
-
-<!-- <Window.DataContext>
-    <vm:MainViewModel></vm:MainViewModel>
-</Window.DataContext> -->

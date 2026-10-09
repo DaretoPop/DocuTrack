@@ -2,51 +2,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
              xmlns:vm="clr-namespace:DocuTrack.ViewModels"
              x:DataType="vm:SailorViewModel"
-             x:Class="DocuTrack.Views.SailorView">
+             x:Class="DocuTrack.Views.SailorView"
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="900"
+             Foreground="#1F2937">
 
-	<Viewbox Stretch="Uniform">
-		<!-- Profil Panel -->
-		<Canvas Background="#5D8AA8" Width="1920" Height="1080" >
-			<Canvas.RenderTransform>
-				<ScaleTransform ScaleX="{Binding ScalingFactor}"
-                                ScaleY="{Binding ScalingFactor}"/>
-			</Canvas.RenderTransform>
+	<LayoutTransformControl>
+		<LayoutTransformControl.LayoutTransform>
+			<ScaleTransform ScaleX="{Binding ScalingFactor}"
+			                ScaleY="{Binding ScalingFactor}"/>
+		</LayoutTransformControl.LayoutTransform>
 
+		<Grid RowDefinitions="Auto,*" Margin="40,32">
 
-			<Border Classes="sailorview-main-panel">
-				<Grid Margin="20">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition Height="*"/>
-					</Grid.RowDefinitions>
+			<!-- ========== Header: back, name, GID, refresh, edit ========== -->
+			<Border Grid.Row="0" Classes="card" Padding="20,14" Margin="0,0,0,20">
+				<Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto" VerticalAlignment="Center">
 
-					<!-- Profil Panel Header -->
-					<Border Classes="sailor-profile-header">
-						<Grid ColumnDefinitions="350,200,300,550" VerticalAlignment="Center">
+					<Button Grid.Column="0" Content="← Nazad" Classes="secondary-button"
+					        Command="{Binding GoBackCommand}" Margin="0,0,20,0"/>
 
-							<TextBlock Text="{Binding Fullname}"  Classes="profile-name"/>
-							<TextBlock Text="{Binding GID}"       Classes="profile-gid"/>
-							<TextBlock Text="{Binding Refresh}"   Classes="profile-refresh"/>
-							<Button Content="EDIT" Classes="profile-edit-button" Command="{Binding GoToEditSailorPageCommand}"/>
-						</Grid>
-					</Border>
+					<TextBlock Grid.Column="1" Text="{Binding Fullname}" Classes="profile-name"/>
+					<TextBlock Grid.Column="2" Text="{Binding GID}" Classes="profile-gid" Margin="0,0,28,0"/>
+					<TextBlock Grid.Column="3" Text="{Binding Refresh}" Classes="profile-refresh" Margin="0,0,28,0"/>
+					<Button Grid.Column="4" Content="Izmeni" Classes="primary-button"
+					        Command="{Binding GoToEditSailorPageCommand}"/>
+				</Grid>
+			</Border>
 
-					<!-- Profil Panel Content -->
-					<Grid Grid.Row="1" Margin="0,20,0,0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="10"/>
-							<!-- Vertical Separator -->
-							<ColumnDefinition Width="*" />
-						</Grid.ColumnDefinitions>
+			<!-- ========== Content ========== -->
+			<ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+				<Grid ColumnDefinitions="*,20,*">
 
-						<!-- TOP of Panel leftSide -->
-						<StackPanel Grid.Column="0" Spacing="10">
-							<!-- DOKUMENTI LIST BOX 1 -->
-							<ListBox Classes="sailor-documents-list1" ItemsSource="{Binding Certificates}" SelectedItem="{Binding SelectedCertificateListBox, Mode=TwoWay}">
+					<!-- ===== LEFT: certificates + scanned documents ===== -->
+					<Border Grid.Column="0" Classes="card" Padding="24" VerticalAlignment="Top">
+						<StackPanel Spacing="16">
+
+							<TextBlock Text="Dokumenta" Classes="section-title"/>
+
+							<ListBox Classes="sailor-documents-list1"
+							         ItemsSource="{Binding Certificates}"
+							         SelectedItem="{Binding SelectedCertificateListBox, Mode=TwoWay}">
 								<ListBox.ItemTemplate>
 									<DataTemplate>
 										<TextBlock IsVisible="{Binding isNew}" Text="{Binding Name}"/>
@@ -54,40 +51,26 @@
 								</ListBox.ItemTemplate>
 							</ListBox>
 
-							<!-- Grid if is need to add more button in same row -->
-							<Grid Width="625" Height="60" ColumnDefinitions="*,Auto,*" VerticalAlignment="Center">
-
-								<!-- STICANJE BUTTON -->
-								<Button Content="Sticanje" Classes="sailor-sticanje-button" Command="{Binding SticanjeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-								Margin="0 0 220 0"/>
-
-								<Button Grid.Column="2"
-										Content="Obrisi"
-										Classes="sailor-print-button"
-										Command="{Binding DeleteCommand}"
-										CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-										IsVisible="{Binding IsCertificateSelected}"
-										HorizontalAlignment="Right"
-										Margin="10 0"
-                            />
-
-							
-
+							<Grid ColumnDefinitions="Auto,*,Auto">
+								<Button Grid.Column="0" Content="Sticanje" Classes="primary-button"
+								        Command="{Binding SticanjeCommand}"
+								        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+								<Button Grid.Column="2" Content="Obriši" Classes="danger-button"
+								        Command="{Binding DeleteCommand}"
+								        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+								        IsVisible="{Binding IsCertificateSelected}"/>
 							</Grid>
 
-							<!-- Separator between upper and lower LEFT SIDE -->
+							<!-- Scanned documents (only when a certificate is selected) -->
+							<StackPanel Spacing="16" IsVisible="{Binding IsCertificateSelected}">
+								<Border Classes="divider"/>
 
+								<TextBlock Text="Skenirana Dokumenta" Classes="section-title"/>
 
-							<!-- Bottom of Panel LeftSide -->
-							<StackPanel Spacing="5" HorizontalAlignment="Center">
-								<TextBlock Text="Skenirana Dokumenta" Classes="skenirana-dokumenta"/>
-								<!-- Divider line -->
-								<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="250" HorizontalAlignment="Center"/>
-							</StackPanel>
-
-							<!-- SCANNED DOCUMENTS LIST BOX 2 -->
-							<StackPanel Grid.Column="0" Spacing="10">
-								<ListBox Classes="sailor-documents-list2" ItemsSource="{Binding ScannedDocuments}" SelectedItems="{Binding SelectedFiles, Mode=TwoWay}" SelectionMode="Multiple">
+								<ListBox Classes="sailor-documents-list2"
+								         ItemsSource="{Binding ScannedDocuments}"
+								         SelectedItems="{Binding SelectedFiles, Mode=TwoWay}"
+								         SelectionMode="Multiple">
 									<ListBox.ItemTemplate>
 										<DataTemplate>
 											<TextBlock Text="{Binding FilePath}"/>
@@ -95,155 +78,93 @@
 									</ListBox.ItemTemplate>
 								</ListBox>
 
+								<Grid ColumnDefinitions="Auto,Auto,*,Auto">
+									<Button Grid.Column="0" Content="Dodaj" Classes="primary-button"
+									        Command="{Binding DodajDokumentCommand}"
+									        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+									<Button Grid.Column="1" Content="Štampaj" Classes="secondary-button"
+									        Command="{Binding PrintCommand}" Margin="10,0,0,0"/>
+									<Button Grid.Column="3" Content="Obriši" Classes="danger-button"
+									        Command="{Binding DeleteSkeniranoCommand}"/>
+								</Grid>
 							</StackPanel>
-
-			<Grid 
-					HorizontalAlignment="Stretch"
-					Margin="0,0,0,10">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="*" />
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="*" />
-				</Grid.ColumnDefinitions>
-
-				<Button Grid.Column="0"
-						Content="Dodaj"
-						Classes="sailor-sticanje-button"
-						Command="{Binding DodajDokumentCommand}"
-						CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
-						HorizontalAlignment="Left" />
-
-				<Button Grid.Column="1"
-						Content="Stampaj"
-						Classes="sailor-print-button"
-						Command="{Binding PrintCommand}"
-						HorizontalAlignment="Center" />
-
-				<Button Grid.Column="2"
-						Content="Obrisi"
-						Classes="sailor-print-button"
-						Command="{Binding DeleteSkeniranoCommand}"
-						HorizontalAlignment="Right"
-						Margin="10 0"/>
-				</Grid>
-
 						</StackPanel>
+					</Border>
 
-						<!-- Vertical Separator -->
-						<Border Grid.Column="1" Background="#5D8AA8" Width="5"/>
-						<!-- ############################################################################### -->
+					<!-- ===== RIGHT: details, requests, renew ===== -->
+					<Border Grid.Column="2" Classes="card" Padding="24" VerticalAlignment="Top">
+						<StackPanel Spacing="20">
 
-						<!-- RIGHT SIDE of Profil Panel -->
-						<Grid Grid.Column="2">
-							<Grid.RowDefinitions>
-								<RowDefinition Height="Auto"/>
-								<RowDefinition Height="5"/>
-								<RowDefinition Height="Auto"/>
-							</Grid.RowDefinitions>
+							<!-- Hint when nothing is selected -->
+							<TextBlock Text="Izaberite dokument da vidite detalje"
+							           Classes="empty-text"
+							           Margin="0,40"
+							           IsVisible="{Binding !IsCertificateSelected}"/>
 
-							<!-- Upper Side of Right Panel-->
-							<StackPanel Grid.Row="0" Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding IsCertificateSelected}">
-								<!-- Tip -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Naziv/Tip" Classes="sailor-tip-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.Name}" Classes="sailor-certificate-name"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Izdavanje -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Datum Izdavanja" Classes="sailor-izdavanje-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.DateAcquired}" Classes="sailor-izdavanje-datum"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Istek -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Datum Isteka" Classes="sailor-istek-text"/>
-									<TextBlock Text="{Binding SelectedCertificate.DateExpiration}"   Classes="sailor-istek-datum"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-								<!-- Mesto Izdavanja -->
-								<StackPanel Spacing="5" HorizontalAlignment="Center">
-									<TextBlock Text="Mesto Izdavanja" Classes="sailor-mestoizdavanja"/>
-									<TextBlock Text="{Binding SelectedCertificate.Place}" Classes="sailor-filijala"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-							</StackPanel>
+							<StackPanel Spacing="20" IsVisible="{Binding IsCertificateSelected}">
 
-							<!-- Horizontal Thick Separator -->
-							<Border Grid.Row="1" Background="#5D8AA8" Height="5" Margin="0,20" IsVisible="{Binding IsCertificateSelected}"/>
+								<!-- Details -->
+								<TextBlock Text="Detalji dokumenta" Classes="section-title"/>
 
-							<!-- Lower Part of RightSIDE-->
-							<Grid Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,20,0,20" IsVisible="{Binding IsCertificateSelected}">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto"/>
-									<!-- Zahtevi field -->
-									<RowDefinition Height="Auto"/>
-									<!-- Grid with 3 Request Buttons -->
-									<RowDefinition Height="Auto"/>
-									<!-- Obnovi Dokument field -->
-									<RowDefinition Height="Auto"/>
-									<!-- OBNOVI Button -->
-									<RowDefinition Height="Auto"/>
-									<!-- StareVerzije Button -->
-								</Grid.RowDefinitions>
-
-								<!-- Row 0: "Zahtevi" Field -->
-								<StackPanel Grid.Row="0" HorizontalAlignment="Center" Spacing="5" Margin="0,0,0,20">
-									<TextBlock Text="Zahtevi" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
-
-
-								<Grid Grid.Row="1" Width="605" Height="45" Margin="0,0,0,20">
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition Width="Auto"/>
-										<ColumnDefinition Width="40"/>
-										<ColumnDefinition Width="Auto"/>
-										<ColumnDefinition Width="40"/>
-										<ColumnDefinition Width="Auto"/>
-									</Grid.ColumnDefinitions>
-
-									<Button Content="Zahtev za Obnovu" Classes="sailor-zahtev-button" Command="{Binding ZahtevZaObnovuCommand}"/>
-									<Button Content="Zahtev za Refresh" Classes="sailor-refresh-button" Command="{Binding ZahtevZaRefreshCommand}"/>
-									<Button Content="Zahtev za Sticanje" Classes="sailor-zahtev-sticanje-button" Command="{Binding ZahtevZaSticanjeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+								<Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
+									<StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,0,18">
+										<TextBlock Text="Naziv/Tip" Classes="field-label"/>
+										<TextBlock Text="{Binding SelectedCertificate.Name}" Classes="field-value"/>
+									</StackPanel>
+									<StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,18">
+										<TextBlock Text="Mesto Izdavanja" Classes="field-label"/>
+										<TextBlock Text="{Binding SelectedCertificate.Place}" Classes="field-value"/>
+									</StackPanel>
+									<StackPanel Grid.Row="1" Grid.Column="0">
+										<TextBlock Text="Datum Izdavanja" Classes="field-label"/>
+										<TextBlock Text="{Binding SelectedCertificate.DateAcquired}" Classes="field-value"/>
+									</StackPanel>
+									<StackPanel Grid.Row="1" Grid.Column="1">
+										<TextBlock Text="Datum Isteka" Classes="field-label"/>
+										<TextBlock Text="{Binding SelectedCertificate.DateExpiration}" Classes="field-value"/>
+									</StackPanel>
 								</Grid>
 
-								<!-- Obnovi Dokument -->
-								<StackPanel Grid.Row="2" HorizontalAlignment="Center" Spacing="5" Margin="10,40,0,20">
-									<TextBlock Text="Obnovi Dokument" FontSize="18" Foreground="#555555" HorizontalAlignment="Center"/>
-									<Rectangle Height="1" Fill="#cccccc" StrokeDashArray="4,2" Width="200" HorizontalAlignment="Center"/>
-								</StackPanel>
+								<Border Classes="divider"/>
 
-								<!--OBNOVI BUTTON -->
-								<Button Content="OBNOVI" Classes="sailor-obnovi-button" Command="{Binding OBNOVICommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-								<!-- >Stare Verzije -->
-								<Button Grid.Row="4" Content="> Stare Verzije" Background="Transparent" Foreground="Black" HorizontalAlignment="Stretch" FontSize="17" Margin="0,30,0,100"
-										IsVisible="{Binding haveMultipleVersions}"
-										Classes="TransparentHoverButton"
-										Command="{Binding StareVerzijeCommand}"  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
-								</Button>
+								<!-- Requests -->
+								<TextBlock Text="Zahtevi" Classes="section-title"/>
 
-								<Border Classes="upsert-error" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
+								<Grid ColumnDefinitions="*,10,*,10,*">
+									<Button Grid.Column="0" Content="Zahtev za Obnovu" Classes="secondary-button wide"
+									        Command="{Binding ZahtevZaObnovuCommand}"/>
+									<Button Grid.Column="2" Content="Zahtev za Refresh" Classes="secondary-button wide"
+									        Command="{Binding ZahtevZaRefreshCommand}"/>
+									<Button Grid.Column="4" Content="Zahtev za Sticanje" Classes="secondary-button wide"
+									        Command="{Binding ZahtevZaSticanjeCommand}"
+									        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+								</Grid>
+
+								<Border Classes="divider"/>
+
+								<!-- Renew -->
+								<TextBlock Text="Obnovi Dokument" Classes="section-title"/>
+
+								<Button Content="Obnovi" Classes="primary-button"
+								        HorizontalAlignment="Left"
+								        Command="{Binding OBNOVICommand}"
+								        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+
+								<Button Content="Stare verzije  ›" Classes="link-button"
+								        HorizontalAlignment="Left"
+								        IsVisible="{Binding haveMultipleVersions}"
+								        Command="{Binding StareVerzijeCommand}"
+								        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+
+								<Border Classes="upsert-error"
+								        IsVisible="{Binding ErrorMessage, Converter={StaticResource StringNotEmptyToBoolConverter}}">
 									<TextBlock Text="{Binding ErrorMessage}" Classes="upsert-error-text"/>
 								</Border>
-
-
-							</Grid>
-						</Grid>
-					</Grid>
+							</StackPanel>
+						</StackPanel>
+					</Border>
 				</Grid>
-			</Border>
-
-			<!-- BACK BUTTON -->
-			<Border Classes="sailor-back-border2" Canvas.Top="540" Canvas.Left="180">
-				<Button  Command="{Binding GoBackCommand}" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-						 Classes="TransparentHoverButton">
-					<Image   Classes="sailor-back-image"/>
-
-				</Button>
-			</Border>
-		</Canvas>
-	</Viewbox>
+			</ScrollViewer>
+		</Grid>
+	</LayoutTransformControl>
 </UserControl>
-
-

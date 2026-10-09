@@ -4,25 +4,54 @@
              x:Class="DocuTrack.Views.SailorRowView"
              x:DataType="viewModels:SailorViewModel">
 
+    <UserControl.Styles>
+        <!-- Whole row is one flat, clickable card -->
+        <Style Selector="Button.sailor-row">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="16,4"/>
+            <Setter Property="MinHeight" Value="52"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E5E7EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#F9FAFB"/>
+            <Setter Property="BorderBrush" Value="#CBD5E1"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#F3F4F6"/>
+        </Style>
 
+        <!-- Cells -->
+        <Style Selector="TextBlock.cell-name">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#1F2937"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+        </Style>
+        <Style Selector="TextBlock.cell-muted">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#6B7280"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+        </Style>
+        <Style Selector="Button.sailor-row:pointerover TextBlock.cell-name">
+            <Setter Property="Foreground" Value="#2F5D8A"/>
+        </Style>
+    </UserControl.Styles>
 
-    <Button Classes="gotoSailor-button"
+    <Button Classes="sailor-row"
             Command="{Binding GoToSailorPageCommand}"
             CommandParameter="{Binding}">
-        <Button.Content>
-            <Grid Width="1100" Height="45" ColumnDefinitions="300,500,300" VerticalAlignment="Center">
-                <TextBlock Text="{Binding Fullname}" Classes="row-text"/>
-                <TextBlock Text="{Binding GID}" Classes="row1-text"/>
-                <TextBlock Text="{Binding Refresh}" Classes="row2-text"/>
-            </Grid>
-        </Button.Content>
-        <Button.Styles>
-            <!-- Adding color on hover -->
-               <Style Selector="Button:pointerover TextBlock.row-text,
-                                Button:pointerover TextBlock.row1-text,
-                                Button:pointerover TextBlock.row2-text">
-        <Setter Property="Foreground" Value="#5D8AA8"/>
-            </Style>
-        </Button.Styles>
+        <Grid ColumnDefinitions="2*,*,*" VerticalAlignment="Center">
+            <TextBlock Grid.Column="0" Text="{Binding Fullname}" Classes="cell-name"/>
+            <TextBlock Grid.Column="1" Text="{Binding GID}" Classes="cell-muted"/>
+            <TextBlock Grid.Column="2" Text="{Binding Refresh}" Classes="cell-muted" HorizontalAlignment="Right"/>
+        </Grid>
     </Button>
 </UserControl>

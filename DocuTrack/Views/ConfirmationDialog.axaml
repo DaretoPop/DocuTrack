@@ -1,18 +1,29 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="DocuTrack.Views.ConfirmationDialog"
-        Width="400" Height="200"
+        Width="420" Height="200"
         WindowStartupLocation="CenterScreen"
-        CanResize="False">
-        
-    <Grid RowDefinitions="*,Auto">
+        CanResize="False"
+        Background="#FFFFFF"
+        Title="DocuTrack">
+
+    <Grid RowDefinitions="*,Auto" Margin="28,28,28,24">
+
         <!-- Message -->
-        <TextBlock x:Name="MessageTextBlock" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock x:Name="MessageTextBlock"
+                   Grid.Row="0"
+                   FontSize="16"
+                   Foreground="#1F2937"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-            <Button Content="Da" Click="OnYesClicked" Width="80" CornerRadius="12" Background="#5D8AA8"/>
-            <Button Content="Ne" Click="OnNoClicked" Width="80" Margin="0 30 10 30" CornerRadius="12" Background="#5D8AA8"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Spacing="12" Margin="0,20,0,0">
+            <Button Content="Ne" Click="OnNoClicked" Classes="secondary-button" MinWidth="100"/>
+            <Button Content="Da" Click="OnYesClicked" Classes="primary-button" MinWidth="100"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -6,143 +6,93 @@
              xmlns:views="clr-namespace:DocuTrack.Views"
              x:DataType="vm:SailorsViewModel"
              x:Class="DocuTrack.Views.SailorsView"
-             Foreground="White">
+             mc:Ignorable="d" d:DesignWidth="1400" d:DesignHeight="900"
+             Foreground="#1F2937">
 
+	<LayoutTransformControl>
+		<LayoutTransformControl.LayoutTransform>
+			<ScaleTransform ScaleX="{Binding ScalingFactor}"
+			                ScaleY="{Binding ScalingFactor}"/>
+		</LayoutTransformControl.LayoutTransform>
 
-	<Viewbox Stretch="Uniform">
+		<Grid RowDefinitions="Auto,*" Margin="40,32">
 
-		<Canvas Width="1920" Height="1080"
-			Background="#5D8AA8"
-        >
+			<!-- Toolbar: title on the left, search + create on the right -->
+			<Grid Grid.Row="0" ColumnDefinitions="*,Auto" Margin="0,0,0,24">
 
-			<Canvas.RenderTransform>
-				<ScaleTransform ScaleX="{Binding ScalingFactor}"
-                                ScaleY="{Binding ScalingFactor}"/>
-			</Canvas.RenderTransform>
-
-
-
-			<!-- Search bar -->
-			<Border
-          
-					VerticalAlignment="Top"
-					Classes="sailor-search-border"
-					Canvas.Top="85"
-					Canvas.Left="335">
-
-				<DockPanel LastChildFill="True">
-					<TextBlock Text="🔍" Classes="sailor-search-icon" DockPanel.Dock="Left"/>
-					<TextBox Text="{Binding SearchTerm, Mode=TwoWay}" Classes="sailor-search-text"/>
-				</DockPanel>
-			</Border>
-
-			<!-- Kreiraj button -->
-			<Border Canvas.Top="85"
-					Canvas.Left="1380"
-					VerticalAlignment="Top"
-					Classes="sailor-create-button-frame">
-				<Button Content="Kreiraj Pomorca"
-						Command="{Binding GoToKreirajPomorcaPageCommand}"
-						Classes="TransparentHoverButton"
-						Background="Transparent"
-						Foreground="#676767"
-						FontSize="15.5"/>
-			</Border>
-
-			<!-- Main Card: Row 1 -->
-			<Border Grid.Row="1"
-					x:Name="MainCard"
-					Classes="sailor-main-card"
-					HorizontalAlignment="Center"
-					VerticalAlignment="Stretch"
-					MaxWidth="1200"
-					Margin="20,0,20,0">
-				<Grid RowDefinitions="Auto,*">
-					<Border Classes="sailor-card-header">
-						<Grid>
-							<TextBlock Text="Profil Pomorca" Classes="sailor-card-header-text"/>
-							<StackPanel Classes="totalcount-stack-panel">
-								<TextBlock Text="Pomorci: " Classes="sailors-ukupanBroj-text"/>
-								<TextBlock Text="{Binding TotalSailorsCount}" Classes="sailors-count-text"/>
-							</StackPanel>
-						</Grid>
+				<StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+					<TextBlock Text="Profil Pomorca" Classes="page-title"/>
+					<Border Classes="count-badge">
+						<StackPanel Orientation="Horizontal" Spacing="4">
+							<TextBlock Text="Pomorci:" Classes="count-text"/>
+							<TextBlock Text="{Binding TotalSailorsCount}" Classes="count-text strong"/>
+						</StackPanel>
 					</Border>
+				</StackPanel>
 
-					<ScrollViewer Grid.Row="1"
-								  VerticalScrollBarVisibility="Auto"
-								  Padding="30"
-								  HorizontalAlignment="Stretch"
-								  VerticalAlignment="Stretch">
+				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12" VerticalAlignment="Center">
+					<TextBox Text="{Binding SearchTerm, Mode=TwoWay}"
+					         Watermark="Pretraga..."
+					         Classes="search-box"/>
+					<Button Content="Kreiraj Pomorca"
+					        Command="{Binding GoToKreirajPomorcaPageCommand}"
+					        Classes="primary-button"/>
+				</StackPanel>
+			</Grid>
 
+			<!-- Card with column headers + list + pagination -->
+			<Border Grid.Row="1" x:Name="MainCard" Classes="card">
+				<Grid RowDefinitions="Auto,*,Auto">
 
-						<StackPanel Spacing="10">
-                            <TextBlock Text="Trenutno nema pomorca" IsVisible="{Binding NoData}" TextAlignment="Center"  Foreground="Black" FontSize="24"/>
+					<!-- Column headers (same column widths as SailorRowView) -->
+					<Grid Grid.Row="0" ColumnDefinitions="2*,*,*"
+					      Margin="37,16,37,0"
+					      IsVisible="{Binding !NoData}">
+						<TextBlock Grid.Column="0" Text="Ime i prezime" Classes="table-header"/>
+						<TextBlock Grid.Column="1" Text="JMBG" Classes="table-header"/>
+						<TextBlock Grid.Column="2" Text="Status" Classes="table-header"
+						           HorizontalAlignment="Right"/>
+					</Grid>
+
+					<ScrollViewer Grid.Row="1" Classes="main-document-scroll">
+						<StackPanel Spacing="10" Margin="0,0,0,12">
+							<TextBlock Text="Trenutno nema pomorca"
+							           IsVisible="{Binding NoData}"
+							           Classes="empty-text"/>
 							<ItemsControl ItemsSource="{Binding PaginatedSailors}">
 								<ItemsControl.ItemTemplate>
 									<DataTemplate>
-										<views:SailorRowView DataContext="{Binding}" />
+										<views:SailorRowView DataContext="{Binding}"
+										                     Margin="0,0,0,10"/>
 									</DataTemplate>
 								</ItemsControl.ItemTemplate>
 							</ItemsControl>
 						</StackPanel>
 					</ScrollViewer>
+
+					<!-- Pagination -->
+					<Border Grid.Row="2" Classes="pagination-bar" IsVisible="{Binding !NoData}">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+						            VerticalAlignment="Center" Spacing="6">
+							<Button Content="«" Classes="page-btn"
+							        Command="{Binding GoToFirstPageCommand}"
+							        IsEnabled="{Binding CanGoToFirstOrPrevious}"/>
+							<Button Content="‹" Classes="page-btn"
+							        Command="{Binding GoToPreviousPageCommand}"
+							        IsEnabled="{Binding CanGoToFirstOrPrevious}"/>
+							<TextBlock Text="{Binding CurrentPage}" MinWidth="40"
+							           TextAlignment="Center" VerticalAlignment="Center"
+							           FontSize="15" FontWeight="SemiBold" Foreground="#1F2937"/>
+							<Button Content="›" Classes="page-btn"
+							        Command="{Binding GoToNextPageCommand}"
+							        IsEnabled="{Binding CanGoToNextOrLast}"/>
+							<Button Content="»" Classes="page-btn"
+							        Command="{Binding GoToLastPageCommand}"
+							        IsEnabled="{Binding CanGoToNextOrLast}"/>
+						</StackPanel>
+					</Border>
 				</Grid>
 			</Border>
-
-			<!-- Pagination: Row 2 -->
-			<Border Grid.Row="2"
-					Classes="page-navigation"
-					HorizontalAlignment="Center"
-					Canvas.Top="215"
-                    IsVisible="{Binding !NoData}"
-					Canvas.Left="785">
-				<StackPanel Orientation="Horizontal"
-							HorizontalAlignment="Center"
-							Spacing="10">
-					<Button Command="{Binding GoToFirstPageCommand}"
-							IsEnabled="{Binding CanGoToFirstOrPrevious}"
-							Background="Transparent"
-							Focusable="False"
-							Classes="TransparentHoverButton">
-						<Image Source="avares://DocuTrack/Assets/first-page-arrow.png"
-							   Stretch="Uniform" Width="24" Height="24"/>
-					</Button>
-
-					<Button Command="{Binding GoToPreviousPageCommand}"
-							IsEnabled="{Binding CanGoToFirstOrPrevious}"
-							Background="Transparent"
-							Focusable="False"
-							Classes="TransparentHoverButton">
-						<Image Source="avares://DocuTrack/Assets/left-arrow.png"
-							   Stretch="Uniform" Width="32" Height="32"/>
-					</Button>
-
-					<TextBlock Text="{Binding CurrentPage}"
-							   FontSize="16"
-							   Foreground="Black"
-							   VerticalAlignment="Center"/>
-
-					<Button Command="{Binding GoToNextPageCommand}"
-							IsEnabled="{Binding CanGoToNextOrLast}"
-							Background="Transparent"
-							Focusable="True"
-							Classes="TransparentHoverButton">
-						<Image Source="avares://DocuTrack/Assets/right-arrow.png"
-							   Stretch="Uniform" Width="32" Height="32"/>
-					</Button>
-
-					<Button Command="{Binding GoToLastPageCommand}"
-							IsEnabled="{Binding CanGoToNextOrLast}"
-							Background="Transparent"
-							Focusable="False"
-							Classes="TransparentHoverButton">
-						<Image Source="avares://DocuTrack/Assets/last-page-arrow.png"
-							   Stretch="Uniform" Width="24" Height="24"/>
-					</Button>
-				</StackPanel>
-			</Border>
-
-		</Canvas>
-	</Viewbox>
-	<!-- </ScrollViewer> -->
+		</Grid>
+	</LayoutTransformControl>
 </UserControl>
